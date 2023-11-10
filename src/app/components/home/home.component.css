@@ -1,13 +1,18 @@
 .contenedor {
     display: flex;
+    margin-top: 21rem;
   }
   
   .izquierda {
     flex: 1;
-    background-image: url('src/assets/Imagenes/Otro.png');
-    background-size: cover;
+/*     background-image: url('src/assets/Imagenes/Otro.png');
+ */    background-size: cover;
     background-position: center;
     height: 387px; 
+  }
+  img{
+    height: 48rem;
+    margin-top: -8rem;
   }
   
   .derecha {
@@ -22,12 +27,36 @@
   }
   
   .texto h1 {
-    font-size: 24px;
+    font-size: 50px;
     margin: 0;
   }
-  
-  .texto h2 {
-    font-size: 16px;
-    margin: 0;
+ .texto{
+  margin: 50px;
+ }
+ .txt1 {
+  font-weight: bold; 
+  color: #081858;  
+}
+
+.txt2 {
+  font-weight: lighter; 
+  color: #018FE3;     
+}
+
+  .custom-line {
+    margin-top: 10px;
+    width: 100%;
+    height: 18px;
+    background-color: #0818587c;
+    border-radius: 50px;
+  }
+  .custom-line1 {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    width: 85%;
+    height: 18px;
+    background-color: #0190e344;
+    border-radius: 50px;
   }
   

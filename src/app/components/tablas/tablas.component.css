@@ -1,0 +1,30 @@
+.container {
+    text-align: center;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; /* ajusta según sea necesario */
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    vertical-align: middle; /* Añade esta línea */
+  }
+  
+  tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .top {
+    margin-top: 25rem; /* ajusta según sea necesario */
+  }
+  

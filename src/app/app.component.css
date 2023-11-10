@@ -15,31 +15,39 @@
     font-weight: 600;
     height: 95px;
     box-shadow: 0px 0px 10px black;
+     
 }
 
 .navbar img {
-    height: 100px;
+    height: 200px; /* depende el alto de la imagen se tendra que modificar el rem */
     width: auto;
     margin-left: 35px;
     justify-content: center;
 }
-
-.optionsnav {
+svg{
+    margin-top: -12rem; /* este rem  ⚠️⚠️SERA VITAL PONERLE UN BUEN RESPONSIVE⚠️⚠️*/ 
+    z-index: -1;
+}
+.optionsnav{
+    
     margin-right: 30px;
-    font-size: 20px;
+    font-size:25px;
+}
+.nav-link {
+    margin-right: 50px;
 }
 
 .option {
     color: white;
 }
 
+.option{
+margin-top: -4rem;
+}
 .option:hover {
     color: #018FE3;
 }
-svg{
-    margin-top: -.9rem;
-    z-index: -1;
-}
+
 /* 
 @media screen and (max-width: 767px) {
     .card-container>*:not(.circle-link),
