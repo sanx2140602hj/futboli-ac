@@ -1,0 +1,33 @@
+.contenedor {
+    display: flex;
+  }
+  
+  .izquierda {
+    flex: 1;
+    background-image: url('src/assets/Imagenes/Otro.png');
+    background-size: cover;
+    background-position: center;
+    height: 387px; 
+  }
+  
+  .derecha {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .texto {
+    text-align: center;
+  }
+  
+  .texto h1 {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .texto h2 {
+    font-size: 16px;
+    margin: 0;
+  }
+  

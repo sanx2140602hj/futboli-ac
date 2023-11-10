@@ -1,0 +1,67 @@
+:host {
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+.navbar {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    background-color: #081858;
+    font-weight: 600;
+    height: 95px;
+    box-shadow: 0px 0px 10px black;
+}
+
+.navbar img {
+    height: 100px;
+    width: auto;
+    margin-left: 35px;
+    justify-content: center;
+}
+
+.optionsnav {
+    margin-right: 30px;
+    font-size: 20px;
+}
+
+.option {
+    color: white;
+}
+
+.option:hover {
+    color: #018FE3;
+}
+svg{
+    margin-top: -.9rem;
+    z-index: -1;
+}
+/* 
+@media screen and (max-width: 767px) {
+    .card-container>*:not(.circle-link),
+    .terminal {
+        width: 100%;
+    }
+    .card:not(.highlight-card) {
+        height: 16px;
+        margin: 8px 0;
+    }
+    .card.highlight-card span {
+        margin-left: 72px;
+    }
+    svg#rocket-smoke {
+        right: 120px;
+        transform: rotate(-5deg);
+    }
+}
+
+@media screen and (max-width: 575px) {
+    svg#rocket-smoke {
+        display: none;
+        visibility: hidden;
+    }
+} */
