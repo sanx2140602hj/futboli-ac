@@ -10,6 +10,11 @@ import { Sub12Component } from './components/categorias/sub12/sub12.component';
 import { Sub13Component } from './components/categorias/sub13/sub13.component';
 import { Sub15Component } from './components/categorias/sub15/sub15.component';
 import { Sub17Component } from './components/categorias/sub17/sub17.component';
+import { LoginAdminComponent } from './components/Admin/login-admin/login-admin.component';
+import { AdminHomeComponent } from './components/Admin/login-admin/admin-home/admin-home.component';
+import { ComponentsAdminComponent } from './components/Admin/components-admin/components-admin.component';
+
+
 
 const app_routes: Routes = [
   { path: 'Inicio', component: HomeComponent },
