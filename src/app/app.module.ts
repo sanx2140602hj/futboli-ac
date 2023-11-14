@@ -16,6 +16,9 @@ import { Sub13Component } from './components/categorias/sub13/sub13.component';
 import { Sub15Component } from './components/categorias/sub15/sub15.component';
 import { Sub17Component } from './components/categorias/sub17/sub17.component';
 import { BiberonesComponent } from './components/categorias/biberones/biberones.component';
+import { LoginAdminComponent } from './components/Admin/login-admin/login-admin.component';
+import { AdminHomeComponent } from './components/Admin/login-admin/admin-home/admin-home.component';
+import { ComponentsAdminComponent } from './components/Admin/components-admin/components-admin.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { BiberonesComponent } from './components/categorias/biberones/biberones.
     Sub13Component,
     Sub15Component,
     Sub17Component,
-    BiberonesComponent
+    BiberonesComponent,
+    LoginAdminComponent,
+    AdminHomeComponent,
+    ComponentsAdminComponent
   ],
   imports: [
     BrowserModule,
