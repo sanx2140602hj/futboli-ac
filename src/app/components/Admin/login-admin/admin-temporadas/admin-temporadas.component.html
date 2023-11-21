@@ -1,0 +1,85 @@
+<div class="sidebar">
+    <div class="logo">
+        <img src="/assets/imagenes/A.png" alt="Logo">
+        <h1>FUTBOLI-ADMIN</h1>
+    </div>
+    <hr>
+    <ul>
+        <a class="custom-link" routerLink="/Admin-Home">
+            <li><i class="fas fa-home"></i> Inicio</li>
+        </a>
+        <hr>
+        <a class="custom-link" routerLink="/Admin-Temporadas">
+            <li><i class="far fa-flag"></i> Temporadas</li>
+        </a>
+        <a class="custom-link" routerLink="/Admin-Categorias">
+            <li><i class="fas fa-th-large"></i> Categorías</li>
+        </a>
+        <a class="custom-link" routerLink="/Admin-RegistroEquipo">
+            <li><i class="far fa-address-book"></i> Registros de Equipos</li>
+        </a>
+        <hr>
+        <a class="custom-link" routerLink="/Admin-Equipos">
+            <li><i class="fas fa-users"></i> Equipos</li>
+        </a>
+        <a class="custom-link" routerLink="/Admin-RegistroJugador">
+            <li><i class="fas fa-user"></i> Jugadores</li>
+        </a>
+        <a class="custom-link" routerLink="/Admin-Partidos">
+            <li><i class="fas fa-futbol"></i> Partidos</li>
+        </a>
+        <hr>
+        <a class="custom-link" routerLink="/Inicio">
+            <li><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</li>
+        </a>
+    </ul>
+
+</div>
+<div>
+    <nav class="navbar just">
+        <h1>Temporadas</h1>
+    </nav>
+    <div class="content">
+        <div class="centered-container">
+          <h1>Crear una nueva temporada</h1>
+          <h3>Una temporada contendrá todos los equipos participantes de las distintas categorías que existen bajo una fecha estimada.</h3>
+        </div>
+      
+        <div class="centered-container card-container">
+          <div class="card">
+            <h2 class="justificado">Complete este formulario para inscribir a un equipo en la liga.<!-- </h2><h2 class="justificado"> --> Un asterisco (*) indica la información obligatoria.</h2>
+            <form>
+              <label for="nombre-temporada">* Ingresa el nombre de la temporada</label>
+              <input type="text" id="nombre-temporada" style="font-size: 12px;">
+              <button type="button" class="btn-green">Guardar</button>
+            </form>
+          </div>
+        </div>
+      
+        <div class="centered-container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>NO.</th>
+                <th>Nombre de la temporada</th>
+                <th>Fecha de creación</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>a</td>
+                <td>b</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>c</td>
+                <td>d</td>
+              </tr>
+              <!-- ... Agrega más filas según sea necesario -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+</div>

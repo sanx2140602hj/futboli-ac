@@ -1,4 +1,4 @@
-
+<div *ngIf="shouldShowAppComponent()">
 <!-- Toolbar -->
 <nav class="navbar">
     <img href="/app" src="/assets/imagenes/A.png" />
@@ -43,6 +43,8 @@
 
 
 </nav>
+
+</div>
 <div>
     <router-outlet></router-outlet>
 </div>
