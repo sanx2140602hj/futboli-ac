@@ -1,0 +1,156 @@
+.custom-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 25rem;
+    background-color: #011F3A;
+    color: #fff;
+    padding: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 2rem;
+    margin: 0;
+    color: #FFF;
+}
+
+hr {
+    border: 0.5px solid #fff;
+    margin: 15px 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    cursor: pointer;
+    padding: 10px 0;
+    font-size: 1.5rem;
+    color: #FFF;
+}
+
+ul li:hover {
+    background-color: #FFFF83;
+    color: #000;
+}
+
+.just {
+    margin-left: 25rem
+}
+
+.content {
+    margin-left: 25rem;
+    padding: 20px;
+}
+
+.navbar {
+    background-color: #fff;
+    color: #011F3A;
+    padding: 10px;
+    border-bottom: 2px solid #011F3A
+}
+
+/* nuevos */
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.content {
+    text-align: center;
+    padding: 20px;
+}
+
+.centered-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.card {
+    text-align: justify;
+    width: 30%;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.card-container {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: #fff;
+}
+
+
+
+.card form {
+    display: flex;
+    flex-direction: column;
+}
+
+.card label {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.card input {
+    font-size: 12px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.btn-green {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table th,
+.table td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.table th {
+    background-color: #f2f2f2;
+}
+
+.justificado {
+    font-size: 1.5rem;
+}

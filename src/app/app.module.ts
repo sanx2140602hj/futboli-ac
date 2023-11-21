@@ -18,7 +18,13 @@ import { Sub17Component } from './components/categorias/sub17/sub17.component';
 import { BiberonesComponent } from './components/categorias/biberones/biberones.component';
 import { LoginAdminComponent } from './components/Admin/login-admin/login-admin.component';
 import { AdminHomeComponent } from './components/Admin/login-admin/admin-home/admin-home.component';
-import { ComponentsAdminComponent } from './components/Admin/components-admin/components-admin.component';
+import { AdminTemporadasComponent } from './components/Admin/login-admin/admin-temporadas/admin-temporadas.component';
+import { AdminCategoriasComponent } from './components/Admin/login-admin/admin-categorias/admin-categorias.component';
+import { AdminRegistroEquipoComponent } from './components/Admin/login-admin/admin-registro-equipo/admin-registro-equipo.component';
+import { AdminRegistroJugadorComponent } from './components/Admin/login-admin/admin-registro-jugador/admin-registro-jugador.component';
+import { AdminEquiposComponent } from './components/Admin/login-admin/admin-equipos/admin-equipos.component';
+import { AdminPartidosComponent } from './components/Admin/login-admin/admin-partidos/admin-partidos.component';
+import { SidebarComponent } from './components/Admin/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +42,13 @@ import { ComponentsAdminComponent } from './components/Admin/components-admin/co
     BiberonesComponent,
     LoginAdminComponent,
     AdminHomeComponent,
-    ComponentsAdminComponent
+    AdminTemporadasComponent,
+    AdminCategoriasComponent,
+    AdminRegistroEquipoComponent,
+    AdminRegistroJugadorComponent,
+    AdminEquiposComponent,
+    AdminPartidosComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
