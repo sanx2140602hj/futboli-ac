@@ -60,7 +60,7 @@ ul li:hover {
 
 .content {
     margin-left: 25rem;
-    padding: 20px;
+    padding: 2rem;
 }
 
 .navbar {
@@ -68,4 +68,26 @@ ul li:hover {
     color: #011F3A;
     padding: 10px;
     border-bottom: 2px solid #011F3A
+}
+
+/* Nuevos */
+.card {
+    padding: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-weight: bold;
+}
+
+input,
+select {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+hr {
+    border: #011F3A;
 }

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AdminRegistroEquipoComponent } from './admin-registro-equipo.component';
+import Swal from 'sweetalert2'
 
 describe('AdminRegistroEquipoComponent', () => {
   let component: AdminRegistroEquipoComponent;
@@ -20,4 +21,6 @@ describe('AdminRegistroEquipoComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  
 });
