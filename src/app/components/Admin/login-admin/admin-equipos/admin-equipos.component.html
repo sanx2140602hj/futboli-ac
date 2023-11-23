@@ -40,6 +40,29 @@
         <h1>Equipos</h1>
     </nav>
     <div class="content">
-        <!-- aqui va el resto -->
+        <input type="text" id="nombre-temporada" style="font-size: 1rem; margin-bottom: 1rem; width: 75%;"
+            placeholder="Buscar...">
+        <button id="btnGuardar" type="button" class="btn-green"
+            style="margin-left: 1rem; border-radius:15px;">Buscar</button>
+
+        <div class="centered-container card-container">
+            <div class="card">
+                <h2 class="justificado">Registro de equipos</h2>
+                <form>
+                    <label for="nombre-temporada" style="margin-bottom: 2rem;">
+                        Edite el nombre del equipo a competir en la liga. Un asterisco (*) indica la información
+                        obligatoria.
+                    </label>
+                    <label for="nombre-temporada" style="margin-bottom: .5rem;">
+                        *Nombre del equipo
+                    </label>
+                    <input type="text" id="nombre-temporada" style="font-size: 1rem; margin-bottom: 1rem;">
+
+
+                    <button id="btnGuardar" type="button" class="btn-green">Guardar Cambios</button>
+
+                </form>
+            </div>
+        </div>
     </div>
 </div>

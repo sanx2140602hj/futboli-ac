@@ -71,3 +71,20 @@ height: 100vh;
     color: #081858;
 
 }
+@media screen and (max-width: 1500px) {
+    .top{
+        margin-top: 1rem;
+   display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    }
+    .top2 {
+        margin-bottom: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    
+    }
+  }
