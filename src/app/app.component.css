@@ -48,6 +48,15 @@ margin-top: -4rem;
 .option:hover {
     color: #018FE3;
 }
+:host ::ng-deep .navbar-reduced img {
+    height: 5rem !important; /* Reducción de altura */
+}
+:host ::ng-deep .navbar-reduced ul li {
+    margin-top: 5rem !important; /* Agregar un margen superior */
+}
+:host ::ng-deep .navbar-reduced svg {
+    margin-top: -8.3rem !important; /* Ajuste del margen */
+}
 
 
 @media screen and (max-width: 1500px) {
