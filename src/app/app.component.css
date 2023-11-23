@@ -6,8 +6,7 @@
     position: fixed;
     z-index: 100;
     top: 0;
-    left: 0;
-    right: 0;
+  width: 100%;
     height: 5rem;
     display: flex;
     align-items: center;
@@ -19,13 +18,15 @@
 }
 
 .navbar img {
-    height: 200px; /* depende el alto de la imagen se tendra que modificar el rem */
+    height: 15rem; /* depende el alto de la imagen se tendra que modificar el rem */
     width: auto;
     margin-left: 35px;
     justify-content: center;
 }
 svg{
     margin-top: -12rem; /* este rem  ⚠️⚠️SERA VITAL PONERLE UN BUEN RESPONSIVE⚠️⚠️*/ 
+    width: 100%;
+
     z-index: -1;
 }
 .optionsnav{
@@ -48,28 +49,17 @@ margin-top: -4rem;
     color: #018FE3;
 }
 
-/* 
-@media screen and (max-width: 767px) {
-    .card-container>*:not(.circle-link),
-    .terminal {
-        width: 100%;
-    }
-    .card:not(.highlight-card) {
-        height: 16px;
-        margin: 8px 0;
-    }
-    .card.highlight-card span {
-        margin-left: 72px;
-    }
-    svg#rocket-smoke {
-        right: 120px;
-        transform: rotate(-5deg);
+
+@media screen and (max-width: 1500px) {
+    .navbar img {
+        height: 9rem; /* depende el alto de la imagen se tendra que modificar el rem */
+        width: auto;
+        margin-left: 35px;
+        justify-content: center;
+    } 
+    svg{
+        margin-top: -8.3rem; /* este rem  ⚠️⚠️SERA VITAL PONERLE UN BUEN RESPONSIVE⚠️⚠️*/ 
+        z-index: -1;
     }
 }
 
-@media screen and (max-width: 575px) {
-    svg#rocket-smoke {
-        display: none;
-        visibility: hidden;
-    }
-} */

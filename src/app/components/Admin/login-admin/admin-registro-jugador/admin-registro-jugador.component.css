@@ -91,3 +91,14 @@ select {
 hr {
     border: #011F3A;
 }
+.btn-green {
+    background-color: #338f8a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    cursor: pointer;
+}
