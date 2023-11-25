@@ -5,7 +5,7 @@
 }
 
 .btn {
-  width: 100%;
+  width: 80%;
 
 }
 .top{
@@ -70,4 +70,23 @@ height: 100vh;
   background-color: #f5f5f5;
   color: #081858;
 
+}
+@media screen and (max-width: 1500px) {
+  .top{
+      margin-top: 1rem;
+ display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  }
+
+  .top2 {
+      margin-top: 20rem;
+      margin-bottom: -15rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+  
+  }
 }
