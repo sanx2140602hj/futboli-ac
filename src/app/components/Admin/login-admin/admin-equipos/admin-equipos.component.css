@@ -92,7 +92,7 @@ body {
 
 .card {
     text-align: justify;
-    width: 30%;
+    width: 80%;
     background-color: #fff;
     border-radius: 5px;
     padding: 10px;
@@ -124,6 +124,7 @@ body {
 }
 
 .btn-green {
+    border-radius: 5px;
     background-color: #338f8a;
     color: white;
     border: none;
