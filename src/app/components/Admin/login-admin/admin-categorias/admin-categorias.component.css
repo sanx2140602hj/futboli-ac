@@ -158,3 +158,62 @@ body {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
 }
+@media screen and (max-width: 900px) {
+    ul li {
+      font-size: 1.1rem;
+    }
+    .logo h1 {
+      font-size: 1rem;
+    }
+    .sidebar {
+      width: 13rem;
+    }
+    .just{
+      margin-left: 13rem
+    }
+    .content {
+      margin-left: 13rem; 
+      padding: 20px;
+    }
+  }
+  /* ------------------------------------------ */
+  
+  @media screen and (max-width: 500px) {
+    ul li {
+      margin-left: -0.5rem;
+      font-size: 2.5rem;
+      padding: 6px 0; /* Ajusta el espaciado vertical entre elementos */
+      margin-bottom: -4rem; /* Elimina el margen inferior entre elementos */
+    }
+    .logo h1 {
+      font-size: 0rem;
+    }
+    .sidebar {
+      width: 4rem;
+    }
+    .just {
+      margin-left: 4rem;
+    }
+    hr {
+      border: 1px solid #fff;
+      margin: 10px 0;
+    }
+    .content {
+      margin-left: 4rem;
+      padding: 0;
+    }
+    .cero {
+      font-size: 0;
+      padding: 0; /* Elimina el espaciado entre elementos con clase "cero" */
+      margin-bottom: 0; /* Elimina el margen inferior entre elementos con clase "cero" */
+    }
+    .cero a {
+      display: none;
+    }
+    .cero i {
+      font-size: 1.5rem;
+    }
+    
+  }
+  
+  

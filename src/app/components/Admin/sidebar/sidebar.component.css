@@ -1,0 +1,151 @@
+.custom-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 25rem;
+  background-color: #011F3A;
+  color: #fff;
+  padding: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.logo h1 {
+  font-size: 2rem;
+  margin: 0;
+  color: #FFF;
+}
+
+hr {
+  border: 0.5px solid #fff;
+  margin: 15px 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  cursor: pointer;
+  padding: 10px 0;
+  font-size: 1.5rem;
+  color: #FFF;
+}
+
+ul li:hover {
+  background-color: #FFFF83;
+  color: #000;
+}
+
+.just {
+  margin-left: 25rem
+}
+
+.content {
+  margin-left: 25rem;
+  padding: 20px;
+}
+
+.navbar {
+  background-color: #fff;
+  color: #011F3A;
+  padding: 10px;
+  border-bottom: 2px solid #011F3A
+}
+.cero{
+  margin: 1rem;
+}
+
+@media screen and (max-width: 1500px) {
+  ul li {
+    font-size: 1.3rem;
+  }
+  .sidebar {
+    width: 17rem;
+  }
+  .logo h1 {
+    font-size: 1.5rem;
+  }
+  .just{
+    margin-left: 17rem
+  }
+  .content {
+    margin-left: 17rem; 
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  ul li {
+    font-size: 1.1rem;
+  }
+  .logo h1 {
+    font-size: 1rem;
+  }
+  .sidebar {
+    width: 13rem;
+  }
+  .just{
+    margin-left: 13rem
+  }
+  .content {
+    margin-left: 13rem; 
+    padding: 20px;
+  }
+}
+/* ------------------------------------------ */
+
+@media screen and (max-width: 500px) {
+  ul li {
+    margin-left: -0.5rem;
+    font-size: 2.5rem;
+    padding: 6px 0; /* Ajusta el espaciado vertical entre elementos */
+    margin-bottom: -4rem; /* Elimina el margen inferior entre elementos */
+  }
+  .logo h1 {
+    font-size: 0rem;
+  }
+  .sidebar {
+    width: 4rem;
+  }
+  .just {
+    margin-left: 4rem;
+  }
+  hr {
+    border: 1px solid #fff;
+    margin: 10px 0;
+  }
+  .content {
+    margin-left: 4rem;
+    padding: 0;
+  }
+  .cero {
+    font-size: 0;
+    padding: 0; /* Elimina el espaciado entre elementos con clase "cero" */
+    margin-bottom: 0; /* Elimina el margen inferior entre elementos con clase "cero" */
+  }
+  .cero a {
+    display: none;
+  }
+  .cero i {
+    font-size: 1.5rem;
+  }
+}
+

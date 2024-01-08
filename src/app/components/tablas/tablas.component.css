@@ -27,4 +27,9 @@
   .top {
     margin-top: 25rem; /* ajusta según sea necesario */
   }
-  
+  @media screen and (max-width: 1500px) {
+
+    .top {
+      margin-top: 17rem; /* ajusta según sea necesario */
+    }
+  }

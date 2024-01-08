@@ -2,76 +2,76 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-}
-
-.btn {
-    width: 80%;
-
-}
-.top{
+  }
+  
+  .btn {
+    width:80%;
+  
+  }
+  .top{
     margin-top: -4rem;
-margin-bottom: -55rem;
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100vh;
-}
-.top2 {
+  margin-bottom: -55rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  }
+  .top2 {
     margin-bottom: -25rem;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-
-}
-
-.bottom {
+  
+  }
+  
+  .bottom {
     margin-bottom: 1rem;
-}
-
-.title {
+  }
+  
+  .title {
     background-color: #081858;
     color: #fff;
-}
-
-.section {
+  }
+  
+  .section {
     width: 23%;
     /* Ajusta según sea necesario */
     margin-bottom: 20px;
     /* Ajusta según sea necesario */
     padding: 10px;
     text-align: center;
-}
-
-
-.table-container {
+  }
+  
+  
+  .table-container {
     width: 100%;
-}
-
-.table-container table {
+  }
+  
+  .table-container table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
-}
-
-.table-container th,
-.table-container td {
+  }
+  
+  .table-container th,
+  .table-container td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
-}
-
-.table-container th {
+  }
+  
+  .table-container th {
     background-color: #f5f5f5;
     font-weight: bold;
-}
-
-.table-container tr:hover {
+  }
+  
+  .table-container tr:hover {
     background-color: #f5f5f5;
     color: #081858;
-
-}
-@media screen and (max-width: 1500px) {
+  
+  }
+  @media screen and (max-width: 1500px) {
     .top{
         margin-top: 1rem;
    display: flex;
@@ -79,9 +79,7 @@ height: 100vh;
     align-items: center;
     height: 100vh;
     }
-  /*   button{
-        margin-top: 30rem;
-    } */
+  
     .top2 {
         margin-top: 20rem;
         margin-bottom: -15rem;
