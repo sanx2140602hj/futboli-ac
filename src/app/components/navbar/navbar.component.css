@@ -1,0 +1,149 @@
+:host {
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+.navbar {
+    background-color: #081858;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-content img {
+    height: 6rem;
+    width: auto;
+    margin: 0.1rem;
+}
+
+.optionsnav {
+    text-align: right;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+svg {
+    margin-top: 0rem;
+    width: 100%;
+    z-index: -1;
+}
+
+.router-outlet {
+    margin-top: -30rem;
+}
+
+/* experimento */
+.optionsnav {
+    font-size: 1.5rem;
+}
+
+.menu {
+    font-size: 2rem;
+    margin-bottom: -0.5rem;
+}
+
+.option {
+    font-size: 2rem;
+
+    color: white;
+}
+
+.option:hover {
+    color: #018FE3;
+}
+
+.optionsnav a.active {
+    color: #018FE3;
+    font-size: 2rem;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1400px) {
+    .navbar {
+        height: auto;
+
+    }
+
+    .navbar img {
+        height: 6rem;
+        width: auto;
+        margin: 0.1rem;
+    }
+
+    svg {
+        margin-top: 3.5rem;
+        width: 100%;
+        /* 110% para 500px */
+        z-index: -1;
+    }
+
+    .router-outlet {
+        margin-top: -21rem;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .navbar {
+        height: auto;
+
+    }
+
+    .navbar img {
+        height: 4rem;
+        width: auto;
+        margin: 0.1rem;
+    }
+
+    svg {
+        display: none;
+    }
+
+    .router-outlet {
+        margin-top: -6rem;
+    }
+
+    .menu {
+        font-size: 2rem;
+        margin-bottom: -0.7rem;
+    }
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 800px) {
+    .navbar {
+        height: auto;
+    }
+
+    .navbar img {
+        margin-top: -2px;
+        height: 63px;
+        width: 60px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .navbar {
+        height: auto;
+    }
+
+    .navbar img {
+        margin-top: -2px;
+        height: 63px;
+        width: 60px;
+    }
+
+}
+
+@media screen and (max-width: 420px) {
+    .navbar {
+        height: auto;
+    }
+
+    .navbar img {
+        margin-top: -2px;
+        height: 63px;
+        width: 60px;
+    }
+}

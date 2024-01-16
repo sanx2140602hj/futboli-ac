@@ -24,12 +24,13 @@ import { AdminRegistroEquipoComponent } from './components/Admin/login-admin/adm
 import { AdminRegistroJugadorComponent } from './components/Admin/login-admin/admin-registro-jugador/admin-registro-jugador.component';
 import { AdminEquiposComponent } from './components/Admin/login-admin/admin-equipos/admin-equipos.component';
 import { AdminPartidosComponent } from './components/Admin/login-admin/admin-partidos/admin-partidos.component';
-import { SidebarComponent } from './components/Admin/sidebar/sidebar.component'
+import { SidebarComponent } from './components/Admin/sidebar/sidebar.component';
+import { NavbarComponent } from './components/navbar/navbar.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+     HomeComponent,
     TablasComponent,
     PonyComponent,
     MiniponyComponent,
@@ -48,7 +49,9 @@ import { SidebarComponent } from './components/Admin/sidebar/sidebar.component'
     AdminRegistroJugadorComponent,
     AdminEquiposComponent,
     AdminPartidosComponent,
+    
     SidebarComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

@@ -35,4 +35,10 @@
     .top {
       margin-top: 17rem; /* ajusta según sea necesario */
     }
+ 
+  }
+  @media screen and (max-width: 500px) {
+    table {
+      zoom: 0.8; /* aleja el tamaño de la tabla al 20% */
+    }
   }

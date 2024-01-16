@@ -1,6 +1,6 @@
 .contenedor {
   display: flex;
-  margin-top: 21rem;
+  margin-top: -0.5rem;
 }
 
 .izquierda {
@@ -94,10 +94,44 @@ img {
 }
 
 @media screen and (max-width: 900px) {
+  .contenedor {
+    display: flex;
+    margin-top: 10rem;
+  }
+  .derecha {
+    margin-top: 1rem; /* Ajusta el margen superior según sea necesario */
+  }
+
+  .izquierda {
+    margin-top: 10rem; /* Ajusta el margen superior según sea necesario */
+  }
   img {
-    height: 16rem;
+    height: 26rem;
     margin-top: -8rem;
   }
 }
 
-@media screen and (max-width: 500px) {}
+@media screen and (max-width: 500px) {
+  .contenedor {
+    flex-direction: column-reverse;
+    align-items: center; /* Centra los elementos horizontalmente */
+    text-align: center; /* Centra el texto */
+  }
+
+  .derecha {
+    margin-top: 3rem; /* Ajusta el margen superior según sea necesario */
+  }
+
+  .izquierda {
+    height: -4rem;
+  }
+
+  img {
+    height: 18rem;
+    margin-top: 0;
+  }
+
+  .texto {
+    margin: 1rem;
+  }
+}
