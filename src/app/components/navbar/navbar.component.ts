@@ -14,24 +14,26 @@ export class NavbarComponent implements OnInit {
   }
 
 }
- */
-import { Component } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+  */import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
-  // Puedes agregar lógica específica de la barra de navegación aquí si es necesario
+export class NavbarComponent implements OnInit {
+  isSectionVisible = true; // Add this variable
 
-  constructor(private router: Router) {
-    // Detección de cambio de ruta para cualquier lógica adicional si es necesario
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        // Puedes agregar lógica específica cuando cambia la ruta
-      }
-    });
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+
+    // Update the variable based on the scroll position
+    this.isSectionVisible = scrollPosition < 50;
   }
 }

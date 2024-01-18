@@ -1,4 +1,4 @@
-:host {
+/* :host {
     font-family: "Roboto Condensed", sans-serif;
 }
 
@@ -18,13 +18,13 @@
 .navbar-content {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end; /* Cambiado de center a flex-end */
+    align-items: flex-end; 
 }
 
 .navbar-content img {
     height: 6rem;
     width: auto;
-    margin-right: 2rem; /* Ajusta el margen derecho según sea necesario */
+    margin-right: 2rem; 
 }
 .align-right {
     justify-content: flex-end;
@@ -47,7 +47,6 @@ svg {
 
 
 
-/* experimento */
 .optionsnav {
     font-size: 1.5rem;
 }
@@ -72,7 +71,6 @@ svg {
     font-size: 2rem;
 }
 
-/* Responsive Styles */
 @media screen and (max-width: 1400px) {
     .navbar {
         height: auto;
@@ -89,7 +87,6 @@ svg {
 
     svg {
         width: 100%;
-        /* 110% para 500px */
         z-index: -1;
     }
 
@@ -124,7 +121,6 @@ svg {
     }
 }
 
-/* Responsive Styles */
 @media screen and (max-width: 800px) {
     .navbar {
         height: auto;
@@ -160,4 +156,55 @@ svg {
         height: 63px;
         width: 60px;
     }
+} */
+:host {
+    font-family: "Roboto Condensed", sans-serif;
 }
+
+.navbar {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    width: 100%;
+    display: block;
+    background-color: #081858;
+    font-weight: 600;
+/*     box-shadow: 0px 0px 10px gray;
+ */}
+.navbar img {
+    margin: 1rem;
+    height: 6rem;
+    width: auto;
+}
+
+.optionsnav {
+    font-size: 1.7rem;
+}
+
+.option {
+    color: white;
+}
+
+.option:hover {
+    color: #018FE3;
+}
+.optionsnav a.active{
+    color: #018FE3;
+    font-size: 1.7rem;
+}
+svg {
+    width: 100%;
+    position: fixed;
+    z-index: 99;
+    top: 3rem;
+    display: block;
+
+}
+@media screen and (max-height: 50px) {
+    .top {
+      display: none !important;
+    }
+  }
