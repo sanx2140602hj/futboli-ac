@@ -3,36 +3,49 @@
 }
 
 .navbar {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    width: 100%;
+    display: block;
     background-color: #081858;
+    font-weight: 600;
 }
 
 .navbar-content {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end; /* Cambiado de center a flex-end */
 }
 
 .navbar-content img {
     height: 6rem;
     width: auto;
-    margin: 0.1rem;
+    margin-right: 2rem; /* Ajusta el margen derecho según sea necesario */
+}
+.align-right {
+    justify-content: flex-end;
+    text-align: right;
 }
 
 .optionsnav {
-    text-align: right;
     font-size: 1.5rem;
     margin-top: 1rem;
 }
 
 svg {
-    margin-top: 0rem;
     width: 100%;
-    z-index: -1;
+    position: fixed;
+    z-index: 99;
+    top: 4rem;
+    display: block;
+
 }
 
-.router-outlet {
-    margin-top: -30rem;
-}
+
 
 /* experimento */
 .optionsnav {
@@ -70,10 +83,11 @@ svg {
         height: 6rem;
         width: auto;
         margin: 0.1rem;
+        margin-right: 20rem;
+
     }
 
     svg {
-        margin-top: 3.5rem;
         width: 100%;
         /* 110% para 500px */
         z-index: -1;
