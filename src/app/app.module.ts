@@ -27,6 +27,7 @@ import { AdminPartidosComponent } from './components/Admin/login-admin/admin-par
 import { SidebarComponent } from './components/Admin/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navbar/navbar.component'
 
+
 @NgModule({
   declarations: [
     AppComponent,

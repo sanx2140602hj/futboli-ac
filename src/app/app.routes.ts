@@ -19,8 +19,6 @@ import { AdminRegistroJugadorComponent } from './components/Admin/login-admin/ad
 import { AdminEquiposComponent } from './components/Admin/login-admin/admin-equipos/admin-equipos.component';
 import { AdminPartidosComponent } from './components/Admin/login-admin/admin-partidos/admin-partidos.component';
 
-
-
 const app_routes: Routes = [
   { path: 'Inicio', component: HomeComponent },
   { path: 'Tablas-de-posiciones', component: TablasComponent },
