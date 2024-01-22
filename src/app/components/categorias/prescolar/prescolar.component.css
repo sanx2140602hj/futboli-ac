@@ -10,7 +10,7 @@
   max-width: 300px; /* Ancho máximo para evitar que sea demasiado ancho */
 }
 
-.top {
+.top3 {
   margin-top: 300px; /* Ajuste del margen superior */
   margin-bottom: 30px; /* Ajuste del margen inferior */
   display: flex;

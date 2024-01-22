@@ -65,7 +65,9 @@ img {
 .top{
   margin-top: 21rem;
 }
-
+.footer2{
+  margin-top: 11rem;
+}
 
 @media screen and (max-width: 1400px) {
 

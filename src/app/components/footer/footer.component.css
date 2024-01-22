@@ -1,0 +1,148 @@
+.footer-04 {
+  background: #081858;
+  padding-top: 7rem;
+  padding-bottom: 0rem;
+  width: 100%;
+}
+
+.footer-04 .border-top {
+  border-color: #081858 !important;
+  background: #081858;
+}
+
+.footer-04 .footer-heading {
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.footer-04 .footer-heading a {
+  letter-spacing: none;
+  font-size: 1.5rem;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.footer-04 p {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-04 a {
+  color: #f7b633;
+}
+
+.footer-04 .ftco-footer-social li a {
+  color: #fff;
+}
+
+.footer-04 .tagcloud a {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.footer-04 .list-unstyled li a {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-04 .list-unstyled a {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-04 .ftco-footer-social li a {
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-04 .logoblanco {
+  height: 10rem;
+  width: auto;
+}
+
+.redsocial {
+  height: 2rem;
+  width: 2rem;
+  margin: 0.5rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.redsocial:hover {
+  transform: translateY(-0.9rem);
+}
+
+.footer-04 .copyright a {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* New Styles for Modified Layout */
+
+.logo-container {
+  text-align: center;
+}
+
+.social-container {
+  text-align: center;
+}
+
+.form-container {
+  text-align: right;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+}
+
+.btn-enviar {
+  background-color: #f7b633;
+  color: #fff;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-enviar:hover {
+  background-color: #e09722;
+}
+
+.dream-quote {
+  color: #fff;
+  font-style: italic;
+  text-align: center;
+}
+
+/* Izquierdo lot */
+.optionsnav {
+  font-size: 1.7rem;
+}
+
+.option {
+  color: white;
+}
+
+.option:hover {
+  color: #018FE3;
+}
+
+.optionsnav a.active {
+  color: #018FE3;
+  font-size: 1.7rem;
+}

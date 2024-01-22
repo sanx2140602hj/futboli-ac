@@ -10,6 +10,8 @@ import { Sub13Component } from './components/categorias/sub13/sub13.component';
 import { Sub15Component } from './components/categorias/sub15/sub15.component';
 import { Sub17Component } from './components/categorias/sub17/sub17.component';
 import { BiberonesComponent } from './components/categorias/biberones/biberones.component';
+import { AcercaComponent } from './components/acerca/acerca.component';
+
 import { LoginAdminComponent } from './components/Admin/login-admin/login-admin.component';
 import { AdminHomeComponent } from './components/Admin/login-admin/admin-home/admin-home.component';
 import { AdminTemporadasComponent } from './components/Admin/login-admin/admin-temporadas/admin-temporadas.component';
@@ -31,9 +33,9 @@ const app_routes: Routes = [
   { path: 'Categoria-Sub-13', component: Sub13Component },
   { path: 'Categoria-Sub-15', component: Sub15Component },
   { path: 'Categoria-Sub-17', component: Sub17Component },
+  { path: 'Acerca', component:AcercaComponent},
 
   /* Admin */
-
 
   { path: 'Admin', component: LoginAdminComponent },
   { path: 'Admin-Home', component: AdminHomeComponent },

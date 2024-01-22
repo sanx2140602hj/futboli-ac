@@ -16,6 +16,7 @@ import { Sub13Component } from './components/categorias/sub13/sub13.component';
 import { Sub15Component } from './components/categorias/sub15/sub15.component';
 import { Sub17Component } from './components/categorias/sub17/sub17.component';
 import { BiberonesComponent } from './components/categorias/biberones/biberones.component';
+import { AcercaComponent } from './components/acerca/acerca.component';
 import { LoginAdminComponent } from './components/Admin/login-admin/login-admin.component';
 import { AdminHomeComponent } from './components/Admin/login-admin/admin-home/admin-home.component';
 import { AdminTemporadasComponent } from './components/Admin/login-admin/admin-temporadas/admin-temporadas.component';
@@ -25,7 +26,8 @@ import { AdminRegistroJugadorComponent } from './components/Admin/login-admin/ad
 import { AdminEquiposComponent } from './components/Admin/login-admin/admin-equipos/admin-equipos.component';
 import { AdminPartidosComponent } from './components/Admin/login-admin/admin-partidos/admin-partidos.component';
 import { SidebarComponent } from './components/Admin/sidebar/sidebar.component';
-import { NavbarComponent } from './components/navbar/navbar.component'
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -53,6 +55,8 @@ import { NavbarComponent } from './components/navbar/navbar.component'
     
     SidebarComponent,
     NavbarComponent,
+    FooterComponent,
+    AcercaComponent,
   ],
   imports: [
     BrowserModule,
