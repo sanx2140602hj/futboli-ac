@@ -9,7 +9,13 @@
   left: 0;
   bottom: 0;
   width: 25rem;
-  background-color: #011F3A;
+/* degradado */
+
+background: rgb(1,31,58);
+background: -moz-linear-gradient(180deg, rgba(1,31,58,1) 8%, rgba(135,135,135,1) 8%);
+background: -webkit-linear-gradient(180deg, rgba(1,31,58,1) 8%, rgba(135,135,135,1) 8%); /* si modican altura mover los ⚠️6 porcentajes⚠️ */
+background: linear-gradient(180deg, rgba(1,31,58,1) 8%, rgba(135,135,135,1) 8%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#011f3a",endColorstr="#878787",GradientType=1);
   color: #fff;
   padding: 20px;
 }
@@ -148,4 +154,3 @@ ul li:hover {
     font-size: 1.5rem;
   }
 }
-

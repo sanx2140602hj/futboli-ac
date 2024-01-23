@@ -20,6 +20,7 @@ import { AdminRegistroEquipoComponent } from './components/Admin/login-admin/adm
 import { AdminRegistroJugadorComponent } from './components/Admin/login-admin/admin-registro-jugador/admin-registro-jugador.component';
 import { AdminEquiposComponent } from './components/Admin/login-admin/admin-equipos/admin-equipos.component';
 import { AdminPartidosComponent } from './components/Admin/login-admin/admin-partidos/admin-partidos.component';
+import { AdminRecibosComponent } from './components/Admin/login-admin/admin-recibos/admin-recibos.component';
 
 const app_routes: Routes = [
   { path: 'Inicio', component: HomeComponent },
@@ -45,7 +46,11 @@ const app_routes: Routes = [
   { path: 'Admin-RegistroJugador', component: AdminRegistroJugadorComponent },
   { path: 'Admin-Equipos', component: AdminEquiposComponent },
   { path: 'Admin-Partidos', component: AdminPartidosComponent },
+  { path: 'Admin-Recibos', component: AdminRecibosComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'Inicio' }
 
 ];
 export const app_routing = RouterModule.forRoot(app_routes);
+/* export const app_routing = RouterModule.forRoot(app_routes, { scrollPositionRestoration: 'top' }); 
+⚠️⚠️⚠️⚠️Poner esta linea de codigo al terminar el proyecto⚠️⚠️⚠️⚠️
+*/
