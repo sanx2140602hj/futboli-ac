@@ -43,20 +43,22 @@ hr {
 }
 
 ul {
+  
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-ul li {
+ul li { 
   cursor: pointer;
-  padding: 10px 0;
+  padding: 0.5rem;
   font-size: 1.5rem;
   color: #FFF;
 }
 
 ul li:hover {
-  background-color: #FFFF83;
+  border-radius: 10px;
+  background-color: #aeaeae;
   color: #000;
 }
 
@@ -64,17 +66,7 @@ ul li:hover {
   margin-left: 25rem
 }
 
-.content {
-  margin-left: 25rem;
-  padding: 20px;
-}
 
-.navbar {
-  background-color: #fff;
-  color: #011F3A;
-  padding: 10px;
-  border-bottom: 2px solid #011F3A
-}
 .cero{
   margin: 1rem;
 }

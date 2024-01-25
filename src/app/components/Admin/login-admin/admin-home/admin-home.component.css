@@ -1,59 +1,3 @@
-.custom-link {
-  text-decoration: none;
-  color: inherit;
-}
-
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 25rem;
-  background-color: #011F3A;
-  color: #fff;
-  padding: 20px;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.logo img {
-  width: 30px;
-  margin-right: 10px;
-}
-
-.logo h1 {
-  font-size: 2rem;
-  margin: 0;
-  color: #FFF;
-}
-
-hr {
-  border: 0.5px solid #fff;
-  margin: 15px 0;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-ul li {
-  cursor: pointer;
-  padding: 10px 0;
-  font-size: 1.5rem;
-  color: #FFF;
-}
-
-ul li:hover {
-  background-color: #FFFF83;
-  color: #000;
-}
-
 .just {
   margin-left: 25rem
 }
@@ -70,18 +14,75 @@ ul li:hover {
   border-bottom: 2px solid #011F3A
 }
 
-.cards {
+.fixed-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  /* Asegura que el navbar esté por encima de otros elementos */
+}
+
+/* ///////////////////////////////////////////////////////////////////// */
+.container {
+  margin: 5rem;
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  background-color: #d9d9d921;
+  border-radius: 12px;
+}
+
+.text-section {
+  margin: 2rem;
+  margin-top: 10rem;
+  width: 50%;
+  text-align: justify;
+  font-size: 1.2rem;
+}
+
+.image-section {
+  margin: 2rem;
+  width: auto;
+  height: 35rem;
+  overflow: hidden;
+  /* Evita que la imagen se extienda más allá de su contenedor */
+}
+
+.image-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Ajusta la imagen para cubrir completamente el contenedor sin distorsión */
+
+}
+
+/* -------------------------------------------- */
+.center {
+  text-align: center;
+  margin: 0;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
 }
 
 .card {
-  width: 30%;
+  width: 20%;
   background-color: #fff;
   border-radius: 5px;
-  padding: 10px;
+  padding: 0.5rem;
+  align-items: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+.card hr {
+  width: 95%;
+  border: 1px solid #000000;
+  /* Color y estilo de la línea */
 }
 
 .card img {
@@ -95,79 +96,156 @@ ul li:hover {
 }
 
 .card p {
+  text-align: center;
   font-size: 1rem;
   color: #555;
 }
 
+.unica {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  /* esta clase se creo porque es la unica imagen que tiene 
+  una resolucion diferente a las demas (es mas chica XD) */
+}
+
+/* ---------------------------- */
+
+.content2 {
+  margin: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.recibo-container {
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.bold-text {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.left-image {
+  width: 40%;
+}
+
+.text-justified {
+  font-size: 1.5rem;
+  text-align: justify;
+  width: 55%;
+}
+
+.custom-button {
+  background-color: #FEE2C5;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-top: 1rem;
+  cursor: pointer;
+  margin-bottom: 4rem;
+}
+
+/* ----------------------------------------------- */
+.txt {
+  font-size: 1.5rem;
+  text-align: justify;
+  margin-bottom: 3rem;
+}
+
+/* ------------------------------------------ */
 @media screen and (max-width: 900px) {
   ul li {
     font-size: 1.1rem;
   }
+
   .logo h1 {
     font-size: 1rem;
   }
+
   .sidebar {
     width: 13rem;
   }
-  .just{
+
+  .just {
     margin-left: 13rem
   }
+
   .content {
-    margin-left: 13rem; 
+    margin-left: 13rem;
     padding: 20px;
   }
 }
+
 /* ------------------------------------------ */
 
 @media screen and (max-width: 500px) {
   ul li {
     margin-left: -0.5rem;
     font-size: 2.5rem;
-    padding: 6px 0; /* Ajusta el espaciado vertical entre elementos */
-    margin-bottom: -4rem; /* Elimina el margen inferior entre elementos */
+    padding: 6px 0;
+    /* Ajusta el espaciado vertical entre elementos */
+    margin-bottom: -4rem;
+    /* Elimina el margen inferior entre elementos */
   }
+
   .logo h1 {
     font-size: 0rem;
   }
+
   .sidebar {
     width: 4rem;
   }
+
   .just {
     margin-left: 4rem;
   }
+
   hr {
     border: 1px solid #fff;
     margin: 10px 0;
   }
+
   .content {
     margin-left: 4rem;
     padding: 0;
   }
+
   .cero {
     font-size: 0;
-    padding: 0; /* Elimina el espaciado entre elementos con clase "cero" */
-    margin-bottom: 0; /* Elimina el margen inferior entre elementos con clase "cero" */
+    padding: 0;
+    /* Elimina el espaciado entre elementos con clase "cero" */
+    margin-bottom: 0;
+    /* Elimina el margen inferior entre elementos con clase "cero" */
   }
+
   .cero a {
     display: none;
   }
+
   .cero i {
     font-size: 1.5rem;
   }
+
   /* para lado derecho NO MENU */
   .cards {
-    display: flex; /* Cambia el flujo a flex */
-    flex-direction: column; /* Apila las tarjetas verticalmente */
+    display: flex;
+    /* Cambia el flujo a flex */
+    flex-direction: column;
+    /* Apila las tarjetas verticalmente */
     align-items: center;
   }
-  .card{
+
+  .card {
     display: block;
     width: 80%;
     margin: 1rem;
   }
-/* RESPONSIVE HOME */
- 
+
+  /* RESPONSIVE HOME */
+
 
 
 }
-

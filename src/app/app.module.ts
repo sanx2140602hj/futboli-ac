@@ -19,7 +19,6 @@ import { BiberonesComponent } from './components/categorias/biberones/biberones.
 import { AcercaComponent } from './components/acerca/acerca.component';
 import { LoginAdminComponent } from './components/Admin/login-admin/login-admin.component';
 import { AdminHomeComponent } from './components/Admin/login-admin/admin-home/admin-home.component';
-import { AdminTemporadasComponent } from './components/Admin/login-admin/admin-temporadas/admin-temporadas.component';
 import { AdminCategoriasComponent } from './components/Admin/login-admin/admin-categorias/admin-categorias.component';
 import { AdminRegistroEquipoComponent } from './components/Admin/login-admin/admin-registro-equipo/admin-registro-equipo.component';
 import { AdminRegistroJugadorComponent } from './components/Admin/login-admin/admin-registro-jugador/admin-registro-jugador.component';
@@ -47,7 +46,6 @@ import { AdminRecibosComponent } from './components/Admin/login-admin/admin-reci
     BiberonesComponent,
     LoginAdminComponent,
     AdminHomeComponent,
-    AdminTemporadasComponent,
     AdminCategoriasComponent,
     AdminRegistroEquipoComponent,
     AdminRegistroJugadorComponent,

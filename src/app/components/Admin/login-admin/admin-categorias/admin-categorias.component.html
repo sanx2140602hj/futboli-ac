@@ -1,12 +1,76 @@
-<div class="sidebar">
-    <div class="logo">
-        <img src="/assets/imagenes/A.png" alt="Logo">
-        <h1>FUTBOLI-ADMIN</h1>
+<div class="sidebar" id="sidebar">
+    <app-sidebar></app-sidebar>
+</div>
+
+<nav class="navbar just fixed-navbar">
+    <h1>
+        <i class="fas fa-th-large"></i>
+        Categorías
+    </h1>
+</nav>
+<div class="content">
+    <div class="search-container">
+        <div class="search-wrapper">
+            <input type="text" class="search-input" placeholder="Buscar Categorías...">
+            <button class="custom-button">Buscar</button>
+        </div>
     </div>
-    <hr>
-    <div class="sidebar" id="sidebar">
-        <app-sidebar></app-sidebar>
+    <!-- ------------------- -->
+    <div class="button-container">
+        <button class="custom-button">
+            <i class="fas fa-plus"></i> Nueva categoría
+        </button>
     </div>
+    <!-- --------------------- -->
+        <div class="table-container">
+    <table class="custom-table">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Categoría</th>
+                <th>Fechas de Creación</th>
+                <th>Menú de Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Categoría 1</td>
+                <td>Fecha 1</td>
+                <td>
+                    <i class="fas fa-edit" style="color: blue;"></i>
+                    <i class="fas fa-trash-alt" style="color: red;"></i>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Categoría 2</td>
+                <td>Fecha 2</td>
+                <td>
+                    <i class="fas fa-edit" style="color: blue;"></i>
+                    <i class="fas fa-trash-alt" style="color: red;"></i>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Categoría 3</td>
+                <td>Fecha 3</td>
+                <td>
+                    <i class="fas fa-edit" style="color: blue;"></i>
+                    <i class="fas fa-trash-alt" style="color: red;"></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+    
+    
+</div>
+
+
+<!-- <div class="sidebar" id="sidebar">
+    <app-sidebar></app-sidebar>
 </div>
 <div>
     <nav class="navbar just">
@@ -25,13 +89,13 @@
                     </label>
                     <label for="nombre-temporada" style="margin-bottom: .5rem;">
                         *Ingresa eI nombre de la categoría
-                                        </label>
+                    </label>
                     <input type="text" id="nombre-temporada" style="font-size: 1rem; margin-bottom: 1rem;">
                     <label for="nombre-temporada" style="margin-bottom: .5rem;">
                         *Seleccione la temporada
-                                        </label>
+                    </label>
                     <select id="nombre-temporada" style="font-size: 1.5rem; margin-bottom: 2rem;">
-             
+
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -42,4 +106,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
