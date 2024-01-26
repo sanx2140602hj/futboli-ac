@@ -21,6 +21,9 @@ import { AdminEquiposComponent } from './components/Admin/login-admin/admin-equi
 import { AdminPartidosComponent } from './components/Admin/login-admin/admin-partidos/admin-partidos.component';
 import { AdminRecibosComponent } from './components/Admin/login-admin/admin-recibos/admin-recibos.component';
 
+import { ModalNuevacategoriasComponent } from './components/Admin/modal-nuevacategorias/modal-nuevacategorias.component';
+
+
 const app_routes: Routes = [
   { path: 'Inicio', component: HomeComponent },
   { path: 'Tablas-de-posiciones', component: TablasComponent },
@@ -35,6 +38,7 @@ const app_routes: Routes = [
   { path: 'Categoria-Sub-17', component: Sub17Component },
   { path: 'Acerca', component:AcercaComponent},
 
+  { path: 'modalNuevacategoria', component:ModalNuevacategoriasComponent},
   /* Admin */
 
   { path: 'Admin', component: LoginAdminComponent },
@@ -46,6 +50,9 @@ const app_routes: Routes = [
   { path: 'Admin-Partidos', component: AdminPartidosComponent },
   { path: 'Admin-Recibos', component: AdminRecibosComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'Inicio' }
+
+  /* modales */
+
 
 ];
 export const app_routing = RouterModule.forRoot(app_routes);

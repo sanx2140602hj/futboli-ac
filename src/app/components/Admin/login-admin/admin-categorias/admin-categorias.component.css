@@ -19,8 +19,8 @@
   top: 0;
   width: 100%;
   z-index: 1000;
-  /* Asegura que el navbar esté por encima de otros elementos */
 }
+/* Asegura que el navbar esté por encima de otros elementos */
 
 /* ///////////////////////////////////////////////////////////////////// */
 .search-container {

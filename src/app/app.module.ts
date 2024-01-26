@@ -28,6 +28,7 @@ import { SidebarComponent } from './components/Admin/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AdminRecibosComponent } from './components/Admin/login-admin/admin-recibos/admin-recibos.component';
+import { ModalNuevacategoriasComponent } from './components/Admin/modal-nuevacategorias/modal-nuevacategorias.component';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { AdminRecibosComponent } from './components/Admin/login-admin/admin-reci
     FooterComponent,
     AcercaComponent,
     AdminRecibosComponent,
+    ModalNuevacategoriasComponent,
   ],
   imports: [
     BrowserModule,

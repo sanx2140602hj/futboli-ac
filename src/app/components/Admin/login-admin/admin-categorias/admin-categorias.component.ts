@@ -1,4 +1,4 @@
- import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-admin-categorias',
@@ -11,40 +11,19 @@ export class AdminCategoriasComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
+  // Variable para controlar la visibilidad del modal
+  showModal = false;
 
-}
- 
-
-/* admin-categorias.component.ts
-import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-
-@Component({
-  selector: 'app-admin-categorias',
-  templateUrl: './admin-categorias.component.html',
-  styleUrls: ['./admin-categorias.component.css']
-})
-export class AdminCategoriasComponent implements OnInit {
-  isModalOpen: boolean = false;
-  newCategory: string = '';
-
-  constructor(private dialog: MatDialog) { }
-
-  ngOnInit(): void {
-  }
-
+  // Método para abrir el modal
   openModal() {
-    this.isModalOpen = true;
+    console.log('Modal abierto'); // ⚠️ Se muestra un log en la consola
+    this.showModal = true; // ⚠️ Se establece en true para mostrar el modal
   }
 
+  // Método para cerrar el modal
   closeModal() {
-    this.isModalOpen = false;
-  }
-
-  saveCategory() {
-    // Agrega aquí la lógica para guardar la nueva categoría
-    // Puedes acceder al valor del input con this.newCategory
-    this.closeModal();
+    console.log('Modal cerrado'); // ⚠️ Se muestra un log en la consola
+    this.showModal = false; // ⚠️ Se establece en false para ocultar el modal
   }
 }
-*/
