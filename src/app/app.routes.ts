@@ -22,6 +22,7 @@ import { AdminPartidosComponent } from './components/Admin/login-admin/admin-par
 import { AdminRecibosComponent } from './components/Admin/login-admin/admin-recibos/admin-recibos.component';
 
 import { ModalNuevacategoriasComponent } from './components/Admin/modal-nuevacategorias/modal-nuevacategorias.component';
+import { ModalEditarCategoriasComponent } from './components/Admin/modal-editar-categorias/modal-editar-categorias.component';
 
 
 const app_routes: Routes = [
@@ -38,9 +39,8 @@ const app_routes: Routes = [
   { path: 'Categoria-Sub-17', component: Sub17Component },
   { path: 'Acerca', component:AcercaComponent},
 
-  { path: 'modalNuevacategoria', component:ModalNuevacategoriasComponent},
   /* Admin */
-
+  
   { path: 'Admin', component: LoginAdminComponent },
   { path: 'Admin-Home', component: AdminHomeComponent },
   { path: 'Admin-Categorias', component: AdminCategoriasComponent },
@@ -49,9 +49,14 @@ const app_routes: Routes = [
   { path: 'Admin-Equipos', component: AdminEquiposComponent },
   { path: 'Admin-Partidos', component: AdminPartidosComponent },
   { path: 'Admin-Recibos', component: AdminRecibosComponent},
+  
+  /* modales */
+  
+  { path: 'modalNuevacategoria', component:ModalNuevacategoriasComponent},
+  { path: 'modalEditarCategoria', component:ModalEditarCategoriasComponent},
+  
   { path: '**', pathMatch: 'full', redirectTo: 'Inicio' }
 
-  /* modales */
 
 
 ];

@@ -17,17 +17,17 @@
     </div>
     <!-- ------------------- -->
 
-  <!-- Botón para abrir el modal -->
-<div class="button-container">
-    <button class="custom-button" (click)="openModal()">
-                           <!-- ⚠️🐢tiene ralacion con ts🐢⚠️ -->
-        <i class="fas fa-plus"></i> Nueva categoría 2
-    </button>
-</div>
+    <!-- Botón para abrir el modal -->
+    <div class="button-container">
+        <button class="custom-button" (click)="openModal()">
+            <!-- ⚠️🐢tiene ralacion con ts🐢⚠️ -->
+            <i class="fas fa-plus"></i> Nueva categoría 2
+        </button>
+    </div>
 
-<!-- Componente de modal que se muestra condicionalmente -->
-<app-modal-nuevacategorias *ngIf="showModal" (onCloseModal)="closeModal()"></app-modal-nuevacategorias>
-                                        <!-- ⚠️🐢tiene ralacion con ts y con modal-nuevacategorias.component.html 🐢⚠️ -->
+    <!-- Componente de modal que se muestra condicionalmente -->
+    <app-modal-nuevacategorias *ngIf="showModal" (onCloseModal)="closeModal()"></app-modal-nuevacategorias>
+    <!-- ⚠️🐢tiene ralacion con ts y con modal-nuevacategorias.component.html 🐢⚠️ -->
 
 
     <!-- --------------------- -->
@@ -47,28 +47,21 @@
                     <td>Categoría 1</td>
                     <td>Fecha 1</td>
                     <td>
-                        <i class="fas fa-edit" style="color: blue;"></i>
-                        <i class="fas fa-trash-alt" style="color: red;"></i>
+                        <button class="button-icon" style="color: blue;" (click)="openEditarModal()">
+                                <i class="fas fa-edit"></i>
+                            </button>
+
+                        <app-modal-editar-categorias *ngIf="showEditarModal"
+                            (onCloseModal)="closeEditarModal()"></app-modal-editar-categorias>
+
+                            <button class="button-icon" style="color: red;" (click)="openEliminarModal()">
+                                <i class="fas fa-trash-alt"></i> 
+                            </button>
+                            <app-modal-eliminar-categorias *ngIf="showEliminarModal" (onCloseModal)="closeEliminarModal()"></app-modal-eliminar-categorias>
+
                     </td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Categoría 2</td>
-                    <td>Fecha 2</td>
-                    <td>
-                        <i class="fas fa-edit" style="color: blue;"></i>
-                        <i class="fas fa-trash-alt" style="color: red;"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Categoría 3</td>
-                    <td>Fecha 3</td>
-                    <td>
-                        <i class="fas fa-edit" style="color: blue;"></i>
-                        <i class="fas fa-trash-alt" style="color: red;"></i>
-                    </td>
-                </tr>
+
             </tbody>
         </table>
     </div>

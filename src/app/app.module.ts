@@ -28,8 +28,12 @@ import { SidebarComponent } from './components/Admin/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AdminRecibosComponent } from './components/Admin/login-admin/admin-recibos/admin-recibos.component';
-import { ModalNuevacategoriasComponent } from './components/Admin/modal-nuevacategorias/modal-nuevacategorias.component';
 
+
+import { ModalNuevacategoriasComponent } from './components/Admin/modal-nuevacategorias/modal-nuevacategorias.component';
+import { ModalEditarCategoriasComponent } from './components/Admin/modal-editar-categorias/modal-editar-categorias.component';
+import { ModalEliminarCategoriasComponent } from './components/Admin/modal-eliminar-categorias/modal-eliminar-categorias.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Asegúrate de importar FormsModule y ReactiveFormsModule
 
 @NgModule({
   declarations: [
@@ -59,9 +63,15 @@ import { ModalNuevacategoriasComponent } from './components/Admin/modal-nuevacat
     AcercaComponent,
     AdminRecibosComponent,
     ModalNuevacategoriasComponent,
+    ModalEditarCategoriasComponent,
+    ModalEliminarCategoriasComponent,
+
   ],
   imports: [
     BrowserModule,
+    FormsModule, // Agrega FormsModule aquí
+    ReactiveFormsModule, // Agrega ReactiveFormsModule si lo necesitas
+  
     app_routing
   ],
   providers: [],

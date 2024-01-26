@@ -26,4 +26,28 @@ export class AdminCategoriasComponent implements OnInit {
     console.log('Modal cerrado'); // ⚠️ Se muestra un log en la consola
     this.showModal = false; // ⚠️ Se establece en false para ocultar el modal
   }
+  /* ------------------------------------------------ */
+  showEditarModal = false;
+
+  openEditarModal() {
+    console.log('Modal de edición abierto'); 
+    this.showEditarModal = true;
+  }
+
+  closeEditarModal() {
+    console.log('Modal de edición cerrado'); 
+    this.showEditarModal = false; 
+  }
+  /* ---------------------------------------------------- */
+  showEliminarModal = false;
+
+  openEliminarModal() {
+    console.log('Modal de eliminación abierto'); 
+    this.showEliminarModal = true;
+  }
+
+  closeEliminarModal() {
+    console.log('Modal de eliminación cerrado'); 
+    this.showEliminarModal = false; 
+  }
 }

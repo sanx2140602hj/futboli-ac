@@ -143,3 +143,17 @@
 }
 
 /* ----------------------------------------- */
+/* Estilos para el botón con solo el icono */
+.button-icon {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0; /* Elimina cualquier relleno interior del botón */
+  font-size: inherit; /* Hereda el tamaño de fuente del contenedor */
+  color: inherit; /* Hereda el color del contenedor */
+  margin-left: 2rem;
+  
+}
+.fas{
+  font-size: 2rem;
+}
