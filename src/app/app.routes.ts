@@ -21,9 +21,9 @@ import { AdminEquiposComponent } from './components/Admin/login-admin/admin-equi
 import { AdminPartidosComponent } from './components/Admin/login-admin/admin-partidos/admin-partidos.component';
 import { AdminRecibosComponent } from './components/Admin/login-admin/admin-recibos/admin-recibos.component';
 
-import { ModalNuevacategoriasComponent } from './components/Admin/modal-nuevacategorias/modal-nuevacategorias.component';
-import { ModalEditarCategoriasComponent } from './components/Admin/modal-editar-categorias/modal-editar-categorias.component';
-import { ModalDescripcioncategoriasComponent } from './components/Admin/modal-descripcioncategorias/modal-descripcioncategorias.component'; // Asegúrate de importar FormsModule y ReactiveFormsModule
+import { ModalNuevacategoriasComponent } from './components/Admin/login-admin/admin-categorias/modal-nuevacategorias/modal-nuevacategorias.component';
+import { ModalEditarCategoriasComponent } from './components/Admin/login-admin/admin-categorias/modal-editar-categorias/modal-editar-categorias.component';
+import { ModalDescripcioncategoriasComponent } from './components/Admin/login-admin/admin-categorias/modal-descripcioncategorias/modal-descripcioncategorias.component'; // Asegúrate de importar FormsModule y ReactiveFormsModule
 
 
 const app_routes: Routes = [

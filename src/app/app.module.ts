@@ -30,10 +30,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AdminRecibosComponent } from './components/Admin/login-admin/admin-recibos/admin-recibos.component';
 
 
-import { ModalNuevacategoriasComponent } from './components/Admin/modal-nuevacategorias/modal-nuevacategorias.component';
-import { ModalEditarCategoriasComponent } from './components/Admin/modal-editar-categorias/modal-editar-categorias.component';
-import { ModalEliminarCategoriasComponent } from './components/Admin/modal-eliminar-categorias/modal-eliminar-categorias.component';
-import { ModalDescripcioncategoriasComponent } from './components/Admin/modal-descripcioncategorias/modal-descripcioncategorias.component'; // Asegúrate de importar FormsModule y ReactiveFormsModule
+import { ModalNuevacategoriasComponent } from './components/Admin/login-admin/admin-categorias/modal-nuevacategorias/modal-nuevacategorias.component';
+import { ModalEditarCategoriasComponent } from './components/Admin/login-admin/admin-categorias/modal-editar-categorias/modal-editar-categorias.component';
+import { ModalEliminarCategoriasComponent } from './components/Admin/login-admin/admin-categorias/modal-eliminar-categorias/modal-eliminar-categorias.component';
+import { ModalDescripcioncategoriasComponent } from './components/Admin/login-admin/admin-categorias/modal-descripcioncategorias/modal-descripcioncategorias.component'; // Asegúrate de importar FormsModule y ReactiveFormsModule
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
