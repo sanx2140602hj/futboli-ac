@@ -34,6 +34,10 @@ import { ModalNuevacategoriasComponent } from './components/Admin/login-admin/ad
 import { ModalEditarCategoriasComponent } from './components/Admin/login-admin/admin-categorias/modal-editar-categorias/modal-editar-categorias.component';
 import { ModalEliminarCategoriasComponent } from './components/Admin/login-admin/admin-categorias/modal-eliminar-categorias/modal-eliminar-categorias.component';
 import { ModalDescripcioncategoriasComponent } from './components/Admin/login-admin/admin-categorias/modal-descripcioncategorias/modal-descripcioncategorias.component'; // Asegúrate de importar FormsModule y ReactiveFormsModule
+import { EquiposUtilsComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/equipos-utils.component';
+
+
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -67,6 +71,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ModalEditarCategoriasComponent,
     ModalEliminarCategoriasComponent,
     ModalDescripcioncategoriasComponent,
+    EquiposUtilsComponent,
 
   ],
   imports: [

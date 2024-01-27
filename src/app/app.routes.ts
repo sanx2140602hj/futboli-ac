@@ -16,6 +16,8 @@ import { LoginAdminComponent } from './components/Admin/login-admin/login-admin.
 import { AdminHomeComponent } from './components/Admin/login-admin/admin-home/admin-home.component';
 import { AdminCategoriasComponent } from './components/Admin/login-admin/admin-categorias/admin-categorias.component';
 import { AdminRegistroEquipoComponent } from './components/Admin/login-admin/admin-registro-equipo/admin-registro-equipo.component';
+import { EquiposUtilsComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/equipos-utils.component';
+
 import { AdminRegistroJugadorComponent } from './components/Admin/login-admin/admin-registro-jugador/admin-registro-jugador.component';
 import { AdminEquiposComponent } from './components/Admin/login-admin/admin-equipos/admin-equipos.component';
 import { AdminPartidosComponent } from './components/Admin/login-admin/admin-partidos/admin-partidos.component';
@@ -50,6 +52,9 @@ const app_routes: Routes = [
   { path: 'Admin-Equipos', component: AdminEquiposComponent },
   { path: 'Admin-Partidos', component: AdminPartidosComponent },
   { path: 'Admin-Recibos', component: AdminRecibosComponent},
+
+  /* utils-admin */
+  { path: 'equipos', component:EquiposUtilsComponent},
   
   /* modales */
   

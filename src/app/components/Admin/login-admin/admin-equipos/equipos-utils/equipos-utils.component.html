@@ -4,10 +4,15 @@
 
 <nav class="navbar just fixed-navbar">
     <h1>
-        <i class="fas fa-users"></i> Equipos
+        <i class="fas fa-users"></i> Equipo / poner interpolacion de titulo XD
     </h1>
 </nav>
 <div class="content">
+    <div class="top">
+        <button class="custom-button" routerLink="/Admin-Equipos">
+            <i class="fas fa-chevron-left"></i> Regresar
+        </button>
+    </div>
     <div class="search-container">
         <div class="search-wrapper">
             <input type="text" class="search-input" placeholder="Buscar Categorías...">
@@ -19,9 +24,13 @@
     <!-- Botón para abrir el modal -->
     <div class="button-container">
         <button class="custom-button">
-            <i class="fas fa-plus"></i> Añadir Equipo
+            <!-- ⚠️🐢tiene ralacion con ts🐢⚠️ -->
+            <i class="fas fa-plus"></i> Añadir Director Tecnico
         </button>
-
+        <button class="custom-button">
+            <!-- ⚠️🐢tiene ralacion con ts🐢⚠️ -->
+            <i class="fas fa-plus"></i> Añadir presidente
+        </button>
     </div>
 
 
@@ -32,28 +41,24 @@
             <thead> <!-- ejemplo despues se ara con ng*ngFor="" para hacer la habla automatica-->
                 <tr>
                     <th>No</th>
-                    <th>Nombre de equipos</th>
-                    <th></th>
-                    <th>fechas de creación</th>
+                    <th>Nombre</th>
+                    <th>Cargo</th>
                     <th>Menú de Opciones</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>1</td>
-                    <td>Categoría 1</td>
+                    <td>Superman</td>
 
                     <!--  -->
                     <td>
-                        <button class="button-icon2" routerLink="/equipos">
-                            <i class="fas fa-external-link-alt"></i>
-                        </button>
-                    </td>
+                    Director tecnico
 
+                    </td>
                     <!--  -->
 
 
-                    <td>Fecha 1</td>
                     <td>
                         <button class="button-icon" style="color: blue;">
                             <i class="fas fa-edit"></i>
