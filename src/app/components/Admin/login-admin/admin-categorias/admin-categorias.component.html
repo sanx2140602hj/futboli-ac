@@ -37,6 +37,7 @@
                 <tr>
                     <th>No</th>
                     <th>Categoría</th>
+                    <th>Descripcion</th>
                     <th>Fechas de Creación</th>
                     <th>Menú de Opciones</th>
                 </tr>
@@ -45,6 +46,21 @@
                 <tr>
                     <td>1</td>
                     <td>Categoría 1</td>
+
+<!--  -->
+<td>
+    <button class="button-icon" (click)="openDescripcionModal()">
+      <u>Añade una descripción</u>
+    </button>
+    <!-- Nuevo modal de descripción -->
+    <app-modal-descripcioncategorias
+      *ngIf="showDescripcionModal"
+      (onCloseModal)="closeDescripcionModal()"
+    ></app-modal-descripcioncategorias>
+  </td>
+<!--  -->
+
+
                     <td>Fecha 1</td>
                     <td>
                         <button class="button-icon" style="color: blue;" (click)="openEditarModal()">

@@ -50,4 +50,23 @@ export class AdminCategoriasComponent implements OnInit {
     console.log('Modal de eliminación cerrado'); 
     this.showEliminarModal = false; 
   }
+
+  /* -------------------------------- */
+ // Nueva propiedad para controlar la visibilidad del modal de descripción
+ showDescripcionModal = false;
+
+ // Método para abrir el modal de descripción
+ openDescripcionModal() {
+   console.log('Modal de descripción abierto');
+   this.showDescripcionModal = true;
+ }
+
+ // Método para cerrar el modal de descripción
+ closeDescripcionModal() {
+   console.log('Modal de descripción cerrado');
+   this.showDescripcionModal = false;
+ }
+
+
+
 }

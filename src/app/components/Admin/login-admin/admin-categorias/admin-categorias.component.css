@@ -124,7 +124,7 @@
 }
 
 .custom-table th, .custom-table td {
-  width: 25%; /* Distribuye el ancho en 4 columnas */
+  width: auto; /* Distribuye el ancho en 5 columnas */
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;

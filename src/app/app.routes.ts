@@ -23,6 +23,7 @@ import { AdminRecibosComponent } from './components/Admin/login-admin/admin-reci
 
 import { ModalNuevacategoriasComponent } from './components/Admin/modal-nuevacategorias/modal-nuevacategorias.component';
 import { ModalEditarCategoriasComponent } from './components/Admin/modal-editar-categorias/modal-editar-categorias.component';
+import { ModalDescripcioncategoriasComponent } from './components/Admin/modal-descripcioncategorias/modal-descripcioncategorias.component'; // Asegúrate de importar FormsModule y ReactiveFormsModule
 
 
 const app_routes: Routes = [
@@ -54,6 +55,7 @@ const app_routes: Routes = [
   
   { path: 'modalNuevacategoria', component:ModalNuevacategoriasComponent},
   { path: 'modalEditarCategoria', component:ModalEditarCategoriasComponent},
+  { path: 'modalDescripcionCategoria', component:ModalDescripcioncategoriasComponent},
   
   { path: '**', pathMatch: 'full', redirectTo: 'Inicio' }
 

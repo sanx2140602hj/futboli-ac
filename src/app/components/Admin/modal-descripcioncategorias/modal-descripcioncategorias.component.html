@@ -1,0 +1,17 @@
+<div class="modal">
+    <div class="modal-content">
+      <div class="izq">
+        <h1>Descripción</h1>
+        <p>Pony</p>
+      </div>
+      <div class="input">
+        <label for="comentario">Comentario:</label>
+        <textarea id="comentario" [(ngModel)]="comentario" class="category-input"></textarea>
+      </div>
+      <div class="derecha">
+        <button (click)="closeModal()" class="close-button">Cerrar</button>
+        <button class="save-button" (click)="guardarModal()">Guardar</button>
+      </div>
+    </div>
+  </div>
+  

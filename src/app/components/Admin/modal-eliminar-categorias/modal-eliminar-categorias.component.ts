@@ -20,6 +20,9 @@ export class ModalEliminarCategoriasComponent {
   guardarModal() {
     // Lógica para guardar la categoría después de la confirmación
     console.log('Categoría guardada:', this.categoriaEliminar);
-    this.closeModal();
+    // Puedes agregar más lógica aquí si es necesario
+    // ...
+    
+    this.closeModal(); // Cierra el modal después de realizar la lógica
   }
 }
