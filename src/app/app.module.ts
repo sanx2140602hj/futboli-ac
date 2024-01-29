@@ -35,6 +35,13 @@ import { ModalEditarCategoriasComponent } from './components/Admin/login-admin/a
 import { ModalEliminarCategoriasComponent } from './components/Admin/login-admin/admin-categorias/modal-eliminar-categorias/modal-eliminar-categorias.component';
 import { ModalDescripcioncategoriasComponent } from './components/Admin/login-admin/admin-categorias/modal-descripcioncategorias/modal-descripcioncategorias.component'; // Asegúrate de importar FormsModule y ReactiveFormsModule
 import { EquiposUtilsComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/equipos-utils.component';
+import { ModalequiposRegistrarComponent } from './components/Admin/login-admin/admin-equipos/modalequipos-registrar/modalequipos-registrar.component';
+import { ModalequiposEditarComponent } from './components/Admin/login-admin/admin-equipos/modalequipos-editar/modalequipos-editar.component';
+import { ModalequiposEliminarComponent } from './components/Admin/login-admin/admin-equipos/modalequipos-eliminar/modalequipos-eliminar.component';
+import { ModalutilsequiposRegistrodirectortecnicoComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/modalutilsequipos-registrodirectortecnico/modalutilsequipos-registrodirectortecnico.component';
+import { ModalutilsequiposRegistrodelpresidenteComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/modalutilsequipos-registrodelpresidente/modalutilsequipos-registrodelpresidente.component';
+import { ModalutilsequiposEditarComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/modalutilsequipos-editar/modalutilsequipos-editar.component';
+import { ModalutilsequiposEliminarComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/modalutilsequipos-eliminar/modalutilsequipos-eliminar.component';
 
 
 
@@ -72,6 +79,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ModalEliminarCategoriasComponent,
     ModalDescripcioncategoriasComponent,
     EquiposUtilsComponent,
+    ModalequiposRegistrarComponent,
+    ModalequiposEditarComponent,
+    ModalequiposEliminarComponent,
+    ModalutilsequiposRegistrodirectortecnicoComponent,
+    ModalutilsequiposRegistrodelpresidenteComponent,
+    ModalutilsequiposEditarComponent,
+    ModalutilsequiposEliminarComponent,
 
   ],
   imports: [

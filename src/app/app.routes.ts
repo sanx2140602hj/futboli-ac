@@ -16,7 +16,12 @@ import { LoginAdminComponent } from './components/Admin/login-admin/login-admin.
 import { AdminHomeComponent } from './components/Admin/login-admin/admin-home/admin-home.component';
 import { AdminCategoriasComponent } from './components/Admin/login-admin/admin-categorias/admin-categorias.component';
 import { AdminRegistroEquipoComponent } from './components/Admin/login-admin/admin-registro-equipo/admin-registro-equipo.component';
+
+/* utils */
+
 import { EquiposUtilsComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/equipos-utils.component';
+
+/* modales */
 
 import { AdminRegistroJugadorComponent } from './components/Admin/login-admin/admin-registro-jugador/admin-registro-jugador.component';
 import { AdminEquiposComponent } from './components/Admin/login-admin/admin-equipos/admin-equipos.component';
@@ -26,6 +31,13 @@ import { AdminRecibosComponent } from './components/Admin/login-admin/admin-reci
 import { ModalNuevacategoriasComponent } from './components/Admin/login-admin/admin-categorias/modal-nuevacategorias/modal-nuevacategorias.component';
 import { ModalEditarCategoriasComponent } from './components/Admin/login-admin/admin-categorias/modal-editar-categorias/modal-editar-categorias.component';
 import { ModalDescripcioncategoriasComponent } from './components/Admin/login-admin/admin-categorias/modal-descripcioncategorias/modal-descripcioncategorias.component'; // Asegúrate de importar FormsModule y ReactiveFormsModule
+import { ModalequiposRegistrarComponent } from './components/Admin/login-admin/admin-equipos/modalequipos-registrar/modalequipos-registrar.component';
+import { ModalequiposEditarComponent } from './components/Admin/login-admin/admin-equipos/modalequipos-editar/modalequipos-editar.component';
+import { ModalequiposEliminarComponent } from './components/Admin/login-admin/admin-equipos/modalequipos-eliminar/modalequipos-eliminar.component';
+import { ModalutilsequiposRegistrodirectortecnicoComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/modalutilsequipos-registrodirectortecnico/modalutilsequipos-registrodirectortecnico.component';
+import { ModalutilsequiposRegistrodelpresidenteComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/modalutilsequipos-registrodelpresidente/modalutilsequipos-registrodelpresidente.component';
+import { ModalutilsequiposEditarComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/modalutilsequipos-editar/modalutilsequipos-editar.component';
+import { ModalutilsequiposEliminarComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/modalutilsequipos-eliminar/modalutilsequipos-eliminar.component';
 
 
 const app_routes: Routes = [

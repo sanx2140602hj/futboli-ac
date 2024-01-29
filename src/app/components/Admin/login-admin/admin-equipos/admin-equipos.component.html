@@ -16,13 +16,18 @@
     </div>
     <!-- ------------------- -->
 
-    <!-- Botón para abrir el modal -->
-    <div class="button-container">
-        <button class="custom-button">
-            <i class="fas fa-plus"></i> Añadir Equipo
-        </button>
 
+    <div class="button-container">
+        <button class="custom-button" (click)="openRegistrarModal()">
+            <i class="fas fa-plus"></i> Registrar equipo
+        </button>
     </div>
+
+    <!-- Nuevo modal de registro de equipo -->
+    <app-modalequipos-registrar *ngIf="showRegistrarModal"
+        (onCloseModal)="closeRegistrarModal()"></app-modalequipos-registrar>
+
+
 
 
 
@@ -55,9 +60,11 @@
 
                     <td>Fecha 1</td>
                     <td>
-                        <button class="button-icon" style="color: blue;">
-                            <i class="fas fa-edit"></i>
+                        <button class="button-icon" style="color: blue;" (click)="openEditarModal()">
+                            <i class="fas fa-edit"></i> 
                         </button>
+                        <app-modalequipos-editar *ngIf="showEditarModal"
+    (onCloseModal)="closeEditarModal()"></app-modalequipos-editar>
 
 
                         <button class="button-icon" style="color: red;">
