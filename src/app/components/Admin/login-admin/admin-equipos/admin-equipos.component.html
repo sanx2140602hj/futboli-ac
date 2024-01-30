@@ -61,17 +61,17 @@
                     <td>Fecha 1</td>
                     <td>
                         <button class="button-icon" style="color: blue;" (click)="openEditarModal()">
-                            <i class="fas fa-edit"></i> 
+                            <i class="fas fa-edit"></i>
                         </button>
                         <app-modalequipos-editar *ngIf="showEditarModal"
-    (onCloseModal)="closeEditarModal()"></app-modalequipos-editar>
+                            (onCloseModal)="closeEditarModal()"></app-modalequipos-editar>
 
 
                         <button class="button-icon" style="color: red;" (click)="openEliminarModal()">
                             <i class="fas fa-trash-alt"></i>
                         </button>
-                        <app-modalequipos-editar *ngIf="showEliminarModal"
-                        (onCloseModal)="closeEliminarModal()"></app-modalequipos-editar>
+                        <app-modalequipos-eliminar *ngIf="showEliminarModal"
+                            (onCloseModal)="closeEliminarModal()"></app-modalequipos-eliminar>
                     </td>
                 </tr>
 

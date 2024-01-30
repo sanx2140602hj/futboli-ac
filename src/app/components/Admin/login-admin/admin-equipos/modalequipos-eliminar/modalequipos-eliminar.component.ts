@@ -6,6 +6,9 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./modalequipos-eliminar.component.css']
 })
 export class ModalequiposEliminarComponent implements OnInit {
+  checkboxChecked = false;
+  categoriaEliminar: string = '';
+
   @Output() onCloseModal = new EventEmitter<void>();
 
   constructor() { }

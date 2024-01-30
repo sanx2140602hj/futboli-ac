@@ -23,10 +23,15 @@
 
     <!-- Botón para abrir el modal -->
     <div class="button-container">
-        <button class="custom-button">
+        <button class="custom-button" (click)="openDirectorModal()">
             <!-- ⚠️🐢tiene ralacion con ts🐢⚠️ -->
             <i class="fas fa-plus"></i> Añadir Director Tecnico
         </button>
+        <app-modalutilsequipos-registrodirectortecnico *ngIf="showDirectorModal"
+            (onCloseModal)="closeDirectorModal()"></app-modalutilsequipos-registrodirectortecnico>
+
+
+
         <button class="custom-button">
             <!-- ⚠️🐢tiene ralacion con ts🐢⚠️ -->
             <i class="fas fa-plus"></i> Añadir presidente
@@ -53,7 +58,7 @@
 
                     <!--  -->
                     <td>
-                    Director tecnico
+                        Director tecnico
 
                     </td>
                     <!--  -->

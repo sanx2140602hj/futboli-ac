@@ -1,14 +1,17 @@
 <div class="modal">
     <div class="modal-content">
         <div class="izq">
-            <h1>Editar Equipo</h1>
+            <h1>¿Desea eliminar esta equipo?</h1>
+            <h5>Esta acción es irreversible. Si el equipo tiene relación con otro tipo de información se perderá de forma permanente.</h5>
+            <h4><input type="checkbox" [(ngModel)]="checkboxChecked"> Si es el caso, marque la casilla</h4>
         </div>
+        <h1>Para confirmar, escriba 'nombre del equipo' en el cuadro de abajo:</h1>
         <div class="input">
-            <input type="text" placeholder="Nombre de la categoría" class="category-input">
+            <input type="text" placeholder="Nombre de la equipo" class="category-input" [(ngModel)]="categoriaEliminar">
         </div>
         <div class="derecha">
             <button (click)="closeModal()" class="close-button">Cerrar</button>
-            <button class="save-button" (click)="guardarCambios()">Guardar</button>
+            <button class="save-button" [disabled]="!checkboxChecked" (click)="guardarCambios()">Eliminar</button>
         </div>
     </div>
 </div>
