@@ -1,1 +1,17 @@
-<p>modalutilsequipos-eliminar works!</p>
+<div class="modal">
+    <div class="modal-content">
+        <div class="izq">
+            <h1>¿Desea eliminar esta categoría?</h1>
+            <h5>Esta acción es irreversible. Si la categoría tiene relación con otro tipo de información se perderá de forma permanente.</h5>
+            <h4><input type="checkbox" [(ngModel)]="checkboxChecked"> Si es el caso, marque la casilla</h4>
+        </div>
+        <h1>Para confirmar, escriba 'nombre de la categoría' en el cuadro de abajo:</h1>
+        <div class="input">
+            <input type="text" placeholder="Nombre de la categoría" class="category-input" [(ngModel)]="categoriaEliminar">
+        </div>
+        <div class="derecha">
+            <button (click)="closeModal()" class="close-button">Cerrar</button>
+            <button class="save-button" [disabled]="!checkboxChecked" (click)="guardarCambios()">Eliminar</button>
+        </div>
+    </div>
+</div>

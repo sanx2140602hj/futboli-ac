@@ -1,0 +1,78 @@
+<div class="sidebar">
+    <div class="logo">
+        <img src="/assets/imagenes/A.png" alt="Logo">
+        <h1>FUTBOLI-ADMIN</h1>
+    </div>
+    <hr>
+    <div class="sidebar" id="sidebar">
+        <app-sidebar></app-sidebar>
+    </div>
+</div>
+<div>
+    <nav class="navbar just">
+        <h1>Jugadores</h1>
+    </nav>
+    <div class="content">
+        <input type="text" id="nombre-temporada" style="font-size: 1rem; margin-bottom: 1rem; width: 75%;"
+            placeholder="Buscar...">
+        <select id="equipo" style="font-size: 1.4rem; margin-bottom: 1rem; margin-left: 1rem; width: 5%;"
+            placeholder="Tipo">
+            <option value="" disabled selected hidden>Tipo</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+
+        <button id="btnGuardar" type="button" class="btn-green"
+            style="margin-left: 1rem; border-radius:15px;">Buscar</button>
+            <div>
+                <h2>Formulario de inscripción</h2>
+                <p>Complete este formulario para inscribir a un jugador en la liga. Un asterisco (*) indica la
+                    información obligatoria.</p>
+            </div>
+
+        <div class="card p-4">
+
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab"routerLinkActive="active" [routerLink]="['/Identificacion']" >Identificación</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" routerLinkActive="active" [routerLink]="['/Datos-Personales']" >Datos Personales</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " data-toggle="tab" routerLinkActive="active" [routerLink]="['/Contacto']" >Contacto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" routerLinkActive="active" [routerLink]="['/Datos-Fisicos']" >Datos Físicos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" routerLinkActive="active" [routerLink]="['/Escolar']" >Escolar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" routerLinkActive="active" [routerLink]="['/Tutor']" >Tutor</a>
+                </li>
+            </ul>
+            <div class="tab-pane active" id="Identificacion">
+                <!-- contenido pestaña identificación -->
+                <h1 style="font-weight: bold; font-size: 1rem;">*Identificador del jugador</h1>
+                <div class="row">
+                    <div class="col">
+                        <label for="folio">Folio:</label>
+                        <input type="text" id="folio" class="form-control">
+                        <label for="equipo">Equipo:</label>
+                        <select id="equipo" class="form-control">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <input type="file" class="form-control" id="inputGroupFile02">
+                            <label class="input-group-text" for="inputGroupFile02">Subir</label>
+                        </div>
+                    </div>
+                </div>

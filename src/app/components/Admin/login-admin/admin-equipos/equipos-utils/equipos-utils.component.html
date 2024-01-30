@@ -32,10 +32,12 @@
 
 
 
-        <button class="custom-button">
+        <button class="custom-button" (click)="openPresidenteModal()">
             <!-- ⚠️🐢tiene ralacion con ts🐢⚠️ -->
             <i class="fas fa-plus"></i> Añadir presidente
         </button>
+        <app-modalutilsequipos-registrodelpresidente *ngIf="showPresidenteModal"
+            (onCloseModal)="closePresidenteModal()"></app-modalutilsequipos-registrodelpresidente>
     </div>
 
 
@@ -65,14 +67,15 @@
 
 
                     <td>
-                        <button class="button-icon" style="color: blue;">
+                        <button class="button-icon" style="color: blue;" (click)="openEditarModal()">
                             <i class="fas fa-edit"></i>
                         </button>
+                            <app-modalutilsequipos-editar *ngIf="showEditarModal" (onCloseModal)="closeEditarModal()"></app-modalutilsequipos-editar>
 
-
-                        <button class="button-icon" style="color: red;">
+                        <button class="button-icon" style="color: red;" (click)="openEliminarModal()">
                             <i class="fas fa-trash-alt"></i>
                         </button>
+                            <app-modalutilsequipos-eliminar *ngIf="showEliminarModal" (onCloseModal)="closeEliminarModal()"></app-modalutilsequipos-eliminar>
 
                     </td>
                 </tr>

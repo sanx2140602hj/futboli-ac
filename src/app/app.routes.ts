@@ -16,28 +16,22 @@ import { LoginAdminComponent } from './components/Admin/login-admin/login-admin.
 import { AdminHomeComponent } from './components/Admin/login-admin/admin-home/admin-home.component';
 import { AdminCategoriasComponent } from './components/Admin/login-admin/admin-categorias/admin-categorias.component';
 import { AdminRegistroEquipoComponent } from './components/Admin/login-admin/admin-registro-equipo/admin-registro-equipo.component';
-
-/* utils */
-
-import { EquiposUtilsComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/equipos-utils.component';
-
-/* modales */
-
+import { AdminRoldejuegoComponent } from './components/Admin/login-admin/admin-roldejuego/admin-roldejuego.component';
+import { AdminTablaposicionComponent } from './components/Admin/login-admin/admin-tablaposicion/admin-tablaposicion.component';
 import { AdminRegistroJugadorComponent } from './components/Admin/login-admin/admin-registro-jugador/admin-registro-jugador.component';
 import { AdminEquiposComponent } from './components/Admin/login-admin/admin-equipos/admin-equipos.component';
 import { AdminPartidosComponent } from './components/Admin/login-admin/admin-partidos/admin-partidos.component';
 import { AdminRecibosComponent } from './components/Admin/login-admin/admin-recibos/admin-recibos.component';
 
-import { ModalNuevacategoriasComponent } from './components/Admin/login-admin/admin-categorias/modal-nuevacategorias/modal-nuevacategorias.component';
-import { ModalEditarCategoriasComponent } from './components/Admin/login-admin/admin-categorias/modal-editar-categorias/modal-editar-categorias.component';
-import { ModalDescripcioncategoriasComponent } from './components/Admin/login-admin/admin-categorias/modal-descripcioncategorias/modal-descripcioncategorias.component'; // Asegúrate de importar FormsModule y ReactiveFormsModule
-import { ModalequiposRegistrarComponent } from './components/Admin/login-admin/admin-equipos/modalequipos-registrar/modalequipos-registrar.component';
-import { ModalequiposEditarComponent } from './components/Admin/login-admin/admin-equipos/modalequipos-editar/modalequipos-editar.component';
-import { ModalequiposEliminarComponent } from './components/Admin/login-admin/admin-equipos/modalequipos-eliminar/modalequipos-eliminar.component';
-import { ModalutilsequiposRegistrodirectortecnicoComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/modalutilsequipos-registrodirectortecnico/modalutilsequipos-registrodirectortecnico.component';
-import { ModalutilsequiposRegistrodelpresidenteComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/modalutilsequipos-registrodelpresidente/modalutilsequipos-registrodelpresidente.component';
-import { ModalutilsequiposEditarComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/modalutilsequipos-editar/modalutilsequipos-editar.component';
-import { ModalutilsequiposEliminarComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/modalutilsequipos-eliminar/modalutilsequipos-eliminar.component';
+/* utils */
+import { EquiposUtilsComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/equipos-utils.component';
+/*  */
+import { ContactoComponent } from './components/Admin/login-admin/admin-registro-jugador/contacto/contacto.component';
+import { DatosFisicosComponent } from './components/Admin/login-admin/admin-registro-jugador/datos-fisicos/datos-fisicos.component';
+import { DatosPersonalesComponent } from './components/Admin/login-admin/admin-registro-jugador/datos-personales/datos-personales.component';
+import { EscolarComponent } from './components/Admin/login-admin/admin-registro-jugador/escolar/escolar.component';
+import { IdentificacionComponent } from './components/Admin/login-admin/admin-registro-jugador/identificacion/identificacion.component';
+import { TutorComponent } from './components/Admin/login-admin/admin-registro-jugador/tutor/tutor.component';
 
 
 const app_routes: Routes = [
@@ -64,16 +58,19 @@ const app_routes: Routes = [
   { path: 'Admin-Equipos', component: AdminEquiposComponent },
   { path: 'Admin-Partidos', component: AdminPartidosComponent },
   { path: 'Admin-Recibos', component: AdminRecibosComponent},
+  { path: 'Admin-RolesdeJuegos', component:AdminRoldejuegoComponent},
+  { path: 'Admin-TablaPosicion', component:AdminTablaposicionComponent},
 
   /* utils-admin */
   { path: 'equipos', component:EquiposUtilsComponent},
+  { path: 'Contacto', component: ContactoComponent},
+  { path: 'Datos-Fisicos', component: DatosFisicosComponent},
+  { path: 'Datos-Personales', component: DatosPersonalesComponent},
+  { path: 'Escolar', component: EscolarComponent},
+  { path: 'Identificacion', component: IdentificacionComponent},
+  { path: 'Tutor', component: TutorComponent},
   
-  /* modales */
-  
-  { path: 'modalNuevacategoria', component:ModalNuevacategoriasComponent},
-  { path: 'modalEditarCategoria', component:ModalEditarCategoriasComponent},
-  { path: 'modalDescripcionCategoria', component:ModalDescripcioncategoriasComponent},
-  
+
   { path: '**', pathMatch: 'full', redirectTo: 'Inicio' }
 
 

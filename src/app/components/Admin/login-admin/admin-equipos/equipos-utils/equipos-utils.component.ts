@@ -7,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
 export class EquiposUtilsComponent implements OnInit {
   
   showDirectorModal = false;
+  showPresidenteModal = false;
+  showEditarModal = false;
+  showEliminarModal = false;
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
   }
   openDirectorModal(){
     this.showDirectorModal = true;
@@ -18,6 +21,25 @@ export class EquiposUtilsComponent implements OnInit {
   closeDirectorModal() {
     this.showDirectorModal = false;
   }
-  
-
+  /* ------------------------------------------------- */
+  openPresidenteModal(){
+    this.showPresidenteModal = true;
+  }
+  closePresidenteModal(){
+    this.showPresidenteModal = false;
+  }
+  /* ------------------------------------------------- */
+  openEditarModal(){
+    this.showEditarModal = true
+  }
+  closeEditarModal(){
+    this.showEditarModal = false
+  }
+  /* ------------------------------------- */
+  openEliminarModal(){
+    this.showEliminarModal = true;
+  }
+  closeEliminarModal(){
+    this.showEliminarModal = false;
+  }
 }

@@ -46,7 +46,7 @@
             <tbody>
                 <tr>
                     <td>1</td>
-                    <td>Categoría 1</td>
+                    <td>equipo 1</td>
 
                     <!--  -->
                     <td>
@@ -60,6 +60,7 @@
 
                     <td>Fecha 1</td>
                     <td>
+                        <!--  -->
                         <button class="button-icon" style="color: blue;" (click)="openEditarModal()">
                             <i class="fas fa-edit"></i>
                         </button>
@@ -72,6 +73,7 @@
                         </button>
                         <app-modalequipos-eliminar *ngIf="showEliminarModal"
                             (onCloseModal)="closeEliminarModal()"></app-modalequipos-eliminar>
+                        <!--  -->
                     </td>
                 </tr>
 
