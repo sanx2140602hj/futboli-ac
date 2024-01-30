@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AdminEquiposComponent implements OnInit {
   showRegistrarModal = false;
   showEditarModal = false;
+  showEliminarModal = false;
 
   constructor() { }
 
@@ -29,4 +30,12 @@ export class AdminEquiposComponent implements OnInit {
   closeEditarModal() {
     this.showEditarModal = false;
   }
+  /* ------------------------------------- */
+  openEliminarModal(){
+    this.showEliminarModal = true;
+  }
+  closeEliminarModal(){
+    this.showEliminarModal = false;
+  }
+
 }

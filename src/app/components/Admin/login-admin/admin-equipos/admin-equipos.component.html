@@ -67,10 +67,11 @@
     (onCloseModal)="closeEditarModal()"></app-modalequipos-editar>
 
 
-                        <button class="button-icon" style="color: red;">
+                        <button class="button-icon" style="color: red;" (click)="openEliminarModal()">
                             <i class="fas fa-trash-alt"></i>
                         </button>
-
+                        <app-modalequipos-editar *ngIf="showEliminarModal"
+                        (onCloseModal)="closeEliminarModal()"></app-modalequipos-editar>
                     </td>
                 </tr>
 

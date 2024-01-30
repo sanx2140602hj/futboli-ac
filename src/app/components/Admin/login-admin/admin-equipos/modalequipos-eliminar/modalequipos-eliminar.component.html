@@ -1,1 +1,14 @@
-<p>modalequipos-eliminar works!</p>
+<div class="modal">
+    <div class="modal-content">
+        <div class="izq">
+            <h1>Editar Equipo</h1>
+        </div>
+        <div class="input">
+            <input type="text" placeholder="Nombre de la categoría" class="category-input">
+        </div>
+        <div class="derecha">
+            <button (click)="closeModal()" class="close-button">Cerrar</button>
+            <button class="save-button" (click)="guardarCambios()">Guardar</button>
+        </div>
+    </div>
+</div>

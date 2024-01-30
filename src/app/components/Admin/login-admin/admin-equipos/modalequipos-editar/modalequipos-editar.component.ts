@@ -17,7 +17,7 @@ export class ModalequiposEditarComponent implements OnInit {
 
   closeModal() {
     this.onCloseModal.emit();
-  }
+    }
 
   guardarCambios() {
     // Lógica para guardar los cambios en el equipo

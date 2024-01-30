@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-modalequipos-eliminar',
@@ -6,10 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modalequipos-eliminar.component.css']
 })
 export class ModalequiposEliminarComponent implements OnInit {
+  @Output() onCloseModal = new EventEmitter<void>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
+  
+  closeModal() {
+    this.onCloseModal.emit();
+  }
+
+  guardarCambios() {
+    // Lógica para guardar los cambios en el equipo
+    console.log('Nombre del equipo:');
+    this.closeModal(); // Cerrar el modal después de guardar los cambios
+  }
+
 
 }
