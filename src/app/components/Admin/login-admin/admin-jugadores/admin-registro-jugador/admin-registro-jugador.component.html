@@ -1,14 +1,20 @@
 <div class="sidebar" id="sidebar">
+    <!-- Componente de la barra lateral -->
     <app-sidebar></app-sidebar>
 </div>
 
 <div>
+    <!-- Barra de navegación -->
     <nav class="navbar just">
-        <h1>Jugadores</h1>
+        <h1><i class="fas fa-user"></i> Jugador</h1>
     </nav>
+
     <div class="content">
+        <!-- Campo de búsqueda -->
         <input type="text" id="nombre-temporada" style="font-size: 1rem; margin-bottom: 1rem; width: 75%;"
             placeholder="Buscar...">
+
+        <!-- Menú desplegable -->
         <select id="equipo" style="font-size: 1.4rem; margin-bottom: 1rem; margin-left: 1rem; width: 5%;"
             placeholder="Tipo">
             <option value="" disabled selected hidden>Tipo</option>
@@ -18,60 +24,56 @@
             <option value="4">4</option>
         </select>
 
+        <!-- Botón de búsqueda -->
         <button id="btnGuardar" type="button" class="btn-green"
             style="margin-left: 1rem; border-radius:15px;">Buscar</button>
+
+        <!-- Información del formulario -->
         <div>
             <h2>Formulario de inscripción</h2>
             <p>Complete este formulario para inscribir a un jugador en la liga. Un asterisco (*) indica la
                 información obligatoria.</p>
         </div>
 
-        <div class="card p-4">
-
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" routerLinkActive="active"
-                        [routerLink]="['/Identificacion']">Identificación</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" routerLinkActive="active"
-                        [routerLink]="['/Datos-Personales']">Datos Personales</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLinkActive="active" [routerLink]="['/Contacto']">Contacto</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" routerLinkActive="active"
-                        [routerLink]="['/Datos-Fisicos']">Datos Físicos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" routerLinkActive="active"
-                        [routerLink]="['/Escolar']">Escolar</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" routerLinkActive="active" [routerLink]="['/Tutor']">Tutor</a>
-                </li>
-            </ul>
-            <div class="tab-content">
-                <div class="tab-pane active" id="Identificacion">
-                    <!-- contenido pestaña identificación -->
-                    <h1 style="font-weight: bold; font-size: 1rem;">*Identificador del jugador</h1>
-                    <div class="row">
-                        <div class="col">
-                            <label for="folio">Folio:</label>
-                            <input type="text" id="folio" class="form-control">
-                            <label for="equipo">Equipo:</label>
-                            <select id="equipo" class="form-control">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
-                        </div>
-                        <div class="col">
-                            <div class="input-group mb-3">
-                                <input type="file" class="form-control" id="inputGroupFile02">
-                                <label class="input-group-text" for="inputGroupFile02">Subir</label>
-                            </div>
-                        </div>
-                    </div>
+        <!-- Pestañas de navegación -->
+        <ul class="nav nav-tabs">
+            <div>
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" (click)="openIdentificacion()"
+                    >Identificación</a>
+            </li>
+            <app-identificacion *ngIf="showIdentificacion" (onCloseIdentificacion)="closeIdentificacion()"></app-identificacion>
+        </div><div>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" (click)="openDatosPersonales()"
+                    >Datos Personales</a>
+            </li>
+            <app-datos-personales  *ngIf="showDatosPersonales" (onCloseDatos)="closeDatosPersonales()"></app-datos-personales>
+        </div><div>
+            <li class="nav-item">
+                <a class="nav-link " data-toggle="tab" (click)="openContacto()"
+                    >Contacto</a>
+            </li>
+            <app-contacto *ngIf="showContacto" (onCloseContacto)="closeContacto()"></app-contacto>
+        </div><div>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" (click)="openDatosFisicos()"
+                    >Datos Físicos</a>
+            </li>
+            <app-datos-fisicos *ngIf="showDatosFisicos" (onCloseFisicos)="closeDatosFisicos()"></app-datos-fisicos>
+        </div><div>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab"  (click)="openEscolar()"
+                    >Escolar</a>
+            </li>
+            <app-escolar *ngIf="showEscolar" (onCloseEscolar)="closeEscolar()"></app-escolar>
+        </div><div>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" (click)="openTutor()"
+                    >Tutor</a>
+            </li>
+            <app-tutor *ngIf="showTutor" (onCloseTutor)="closeTutor()"></app-tutor>
+        </div>
+        </ul>
+    </div>
+</div>
