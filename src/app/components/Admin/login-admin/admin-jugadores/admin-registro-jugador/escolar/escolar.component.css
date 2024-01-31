@@ -1,0 +1,26 @@
+
+.just {
+    margin-left: 25rem
+}
+.navbar {
+    background-color: #fff;
+    color: #011F3A;
+    padding: 10px;
+    border-bottom: 2px solid #011F3A
+}
+.content {
+    margin-left: 25rem;
+    padding: 2rem;
+}
+
+label {
+    font-weight: bold;
+}
+
+input,
+select {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+  

@@ -8,34 +8,71 @@
 }
 
 .navbar {
-    background-color: #fff;
-    color: #011F3A;
-    padding: 10px;
-    border-bottom: 2px solid #011F3A
+  background-color: #078cb4;
+  color: #011F3A;
+  /* color letra */
+  padding: 10px;
+  border-bottom: 2px solid #011F3A
+}
+.fixed-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
-.btn-green {
-  background-color: #338f8a;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  cursor: pointer;
+/* ///////////////////////////////////////////////////////////////////// */
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  /* Ajusta la altura según tus necesidades */
 }
-/* Estilos para el contenedor del input */
-.input {
-    width: 100%;
-    margin-bottom: 3rem;
-  }
-  
-  /* Estilos para el input */
-  .modal-content input.category-input {
-    width: calc(100% - 1rem);
-    padding: 0.5rem;
-    border: 1px solid black;
-    border-radius: 0.3rem;
-    color: black;
-  }
+
+.search-wrapper {
+  text-align: center;
+}
+
+.search-input {
+  text-align: left;
+  padding: 0.5rem 25rem 0.5rem 1rem;
+  border: 1px solid #000;
+  border-radius: 10px;
+  margin: 0.5rem;
+}
+
+.custom-button2 {
+  background-color: #FEE2C5;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  cursor: pointer;
+  margin: 0.5rem 1rem 0.5rem 0.5rem;
+  /* ⬆️    ⬅️   ⬇️    ➡️ */
+}
+
+/* ---------------------------------------- */
+.button-container {
+  text-align: left;
+}
+
+.custom-button {
+  background-color: transparent;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin: 0.5rem 1rem 0.5rem 0.5rem;
+  /* ⬆️    ⬅️   ⬇️    ➡️ */
+
+}
+
+
+
+
+
+
+
+
