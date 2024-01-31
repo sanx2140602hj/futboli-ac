@@ -1,28 +1,22 @@
-
 <div class="card p-4">
-
     <div class="tab-pane active" id="Identificacion">
         <!-- contenido pestaña identificación -->
-        <h1 style="font-weight: bold; font-size: 1rem;">*Identificador del jugador</h1>
+        <h1 style="font-weight: bold; font-size: 1rem;">*Identificador General</h1>
         <div class="row">
-            <div class="col">
-                <label for="folio">Folio:</label>
-                <input type="text" id="folio" class="form-control">
-                <label for="equipo">Equipo:</label>
-                <select id="equipo" class="form-control">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select>
-            </div>
-            <div class="col">
-                <div class="input-group mb-3">
-                    <input type="file" class="form-control" id="inputGroupFile02">
-                    <label class="input-group-text" for="inputGroupFile02">Subir</label>
-                </div>
-            </div>
-            <div>
-                <button (click)="closeModal()" >Guardar</button>
-            </div>
+            <label for="folio">Folio:</label>
+            <input type="number" min="1" id="folio" class="form-control">
+            <label for="equipo">Equipo:</label>
+            <select id="equipo" class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            <label for="equipo">Equipo:</label>
+            <input type="file" class="form-control " id="inputGroupFile02">
         </div>
+        <div>
+            <button class="save-button" (click)="closeModal()">Guardar</button>
+        </div>
+    </div>
+</div>

@@ -10,7 +10,7 @@ export class AdminRegistroJugadorComponent implements OnInit {
   ngOnInit(): void {
   }
   /* Seccion Identificacion */
-  showIdentificacion = true; /*⚠️🦖 este se mantiene en true a diferencia de los demas 
+  showIdentificacion = false; /*⚠️🦖 este se mantiene en true a diferencia de los demas 
   componentes porque debe cargar como primera instancia */
   openIdentificacion() {
     this.showIdentificacion = true;
@@ -26,7 +26,7 @@ export class AdminRegistroJugadorComponent implements OnInit {
   }
 
   /* Seccion Datos personales */
-  showDatosPersonales = false;
+  showDatosPersonales = true;
 
   openDatosPersonales() {
     this.showDatosPersonales = true;

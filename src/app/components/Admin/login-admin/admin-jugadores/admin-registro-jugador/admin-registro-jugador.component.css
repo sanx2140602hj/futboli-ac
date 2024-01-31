@@ -68,6 +68,25 @@
   /* ⬆️    ⬅️   ⬇️    ➡️ */
 
 }
+.nav-tabs {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px; /* Ajusta según sea necesario */
+}
+
+.nav-item {
+  width: 100%; /* O el ancho deseado */
+}
+
+.nav-link {
+  display: block;
+}
+
+.tab-content {
+  display: flex;
+  flex-direction: column;
+}
+
 
 
 

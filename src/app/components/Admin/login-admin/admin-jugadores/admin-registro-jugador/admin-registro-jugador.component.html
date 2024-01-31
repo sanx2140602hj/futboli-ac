@@ -6,34 +6,34 @@
 <div>
     <!-- Barra de navegación -->
     <nav class="navbar just">
-        <h1><i class="fas fa-user"></i> Jugador</h1>
+        <h1><i class="fas fa-user"></i> Registro de Jugadores</h1>
     </nav>
-<!--  --> 
+    <!--  -->
 
-<div class="content">
-    <div class="top">
-        <button class="custom-button" routerLink="/Admin-Jugadores">
-            <i class="fas fa-chevron-left"></i> Regresar
-        </button>
-    </div>
-    
-    <div class="search-container">
-        <div class="search-wrapper">
-            <input type="text" class="search-input" placeholder="Buscar...">
-            <select id="equipo" class="custom-button" placeholder="Tipo">
-            <option value="" disabled selected hidden>Tipo</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-        </select>
-            <button class="custom-button2">Buscar</button>
+    <div class="content">
+        <div class="top">
+            <button class="custom-button" routerLink="/Admin-Jugadores">
+                <i class="fas fa-chevron-left"></i> Regresar
+            </button>
+        </div>
+
+        <div class="search-container">
+            <div class="search-wrapper">
+                <input type="text" class="search-input" placeholder="Buscar...">
+                <select id="equipo" class="custom-button" placeholder="Tipo">
+                    <option value="" disabled selected hidden>Tipo</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <button class="custom-button2">Buscar</button>
+            </div>
         </div>
     </div>
-</div>
-<!--  -->
+    <!--  -->
     <div class="content">
- 
+
         <div>
             <h2>Formulario de inscripción</h2>
             <p>Complete este formulario para inscribir a un jugador en la liga. Un asterisco (*) indica la
@@ -46,13 +46,19 @@
                 <li class="nav-item">
                     <a class="nav-link active" data-toggle="tab" (click)="openIdentificacion()">Identificación</a>
                 </li>
-                <app-identificacion *ngIf="showIdentificacion" (onCloseIdentificacion)="closeIdentificacion()"></app-identificacion>
+            </div>
+            <div>
+                <app-identificacion *ngIf="showIdentificacion"
+                    (onCloseIdentificacion)="closeIdentificacion()"></app-identificacion>
             </div>
             <div>
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="tab" (click)="openDatosPersonales()">Datos Personales</a>
                 </li>
-                <app-datos-personales *ngIf="showDatosPersonales" (onCloseDatos)="closeDatosPersonales()"></app-datos-personales>
+            </div>
+            <div>
+                <app-datos-personales *ngIf="showDatosPersonales"
+                    (onCloseDatos)="closeDatosPersonales()"></app-datos-personales>
             </div>
             <div>
                 <li class="nav-item">
@@ -64,18 +70,24 @@
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="tab" (click)="openDatosFisicos()">Datos Físicos</a>
                 </li>
+            </div>
+            <div>
                 <app-datos-fisicos *ngIf="showDatosFisicos" (onCloseFisicos)="closeDatosFisicos()"></app-datos-fisicos>
             </div>
             <div>
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="tab" (click)="openEscolar()">Escolar</a>
                 </li>
+            </div>
+            <div>
                 <app-escolar *ngIf="showEscolar" (onCloseEscolar)="closeEscolar()"></app-escolar>
             </div>
             <div>
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="tab" (click)="openTutor()">Tutor</a>
                 </li>
+            </div>
+            <div>
                 <app-tutor *ngIf="showTutor" (onCloseTutor)="closeTutor()"></app-tutor>
             </div>
         </ul>
