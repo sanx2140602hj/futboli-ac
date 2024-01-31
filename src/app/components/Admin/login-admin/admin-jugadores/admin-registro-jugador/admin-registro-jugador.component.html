@@ -1,13 +1,7 @@
-<div class="sidebar">
-    <div class="logo">
-        <img src="/assets/imagenes/A.png" alt="Logo">
-        <h1>FUTBOLI-ADMIN</h1>
-    </div>
-    <hr>
-    <div class="sidebar" id="sidebar">
-        <app-sidebar></app-sidebar>
-    </div>
+<div class="sidebar" id="sidebar">
+    <app-sidebar></app-sidebar>
 </div>
+
 <div>
     <nav class="navbar just">
         <h1>Jugadores</h1>
@@ -26,32 +20,36 @@
 
         <button id="btnGuardar" type="button" class="btn-green"
             style="margin-left: 1rem; border-radius:15px;">Buscar</button>
-            <div>
-                <h2>Formulario de inscripción</h2>
-                <p>Complete este formulario para inscribir a un jugador en la liga. Un asterisco (*) indica la
-                    información obligatoria.</p>
-            </div>
+        <div>
+            <h2>Formulario de inscripción</h2>
+            <p>Complete este formulario para inscribir a un jugador en la liga. Un asterisco (*) indica la
+                información obligatoria.</p>
+        </div>
 
         <div class="card p-4">
 
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link active" routerLinkActive="active" [routerLink]="['/Identificacion']" >Identificación</a>
+                    <a class="nav-link active" routerLinkActive="active"
+                        [routerLink]="['/Identificacion']">Identificación</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" routerLinkActive="active" [routerLink]="['/Datos-Personales']" >Datos Personales</a>
+                    <a class="nav-link" data-toggle="tab" routerLinkActive="active"
+                        [routerLink]="['/Datos-Personales']">Datos Personales</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLinkActive="active" [routerLink]="['/Contacto']" >Contacto</a>
+                    <a class="nav-link" routerLinkActive="active" [routerLink]="['/Contacto']">Contacto</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" routerLinkActive="active" [routerLink]="['/Datos-Fisicos']" >Datos Físicos</a>
+                    <a class="nav-link" data-toggle="tab" routerLinkActive="active"
+                        [routerLink]="['/Datos-Fisicos']">Datos Físicos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" routerLinkActive="active" [routerLink]="['/Escolar']" >Escolar</a>
+                    <a class="nav-link" data-toggle="tab" routerLinkActive="active"
+                        [routerLink]="['/Escolar']">Escolar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" routerLinkActive="active" [routerLink]="['/Tutor']" >Tutor</a>
+                    <a class="nav-link" data-toggle="tab" routerLinkActive="active" [routerLink]="['/Tutor']">Tutor</a>
                 </li>
             </ul>
             <div class="tab-content">
@@ -77,4 +75,3 @@
                             </div>
                         </div>
                     </div>
-

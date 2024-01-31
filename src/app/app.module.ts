@@ -21,7 +21,7 @@ import { LoginAdminComponent } from './components/Admin/login-admin/login-admin.
 import { AdminHomeComponent } from './components/Admin/login-admin/admin-home/admin-home.component';
 import { AdminCategoriasComponent } from './components/Admin/login-admin/admin-categorias/admin-categorias.component';
 import { AdminRegistroEquipoComponent } from './components/Admin/login-admin/admin-registro-equipo/admin-registro-equipo.component';
-import { AdminRegistroJugadorComponent } from './components/Admin/login-admin/admin-registro-jugador/admin-registro-jugador.component';
+import { AdminRegistroJugadorComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/admin-registro-jugador.component';
 import { AdminEquiposComponent } from './components/Admin/login-admin/admin-equipos/admin-equipos.component';
 import { AdminPartidosComponent } from './components/Admin/login-admin/admin-partidos/admin-partidos.component';
 import { AdminRecibosComponent } from './components/Admin/login-admin/admin-recibos/admin-recibos.component';
@@ -45,12 +45,13 @@ import { ModalutilsequiposRegistrodirectortecnicoComponent } from './components/
 import { ModalutilsequiposRegistrodelpresidenteComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/modalutilsequipos-registrodelpresidente/modalutilsequipos-registrodelpresidente.component';
 import { ModalutilsequiposEditarComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/modalutilsequipos-editar/modalutilsequipos-editar.component';
 import { ModalutilsequiposEliminarComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/modalutilsequipos-eliminar/modalutilsequipos-eliminar.component';
-import { ContactoComponent } from './components/Admin/login-admin/admin-registro-jugador/contacto/contacto.component';
-import { DatosFisicosComponent } from './components/Admin/login-admin/admin-registro-jugador/datos-fisicos/datos-fisicos.component';
-import { DatosPersonalesComponent } from './components/Admin/login-admin/admin-registro-jugador/datos-personales/datos-personales.component';
-import { EscolarComponent } from './components/Admin/login-admin/admin-registro-jugador/escolar/escolar.component';
-import { IdentificacionComponent } from './components/Admin/login-admin/admin-registro-jugador/identificacion/identificacion.component';
-import { TutorComponent } from './components/Admin/login-admin/admin-registro-jugador/tutor/tutor.component';
+import { ContactoComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/contacto/contacto.component';
+import { DatosFisicosComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/datos-fisicos/datos-fisicos.component';
+import { DatosPersonalesComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/datos-personales/datos-personales.component';
+import { EscolarComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/escolar/escolar.component';
+import { IdentificacionComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/identificacion/identificacion.component';
+import { TutorComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/tutor/tutor.component';
+import { AdminJugadoresComponent } from './components/Admin/login-admin/admin-jugadores/admin-jugadores.component';
 
 
 
@@ -101,7 +102,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DatosPersonalesComponent,
     EscolarComponent,
     IdentificacionComponent,
-    TutorComponent
+    TutorComponent,
+    AdminJugadoresComponent
 
   ],
   imports: [
