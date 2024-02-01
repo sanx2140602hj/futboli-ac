@@ -1,0 +1,64 @@
+.just {
+    margin-left: 25rem
+}
+
+.content {
+    margin-left: 25rem;
+    padding: 20px;
+}
+
+.navbar {
+    background-color: #078cb4;
+    color: #011F3A;
+    padding: 10px;
+    border-bottom: 2px solid #011F3A
+}
+
+.fixed-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    /* Asegura que el navbar esté por encima de otros elementos */
+}
+
+
+
+/* ///////////////////////////////////////////////////////////////////// */
+.contenido {
+    display: flex;
+    margin-left: 25rem;
+    padding: 20px;
+  }
+  
+  .navbar {
+    background-color: #078cb4;
+    color: #011F3A;
+    padding: 10px;
+    border-bottom: 2px solid #011F3A;
+    width: 100%;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+  }
+  
+  .contenedor {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 70px; /* Ajusta según sea necesario para evitar que el contenido se solape con el navbar fijo */
+  }
+  
+  .izq {
+    width: 50%;
+    text-align: center;
+  }
+  
+  .selecciones {
+    margin-top: 20px;
+  }
+  
+  .der {
+    width: 50%;
+  }
+  
+  

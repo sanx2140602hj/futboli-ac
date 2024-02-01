@@ -22,8 +22,179 @@
     /* Asegura que el navbar esté por encima de otros elementos */
 }
 
-.top {
+
+
+/* ///////////////////////////////////////////////////////////////////// */
+
+.contenedor-secciones {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.seccion-crear-rol {
+    width: 95%;
+    padding: 1rem;
+    border: 1px solid #878787;
+}
+
+.titulo-centrado {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+
+
+/* ------------------------------- */
+
+h2 {
+    border-bottom: 1px solid #878787;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    border-bottom: 1px solid #878787;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ----------------- */
+.op {
+    display: flex;
     margin-top: 7rem;
 }
 
-/* ///////////////////////////////////////////////////////////////////// */
+.izq {
+    flex: 50%;
+}
+
+.der {
+    flex: 50%;
+    overflow-y: auto;
+}
+.scroll {
+    overflow-y: auto;
+    max-height: 400px;
+
+}
+
+/* ------------------------ */
+.custom-button3 {
+    color: rgb(0, 0, 0);
+    background-color: transparent;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    cursor: pointer;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+/*  */
+
+
+.search-input {
+    text-align: left;
+    padding: 0.5rem 25rem 0.5rem 1rem;
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/*  */
+.botones {
+    display: flex;
+    justify-content: flex-end;
+    /* Alinea los elementos al final del contenedor (derecha) */
+    margin-top: 20px;
+}
+
+.cancelar-button {
+    background-color: transparent;
+    color: #ff0000;
+    border: 1px solid #ff0000;
+    border-radius: 0.3rem;
+    padding: 0.5rem 1rem;
+}
+
+.cancelar-button:hover {
+    background-color: #ff0000;
+    color: white;
+}
+
+.save-button {
+    background-color: transparent;
+    color: #288A85;
+    border: 1px solid #288A85;
+    border-radius: 0.3rem;
+    padding: 0.5rem 1rem;
+    margin-left: 1rem;
+}
+
+.save-button:hover {
+    background-color: #288A85;
+    color: white;
+
+}
+.Z{
+ padding: 2rem;
+}
+/* ---------------------------- */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .search-wrapper {
+    text-align: center;
+  }
+  
+  .search-input2 {
+    text-align: left;
+    padding: 0.5rem 15rem 0.5rem 1rem;
+    border: 1px solid #000;
+    border-radius: 10px; 
+    margin: 0.5rem;
+  }
+  
+  .custom-button2 {
+    background-color: #FEE2C5;
+    border: 1px solid #000;
+    border-radius:10px;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    cursor: pointer;
+    margin: 0.5rem 1rem 0.5rem 0.5rem;
+          /* ⬆️    ⬅️   ⬇️    ➡️ */
+  }
+  @media screen and (max-width: 1500px) {
+    .just {
+        margin-left: 17rem
+    }
+    .content {
+        margin-left: 17rem;
+        padding: 20px;
+    } 
+    .izq {
+        flex: 50%;
+        zoom: 80%;
+    }
+    
+    .der {
+        flex: 50%;
+        overflow-y: auto;
+        zoom: 80%;
+    }
+
+  }

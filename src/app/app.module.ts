@@ -57,6 +57,7 @@ import { AdminJugadoresComponent } from './components/Admin/login-admin/admin-ju
 
 import { UtilsCardsjugadorComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/utils-cardsjugador/utils-cardsjugador.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UtilsRoldejuegoComponent } from './components/Admin/login-admin/admin-roldejuego/utils-roldejuego/utils-roldejuego.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -105,7 +106,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     IdentificacionComponent,
     TutorComponent,
     AdminJugadoresComponent,
-    UtilsCardsjugadorComponent
+    UtilsCardsjugadorComponent,
+    UtilsRoldejuegoComponent,
 
   ],
   imports: [

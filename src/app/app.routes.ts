@@ -35,6 +35,7 @@ import { DatosPersonalesComponent } from './components/Admin/login-admin/admin-j
 import { EscolarComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/escolar/escolar.component';
 import { IdentificacionComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/identificacion/identificacion.component';
 import { TutorComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/tutor/tutor.component';
+import { UtilsRoldejuegoComponent } from './components/Admin/login-admin/admin-roldejuego/utils-roldejuego/utils-roldejuego.component';
 
 
 const app_routes: Routes = [
@@ -74,6 +75,8 @@ const app_routes: Routes = [
   { path: 'Identificacion', component: IdentificacionComponent},
   { path: 'Tutor', component: TutorComponent},
   { path: 'card-jugador', component: UtilsCardsjugadorComponent},
+  { path: 'Rol-de-Juego', component: UtilsRoldejuegoComponent},
+
   
 
   { path: '**', pathMatch: 'full', redirectTo: 'Inicio' }
