@@ -1,8 +1,18 @@
-<div class="card p-4">
-
-  
-    <div class="tab-pane active" id="Identificacion">
-            <div class="tab-pane" id="Tutor">
-                <label for="tutor">Tutor:</label>
-                <input type="text" id="tutor" class="form-control">
+<div class="tab-pane active" id="Identificacion">
+    <!-- contenido pestaña identificación -->
+    <h1 style="font-weight: bold; font-size: 1rem;">*Identificador Escolar</h1>
+    <div class="row">
+        <form [formGroup]="miFormulario">
+            <!-- contenido pestaña escolar -->
+            <label for="tutor">tutor:</label>
+            <input id="tutor" type="text" formControlName="tutor" class="form-control"
+                [ngClass]="{ 'error-input': tutor && tutor.invalid && (tutor.dirty || tutor.touched) }">
+            <div *ngIf="tutor && tutor.invalid && (tutor.dirty || tutor.touched)">
+                <div *ngIf="tutor.errors?.['required']">El nombre de tutor es obligatorio.</div>
             </div>
+        </form>
+        <div>
+            <button class="save-button" (click)="guardarInformacion()">Guardar</button>
+        </div>
+    </div>
+</div>

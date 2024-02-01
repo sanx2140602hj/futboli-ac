@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-admin-registro-jugador',
   templateUrl: './admin-registro-jugador.component.html',
@@ -9,7 +9,7 @@ export class AdminRegistroJugadorComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  /* Seccion Identificacion */
+  /* Seccion Identificacion ⭐ */
   showIdentificacion = false; /*⚠️🦖 este se mantiene en true a diferencia de los demas 
   componentes porque debe cargar como primera instancia */
   openIdentificacion() {
@@ -25,8 +25,8 @@ export class AdminRegistroJugadorComponent implements OnInit {
     this.showIdentificacion = false;
   }
 
-  /* Seccion Datos personales */
-  showDatosPersonales = true;
+  /* Seccion Datos personales ⭐*/
+  showDatosPersonales = false;
 
   openDatosPersonales() {
     this.showDatosPersonales = true;
@@ -41,7 +41,7 @@ export class AdminRegistroJugadorComponent implements OnInit {
     this.showDatosPersonales = false;
   }
 
-  /* Seccion Contacto */
+  /* Seccion Contacto ⭐*/
   showContacto = false;
 
   openContacto() {
@@ -57,7 +57,7 @@ export class AdminRegistroJugadorComponent implements OnInit {
     this.showContacto = false;
   }
 
-  /* Seccion Datos Fisicos */
+  /* Seccion Datos Fisicos ⭐ */
   showDatosFisicos = false;
 
   openDatosFisicos() {
@@ -73,7 +73,7 @@ export class AdminRegistroJugadorComponent implements OnInit {
     this.showDatosFisicos = false;
   }
 
-  /* Seccion Escolar */
+  /* Seccion Escolar ⭐ */
   showEscolar = false;
 
   openEscolar() {
@@ -89,7 +89,7 @@ export class AdminRegistroJugadorComponent implements OnInit {
     this.showEscolar = false;
   }
 
-  /* Seccion Tutor */
+  /* Seccion Tutor ⭐*/
   showTutor = false;
 
   openTutor() {

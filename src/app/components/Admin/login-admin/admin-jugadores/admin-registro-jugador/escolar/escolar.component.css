@@ -1,26 +1,19 @@
-
-.just {
-    margin-left: 25rem
-}
-.navbar {
-    background-color: #fff;
-    color: #011F3A;
-    padding: 10px;
-    border-bottom: 2px solid #011F3A
-}
-.content {
-    margin-left: 25rem;
-    padding: 2rem;
-}
-
 label {
     font-weight: bold;
 }
-
 input,
 select {
     width: 100%;
     margin-bottom: 10px;
 }
+.save-button {
+    background-color: #288A85;
+    border: 1px solid #288A85;
+    border-radius: 0.3rem;
+    color: white;
+    padding: 0.5rem 1rem;
+  }
 
-  
+  .error-input {
+    border-color: red;
+}

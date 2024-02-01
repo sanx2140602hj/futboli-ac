@@ -1,17 +1,3 @@
-.just {
-    margin-left: 25rem
-}
-.navbar {
-    background-color: #fff;
-    color: #011F3A;
-    padding: 10px;
-    border-bottom: 2px solid #011F3A
-}
-.content {
-    margin-left: 25rem;
-    padding: 2rem;
-}
-
 label {
     font-weight: bold;
 }
@@ -26,5 +12,8 @@ select {
     border-radius: 0.3rem;
     color: white;
     padding: 0.5rem 1rem;
+  }
+
+  .error-input {
+    border-color: red;
 }
-  

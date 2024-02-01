@@ -3,20 +3,17 @@
         <h1 style="font-weight: bold; font-size: 1rem;">*Identificador de datos personales</h1>
         <div class="row">
             <!-- Nombre -->
-            <!-- Nombre -->
             <form [formGroup]="miFormulario">
                 <label for="nombre">Nombre:</label>
-                <input type="text" formControlName="nombre" class="form-control"
+                <input id="nombre" type="text" formControlName="nombre" class="form-control"
                     [ngClass]="{ 'error-input': nombre && nombre.invalid && (nombre.dirty || nombre.touched) }">
                 <div *ngIf="nombre && nombre.invalid && (nombre.dirty || nombre.touched)">
                     <div *ngIf="nombre.errors?.['required']">El nombre es obligatorio.</div>
                     <div *ngIf="nombre.errors?.['pattern']">Solo se permiten letras y espacios.</div>
                 </div>
-            </form>
-            <!-- apellido Paterno -->
-            <form [formGroup]="miFormulario">
+                <!-- apellido Paterno -->
                 <label for="apellidoPaterno">Apellido Paterno:</label>
-                <input type="text" formControlName="apellidoPaterno" class="form-control"
+                <input id="apellidoPaterno" type="text" formControlName="apellidoPaterno" class="form-control"
                     [ngClass]="{ 'error-input': apellidoPaterno && apellidoPaterno.invalid && (apellidoPaterno.dirty || apellidoPaterno.touched) }">
 
                 <div
@@ -24,11 +21,9 @@
                     <div *ngIf="apellidoPaterno.errors?.['required']">El apellido paterno es obligatorio.</div>
                     <div *ngIf="apellidoPaterno.errors?.['pattern']">Solo se permiten letras y espacios.</div>
                 </div>
-            </form>
-            <!-- apellido Materno -->
-            <form [formGroup]="miFormulario">
+                <!-- apellido Materno -->
                 <label for="apellidoMaterno">Apellido Materno:</label>
-                <input type="text" formControlName="apellidoMaterno" class="form-control"
+                <input id="apellidoMaterno" type="text" formControlName="apellidoMaterno" class="form-control"
                     [ngClass]="{ 'error-input': apellidoMaterno && apellidoMaterno.invalid && (apellidoMaterno.dirty || apellidoMaterno.touched) }">
 
                 <div
@@ -36,47 +31,32 @@
                     <div *ngIf="apellidoMaterno.errors?.['required']">El apellido materno es obligatorio.</div>
                     <div *ngIf="apellidoMaterno.errors?.['pattern']">Solo se permiten letras y espacios.</div>
                 </div>
-            </form>
-            <!-- genero -->
-            <form>
+                <!-- genero -->
                 <label for="genero">Género:</label>
                 <select id="genero" class="form-control">
                     <option value="masculino">Masculino</option>
                     <option value="femenino">Femenino</option>
                 </select>
-            </form>
-            <!-- edad -->
-            <form [formGroup]="miFormulario">
-                <label for="edad">Edad:</label>
-                <input type="number" min="1" id="edad" class="form-control" formControlName="edad"
-                    [ngClass]="{ 'error-input': edad && edad.invalid && (edad.dirty || edad.touched) }">
-                <div *ngIf="edad && edad.invalid && (edad.dirty || edad.touched)">
-                    <div *ngIf="edad.errors?.['required']">La edad es obligatoria.</div>
-                </div>
-            </form>
-            <!-- Fecha -->
-            <form [formGroup]="miFormulario">
+                <!-- Fecha -->
                 <label for="Fecha">Fecha:</label>
                 <input type="date" id="nacimiento" class="form-control" formControlName="Fecha"
                     [ngClass]="{ 'error-input': Fecha && Fecha.invalid && (Fecha.dirty || Fecha.touched) }">
                 <div *ngIf="Fecha && Fecha.invalid && (Fecha.dirty || Fecha.touched)">
                     <div *ngIf="Fecha.errors?.['required']">La Fecha de nacimiento es obligatoria.</div>
                 </div>
-            </form>
-            <!-- Curp -->
-            <form [formGroup]="miFormulario">
+                <!-- Curp -->
                 <label for="curp">CURP:</label>
                 <input type="text" id="curp" class="form-control" formControlName="curp"
-                [ngClass]="{ 'error-input': curp && curp.invalid && (curp.dirty || curp.touched) }">
+                    [ngClass]="{ 'error-input': curp && curp.invalid && (curp.dirty || curp.touched) }">
                 <div *ngIf="curp && curp.invalid && (curp.dirty || curp.touched)">
                     <div *ngIf="curp.errors?.['required']">La curp es obligatoria.</div>
-                    <div *ngIf="curp.errors?.['pattern']">Solo se permiten letras y espacios.</div>
+                    <div *ngIf="curp.errors?.['pattern']">Solo se permiten letras y numeros.</div>
                 </div>
             </form>
         </div>
         <div>
             <button class="save-button" (click)="guardarInformacion()">Guardar</button>
         </div>
-        
+
     </div>
 </div>

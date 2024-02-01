@@ -15,9 +15,8 @@ export class DatosPersonalesComponent implements OnInit {
       nombre: ['', [Validators.required, Validators.pattern('[a-z A-Z\s]+')]],
       apellidoPaterno: ['', [Validators.required, Validators.pattern('[a-z A-Z\s]+')]],
       apellidoMaterno: ['', [Validators.required, Validators.pattern('[a-z A-Z\s]+')]],
-      edad:['', [Validators.required, Validators.pattern('^[0-9]+$')]],
       Fecha: ['',[Validators.required]],
-      curp: ['', [Validators.required, Validators.pattern('[a-z A-Z\s]+')]],
+      curp: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9\s]+')]],
     });
 
     this.datosPersonales = {}; // Inicializa el objeto datosPersonales
@@ -39,9 +38,6 @@ export class DatosPersonalesComponent implements OnInit {
     return this.miFormulario.get('apellidoMaterno');
   }
 
-  get edad(){
-    return this.miFormulario.get('edad')
-  }
 
   get Fecha(){
     return this.miFormulario.get('Fecha')
@@ -57,17 +53,14 @@ export class DatosPersonalesComponent implements OnInit {
     const nombre = this.miFormulario.get('nombre');
     const apellidoPaterno = this.miFormulario.get('apellidoPaterno');
     const apellidoMaterno = this.miFormulario.get('apellidoMaterno');
-    const edad = this.miFormulario.get('edad');
     const Fecha = this.miFormulario.get('Fecha');
     const curp = this.miFormulario.get('curp');
   
-    if (nombre && apellidoPaterno && apellidoMaterno && edad && Fecha && curp) {
+    if (nombre && apellidoPaterno && apellidoMaterno && Fecha && curp) {
       this.datosPersonales = {
         nombre: nombre.value,
         apellidoPaterno: apellidoPaterno.value,
         apellidoMaterno: apellidoMaterno.value,
-        edad: edad.value,
-        Fecha: Fecha.value,
         curp: curp.value,
       };
   

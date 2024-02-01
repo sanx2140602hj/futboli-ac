@@ -1,21 +1,41 @@
 <div class="card p-4">
-
-  
     <div class="tab-pane active" id="Identificacion">
-                <!-- contenido pestaña datos físicos -->
-                <label for="estatura">Estatura:</label>
-                <input type="number" id="estatura" class="form-control">
-                <label for="peso">Peso:</label>
-                <input type="number" id="peso" class="form-control">
-                <label for="tipoSangre">Tipo de Sangre:</label>
-                <select id="tipoSangre" class="form-control">
-                    <option value="O+">O+</option>
-                    <option value="A+">A+</option>
-                    <option value="A-">A-</option>
-                    <option value="B+">B+</option>
-                    <option value="B-">B-</option>
-                    <option value="O-">O-</option>
-                    <option value="AB+">AB+</option>
-                    <option value="AB-">AB-</option>
-                </select>
-                <hr>
+        <form [formGroup]="miFormulario">
+            <label for="estatura">Estatura:</label>
+            <input type="number" id="estatura" formControlName="estatura" class="form-control"
+                [ngClass]="{ 'error-input': estatura && estatura.invalid && (estatura.dirty || estatura.touched) }">
+            <div *ngIf="estatura && estatura.invalid && (estatura.dirty || estatura.touched)">
+                <div *ngIf="estatura.errors?.['required']">La estatura es requerida.</div>
+                <div *ngIf="estatura.errors?.['pattern']">Solo se permiten números.</div>
+            </div>
+            <!--  -->
+            <label for="peso">Peso:</label>
+            <input type="number" id="peso" formControlName="peso" class="form-control"
+                [ngClass]="{ 'error-input': peso && peso.invalid && (peso.dirty || peso.touched) }">
+            <div *ngIf="peso && peso.invalid && (peso.dirty || peso.touched)">
+                <div *ngIf="peso.errors?.['required']">El peso es requerido.</div>
+                <div *ngIf="peso.errors?.['pattern']">Solo se permiten números.</div>
+            </div>
+            <!--  --> 
+            <label for="tipoSangre">Tipo de Sangre:</label>
+            <select id="tipoSangre" formControlName="tipoSangre" class="form-control"
+                [ngClass]="{ 'error-input': tipoSangre && tipoSangre.invalid && (tipoSangre.dirty || tipoSangre.touched) }">
+                <option value="O+">O+</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="O-">O-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+            </select>
+            <div *ngIf="tipoSangre && tipoSangre.invalid && (tipoSangre.dirty || tipoSangre.touched)">
+                <div *ngIf="tipoSangre.errors?.['required']">El tipo de sangre es requerido.</div>
+            </div>
+            <!--  -->
+        </form>
+            <div>
+                <button class="save-button" (click)="guardarInformacion()">Guardar</button>
+            </div>
+    </div>
+</div>
