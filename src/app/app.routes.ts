@@ -26,6 +26,8 @@ import { AdminJugadoresComponent } from './components/Admin/login-admin/admin-ju
 
 /* utils */
 import { EquiposUtilsComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/equipos-utils.component';
+import { UtilsCardsjugadorComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/utils-cardsjugador/utils-cardsjugador.component';
+
 /*  */
 import { ContactoComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/contacto/contacto.component';
 import { DatosFisicosComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/datos-fisicos/datos-fisicos.component';
@@ -71,6 +73,7 @@ const app_routes: Routes = [
   { path: 'Escolar', component: EscolarComponent},
   { path: 'Identificacion', component: IdentificacionComponent},
   { path: 'Tutor', component: TutorComponent},
+  { path: 'card-jugador', component: UtilsCardsjugadorComponent},
   
 
   { path: '**', pathMatch: 'full', redirectTo: 'Inicio' }

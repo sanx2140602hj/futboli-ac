@@ -1,0 +1,119 @@
+.just {
+    margin-left: 25rem
+}
+
+.content {
+    margin-left: 25rem;
+    padding: 20px;
+}
+
+.navbar {
+    background-color: #078cb4;
+    color: #011F3A;
+    padding: 10px;
+    border-bottom: 2px solid #011F3A
+}
+
+.fixed-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    /* Asegura que el navbar esté por encima de otros elementos */
+}
+
+.top {
+    margin-top: 7rem;
+}
+
+/* ///////////////////////////////////////////////////////////////////// */
+/* En tu archivo de estilos (por ejemplo, styles.css) */
+
+.contenedor {
+    display: flex;
+    align-items: flex-start;
+}
+
+.lado-izquierdo {
+    display: flex;
+    align-items: center;
+    /* Alinea verticalmente en el centro */
+    padding-right: 1rem;
+    /* Espaciado entre los dos lados */
+}
+
+.img {
+    height: 3rem;
+    margin-right: 1rem;
+    /* Espaciado entre la imagen y el texto */
+}
+
+.lado-derecho {
+    margin-right: 5rem;
+    margin-top: -6rem;
+    /* 🦖⭐ No enconcre una propiedad para alinearlos tener cuidado con el responsive */
+    display: flex;
+    flex-grow: 50%;
+    text-align: left;
+    /* Alinea el texto a la izquierda en lugar de a la derecha */
+    flex-direction: row-reverse;
+    /* Invierte el orden de los elementos en el eje horizontal */
+}
+
+.limite {
+    height: 3rem;
+    margin-bottom: -2rem;
+}
+
+/* ------------------------ */
+.custom-button {
+    background-color: transparent;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin: 0.5rem 1rem 0.5rem 0.5rem;
+    /* ⬆️    ⬅️   ⬇️    ➡️ */
+
+}
+
+.custom-button3 {
+    color: red;
+    background-color: transparent;
+    border: 1px solid red;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin: 0.5rem 1rem 0.5rem 0.5rem;
+    /* ⬆️    ⬅️   ⬇️    ➡️ */
+
+}
+
+/* ------------------- componente rth */
+.tabla {
+    margin-top: 6rem; /* son los 6 rem que quitamos anterior mente busquen el dino
+     y veran que estan relacionados 🦖⭐ */
+}
+
+.nav-tabs {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    /* Ajusta según sea necesario */
+}
+
+.nav-item {
+    width: 100%;
+    /* O el ancho deseado */
+}
+
+.nav-link {
+    display: block;
+}
+
+.tab-content {
+    display: flex;
+    flex-direction: column;
+}

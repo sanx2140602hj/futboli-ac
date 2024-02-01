@@ -1,0 +1,87 @@
+<!-- En tu componente de Angular (por ejemplo, app.component.html) -->
+<div class="sidebar" id="sidebar">
+    <app-sidebar></app-sidebar>
+</div>
+<nav class="navbar just fixed-navbar">
+    <h1>
+        <i class="fas fa-user"></i> Jugador - >>colocar interpolacion para el nombre XD>>
+        <!-- Agrega la interpolación aquí -->
+    </h1>
+</nav>
+<div class="content">
+    <div class="top">
+        <button class="custom-button" routerLink="/Admin-Jugadores">
+            <i class="fas fa-chevron-left"></i> Regresar
+        </button>
+    </div>
+</div>
+<div class="content ">
+
+    <div class="lado-izquierdo">
+        <div>
+            <img src="../../../../../../../assets/imagenes/x.png" alt="Imagen" class="img">
+        </div>
+        <div>
+            <h1>Nombre Ficticio</h1>
+            <hr class="limite">
+            <p>Código: 000000</p>
+        </div>
+    </div>
+    <div class="lado-derecho">
+        <button class="custom-button3">
+            <i class="fa-solid fa-trash"></i> Dar de baja
+        </button>
+    </div>
+    <!--  -->
+    <div class="tabla">  <!-- Pestañas de navegación -->
+        <ul class="nav nav-tabs">
+            <div>
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" (click)="openIdentificacion()">Identificación</a>
+                </li>
+            </div>
+            <div>
+                <app-identificacion *ngIf="showIdentificacion"
+                    (onCloseIdentificacion)="closeIdentificacion()"></app-identificacion>
+            </div>
+            <div>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" (click)="openDatosPersonales()">Datos Personales</a>
+                </li>
+            </div>
+            <div>
+                <app-datos-personales *ngIf="showDatosPersonales"
+                    (onCloseDatos)="closeDatosPersonales()"></app-datos-personales>
+            </div>
+            <div>
+                <li class="nav-item">
+                    <a class="nav-link " data-toggle="tab" (click)="openContacto()">Contacto</a>
+                </li>
+                <app-contacto *ngIf="showContacto" (onCloseContacto)="closeContacto()"></app-contacto>
+            </div>
+            <div>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" (click)="openDatosFisicos()">Datos Físicos</a>
+                </li>
+            </div>
+            <div>
+                <app-datos-fisicos *ngIf="showDatosFisicos" (onCloseFisicos)="closeDatosFisicos()"></app-datos-fisicos>
+            </div>
+            <div>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" (click)="openEscolar()">Escolar</a>
+                </li>
+            </div>
+            <div>
+                <app-escolar *ngIf="showEscolar" (onCloseEscolar)="closeEscolar()"></app-escolar>
+            </div>
+            <div>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" (click)="openTutor()">Tutor</a>
+                </li>
+            </div>
+            <div>
+                <app-tutor *ngIf="showTutor" (onCloseTutor)="closeTutor()"></app-tutor>
+            </div>
+        </ul></div>
+</div>

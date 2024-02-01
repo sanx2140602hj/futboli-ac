@@ -55,6 +55,7 @@ import { AdminJugadoresComponent } from './components/Admin/login-admin/admin-ju
 
 
 
+import { UtilsCardsjugadorComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/utils-cardsjugador/utils-cardsjugador.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
@@ -103,7 +104,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     EscolarComponent,
     IdentificacionComponent,
     TutorComponent,
-    AdminJugadoresComponent
+    AdminJugadoresComponent,
+    UtilsCardsjugadorComponent
 
   ],
   imports: [
