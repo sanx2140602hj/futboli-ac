@@ -1,13 +1,12 @@
 .contenedor {
   display: flex;
-  margin-top: -0.5rem;
 }
 
 .izquierda {
   flex: 1;
   background-size: cover;
   background-position: center;
-  height: 387px; /* cambiar a rem ⚠️⚠️⚠️ */
+  height: 5rem; /* cambiar a rem ⚠️⚠️⚠️ */
 }
 
 img {
@@ -27,7 +26,7 @@ img {
 }
 
 .texto h1 {
-  font-size: 50px;
+  font-size: 3.125rem;
   margin: 0;
 }
 
@@ -101,7 +100,7 @@ img {
 @media screen and (max-width: 900px) {
   .contenedor {
     display: flex;
-    margin-top: 10rem;
+    margin-top: -12rem;
   }
   .derecha {
     margin-top: 1rem; /* Ajusta el margen superior según sea necesario */
@@ -115,7 +114,13 @@ img {
     margin-top: -8rem;
   }
 }
-
+@media screen and (max-width: 841px) {
+  .contenedor {
+    flex-direction: column-reverse;
+    align-items: center; /* Centra los elementos horizontalmente */
+    text-align: center; /* Centra el texto */
+  }
+}
 @media screen and (max-width: 500px) {
   .contenedor {
     flex-direction: column-reverse;
@@ -139,4 +144,12 @@ img {
   .texto {
     margin: 1rem;
   }
+}
+
+/* -------------------------------------------------- */
+@media screen and (max-width: 1400px) {
+
+}
+@media screen and (max-width: 1200px) {
+
 }
