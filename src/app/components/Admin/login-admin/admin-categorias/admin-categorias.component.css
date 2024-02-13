@@ -3,13 +3,15 @@
 }
 
 .content {
-  margin-left: 25rem; /* porcentaje de izquierda y libre */
+  margin-left: 25rem;
+  /* porcentaje de izquierda y libre */
   padding: 20px;
 }
 
 .navbar {
   background-color: #078cb4;
-  color: #011F3A; /* color letra */
+  color: #011F3A;
+  /* color letra */
   padding: 10px;
   border-bottom: 2px solid #011F3A
 }
@@ -20,6 +22,7 @@
   width: 100%;
   z-index: 1000;
 }
+
 /* Asegura que el navbar esté por encima de otros elementos */
 
 /* ///////////////////////////////////////////////////////////////////// */
@@ -27,7 +30,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 15rem; /* Ajusta la altura según tus necesidades */
+  height: 15rem;
+  /* Ajusta la altura según tus necesidades */
 }
 
 .search-wrapper {
@@ -38,18 +42,20 @@
   text-align: left;
   padding: 0.5rem 25rem 0.5rem 1rem;
   border: 1px solid #000;
-  border-radius: 10px; 
+  border-radius: 10px;
   margin: 0.5rem;
 }
 
 .custom-button2 {
   background-color: #FEE2C5;
   border: 1px solid #000;
-  border-radius:10px;
+  border-radius: 10px;
   padding: 0.5rem 1rem 0.5rem 1rem;
   cursor: pointer;
   margin: 0.5rem 1rem 0.5rem 0.5rem;
-        /* ⬆️    ⬅️   ⬇️    ➡️ */}
+  /* ⬆️    ⬅️   ⬇️    ➡️ */
+}
+
 /* ---------------------------------------- */
 .button-container {
   text-align: left;
@@ -82,7 +88,7 @@
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
@@ -125,8 +131,10 @@
   border-collapse: collapse;
 }
 
-.custom-table th, .custom-table td {
-  width: auto; /* Distribuye el ancho en 5 columnas */
+.custom-table th,
+.custom-table td {
+  width: auto;
+  /* Distribuye el ancho en 5 columnas */
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
@@ -150,21 +158,104 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
-  padding: 0; /* Elimina cualquier relleno interior del botón */
-  font-size: inherit; /* Hereda el tamaño de fuente del contenedor */
-  color: inherit; /* Hereda el color del contenedor */
+  padding: 0;
+  /* Elimina cualquier relleno interior del botón */
+  font-size: inherit;
+  /* Hereda el tamaño de fuente del contenedor */
+  color: inherit;
+  /* Hereda el color del contenedor */
   margin-left: 2rem;
-  
+
 }
-.fas{
+
+.fas {
   font-size: 2rem;
 }
-.content{
-  display:grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax (150px, 1fr)
 
-  );
 
+
+@media screen and (max-width: 1500px) {
+  .container {
+    margin: 1rem;
+
+  }
+
+  .logo h1 {
+    font-size: 1rem;
+  }
+
+  .sidebar {
+    width: 17rem;
+  }
+
+  .just {
+    margin-left: 17rem
+  }
+
+  .content {
+    margin-left: 17rem;
+    padding: 20px;
+  }
+
+  /* ------------------------ */
+  .search-input {
+    text-align: left;
+    padding: 0.5rem 20rem 0.5rem 1rem;
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin: 0.5rem;
+  }
+
+}
+
+/* ------------------------------------------ */
+@media screen and (max-width: 900px) {
+  .sidebar {
+    width: 13rem;
+  }
+
+  .just {
+    margin-left: 13rem
+  }
+
+  .content {
+    margin-left: 13rem;
+    padding: 20px;
+  }
+
+  /* -------------------------------------------- */
+  .search-input {
+    text-align: left;
+    padding: 0.5rem 15rem 0.5rem 1rem;
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin: 0.5rem;
+  }
+
+  .fas {
+    font-size: 1.5rem;
+  }
+}
+
+/* ------------------------------------------ */
+
+@media screen and (max-width: 500px) {
+  .just {
+    margin-left: 4rem;
+  }
+  .content {
+    margin-left: 4rem;
+    padding: 0;
+  }
+  /* ------------------- */
+  .search-input {
+    text-align: left;
+    padding: 0.5rem 4rem 0.5rem 1rem;
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin: 0.5rem;
+  }
+  .fas {
+    font-size: 1.5rem;
+  }
 }

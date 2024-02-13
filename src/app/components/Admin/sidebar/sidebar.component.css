@@ -9,13 +9,14 @@
   left: 0;
   bottom: 0;
   width: 25rem;
-/* degradado */
+  /* degradado */
 
-background: rgb(1,31,58);
-background: -moz-linear-gradient(180deg, rgba(1,31,58,1) 8%, rgba(135,135,135,1) 8%);
-background: -webkit-linear-gradient(180deg, rgba(1,31,58,1) 8%, rgba(135,135,135,1) 8%); /* si modican altura mover los ⚠️6 porcentajes⚠️ */
-background: linear-gradient(180deg, rgba(1,31,58,1) 8%, rgba(135,135,135,1) 8%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#011f3a",endColorstr="#878787",GradientType=1);
+  background: rgb(1, 31, 58);
+  background: -moz-linear-gradient(180deg, rgba(1, 31, 58, 1) 8%, rgba(135, 135, 135, 1) 8%);
+  background: -webkit-linear-gradient(180deg, rgba(1, 31, 58, 1) 8%, rgba(135, 135, 135, 1) 8%);
+  /* si modican altura mover los ⚠️6 porcentajes⚠️ */
+  background: linear-gradient(180deg, rgba(1, 31, 58, 1) 8%, rgba(135, 135, 135, 1) 8%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#011f3a", endColorstr="#878787", GradientType=1);
   color: #fff;
   padding: 20px;
 }
@@ -43,13 +44,12 @@ hr {
 }
 
 ul {
-  
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-ul li { 
+ul li {
   cursor: pointer;
   padding: 0.5rem;
   font-size: 1.5rem;
@@ -67,7 +67,7 @@ ul li:hover {
 }
 
 
-.cero{
+.cero {
   margin: 1rem;
 }
 
@@ -75,17 +75,36 @@ ul li:hover {
   ul li {
     font-size: 1.3rem;
   }
+
   .sidebar {
     width: 17rem;
+    background: rgb(1, 31, 58);
+    background: -moz-linear-gradient(180deg, rgba(1, 31, 58, 1) 12.5%, rgba(135, 135, 135, 1) 12.5%);
+    background: -webkit-linear-gradient(180deg, rgba(1, 31, 58, 1) 12.5%, rgba(135, 135, 135, 1) 12.5%);
+    /* si modican altura mover los ⚠️6 porcentajes⚠️ */
+    background: linear-gradient(180deg, rgba(1, 31, 58, 1) 12.5%, rgba(135, 135, 135, 1) 12.5%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#011f3a", endColorstr="#878787", GradientType=1);
+    color: #fff;
+    padding: 20px;
   }
+
   .logo h1 {
     font-size: 1.5rem;
   }
-  .just{
+
+  ul li {
+    cursor: pointer;
+    padding: 0.2rem;
+    font-size: 1.2rem;
+    color: #FFF;
+  }
+
+  .just {
     margin-left: 17rem
   }
+
   .content {
-    margin-left: 17rem; 
+    margin-left: 17rem;
     padding: 20px;
   }
 }
@@ -94,54 +113,96 @@ ul li:hover {
   ul li {
     font-size: 1.1rem;
   }
+
   .logo h1 {
     font-size: 1rem;
   }
+
   .sidebar {
     width: 13rem;
   }
-  .just{
+
+  .just {
     margin-left: 13rem
   }
+
   .content {
-    margin-left: 13rem; 
+    margin-left: 13rem;
     padding: 20px;
   }
 }
+
 /* ------------------------------------------ */
 
 @media screen and (max-width: 500px) {
+  .sidebar {
+    width: 4rem;
+    background: rgb(1, 31, 58);
+    background: -moz-linear-gradient(180deg, rgba(1, 31, 58, 1) 8.5%, rgba(135, 135, 135, 1) 8.5%);
+    background: -webkit-linear-gradient(180deg, rgba(1, 31, 58, 1) 8.5%, rgba(135, 135, 135, 1) 8.5%);
+    /* si modican altura mover los ⚠️6 porcentajes⚠️ */
+    background: linear-gradient(180deg, rgba(1, 31, 58, 1) 8.5%, rgba(135, 135, 135, 1) 8.5%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#011f3a", endColorstr="#878787", GradientType=1);
+
+  }
+
   ul li {
     margin-left: -0.5rem;
     font-size: 2.5rem;
-    padding: 6px 0; /* Ajusta el espaciado vertical entre elementos */
-    margin-bottom: -4rem; /* Elimina el margen inferior entre elementos */
+    padding: 6px 0;
+    /* Ajusta el espaciado vertical entre elementos */
+    margin-bottom: -4rem;
+    /* Elimina el margen inferior entre elementos */
   }
+
   .logo h1 {
     font-size: 0rem;
   }
-  .sidebar {
-    width: 4rem;
+
+  hr {
+    display: none;
   }
+  
+  
+  ul li {
+    cursor: pointer;
+    padding: 1rem 0.2rem;
+        font-size: 2rem;
+    color: #FFF;
+  }
+  
+  ul li:hover {
+    border-radius: 10px;
+    background-color: #aeaeae;
+    color: #000;
+  }
+
   .just {
     margin-left: 4rem;
   }
+
   hr {
     border: 1px solid #fff;
     margin: 10px 0;
   }
+
   .content {
     margin-left: 4rem;
     padding: 0;
   }
+
   .cero {
     font-size: 0;
-    padding: 0; /* Elimina el espaciado entre elementos con clase "cero" */
-    margin-bottom: 0; /* Elimina el margen inferior entre elementos con clase "cero" */
+    padding: 0;
+    /* Elimina el espaciado entre elementos con clase "cero" */
+    margin-bottom: 0;
+    /* Elimina el margen inferior entre elementos con clase "cero" */
   }
+
   .cero a {
     display: none;
   }
+
   .cero i {
     font-size: 1.5rem;
   }

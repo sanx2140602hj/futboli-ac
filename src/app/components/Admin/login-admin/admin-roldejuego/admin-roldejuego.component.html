@@ -8,258 +8,83 @@
     </h1>
 </nav>
 <div class="content">
-    <div class="op">
+    <div class="secciones">
         <div class="izq">
-            <div> <!-- se comento porque hay codigo futuro XD -->
-                <!--  -->
-                <!--     <form class="formulario-secciones">
-            <section class="contenedor-secciones">
-                <div class="seccion-crear-rol">
-                    <h4 class="titulo-centrado">Generación de Roles de Juego</h4>
-                    <p class="titulo-centrado">Añada los equipos que jugarán para generar los roles de juegos.</p>
-
-                    <section class="seccion-exclusiva"> -->
-                <!-- Contenido de la sección exclusiva -->
-                <!-- <h3 class="titulo-negrita">Selecciona un Equipo</h3>
-                        <select id="seleccionarEquipo" name="seleccionarEquipo" required>
-                            <option value="equipoA">Equipo A</option>
-                            <option value="equipoB">Equipo B</option>
-                            <option value="equipoC">Equipo C</option>
-                            <option value="equipoD">Equipo D</option>
-                        </select>
-                        <select id="seleccionarEquipo" name="seleccionarEquipo" required>
-                            <option value="equipoA">Equipo A</option>
-                            <option value="equipoB">Equipo B</option>
-                            <option value="equipoC">Equipo C</option>
-                            <option value="equipoD">Equipo D</option>
-                        </select>
-
-                        <button class="boton-anadir-equipo" type="button">Añadir Equipo</button>
-                        <button class="boton-generar-roles" type="button">Generar Roles</button>
- -->
-                <!-- Roles dentro del mismo cuadro blanco -->
-                <!--  <div class="cuadro-roles">
-                            <p>Equipo A vs Equipo B</p>
-                        </div>
-                        <div class="cuadro-roles">
-                            <p>Equipo C vs Equipo D</p>
-                        </div>
-                    </section>
+            <div class="card">
+                <div class="title-input">
+                    <h5>Nombre del Torneo:</h5>
+                    <input type="text" class="search-input" placeholder="Nombre del torneo...">
+                    <h5>Categoría a Participar:</h5>
+                    <select id="categoriaParticipar" class="search-input" name="categoriaParticipar" required>
+                        <option value="categoria1">Categoría 1</option>
+                        <option value="categoria2">Categoría 2</option>
+                    </select>
+                    <h5>Fechas:</h5>
+                    <input type="date" class="search-input">
                 </div>
+                <div>
+                    <h3>Equipos Participantes</h3>
+                    <div class="equipos-select scroll">
 
-                <div class="boton-guardar-roles">
-                    <button type="button">Guardar Roles</button>
-                </div>
-            </section>
-        </form> -->
-            </div>
-            <div>
-                <section class="contenedor-secciones">
-                    <div class="seccion-crear-rol card">
-                        <h2>Crear Nuevo Rol de Juego</h2>
-                        <form id="formularioRoles">
-                            <!--  -->
-                            <div>
-                                <label for="nombreTorneo"><b>Nombre del Torneo:</b></label><br>
-                                <input type="text" class="search-input" placeholder="Nombre del torneo...">
-                            </div>
-                            <!--  -->
-                            <div class="categoria">
-                                <label for="categoriaParticipar"><b>Categoría a Participar:</b></label><br>
-                                <select id="categoriaParticipar" class="search-input" name="categoriaParticipar"
-                                    required>
-                                    <option value="categoria1">Categoría 1</option>
-                                    <option value="categoria2">Categoría 2</option>
-                                    <!-- Agrega más opciones según sea necesario -->
-                                </select>
-                            </div>
-                            <div>
-                                <label for="nombreTorneo"><b>Fechas:</b></label><br>
-                                <input type="text" class="search-input" placeholder="Fecha de Inicio">
-                            </div>
-                            <!--  -->
-                            <div style="margin-right: 20rem;">
-
-                                <h3>Equipos Participantes</h3>
-                                <ul id="equiposParticipantes">
-                                    <li>Equipo A <i class="fa-solid fa-xmark cursor"></i></li>
-                                    <li>Equipo B <i class="fa-solid fa-xmark cursor"></i></li>
-                                    <li>Equipo C <i class="fa-solid fa-xmark cursor"></i></li>
-                                    <!-- Puedes agregar más equipos según sea necesario -->
-                                </ul>
-                            </div>
-
-                            <h3>Buscar Equipos</h3>
-                            <ul id="equiposDisponibles" class="equipos-disponibles">
-                                <div class="search-container">
-                                    <div class="search-wrapper">
-                                        <input type="text" class="search-input2" placeholder="Buscar Categorías...">
-                                        <button class="custom-button2">Buscar</button>
-                                    </div>
-                                </div>
-                                <div class="scroll">
-                                    <li>Equipo A
-                                        <button type="button" routerLink="/Rol-de-Juego" class="custom-button3">
-                                            <i class="fa-solid fa-plus">
-                                            </i>Añadir
-                                        </button>
-                                    </li>
-                                    <li>Equipo B
-                                        <button type="button" routerLink="/Rol-de-Juego" class="custom-button3">
-                                            <i class="fa-solid fa-plus">
-                                            </i>Añadir
-                                        </button>
-                                    </li>
-                                    <li>Equipo C
-                                        <button type="button" routerLink="/Rol-de-Juego" class="custom-button3">
-                                            <i class="fa-solid fa-plus">
-                                            </i>Añadir
-                                        </button>
-                                    </li>
-                                    <li>Equipo D
-                                        <button type="button" routerLink="/Rol-de-Juego" class="custom-button3">
-                                            <i class="fa-solid fa-plus">
-                                            </i>Añadir
-                                        </button>
-                                    </li>
-                                    <li>Equipo E
-                                        <button type="button" routerLink="/Rol-de-Juego" class="custom-button3">
-                                            <i class="fa-solid fa-plus">
-                                            </i>Añadir
-                                        </button>
-                                    </li>
-                                    <li>Equipo F
-                                        <button type="button" routerLink="/Rol-de-Juego" class="custom-button3">
-                                            <i class="fa-solid fa-plus">
-                                            </i>Añadir
-                                        </button>
-                                    </li>
-                                    <li>Equipo G
-                                        <button type="button" routerLink="/Rol-de-Juego" class="custom-button3">
-                                            <i class="fa-solid fa-plus">
-                                            </i>Añadir
-                                        </button>
-                                    </li>
-                                    <li>Equipo H
-                                        <button type="button" routerLink="/Rol-de-Juego" class="custom-button3">
-                                            <i class="fa-solid fa-plus">
-                                            </i>Añadir
-                                        </button>
-                                    </li><li>Equipo A
-                                        <button type="button" routerLink="/Rol-de-Juego" class="custom-button3">
-                                            <i class="fa-solid fa-plus">
-                                            </i>Añadir
-                                        </button>
-                                    </li>
-                                    <li>Equipo B
-                                        <button type="button" routerLink="/Rol-de-Juego" class="custom-button3">
-                                            <i class="fa-solid fa-plus">
-                                            </i>Añadir
-                                        </button>
-                                    </li>
-                                    <li>Equipo C
-                                        <button type="button" routerLink="/Rol-de-Juego" class="custom-button3">
-                                            <i class="fa-solid fa-plus">
-                                            </i>Añadir
-                                        </button>
-                                    </li>
-                                    <li>Equipo D
-                                        <button type="button" routerLink="/Rol-de-Juego" class="custom-button3">
-                                            <i class="fa-solid fa-plus">
-                                            </i>Añadir
-                                        </button>
-                                    </li>
-                                    <li>Equipo E
-                                        <button type="button" routerLink="/Rol-de-Juego" class="custom-button3">
-                                            <i class="fa-solid fa-plus">
-                                            </i>Añadir
-                                        </button>
-                                    </li>
-                                    <li>Equipo F
-                                        <button type="button" routerLink="/Rol-de-Juego" class="custom-button3">
-                                            <i class="fa-solid fa-plus">
-                                            </i>Añadir
-                                        </button>
-                                    </li>
-                                    <li>Equipo G
-                                        <button type="button" routerLink="/Rol-de-Juego" class="custom-button3">
-                                            <i class="fa-solid fa-plus">
-                                            </i>Añadir
-                                        </button>
-                                    </li>
-                                    <li>Equipo H
-                                        <button type="button" routerLink="/Rol-de-Juego" class="custom-button3">
-                                            <i class="fa-solid fa-plus">
-                                            </i>Añadir
-                                        </button>
-                                    </li>
-                                </div>
-                                <!-- Puedes agregar más equipos según sea necesario -->
-                            </ul>
-
-                            <div class="botones">
-                                <button class="cancelar-button">CANCELAR</button>
-                                <button class="save-button">Crear</button>
-                            </div>
-                        </form>
+                        <ul id="equiposParticipantes ">
+                            <li>Equipo A <button class="custom-button2"><i
+                                        class="fa-solid fa-xmark cursor"></i></button></li>
+                            <li>Equipo B <button class="custom-button2"><i
+                                        class="fa-solid fa-xmark cursor"></i></button></li>
+                            <li>Equipo C <button class="custom-button2"><i
+                                        class="fa-solid fa-xmark cursor"></i></button></li>
+                            <!-- Puedes agregar más equipos según sea necesario -->
+                        </ul>
                     </div>
-                </section>
+                </div>
+                <div class="select-equipos">
+                    <input type="text" class="search-input2" placeholder="Buscar Categorías...">
+                    <button class="custom-button">Buscar</button>
+                    <div class="scroll">
+                        <li>Equipo A
+                            <button type="button" routerLink="/Rol-de-Juego" class="custom-button2">
+                                <i class="fa-solid fa-plus">
+                                </i>Añadir
+                            </button>
+                        </li>
+                        <li>Equipo B
+                            <button type="button" routerLink="/Rol-de-Juego" class="custom-button2">
+                                <i class="fa-solid fa-plus">
+                                </i>Añadir
+                            </button>
+                        </li>
+                        <li>Equipo C
+                            <button type="button" routerLink="/Rol-de-Juego" class="custom-button2">
+                                <i class="fa-solid fa-plus">
+                                </i>Añadir
+                            </button>
+                              </div>
+                    <div class="botones">
+                        <button class="cancelar-button">CANCELAR</button>
+                        <button class="save-button">Crear</button>
+                    </div>
+                </div>
             </div>
-
         </div>
-        <!--  -->
-        <div class="der ">
-            <!--  -->
-            <div class="der  ">
-                <section class="contenedor-secciones">
-                    <div class="seccion-roles-existentes card Z">
-                        <h2>Roles Existentes</h2>
-                        <div class="search-container">
-                            <div class="search-wrapper">
-                                <input type="text" class="search-input2" placeholder="Buscar Categorías...">
-                                <button class="custom-button2">Buscar</button>
-                            </div>
-                        </div>
+        <div class="der">
+            <div class="card">
+
+                <div>
+                    <div class>
+                        <input type="text" class="search-input3" placeholder="Buscar Categorías...">
+                        <button class="custom-button3">Buscar</button>
+                    </div>
+                    <div>
                         <ul id="rolesExistentes">
-                            <div class="scroll card Z">
+                            <div class="scroll">
                                 <ul id="rolesExistentes">
                                     <li>Rol 1
-                                        <button type="button" routerLink="/Rol-de-Juego" class="custom-button3">
+                                        <button type="button" routerLink="/Rol-de-Juego" class="custom-button2">
                                             <i class="fas fa-external-link-alt"></i>
                                         </button>
                                     </li>
                                     <li>Rol 1
-                                        <button type="button" routerLink="/Rol-de-Juego" class="custom-button3">
-                                            <i class="fas fa-external-link-alt"></i>
-                                        </button>
-                                    </li>
-                                    <li>Rol 1
-                                        <button type="button" routerLink="/Rol-de-Juego" class="custom-button3">
-                                            <i class="fas fa-external-link-alt"></i>
-                                        </button>
-                                    </li>
-                                    <li>Rol 1
-                                        <button type="button" routerLink="/Rol-de-Juego" class="custom-button3">
-                                            <i class="fas fa-external-link-alt"></i>
-                                        </button>
-                                    </li>
-                                    <li>Rol 1
-                                        <button type="button" routerLink="/Rol-de-Juego" class="custom-button3">
-                                            <i class="fas fa-external-link-alt"></i>
-                                        </button>
-                                    </li>
-                                    <li>Rol 1
-                                        <button type="button" routerLink="/Rol-de-Juego" class="custom-button3">
-                                            <i class="fas fa-external-link-alt"></i>
-                                        </button>
-                                    </li>
-                                    <li>Rol 1
-                                        <button type="button" routerLink="/Rol-de-Juego" class="custom-button3">
-                                            <i class="fas fa-external-link-alt"></i>
-                                        </button>
-                                    </li>
-                                    <li>Rol 1
-                                        <button type="button" routerLink="/Rol-de-Juego" class="custom-button3">
+                                        <button type="button" routerLink="/Rol-de-Juego" class="custom-button2">
                                             <i class="fas fa-external-link-alt"></i>
                                         </button>
                                     </li>
@@ -267,8 +92,7 @@
                             </div>
                         </ul>
                     </div>
-                </section>
+                </div>
             </div>
         </div>
     </div>
-</div>

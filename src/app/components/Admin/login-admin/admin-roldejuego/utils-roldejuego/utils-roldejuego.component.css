@@ -1,64 +1,169 @@
 .just {
-    margin-left: 25rem
+  margin-left: 25rem
 }
 
 .content {
-    margin-left: 25rem;
-    padding: 20px;
+  margin-left: 25rem;
+  padding: 20px;
 }
 
 .navbar {
-    background-color: #078cb4;
-    color: #011F3A;
-    padding: 10px;
-    border-bottom: 2px solid #011F3A
+  background-color: #078cb4;
+  color: #011F3A;
+  padding: 10px;
+  border-bottom: 2px solid #011F3A
 }
 
 .fixed-navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    /* Asegura que el navbar esté por encima de otros elementos */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  /* Asegura que el navbar esté por encima de otros elementos */
 }
-
+.top{margin-top: 5rem;}
 
 
 /* ///////////////////////////////////////////////////////////////////// */
-.contenido {
-    display: flex;
-    margin-left: 25rem;
-    padding: 20px;
-  }
-  
-  .navbar {
-    background-color: #078cb4;
-    color: #011F3A;
-    padding: 10px;
-    border-bottom: 2px solid #011F3A;
+/*---------------------------------------------*/
+.secciones {
+  display: flex;
+}
+
+.izq {
+  flex: 30%;
+margin-top: 1rem;  margin-right: 0.5rem;
+}
+
+.der {
+  flex: 50%;
+margin-top: 1rem;  margin-left: 0.5rem;
+}
+
+.scroll {
+  overflow-y: auto;
+  max-height: 400px;
+}
+/* Estilos de div IZQ */
+/*---------------------------------------------*/
+.card {
+  padding: 1.4rem;
+}
+
+.search-input {
+  text-align: left;
+  padding: 0.5rem;
+  border: 1px solid #000;
+  border-radius: 10px;
+  margin-bottom: 1.3rem;
+  margin-top: 0.2rem;
+  width: 99%;
+}
+/*---------------------------------------------*/
+.table {
+    margin-top: 1rem;
+    border: 2px solid navy;
+    border-collapse: collapse;
     width: 100%;
-    z-index: 1000;
-    position: fixed;
-    top: 0;
   }
   
-  .contenedor {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 70px; /* Ajusta según sea necesario para evitar que el contenido se solape con el navbar fijo */
-  }
-  
-  .izq {
-    width: 50%;
+  .table td {
+    border: none;
+    border-width: 1px 0;
     text-align: center;
   }
   
-  .selecciones {
-    margin-top: 20px;
+  .table td:first-child {
+    border-left: 1px solid navy;
   }
   
-  .der {
-    width: 50%;
+  .table td:last-child {
+    border-right: 1px solid navy;
   }
-  
-  
+.equipos-select {
+  width: 45%;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  border-bottom: 1px solid #878787;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/*---------------------------------------------*/
+.custom-button {
+  background-color: #c5fcfe;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  margin: 0.5rem;
+  /*        ⬆️    ⬅️   ⬇️    ➡️ */
+}
+
+@media screen and (max-width: 1500px) {
+  .container {
+      margin: 1rem;
+
+  }
+
+  .logo h1 {
+      font-size: 1rem;
+  }
+
+  .sidebar {
+      width: 17rem;
+  }
+
+  .just {
+      margin-left: 17rem
+  }
+
+  .content {
+      margin-left: 17rem;
+      padding: 20px;
+  }
+
+  /* ------------------------ */
+
+}
+
+/* ------------------------------------------ */
+@media screen and (max-width: 900px) {
+  .sidebar {
+      width: 13rem;
+  }
+
+  .just {
+      margin-left: 13rem
+  }
+
+  .content {
+      margin-left: 13rem;
+      padding: 20px;
+  }
+
+  /* ------------------------ */
+}
+
+/* ------------------------------------------ */
+
+@media screen and (max-width: 500px) {
+  .just {
+      margin-left: 4rem;
+  }
+
+  .content {
+      margin-left: 4rem;
+      padding: 1rem;
+  }
+
+  /* ------------------- */
+  .top{margin-top: 7rem;}
+
+}

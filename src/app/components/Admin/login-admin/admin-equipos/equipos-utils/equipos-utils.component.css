@@ -180,4 +180,75 @@
 
 .fa-chevron-left {
     font-size: 1rem;
-}
+}@media screen and (max-width: 1500px) {
+    .container {
+      margin: 1rem;
+  
+    }
+  
+    .logo h1 {
+      font-size: 1rem;
+    }
+  
+    .sidebar {
+      width: 17rem;
+    }
+  
+    .just {
+      margin-left: 17rem
+    }
+  
+    .content {
+      margin-left: 17rem;
+      padding: 20px;
+    }
+  
+    /* ------------------------ */
+    .search-input {
+       padding: 0.5rem 15rem 0.5rem 1rem;
+       }
+  }/* ------------------------------------------ */
+  @media screen and (max-width: 900px) {
+    .sidebar {
+      width: 13rem;
+    }
+  
+    .just {
+      margin-left: 13rem
+    }
+  
+    .content {
+      margin-left: 13rem;
+      padding: 20px;
+    }
+  
+   /* ------------------------ */
+   .search-input {
+    padding: 0.5rem 10rem 0.5rem 1rem;
+    }.fa-plus,.custom-button {
+  
+      font-size: 1rem;
+     
+    }
+  }
+  /* ------------------------------------------ */
+  
+  @media screen and (max-width: 500px) {
+    .just {
+      margin-left: 4rem;
+    }
+    .content {
+      margin-left: 4rem;
+      padding: 1rem;
+    }
+    /* ------------------- */
+    .search-wrapper {
+      margin-left: -4rem;
+      text-align: center;
+    }
+    .search-input {
+      margin-left: 4.2rem;
+      padding: 0.5rem 0rem 0.5rem 0.5rem;
+      }
+  
+  }

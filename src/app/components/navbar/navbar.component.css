@@ -104,4 +104,47 @@ svg {
     .svg {
         display: none !important;
     }
+    .navbar {
+        height: auto;
+
+    }
+
+    .navbar img {
+        height: 4rem;
+        width: auto;
+        margin: 0.01rem;
+
+    }
+    .optionsnav {
+        font-size: 1.2rem;
+    }
+    .optionsnav a.active {
+        font-size: 1.2rem;
+    }
+    .svg{
+        margin-top: 0.5rem;
+    }
+    
+}
+@media screen and (max-width: 500px) {
+     .navbar {
+        height: auto;
+
+    }
+
+    .navbar img {
+        height: 4rem;
+        width: auto;
+        margin: 0.01rem;
+
+    }
+    .optionsnav {
+        font-size: 1.1rem;
+    }
+    .optionsnav a.active {
+        font-size: 1.1rem;
+    }
+    .svg{
+        margin-top: 5rem;
+    }
 }

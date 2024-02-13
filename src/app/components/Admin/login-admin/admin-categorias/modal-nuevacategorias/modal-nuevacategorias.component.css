@@ -76,3 +76,9 @@
   color: white;
   padding: 0.5rem 1rem;
 }
+@media screen and (max-width: 500px) {
+  .modal-content {
+    width: 50%;
+    /* Reducir el ancho al 50% en dispositivos con un ancho máximo de 500px */
+  }
+}

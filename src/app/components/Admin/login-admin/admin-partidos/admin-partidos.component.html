@@ -1,40 +1,101 @@
-<div class="sidebar">
-    <div class="logo">
-        <img src="/assets/imagenes/A.png" alt="Logo">
-        <h1>FUTBOLI-ADMIN</h1>
-    </div>
-    <hr>
-    <div class="sidebar" id="sidebar">
-        <app-sidebar></app-sidebar>
-    </div>
+<div class="sidebar" id="sidebar">
+  <app-sidebar></app-sidebar>
 </div>
+
 <div>
-    <nav class="navbar just">
-        <h1>Partidos</h1>
-    </nav>
-    <div class="content">
-        <div class="card">
-          <select id="temporadas" class="form-select mb-3" aria-label="Selecciona torneo">
-            <option selected>Selecciona torneo</option>
-            <option value="temp1">Temporada 1</option>
-            <option value="temp2">Temporada 2</option>
-            <option value="temp3">Temporada 3</option>
-            <option value="temp4">Temporada 4</option>
-          </select>
-          <table class="table table-bordered">
-            <tbody>
-              <tr>
-                <td>Equipo 1</td>
-                <td>-</td>
-                <td>0</td>
-                <td>VS</td>
-                <td>0</td>
-                <td>-</td>
-                <td>Equipo 2</td>
-              </tr>
-            </tbody>
-          </table>
+  <nav class="navbar just">
+    <h1>Partidos</h1>
+  </nav>
+
+  <div class="content">
+    <div class="card">
+      <div class="selection-temporada">
+        <h3><b>Partidos de la temporada</b></h3>
+        <select id="temporadas" class="form-select mb-3" aria-label="Selecciona torneo">
+          <option selected>Selecciona torneo</option>
+          <option value="temp1">Temporada 1</option>
+          <option value="temp2">Temporada 2</option>
+          <option value="temp3">Temporada 3</option>
+          <option value="temp4">Temporada 4</option>
+        </select>
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <td>Equipo 1</td>
+              <td>-</td>
+              <td>0</td>
+              <td>VS</td>
+              <td>0</td>
+              <td>-</td>
+              <td>Equipo 2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="divison">
+        <div class="izq">
+          <h2>Goles anotados:</h2><input class="search-input2" min="0" type="number">
+          <h2>Goles encontra:</h2><input class="search-input2" min="0" type="number">
+              </div>
+        <div class="der">
+          <h2>Goles anotados:</h2><input class="search-input2" min="0" type="number">
+          <h2>Goles encontra:</h2><input class="search-input2" min="0" type="number">
+        </div>
+
+      </div>
+
+      <div><button class="save-button2">Guardar</button></div>
+
+      <div class="divison">
+        <div class="izq card">
+          <h2>Equipamiento de recursos
+          </h2>
+          <input class="search-input" type="text" placeholder="equipo:">
+          <div class="divison2">
+            <div class="izq">
+              <h3>Botiquín:</h3>
+              <h3>Balones: </h3>
+              <h3>Gafete de capitan: </h3>
+              <h3>D.T.: </h3>
+            </div>
+            <div class="der">
+              <h3><label class="switch">
+                  <input type="checkbox">
+                  <span id="Botiquin" class="slider round"></span>
+                </label></h3>
+              <h3> <label class="switch">
+                  <input type="checkbox">
+                  <span id="Balones" class="slider round"></span>
+                </label></h3>
+              <h3>
+                <label class="switch">
+                  <input type="checkbox">
+                  <span id="Gafete" class="slider round"></span>
+                </label>
+              </h3>
+              <h3> <label class="switch">
+                  <input type="checkbox">
+                  <span id="DT" class="slider round"></span>
+                </label></h3>
+            </div>
+          </div>
+          <div class="botones">
+            <button class="cancelar-button">CANCELAR</button>
+            <button class="save-button">Guardar</button>
+          </div>
+        </div>
+        <div class="der card">
+          <h2>Equipos Visitante amonestado:</h2>
+          <input class="search-input" type="text" placeholder="Equipo:">
+          <input class="search-input" type="text" placeholder="Codígo:">
+          <input class="search-input" type="text" placeholder="Casual:">
+          <div class="botones">
+            <button class="cancelar-button">CANCELAR</button>
+            <button class="save-button">Guardar</button>
+          </div>
         </div>
       </div>
-      
+    </div>
+  </div>
 </div>

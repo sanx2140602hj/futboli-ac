@@ -19,7 +19,7 @@
   top: 0;
   width: 100%;
   z-index: 1000;
-  /* Asegura que el navbar esté por encima de otros elementos */
+
 }
 
 /* ///////////////////////////////////////////////////////////////////// */
@@ -148,7 +148,6 @@
   margin-bottom: 4rem;
 }
 
-/* ----------------------------------------------- */
 .txt {
   font-size: 1.5rem;
   text-align: justify;
@@ -156,15 +155,62 @@
 }
 
 /* ------------------------------------------ */
-@media screen and (max-width: 900px) {
-  ul li {
-    font-size: 1.1rem;
+@media screen and (max-width: 1500px) {
+  .container {
+    margin: 1rem;
+
   }
 
   .logo h1 {
     font-size: 1rem;
   }
 
+  .sidebar {
+    width: 17rem;
+  }
+
+  .just {
+    margin-left: 17rem
+  }
+
+  .content {
+    margin-left: 17rem;
+    padding: 20px;
+  }
+
+  .txt {
+    font-size: 1.5rem;
+    text-align: justify;
+    margin-bottom: 3rem;
+  }
+
+  .text-section {
+    margin: 2rem;
+    margin-top: 10rem;
+    width: 50%;
+    text-align: justify;
+    font-size: 1.1rem;
+  }
+
+  .image-section {
+    margin: 3rem;
+    width: auto;
+    height: 25rem;
+    overflow: hidden;
+    /* Evita que la imagen se extienda más allá de su contenedor */
+  }
+
+  .image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ajusta la imagen para cubrir completamente el contenedor sin distorsión */
+
+  }
+}
+
+/* ------------------------------------------ */
+@media screen and (max-width: 900px) {
   .sidebar {
     width: 13rem;
   }
@@ -177,24 +223,85 @@
     margin-left: 13rem;
     padding: 20px;
   }
+
+  .text-section {
+    margin-top: 5rem;
+    font-size: 1rem;
+  }
+
+  .image-section {
+    margin-top: 7rem;
+    height: 12rem;
+    /* Evita que la imagen se extienda más allá de su contenedor */
+  }
+
+  .image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ajusta la imagen para cubrir completamente el contenedor sin distorsión */
+
+  }
+
+  .unica {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    /* esta clase se creo porque es la unica imagen que tiene 
+    una resolucion diferente a las demas (es mas chica XD) */
+  }
+
+  .center {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+
+  }
+
+  .bold-text {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .text-justified {
+    font-size: 1rem;
+    text-align: justify;
+    width: 55%;
+  }
+
+  .left-image {
+    width: 30%;
+  }
+
+  .txt {
+    font-size: 1rem;
+    text-align: justify;
+    margin-bottom: 3rem;
+  }
+
 }
 
 /* ------------------------------------------ */
 
 @media screen and (max-width: 500px) {
   ul li {
-    margin-left: -0.5rem;
+    margin-left: 0.5rem;
     font-size: 2.5rem;
     padding: 6px 0;
     /* Ajusta el espaciado vertical entre elementos */
-    margin-bottom: -4rem;
+    margin-bottom: 4rem;
     /* Elimina el margen inferior entre elementos */
   }
 
-  .logo h1 {
-    font-size: 0rem;
+  .image-section img {
+    display: none;
   }
 
+  .logo h1 {
+    display: none;
+  }
+  .fa-user{font-size: 1rem;}
   .sidebar {
     width: 4rem;
   }
@@ -212,6 +319,7 @@
     margin-left: 4rem;
     padding: 0;
   }
+
 
   .cero {
     font-size: 0;
@@ -244,16 +352,21 @@
     margin: 1rem;
   }
 
-  /* RESPONSIVE HOME */
+  .left-image {
+  display: none;
+  }
 
+  .text-justified {
+    font-size: 1.5rem;
+    text-align: center;
+    width: 100%;
+  }
+  .text-section {
+    margin: 0.5rem;
+    margin-top: 5rem;
+    width: 100%;
+    text-align: center;
+    font-size: 1.3rem;
+  }
 
-
-}/* .content{
-  display:grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax (150px, 1fr)
-
-  );
-
-} */
+}

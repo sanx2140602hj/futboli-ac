@@ -129,20 +129,20 @@ img {
   }
 
   .derecha {
-    margin-top: 3rem; /* Ajusta el margen superior según sea necesario */
+    margin-top: 2rem; /* Ajusta el margen superior según sea necesario */
   }
 
   .izquierda {
-    height: -4rem;
+    height: -5rem;
   }
 
   img {
-    height: 18rem;
-    margin-top: 0;
+    height: 19rem;
+    margin-top: -9rem;
   }
 
   .texto {
-    margin: 1rem;
+    margin: 0.1rem;
   }
 }
 
