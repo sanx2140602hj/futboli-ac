@@ -6,6 +6,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./modalequipos-registrar.component.css']
 })
 export class ModalequiposRegistrarComponent implements OnInit {
+  nuevoEquipo: string = '';
   @Output() onCloseModal = new EventEmitter<void>();
 
   constructor() { }
@@ -19,7 +20,7 @@ export class ModalequiposRegistrarComponent implements OnInit {
 
   guardarEquipo() {
     // Lógica para guardar el equipo
-    console.log('Equipo guardado');
+    console.log('Equipo guardado: ', this.nuevoEquipo);
     this.closeModal();
   }
 }

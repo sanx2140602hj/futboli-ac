@@ -35,23 +35,27 @@
 
       <div class="divison">
         <div class="izq">
-          <h2>Goles anotados:</h2><input class="search-input2" min="0" type="number">
-          <h2>Goles encontra:</h2><input class="search-input2" min="0" type="number">
-              </div>
+          <h2>Goles anotados:</h2>
+          <input class="search-input2" min="0" type="number" [(ngModel)]="goles.izq.golesAnotados">
+          <h2>Goles en contra:</h2>
+          <input class="search-input2" min="0" type="number" [(ngModel)]="goles.izq.golesEnContra">
+        </div>
         <div class="der">
-          <h2>Goles anotados:</h2><input class="search-input2" min="0" type="number">
-          <h2>Goles encontra:</h2><input class="search-input2" min="0" type="number">
+          <h2>Goles anotados:</h2>
+          <input class="search-input2" min="0" type="number" [(ngModel)]="goles.der.golesAnotados">
+          <h2>Goles en contra:</h2>
+          <input class="search-input2" min="0" type="number" [(ngModel)]="goles.der.golesEnContra">
         </div>
 
       </div>
 
-      <div><button class="save-button2">Guardar</button></div>
+      <div><button class="save-button2" (click)="guardar1()">Guardar</button></div>
+
 
       <div class="divison">
         <div class="izq card">
-          <h2>Equipamiento de recursos
-          </h2>
-          <input class="search-input" type="text" placeholder="equipo:">
+          <h2>Equipamiento de recursos</h2>
+          <input class="search-input" type="text" placeholder="equipo:" [(ngModel)]="equipoInfo.equipos">
           <div class="divison2">
             <div class="izq">
               <h3>Botiquín:</h3>
@@ -60,42 +64,51 @@
               <h3>D.T.: </h3>
             </div>
             <div class="der">
-              <h3><label class="switch">
-                  <input type="checkbox">
-                  <span id="Botiquin" class="slider round"></span>
-                </label></h3>
-              <h3> <label class="switch">
-                  <input type="checkbox">
-                  <span id="Balones" class="slider round"></span>
-                </label></h3>
               <h3>
                 <label class="switch">
-                  <input type="checkbox">
-                  <span id="Gafete" class="slider round"></span>
+                  <input type="checkbox" [(ngModel)]="equipoInfo.botiquin"
+                    (change)="onSwitchChange('Botiquin', $event)">
+                  <span class="slider round"></span>
                 </label>
               </h3>
-              <h3> <label class="switch">
-                  <input type="checkbox">
-                  <span id="DT" class="slider round"></span>
-                </label></h3>
+              <h3>
+                <label class="switch">
+                  <input type="checkbox" [(ngModel)]="equipoInfo.balones" (change)="onSwitchChange('Balones', $event)">
+                  <span class="slider round"></span>
+                </label>
+              </h3>
+              <h3>
+                <label class="switch">
+                  <input type="checkbox" [(ngModel)]="equipoInfo.gafete" (change)="onSwitchChange('Gafete', $event)">
+                  <span class="slider round"></span>
+                </label>
+              </h3>
+              <h3>
+                <label class="switch">
+                  <input type="checkbox" [(ngModel)]="equipoInfo.dt" (change)="onSwitchChange('DT', $event)">
+                  <span class="slider round"></span>
+                </label>
+              </h3>
             </div>
           </div>
           <div class="botones">
             <button class="cancelar-button">CANCELAR</button>
-            <button class="save-button">Guardar</button>
+            <button class="save-button" (click)="guardar()">Guardar</button>
           </div>
         </div>
         <div class="der card">
           <h2>Equipos Visitante amonestado:</h2>
-          <input class="search-input" type="text" placeholder="Equipo:">
-          <input class="search-input" type="text" placeholder="Codígo:">
-          <input class="search-input" type="text" placeholder="Casual:">
+          <input class="search-input" type="text" placeholder="Equipo:" [(ngModel)]="amonestaciones.equipo">
+          <input class="search-input" type="text" placeholder="Código:" [(ngModel)]="amonestaciones.codigo">
+          <input class="search-input" type="text" placeholder="Casual:" [(ngModel)]="amonestaciones.casual">
           <div class="botones">
             <button class="cancelar-button">CANCELAR</button>
-            <button class="save-button">Guardar</button>
+            <button class="save-button" (click)="guardarAmonestaciones()">Guardar</button>
           </div>
         </div>
+
       </div>
     </div>
+
   </div>
 </div>

@@ -5,11 +5,11 @@
             <h1>Nueva categoría</h1>
         </div>
         <div class="input">
-            <input type="text" placeholder="Nombre de la categoría" class="category-input">
+            <input type="text" placeholder="Nombre de la categoría" class="category-input" [(ngModel)]="nombreCategoria">
         </div>
         <div class="derecha">
             <button (click)="closeModal()" class="close-button">Cerrar</button>
-            <button class="save-button">Guardar</button>
+            <button class="save-button" (click)="guardarCategoria()">Guardar</button>
         </div>
     </div>
 </div>

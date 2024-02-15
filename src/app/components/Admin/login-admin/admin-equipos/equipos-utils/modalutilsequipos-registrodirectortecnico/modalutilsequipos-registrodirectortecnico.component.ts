@@ -8,6 +8,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class ModalutilsequiposRegistrodirectortecnicoComponent implements OnInit {
   // Evento de salida para notificar el cierre del modal al componente padre
   @Output() onCloseModal = new EventEmitter<void>();
+  dirTec: string = '';
   constructor() { }
 
   ngOnInit(): void {
@@ -19,7 +20,7 @@ export class ModalutilsequiposRegistrodirectortecnicoComponent implements OnInit
   }
   guardarCambios() {
     // Lógica para guardar los cambios en el equipo
-    console.log('Nombre del equipo:');
+    console.log('Nombre del equipo: ', this.dirTec);
     this.closeModal(); // Cerrar el modal después de guardar los cambios
   }
 }

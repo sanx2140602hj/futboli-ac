@@ -12,14 +12,18 @@ export class AdminRegistroJugadorComponent implements OnInit {
   /* Seccion Identificacion ⭐ */
   showIdentificacion = false; /*⚠️🦖 este se mantiene en true a diferencia de los demas 
   componentes porque debe cargar como primera instancia */
+
+
+
   openIdentificacion() {
+    
     this.showIdentificacion = true;
     this.showDatosPersonales = false;
     this.showContacto = false;
     this.showDatosFisicos = false;
     this.showEscolar = false;
     this.showTutor = false;
-  }
+  } 
 
   closeIdentificacion() {
     this.showIdentificacion = false;
@@ -104,4 +108,6 @@ export class AdminRegistroJugadorComponent implements OnInit {
   closeTutor() {
     this.showTutor = false;
   }
+
+  /* experimento */
 }

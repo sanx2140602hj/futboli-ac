@@ -6,10 +6,18 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./modal-editar-categorias.component.css']
 })
 export class ModalEditarCategoriasComponent {
+  editarCategoria: string = ''; // Propiedad para almacenar el valor del input
   @Output() onCloseModal = new EventEmitter<void>();
 
   closeModal() {
-    console.log('Modal de edición cerrado'); 
+    console.log('Modal de edición cerrado');
     this.onCloseModal.emit();
+  }
+  editarCategoriaGuardar() {
+
+
+    console.log('Nombre de la categoría:', this.editarCategoria); 
+    this.onCloseModal.emit();
+
   }
 }

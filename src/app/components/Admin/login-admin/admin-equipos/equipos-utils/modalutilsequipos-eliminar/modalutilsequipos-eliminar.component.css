@@ -88,6 +88,15 @@
     color: white;
     padding: 0.5rem 1rem;
   }
+  /* Estilos para leyenda y error datos */
+  .invalid-input {
+    border-color: red;
+  }
+  
+  .error-message {
+    color: red;
+  }
+  
   @media screen and (max-width: 500px) {
     .modal-content {
       width: 50%;

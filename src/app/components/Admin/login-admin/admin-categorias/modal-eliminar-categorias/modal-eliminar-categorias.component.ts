@@ -9,6 +9,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class ModalEliminarCategoriasComponent {
   checkboxChecked = false;
   categoriaEliminar: string = '';
+  error: boolean = false; // Variable para controlar si hay error
 
   @Output() onCloseModal = new EventEmitter<void>();
 
@@ -17,12 +18,13 @@ export class ModalEliminarCategoriasComponent {
     this.onCloseModal.emit();
   }
 
-  guardarModal() {
-    // Lógica para guardar la categoría después de la confirmación
-    console.log('Categoría guardada:', this.categoriaEliminar);
-    // Puedes agregar más lógica aquí si es necesario
-    // ...
-    
-    this.closeModal(); // Cierra el modal después de realizar la lógica
+  guardarCambios() { /*⚠️⚠️ aqui cambiar 'dad' por variable de BD ⚠️⚠️ */
+    if (this.categoriaEliminar === 'dad') {
+      // Aquí iría la lógica para conectar con la base de datos y eliminar la categoría
+      console.log('Nombre del equipo:', this.checkboxChecked, this.categoriaEliminar);
+      this.closeModal(); // Cerrar el modal después de guardar los cambios
+    } else {
+      this.error = true; // Establecer la variable de error como verdadera
+    }
   }
 }

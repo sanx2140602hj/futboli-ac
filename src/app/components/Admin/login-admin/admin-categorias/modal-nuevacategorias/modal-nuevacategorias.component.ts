@@ -6,6 +6,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./modal-nuevacategorias.component.css']
 })
 export class ModalNuevacategoriasComponent {
+    nombreCategoria: string = ''; // Propiedad para almacenar el valor del input
   // Evento de salida para notificar el cierre del modal al componente padre
   @Output() onCloseModal = new EventEmitter<void>();
 
@@ -13,5 +14,8 @@ export class ModalNuevacategoriasComponent {
   closeModal() {
     console.log('Modal cerrado'); // ⚠️ Se muestra un log en la consola
     this.onCloseModal.emit(); // ⚠️ Se emite el evento para notificar el cierre del modal al componente padre dentro de modal-nuevacategorias.component.ts
+  } guardarCategoria() {
+    console.log('Nombre de la categoría:', this.nombreCategoria); 
+    this.onCloseModal.emit();
   }
 }

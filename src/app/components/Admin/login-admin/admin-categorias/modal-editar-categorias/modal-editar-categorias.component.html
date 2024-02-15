@@ -6,11 +6,11 @@
         </div>
         <h5>Edita el nombre de esta categoría.</h5>
         <div class="input">
-            <input type="text" placeholder="Nombre de la categoría" class="category-input">
+            <input type="text" placeholder="Nombre de la categoría" class="category-input" [(ngModel)]="editarCategoria">
         </div>
         <div class="derecha">
             <button (click)="closeModal()" class="close-button">Cerrar</button>
-            <button class="save-button">Guardar</button>
+            <button class="save-button"  (click)="editarCategoriaGuardar()">Guardar</button>
         </div>
     </div>
 </div>
