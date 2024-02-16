@@ -160,6 +160,17 @@ li {
     margin: 0.5rem;
     /*        ⬆️    ⬅️   ⬇️    ➡️ */
 }
+/* ------------------------------------------------------ */
+.error-input {
+    border: 2px solid red;
+}
+
+.error-message {
+    color: red;
+    font-size: 1rem;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+}
 
 @media screen and (max-width: 1500px) {
     .container {

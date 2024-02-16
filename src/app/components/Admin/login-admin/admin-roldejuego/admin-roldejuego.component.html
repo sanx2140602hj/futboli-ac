@@ -13,55 +13,74 @@
             <div class="card">
                 <div class="title-input">
                     <h5>Nombre del Torneo:</h5>
-                    <input type="text" class="search-input" placeholder="Nombre del torneo...">
+                    <input type="text" class="search-input" placeholder="Nombre del torneo..."
+                    [(ngModel)]="nombreTorneo" [ngClass]="{'error-input': nombreTorneoInvalid && touchedNombre}"
+                    (blur)="validateNombre()" (focus)="markNombreAsTouched()">
+                    <div *ngIf="nombreTorneoInvalid && touchedNombre" class="error-message">
+                        <ng-container *ngIf="!nombreTorneo">
+                          Este campo es requerido
+                        </ng-container>
+                        <ng-container *ngIf="nombreTorneoInvalid">
+                          Este campo solo acepta LETRAS y/o NUMEROS
+                        </ng-container>
+                      </div>
+                      
+                
+
                     <h5>Categoría a Participar:</h5>
-                    <select id="categoriaParticipar" class="search-input" name="categoriaParticipar" required>
+                    <select id="categoriaParticipar" class="search-input" name="categoriaParticipar"
+                        [(ngModel)]="categoriaParticipar"
+                        [ngClass]="{'error-input': categoriaParticiparInvalid && touchedCategoria}"
+                        (blur)="validateCategoria()" (focus)="markCategoriaAsTouched()">
+                        <option value="" disabled selected>Selecciona una categoría</option>
                         <option value="categoria1">Categoría 1</option>
                         <option value="categoria2">Categoría 2</option>
                     </select>
+                    <div *ngIf="categoriaParticiparInvalid && touchedCategoria" class="error-message">Este campo es
+                        requerido</div>
                     <h5>Fechas:</h5>
-                    <input type="date" class="search-input">
+                    <input type="date" class="search-input" [(ngModel)]="fechas"
+                        [ngClass]="{'error-input': fechasInvalid && touchedFechas}" (blur)="validateFechas()"
+                        (focus)="markFechasAsTouched()">
+                    <div *ngIf="fechasInvalid && touchedFechas" class="error-message">Este campo es requerido</div>
                 </div>
+
+
+
+
                 <div>
                     <h3>Equipos Participantes</h3>
                     <div class="equipos-select scroll">
-
-                        <ul id="equiposParticipantes ">
-                            <li>Equipo A <button class="custom-button2"><i
-                                        class="fa-solid fa-xmark cursor"></i></button></li>
-                            <li>Equipo B <button class="custom-button2"><i
-                                        class="fa-solid fa-xmark cursor"></i></button></li>
-                            <li>Equipo C <button class="custom-button2"><i
-                                        class="fa-solid fa-xmark cursor"></i></button></li>
-                            <!-- Puedes agregar más equipos según sea necesario -->
+                        <ul id="equiposParticipantes">
+                            <li *ngFor="let equipo of equiposSeleccionados">
+                                {{ equipo }}
+                                <button class="custom-button2" (click)="eliminarEquipo(equipo)">
+                                    <i class="fa-solid fa-xmark cursor"></i>
+                                </button>
+                            </li>
                         </ul>
+                    </div>
+                    <div *ngIf="!equiposSeleccionados.length" class="error-message">
+                        <b>
+                            Seleccione mínimo un equipo para poder guardar el rol
+                        </b>
                     </div>
                 </div>
                 <div class="select-equipos">
                     <input type="text" class="search-input2" placeholder="Buscar Categorías...">
                     <button class="custom-button">Buscar</button>
                     <div class="scroll">
-                        <li>Equipo A
-                            <button type="button" routerLink="/Rol-de-Juego" class="custom-button2">
-                                <i class="fa-solid fa-plus">
-                                </i>Añadir
+                        <li *ngFor="let equipo of equiposDisponibles">
+                            {{ equipo }}
+                            <button type="button" class="custom-button2" (click)="agregarEquipo(equipo)">
+                                <i class="fa-solid fa-plus"></i>Añadir
                             </button>
                         </li>
-                        <li>Equipo B
-                            <button type="button" routerLink="/Rol-de-Juego" class="custom-button2">
-                                <i class="fa-solid fa-plus">
-                                </i>Añadir
-                            </button>
-                        </li>
-                        <li>Equipo C
-                            <button type="button" routerLink="/Rol-de-Juego" class="custom-button2">
-                                <i class="fa-solid fa-plus">
-                                </i>Añadir
-                            </button>
-                              </div>
+                    </div>
+
                     <div class="botones">
-                        <button class="cancelar-button">CANCELAR</button>
-                        <button class="save-button">Crear</button>
+                        <button class="cancelar-button" (click)="limpiarInputs()">CANCELAR</button>
+                        <button class="save-button" (click)="validarYGuardarDatos()">Crear</button>
                     </div>
                 </div>
             </div>
