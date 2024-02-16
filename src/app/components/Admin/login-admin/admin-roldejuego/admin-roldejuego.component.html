@@ -14,18 +14,18 @@
                 <div class="title-input">
                     <h5>Nombre del Torneo:</h5>
                     <input type="text" class="search-input" placeholder="Nombre del torneo..."
-                    [(ngModel)]="nombreTorneo" [ngClass]="{'error-input': nombreTorneoInvalid && touchedNombre}"
-                    (blur)="validateNombre()" (focus)="markNombreAsTouched()">
+                        [(ngModel)]="nombreTorneo" [ngClass]="{'error-input': nombreTorneoInvalid && touchedNombre}"
+                        (blur)="validateNombre()" (focus)="markNombreAsTouched()">
                     <div *ngIf="nombreTorneoInvalid && touchedNombre" class="error-message">
                         <ng-container *ngIf="!nombreTorneo">
-                          Este campo es requerido
+                            Este campo es requerido
                         </ng-container>
                         <ng-container *ngIf="nombreTorneoInvalid">
-                          Este campo solo acepta LETRAS y/o NUMEROS
+                            Este campo solo acepta LETRAS y/o NUMEROS
                         </ng-container>
-                      </div>
-                      
-                
+                    </div>
+
+
 
                     <h5>Categoría a Participar:</h5>
                     <select id="categoriaParticipar" class="search-input" name="categoriaParticipar"
@@ -87,31 +87,28 @@
         </div>
         <div class="der">
             <div class="card">
-
+              <div>
                 <div>
-                    <div class>
-                        <input type="text" class="search-input3" placeholder="Buscar Categorías...">
-                        <button class="custom-button3">Buscar</button>
-                    </div>
-                    <div>
-                        <ul id="rolesExistentes">
-                            <div class="scroll">
-                                <ul id="rolesExistentes">
-                                    <li>Rol 1
-                                        <button type="button" routerLink="/Rol-de-Juego" class="custom-button2">
-                                            <i class="fas fa-external-link-alt"></i>
-                                        </button>
-                                    </li>
-                                    <li>Rol 1
-                                        <button type="button" routerLink="/Rol-de-Juego" class="custom-button2">
-                                            <i class="fas fa-external-link-alt"></i>
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-                        </ul>
-                    </div>
+                  <input type="text" class="search-input3" placeholder="Buscar Categorías...">
+                  <button class="custom-button3">Buscar</button>
                 </div>
+                <div>
+                  <ul id="rolesExistentes">
+                    <div class="scroll">
+                      <ul>
+                        <li *ngFor="let rol of rolesExistentes">
+                          {{ rol }}
+                          <button type="button" routerLink="/Rol-de-Juego" class="custom-button2">
+                            <i class="fas fa-external-link-alt"></i>
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  </ul>
+                </div>
+              </div>
             </div>
-        </div>
+          </div>
+          
     </div>
+</div>

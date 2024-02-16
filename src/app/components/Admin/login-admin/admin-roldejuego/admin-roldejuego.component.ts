@@ -15,16 +15,16 @@ export class AdminRoldejuegoComponent implements OnInit {
   touchedNombre: boolean = false; // 🦖 Declara una variable para indicar si se ha tocado el campo de nombre del torneo y la inicializa como falsa
   touchedCategoria: boolean = false; // 🦖 Declara una variable para indicar si se ha tocado el campo de categoría a participar y la inicializa como falsa
   touchedFechas: boolean = false; // 🦖 Declara una variable para indicar si se ha tocado el campo de fechas y la inicializa como falsa
- 
- 
- /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
- equiposDisponibles: string[] = ['Equipo A', 'Equipo B', 'Equipo C', 'Equipo D', 'Equipo E', 'Equipo F', 'Equipo G']; // 🦖 Declara una variable para almacenar los equipos disponibles para agregar y la inicializa con una lista de equipos
- /* aqui arriba ⬆️⬆️⬆️ hacer la conexcion a basew de datos para traer los nombres de los equipos*/
- /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
- 
- 
- 
- 
+
+
+  /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
+  equiposDisponibles: string[] = ['Equipo A', 'Equipo B', 'Equipo C', 'Equipo D', 'Equipo E', 'Equipo F', 'Equipo G']; // 🦖 Declara una variable para almacenar los equipos disponibles para agregar y la inicializa con una lista de equipos
+  /* aqui arriba ⬆️⬆️⬆️ hacer la conexcion a basew de datos para traer los nombres de los equipos*/
+  /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
+
+
+
+
   equiposSeleccionados: string[] = []; // 🦖 Declara una variable para almacenar los equipos seleccionados para participar y la inicializa como una lista vacía
   equiposInvalid: boolean = false; // 🦖 Declara una variable para indicar si los equipos seleccionados son inválidos y la inicializa como falsa
 
@@ -57,11 +57,16 @@ export class AdminRoldejuegoComponent implements OnInit {
     // Si todos los campos están llenos y hay al menos un equipo seleccionado, guardar los datos
     this.guardarDatos();
   }
-
+  rolesExistentes: string[] = []; // Variable para almacenar los roles existentes
+ //🐢♥️ equiposDisponiblesBackup: string[] = []; // Copia de respaldo de los equipos disponibles
   guardarDatos(): void {
     // 🦖 Método para guardar los datos
     if (this.nombreTorneo && this.categoriaParticipar && this.fechas) {
       if (this.equiposSeleccionados.length > 0) {
+       // Agregar el nuevo rol al arreglo de roles existentes
+        this.rolesExistentes.push(this.nombreTorneo);
+  
+        // Recopilar los datos antes de guardarlos
         const datos = {
           nombreTorneo: this.nombreTorneo,
           categoriaParticipar: this.categoriaParticipar,
@@ -69,14 +74,27 @@ export class AdminRoldejuegoComponent implements OnInit {
           equiposSeleccionados: this.equiposSeleccionados // Incluir equipos seleccionados en los datos guardados
         };
 
+  
  /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
  /* Aqui recopila los datos ya almacenados por lo que aqui se exportara a la base de datos */
-        console.log('Datos guardados:', datos);
-        console.log('Equipos seleccionados:', this.equiposSeleccionados); // Imprimir equipos seleccionados
- /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
+ console.log('Datos guardados:', datos);
+ console.log('Equipos seleccionados:', this.equiposSeleccionados); // Imprimir equipos seleccionados
+/* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
+ // Guardar una copia de respaldo de los equipos disponibles
+// 🐢♥️this.equiposDisponiblesBackup = [...this.equiposDisponibles];
+
+//en caso de requerir que nuevamente se muestren los equipos des-comentar las lineas que tienen 🐢♥️ al principio 
+
+  /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
+  // Restaurar los equipos disponibles a su estado original
+ // 🐢♥️this.equiposDisponibles = ['Equipo A', 'Equipo B', 'Equipo C', 'Equipo D', 'Equipo E', 'Equipo F', 'Equipo G'];
+  /* aqui arriba ⬆️⬆️⬆️ hacer una 2da la conexcion a basew de datos para traer los nombres de los equipos*/
+  /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
 
 
-        //Una vez guardado y "almacenado" el codigo se limpia para que el usario no registre dobles
+ // No limpiar los campos y equipos seleccionados aquí
+
+        // Limpiar los campos y equipos seleccionados
         this.limpiarInputs();
       } else {
         this.equiposInvalid = true;
@@ -85,6 +103,9 @@ export class AdminRoldejuegoComponent implements OnInit {
       console.log('Todos los campos son requeridos');
     }
   }
+  
+
+
 
   limpiarInputs(): void {
     // 🦖 Método para limpiar los campos de entrada
@@ -98,6 +119,20 @@ export class AdminRoldejuegoComponent implements OnInit {
 
     console.log('Limpió');
   }
+
+
+  
+
+
+
+
+
+
+
+
+  /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
+
+
 
   agregarEquipo(equipo: string): void {
     // 🦖 Método para agregar un equipo a la lista de equipos seleccionados
@@ -152,5 +187,5 @@ export class AdminRoldejuegoComponent implements OnInit {
     // 🦖 Método para validar el campo de fechas
     this.fechasInvalid = !this.fechas && this.touchedFechas;
   }
-  
+
 }
