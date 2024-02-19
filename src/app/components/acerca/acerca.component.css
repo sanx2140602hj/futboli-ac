@@ -1,1 +1,24 @@
-.top{margin-top: 25rem;}
+.top {
+    margin-top: 25rem;
+}
+
+.secciones {
+    display: flex;
+}
+
+.izq {
+    flex: 50%;
+    margin-top: 1rem;
+    margin-right: 0.5rem;
+}
+
+.der {
+    flex: 50%;
+    margin-top: 1rem;
+    margin-left: 0.5rem;
+}
+.scroll {
+    overflow-y: auto;
+    max-height: 400px;
+  }
+  p{text-align: justify;}

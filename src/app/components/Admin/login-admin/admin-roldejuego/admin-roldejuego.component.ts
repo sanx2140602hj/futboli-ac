@@ -83,7 +83,7 @@ export class AdminRoldejuegoComponent implements OnInit {
  // Guardar una copia de respaldo de los equipos disponibles
 // 🐢♥️this.equiposDisponiblesBackup = [...this.equiposDisponibles];
 
-//en caso de requerir que nuevamente se muestren los equipos des-comentar las lineas que tienen 🐢♥️ al principio 
+// 🐈‍⬛🐈🌙 En caso de requerir que nuevamente se muestren los equipos des-comentar las lineas que tienen 🐢♥️ al principio 
 
   /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
   // Restaurar los equipos disponibles a su estado original
