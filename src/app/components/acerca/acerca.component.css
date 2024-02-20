@@ -1,24 +1,138 @@
 .top {
-    margin-top: 25rem;
+    margin-top: 20rem;
 }
-
+.donw{margin-top: 7rem;}
 .secciones {
     display: flex;
 }
 
 .izq {
     flex: 50%;
-    margin-top: 1rem;
-    margin-right: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
 }
 
 .der {
     flex: 50%;
-    margin-top: 1rem;
-    margin-left: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
+
 .scroll {
     overflow-y: auto;
     max-height: 400px;
+}
+
+p {
+    margin-top: 2rem;
+    text-align: justify;
+}
+
+img {
+    margin-top: 8rem;
+    width: 70%;
+} 
+.iimmgg{
+    margin-top: 0rem;
+    margin-left: 15%;
+    width: 70%; /* Ancho inicial */
+}
+.iimmg{
+    margin-top: 0rem;
+    margin-right: 15%;
+    width: 70%; /* Ancho inicial */
+}
+/* ////////////////////////////////////////////////////////// */
+.timeline {
+    position: relative; /* Establece la posición relativa */
+}
+
+.timeline-line {
+    position: absolute; /* Establece la posición absoluta */
+    top: 0;
+    bottom: 0;
+    left: 52%; /* Posición en el centro */
+    width: 2px; /* Ancho de la línea */
+    background-color: #000; /* Color de la línea */
+}
+
+.timeline {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 800px; /* Ajusta el ancho máximo según tus necesidades */
   }
-  p{text-align: justify;}
+  
+  .timeline ul {
+    list-style: none;
+    position: relative;
+  }
+  
+  .timeline ul li div {
+    color: white;
+    position: relative;
+    width: 50%; /* Ajusta el ancho de los elementos de la línea de tiempo */
+    padding: 20px;
+    background: #1e1385; /* Color de fondo de los elementos de la línea de tiempo */
+    margin-bottom: 20px;
+  }
+  
+  .timeline ul li div::before {
+    content: '';
+    position: absolute;
+    border-style: solid;
+  }
+  
+  .timeline ul li:nth-child(odd) div {
+    left: calc(50% + 10px); /* Espacio entre los elementos de la línea de tiempo */
+  }
+  
+  .timeline ul li:nth-child(odd) div::before {
+    left: -15px;
+    border-width: 8px 16px 8px 0;
+    border-color: transparent #1e1385 transparent transparent;
+  }
+  
+  .timeline ul li:nth-child(even) div {
+    left: -6px;
+    text-align: right;
+  }
+  
+  .timeline ul li:nth-child(even) div::before {
+    right: -15px;
+    border-width: 8px 0 8px 16px;
+    border-color: transparent transparent transparent #1e1385;
+  }
+  
+  @media screen and (max-width: 900px) {
+    .timeline ul li div {
+      width: 250px;
+    }
+    
+    .timeline ul li:nth-child(even) div {
+      left: calc(250px + 6px); /* Espacio entre los elementos de la línea de tiempo */
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .timeline ul li {
+      margin-left: 20px;
+    }
+    
+    .timeline ul li div {
+      width: calc(100% - 91px); /* Ajusta el ancho de los elementos de la línea de tiempo */
+    }
+    
+    .timeline ul li:nth-child(even) div {
+      left: 6px;
+    }
+    
+    .timeline ul li:nth-child(even) div::before {
+      left: -15px;
+      border-width: 8px 16px 8px 0;
+      border-color: transparent #1e1385 transparent transparent;
+    }
+  }
+  
