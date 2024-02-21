@@ -1,7 +1,7 @@
 .top {
     margin-top: 20rem;
 }
-.donw{margin-top: 7rem;}
+.donw{margin-top: 13rem;}
 .secciones {
     display: flex;
 }
@@ -135,4 +135,40 @@ img {
       border-color: transparent #1e1385 transparent transparent;
     }
   }
-  
+  /*  */
+  .galery {
+    display: flex;
+    width: 100%; 
+    height: 27rem; 
+}
+
+.galery img {
+    width: 0;
+    flex-grow: 1;
+    object-fit: cover;
+    opacity: .4;
+    transition: .5s ease;
+}
+
+.galery img:hover {
+    cursor: crosshair;
+    width: 19rem; 
+    opacity: 1;
+    filter: contrast(130%);
+}
+
+.contenedor {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: auto; 
+    margin-top: 2rem;
+    margin-bottom: -7rem;
+}
+.contenedor2 {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: auto; 
+  margin-bottom: 5rem;
+}
