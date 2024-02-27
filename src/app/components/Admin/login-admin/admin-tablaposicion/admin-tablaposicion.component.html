@@ -6,56 +6,69 @@
       <h1>Tablas de posicion</h1>
     </nav>
     <div class="content">
-        <div class="container search-container">
-            <div class="search-wrapper">
-                <input type="text" class="search-input" placeholder="Buscar Torneo...">
-                <button class="custom-button2">Buscar</button> 
-            </div>
-        </div><hr>
+      <div class="container search-container">
+        <div class="search-wrapper">
+            <select class="search-input">
+                <option value="1">Categoría 1</option>
+                <option value="2">Categoría 2</option>
+                <option value="3">Categoría 3</option>
+                <!-- Agrega más opciones según sea necesario -->
+            </select>
+            <select class="search-input">
+                <option value="1">Categoría 1</option>
+                <option value="2">Categoría 2</option>
+                <option value="3">Categoría 3</option>
+                <!-- Agrega más opciones según sea necesario -->
+            </select>
+            <button class="custom-button2"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button> 
+        </div>
+    </div>
+    
+        <hr>
         <div>
-            <div><h1>Temporada de torneo</h1></div>
-            <table class="table table-bordered">
-                <tbody>
+          <div>
+              <h1>Temporada de torneo</h1>
+          </div>
+          <table class="table table-bordered">
+              <tbody>
                   <tr>
-                    <td></td>
-                    <td>Equipo</td>
-                    <td>PJ</td>
-                    <td>G</td>
-                    <td>E</td>
-                    <td>P</td>
-                    <td>GF</td>
-                    <td>GC</td>
-                    <td>GS</td>
-                    <td>Pts</td>
-                    <td></td>
-                    <td></td>
-                    <td>Ultimos 5</td>
-                    <td></td>
-                    <td></td>
+                      <th style="text-align: center;" colspan="2">Equipo</th>
+                      <th>PJ</th>
+                      <th>G</th>
+                      <th>E</th>
+                      <th>P</th>
+                      <th>GF</th>
+                      <th>GC</th>
+                      <th>GS</th>
+                      <th>Pts</th>
+                  
+                      <th style="text-align: center;" colspan="5">Ultimos 5</th>
                     
                   </tr>
                   <tr>
-                    <td>
-                        <img src="../../../../../assets/imagenes/x.png" alt="" srcset="" style="width: 50px;">
-                    </td>
-                    <td>equipo luneta</td>
-                    <td>8</td>
-                    <td>8</td>
-                    <td>8</td>
-                    <td>8</td>
-                    <td>8</td>
-                    <td>8</td>
-                    <td>8</td>
-                    <td>8</td>
-                    <td>gano</td>
-                    <td>perdio</td>
-                    <td>empane</td>
-                    <td>perdio</td>
-                    <td>gano</td>
+                      <td>
+                          <img src="../../../../../assets/imagenes/x.png" alt="" srcset="" style="width: 50px;">
+                      </td>
+                      <td>Equipo luneta</td>
+                      <td>8</td>
+                      <td>8</td>
+                      <td>8</td>
+                      <td>8</td>
+                      <td>8</td>
+                      <td>8</td>
+                      <td>8</td>
+                      <td>8</td>
+                      <td style="color: green;"><i class="fa-solid fa-circle-check"></i></td>
+                      <td style="color: red;"><i class="fa-solid fa-circle-xmark"></i></td>
+                      <td style="color: black;"><i class="fa-solid fa-circle-minus"></i></td>
+                      <td style="color: red;"><i class="fa-solid fa-circle-xmark"></i></td>
+                      <td style="color: green;"><i class="fa-solid fa-circle-check"></i></td>
                   </tr>
-                </tbody>
-              </table>
-        </div>
+                  
+              </tbody>
+          </table>
+      </div>
+      
 
 
     </div>

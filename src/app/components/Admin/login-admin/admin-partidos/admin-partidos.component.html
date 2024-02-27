@@ -10,7 +10,14 @@
   <div class="content top">
     <div class="card">
       <div class="selection-temporada">
-        <h3><b>Partidos de la temporada</b></h3>
+        <h3><b>Partidos por torneo</b></h3>
+        <select id="temporadas" class="form-select mb-3" aria-label="Selecciona torneo">
+          <option selected>Selecciona torneo</option>
+          <option value="temp1">Temporada 1</option>
+          <option value="temp2">Temporada 2</option>
+          <option value="temp3">Temporada 3</option>
+          <option value="temp4">Temporada 4</option>
+        </select>
         <select id="temporadas" class="form-select mb-3" aria-label="Selecciona torneo">
           <option selected>Selecciona torneo</option>
           <option value="temp1">Temporada 1</option>
@@ -33,82 +40,5 @@
         </table>
       </div>
 
-      <div class="divison">
-        <div class="izq">
-          <h2>Goles anotados:</h2>
-          <input class="search-input2" min="0" type="number" [(ngModel)]="goles.izq.golesAnotados">
-          <h2>Goles en contra:</h2>
-          <input class="search-input2" min="0" type="number" [(ngModel)]="goles.izq.golesEnContra">
-        </div>
-        <div class="der">
-          <h2>Goles anotados:</h2>
-          <input class="search-input2" min="0" type="number" [(ngModel)]="goles.der.golesAnotados">
-          <h2>Goles en contra:</h2>
-          <input class="search-input2" min="0" type="number" [(ngModel)]="goles.der.golesEnContra">
-        </div>
-
-      </div>
-
-      <div><button class="save-button2" (click)="guardar1()">Guardar</button></div>
-
-<hr>
-      <div class="divison">
-        <div class="izq card">
-          <h2>Equipamiento de recursos</h2>
-          <input class="search-input" type="text" placeholder="equipo:" [(ngModel)]="equipoInfo.equipos">
-          <div class="divison2">
-            <div class="izq">
-              <h3>Botiquín:</h3>
-              <h3>Balones: </h3>
-              <h3>Gafete de capitan: </h3>
-              <h3>D.T.: </h3>
-            </div>
-            <div class="der">
-              <h3>
-                <label class="switch">
-                  <input type="checkbox" [(ngModel)]="equipoInfo.botiquin"
-                    (change)="onSwitchChange('Botiquin', $event)">
-                  <span class="slider round"></span>
-                </label>
-              </h3>
-              <h3>
-                <label class="switch">
-                  <input type="checkbox" [(ngModel)]="equipoInfo.balones" (change)="onSwitchChange('Balones', $event)">
-                  <span class="slider round"></span>
-                </label>
-              </h3>
-              <h3>
-                <label class="switch">
-                  <input type="checkbox" [(ngModel)]="equipoInfo.gafete" (change)="onSwitchChange('Gafete', $event)">
-                  <span class="slider round"></span>
-                </label>
-              </h3>
-              <h3>
-                <label class="switch">
-                  <input type="checkbox" [(ngModel)]="equipoInfo.dt" (change)="onSwitchChange('DT', $event)">
-                  <span class="slider round"></span>
-                </label>
-              </h3>
-            </div>
-          </div>
-          <div class="botones">
-            <button class="cancelar-button">CANCELAR</button>
-            <button class="save-button" (click)="guardar()">Guardar</button>
-          </div>
-        </div>
-        <div class="der card">
-          <h2>Equipos Visitante amonestado:</h2>
-          <input class="search-input" type="text" placeholder="Equipo:" [(ngModel)]="amonestaciones.equipo">
-          <input class="search-input" type="text" placeholder="Código:" [(ngModel)]="amonestaciones.codigo">
-          <input class="search-input" type="text" placeholder="Casual:" [(ngModel)]="amonestaciones.casual">
-          <div class="botones">
-            <button class="cancelar-button">CANCELAR</button>
-            <button class="save-button" (click)="guardarAmonestaciones()">Guardar</button>
-          </div>
-        </div>
-
-      </div><hr>
-      <div><h2>asdasdasdasdasdas falto algo aqui pero no recuerdo que era XD 🦖</h2></div>
     </div>
   </div>
-</div>

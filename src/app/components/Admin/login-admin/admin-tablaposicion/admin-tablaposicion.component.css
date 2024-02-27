@@ -25,7 +25,7 @@
 /* ///////////////////////////////////////////////////////////////////// */
 .search-container {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     height: 15rem;
     /* Ajusta la altura según tus necesidades */
@@ -37,7 +37,7 @@
   
   .search-input {
     text-align: left;
-    padding: 0.5rem 25rem 0.5rem 1rem;
+    padding: 0.5rem 9rem 0.5rem 1rem;
     border: 1px solid #000;
     border-radius: 10px;
     margin: 0.5rem;
@@ -53,25 +53,40 @@
     /* ⬆️    ⬅️   ⬇️    ➡️ */
   }
   
-  /* ---------------------------------------- */
-  .table {
-    border-collapse: separate;
-    border-spacing: 0;
-    background-color: #f0f0f0;
-  }
-  
-  .table td, .table th {
-    border: none;
-    padding: 8px;
-    background-color: #686868;
-    border-bottom: 2px solid white; /* Agrega un borde inferior blanco */
-  }
-  
-  .table th {
-    background-color: #e0e0e0;
-    font-weight: bold;
-  }
-  
-  
-  
-  
+  /* Estilo para la tabla */
+.table {
+  border-collapse: separate;
+  border-spacing: 0 10px; /* Agrega una separación vertical de 10px entre th y td */
+  background-color: transparent;
+}
+
+/* Estilo para las celdas de datos */
+.table td {
+  border: none;
+  padding: 8px;
+  background-color: #99969677; /* Cambiar al color de fondo gris deseado */
+  border-bottom: 1px solid white; /* Agrega un borde inferior blanco */
+  border-radius: 0; /* Restablece cualquier radio de borde anterior */
+  margin: 5px; /* Agrega margen a las celdas */
+  font-size: 1.5rem; /* Tamaño de la letra */
+}
+
+/* Aplicar radios de borde a las esquinas deseadas */
+.table td:first-child {
+  border-top-left-radius: 10px; /* Esquina superior izquierda */
+  border-bottom-left-radius: 10px; /* Esquina inferior izquierda */
+}
+
+.table td:last-child {
+  border-top-right-radius: 10px; /* Esquina superior derecha */
+  border-bottom-right-radius: 10px; /* Esquina inferior derecha */
+}
+
+/* Estilo para las celdas de encabezado */
+.table th {
+  border: none;
+  padding: 8px;
+  background-color: transparent; /* Fondo transparente */
+  font-weight: bold; /* Texto en negrita */
+  font-size: 1.2rem; /* Tamaño de la letra */
+}
