@@ -20,25 +20,37 @@
     border-radius: 0.3rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
   }
+  
+  /* Estilos para la parte izquierda del modal */
+  .izq {
+    text-align: left;
+  }
+  
+  /* Estilos para el título h1 en la parte izquierda */
   .izq h1 {
-    margin-bottom: 5rem;
+    margin-bottom: 1rem;
     color: black;
-    text-align: left; /* Alinea el texto a la izquierda */
   }
   
-  
-  /* Estilos para el título h1 */
-  .modal-content h1 {
-    margin-bottom: 5rem;
+  /* Estilos para el subtítulo h5 en la parte izquierda */
+  .izq h5 {
+    margin-bottom: 1rem;
     color: black;
+  }
+  
+  /* Estilos para el texto h4 y la casilla de verificación en la parte izquierda */
+  .izq h4 {
+    margin-bottom: 1rem;
+    color: black;
+    display: flex;
+    align-items: center;
   }
   
   /* Estilos para el contenedor del input */
   .input {
     width: 100%;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
   
   /* Estilos para el input */
@@ -48,14 +60,6 @@
     border: 1px solid black;
     border-radius: 0.3rem;
     color: black;
-  }
-  .search-input {
-    width: calc(100% - 1rem);
-    text-align: left;
-    padding: 0.5rem;
-    border: 1px solid #000;
-    border-radius: 0.3rem;
-    margin-top: 0.9rem;
   }
   
   /* Estilos para alinear los botones a la derecha */
@@ -78,12 +82,21 @@
   
   /* Estilos para el botón de Guardar */
   .save-button {
-    background-color: #288A85;
+    background-color: #ff0000;
     border: 1px solid #288A85;
     border-radius: 0.3rem;
     color: white;
     padding: 0.5rem 1rem;
   }
+  /* Estilos para leyenda y error datos */
+  .invalid-input {
+    border-color: red;
+  }
+  
+  .error-message {
+    color: red;
+  }
+  
   @media screen and (max-width: 500px) {
     .modal-content {
       width: 50%;

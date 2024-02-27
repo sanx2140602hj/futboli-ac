@@ -13,34 +13,17 @@
             <i class="fas fa-chevron-left"></i> Regresar
         </button>
     </div>
-    <div class="search-container">
-        <div class="search-wrapper">
-            <input type="text" class="search-input" placeholder="Buscar Categorías...">
-            <button class="custom-button2">Buscar</button>
-        </div>
-    </div>
-    <!-- ------------------- -->
-
+    
     <!-- Botón para abrir el modal -->
     <div class="button-container">
         <button class="custom-button" (click)="openDirectorModal()">
             <!-- ⚠️🐢tiene ralacion con ts🐢⚠️ -->
-            <i class="fas fa-plus"></i> Añadir Director Tecnico
+            <i class="fas fa-plus"></i> Añadir
         </button>
-        <app-modalutilsequipos-registrodirectortecnico *ngIf="showDirectorModal"
-            (onCloseModal)="closeDirectorModal()"></app-modalutilsequipos-registrodirectortecnico>
-
-
-
-        <button class="custom-button" (click)="openPresidenteModal()">
-            <!-- ⚠️🐢tiene ralacion con ts🐢⚠️ -->
-            <i class="fas fa-plus"></i> Añadir presidente
-        </button>
-        <app-modalutilsequipos-registrodelpresidente *ngIf="showPresidenteModal"
-            (onCloseModal)="closePresidenteModal()"></app-modalutilsequipos-registrodelpresidente>
+        <app-modalutilsequipos-registrodirectortecnico *ngIf="showDirectorModal" (onCloseModal)="closeDirectorModal()"></app-modalutilsequipos-registrodirectortecnico>
     </div>
 
-
+    
 
     <!-- --------------------- -->
     <div class="table-container">
@@ -57,11 +40,11 @@
                 <tr>
                     <td>1</td>
                     <td>Superman</td>
-
+                    
                     <!--  -->
                     <td>
                         Director tecnico
-
+                        
                     </td>
                     <!--  -->
 
@@ -70,20 +53,75 @@
                         <button class="button-icon" style="color: blue;" (click)="openEditarModal()">
                             <i class="fas fa-edit"></i>
                         </button>
-                            <app-modalutilsequipos-editar *ngIf="showEditarModal" (onCloseModal)="closeEditarModal()"></app-modalutilsequipos-editar>
-
+                        <app-modalutilsequipos-editar *ngIf="showEditarModal"
+                        (onCloseModal)="closeEditarModal()"></app-modalutilsequipos-editar>
+                        
                         <button class="button-icon" style="color: red;" (click)="openEliminarModal()">
                             <i class="fas fa-trash-alt"></i>
                         </button>
-                            <app-modalutilsequipos-eliminar *ngIf="showEliminarModal" (onCloseModal)="closeEliminarModal()"></app-modalutilsequipos-eliminar>
+                        <app-modalutilsequipos-eliminar *ngIf="showEliminarModal"
+                        (onCloseModal)="closeEliminarModal()"></app-modalutilsequipos-eliminar>
 
                     </td>
                 </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    
+    <hr>
 
+    
+    <div class="table-container">
+        <h1>lista jugadores</h1>
+        <table class="custom-table">
+            <thead> <!-- ejemplo despues se ara con ng*ngFor="" para hacer la habla automatica-->
+                <tr>
+                    <th>Codigo</th>
+                    <th>Nombre</th>
+                    <th>Posicion</th>
+                    <th>partidos jugados</th>
+                    <th>Partidos ausentados</th>
+                    <th>Goles</th>
+                    <th>Tarjetas amarillas</th>
+                    <th>Tarjetas rojas</th>
+                    <th>Mas opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>00000</td>
+                    <td>JESUS SANCHEZ HERNANDEZ</td>
+                    <td>Portero</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>
+                        <!--  -->
+                        <button class="button-icon" style="color: blue;" (click)="openPresidenteModal()">
+                            <i class="fas fa-edit"></i>
+                        </button>  <app-modalutilsequipos-registrodelpresidente *ngIf="showPresidenteModal"
+                        (onCloseModal)="closePresidenteModal()"></app-modalutilsequipos-registrodelpresidente>
+                  
+                        <button class="button-icon" style="color: red;" (click)="openEliminarJugadorModal()">
+                            <i class="fas fa-trash-alt"></i>
+                        </button><app-modal-eliminarjugadorutils *ngIf="showEliminarJugadorModal"
+                        (onCloseModal)="closeEliminarJugadorModal()"></app-modal-eliminarjugadorutils>
+                        
+                    </td>
+                </tr>
+                
             </tbody>
         </table>
     </div>
 
-
-
 </div>
+<!--    <div class="search-container">
+    <div class="search-wrapper">
+        <input type="text" class="search-input" placeholder="Buscar Categorías...">
+        <button class="custom-button2">Buscar</button>
+    </div>
+</div> -->
+<!-- ------------------- -->

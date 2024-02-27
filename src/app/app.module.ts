@@ -60,6 +60,7 @@ import { UtilsRoldejuegoComponent } from './components/Admin/login-admin/admin-r
 
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ModalEliminarjugadorutilsComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/modal-eliminarjugadorutils/modal-eliminarjugadorutils.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -110,6 +111,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AdminJugadoresComponent,
     UtilsCardsjugadorComponent,
     UtilsRoldejuegoComponent,
+    ModalEliminarjugadorutilsComponent,
 
   ],
   imports: [

@@ -185,7 +185,9 @@
       margin: 1rem;
   
     }
-  
+    .search-container {
+      height: 5rem;
+ }
     .logo h1 {
       font-size: 1rem;
     }

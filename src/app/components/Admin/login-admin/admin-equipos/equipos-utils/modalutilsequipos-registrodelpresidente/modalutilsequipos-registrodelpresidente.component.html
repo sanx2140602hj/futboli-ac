@@ -2,10 +2,19 @@
     <div class="modal-content">
         <!-- Contenido del modal aquí -->
         <div class="izq">
-            <h1>Añadir presidente</h1>
+            <h1>Editar jugadores</h1>
         </div>
         <div class="input">
-            <input type="text" placeholder="Nombre del presidente" class="category-input" [(ngModel)]="presidenteEquipos">
+            <select [(ngModel)]="posicionJugador" name="posicionJugador" class="search-input">
+                <option value="" disabled selected>Selecciona una posición para el jugador</option>
+                <option value="Portero">Portero</option>
+                <option value="Defensa">Defensa</option>
+                <option value="Centrocampista">Centrocampista</option>
+                <option value="Delantero">Delantero</option>
+                <option value="Capitan">Capitan</option>
+            </select>
+            
+            
         </div>
         <div class="derecha">
             <button (click)="closeModal()" class="close-button">Cerrar</button>

@@ -8,7 +8,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class ModalutilsequiposRegistrodelpresidenteComponent implements OnInit {
 // Evento de salida para notificar el cierre del modal al componente padre
 @Output() onCloseModal = new EventEmitter<void>();
-presidenteEquipos: string = '';
+posicionJugador: string = '';
 constructor() { }
 
 ngOnInit(): void {
@@ -20,7 +20,7 @@ closeModal() {
 }
 guardarCambios() {
   // Lógica para guardar los cambios en el equipo
-  console.log('Nombre del equipo: ', this.presidenteEquipos);
+  console.log('Posicion del jugador: ', this.posicionJugador);
   this.closeModal(); // Cerrar el modal después de guardar los cambios
 }
 }

@@ -7,20 +7,17 @@
   padding: 20px;
 }
 
-.navbar {
-  background-color: #078cb4;
-  color: #011F3A;
-  padding: 10px;
-  border-bottom: 2px solid #011F3A
-}
-
-.fixed-navbar {
+.navbar {  
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
-  /* Asegura que el navbar esté por encima de otros elementos */
+  background-color: #078cb4;
+  color: #011F3A;
+  padding: 10px;
+  border-bottom: 2px solid #011F3A;
 }
+.top{margin-top: 5rem;}
 
 /* ///////////////////////////////////////////////////////////////////// */
 .content {

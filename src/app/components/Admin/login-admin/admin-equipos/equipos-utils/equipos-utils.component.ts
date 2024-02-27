@@ -10,6 +10,7 @@ export class EquiposUtilsComponent implements OnInit {
   showPresidenteModal = false;
   showEditarModal = false;
   showEliminarModal = false;
+  showEliminarJugadorModal= false;
 
   constructor() { }
 
@@ -42,4 +43,11 @@ export class EquiposUtilsComponent implements OnInit {
   closeEliminarModal(){
     this.showEliminarModal = false;
   }
+    /* ------------------------------------- */
+    openEliminarJugadorModal(){
+      this.showEliminarJugadorModal = true;
+    }
+    closeEliminarJugadorModal(){
+      this.showEliminarJugadorModal = false;
+    }
 }

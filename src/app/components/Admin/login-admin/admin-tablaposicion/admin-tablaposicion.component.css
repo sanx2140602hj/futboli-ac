@@ -1,0 +1,77 @@
+.just {
+    margin-left: 25rem
+  }
+  
+  .content {
+    margin-left: 25rem;
+    padding: 20px;
+  }
+  
+  .navbar {
+    background-color: #078cb4;
+    color: #011F3A;
+    padding: 10px;
+    border-bottom: 2px solid #011F3A
+  }
+  
+  .fixed-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    /* Asegura que el navbar esté por encima de otros elementos */
+  }
+  
+/* ///////////////////////////////////////////////////////////////////// */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15rem;
+    /* Ajusta la altura según tus necesidades */
+  }
+  
+  .search-wrapper {
+    text-align: center;
+  }
+  
+  .search-input {
+    text-align: left;
+    padding: 0.5rem 25rem 0.5rem 1rem;
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin: 0.5rem;
+  }
+  
+  .custom-button2 {
+    background-color: #FEE2C5;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    cursor: pointer;
+    margin: 0.5rem 1rem 0.5rem 0.5rem;
+    /* ⬆️    ⬅️   ⬇️    ➡️ */
+  }
+  
+  /* ---------------------------------------- */
+  .table {
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #f0f0f0;
+  }
+  
+  .table td, .table th {
+    border: none;
+    padding: 8px;
+    background-color: #686868;
+    border-bottom: 2px solid white; /* Agrega un borde inferior blanco */
+  }
+  
+  .table th {
+    background-color: #e0e0e0;
+    font-weight: bold;
+  }
+  
+  
+  
+  
