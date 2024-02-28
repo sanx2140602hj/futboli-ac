@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-modal-nuevacategorias',
@@ -17,5 +18,11 @@ export class ModalNuevacategoriasComponent {
   } guardarCategoria() {
     console.log('Nombre de la categoría:', this.nombreCategoria); 
     this.onCloseModal.emit();
+    Swal.fire({
+      title: 'Error!',
+      text:  this.nombreCategoria,
+      icon: 'error',
+      timer: 900,
+    })
   }
 }
