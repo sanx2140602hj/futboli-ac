@@ -184,6 +184,12 @@
   .save-button2:hover {
     background-color: #288A85;
     color: white;
+  }.añadir {
+    background-color: transparent;
+    color: #000000;
+    border: 1px solid #000000;
+    border-radius: 0.9rem;
+    padding: 0.5rem 1rem;
   }
   
   /* -------------------------------------------------------------------------------------------------*/

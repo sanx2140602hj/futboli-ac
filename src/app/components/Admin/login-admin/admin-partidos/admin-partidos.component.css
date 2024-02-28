@@ -35,21 +35,6 @@
   margin-bottom: 3rem;
 }
 
-.divison2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.izq {
-  flex: 50%;
-  margin-right: 0.5rem;
-}
-
-.der {
-  flex: 50%;
-  margin-left: 0.5rem;
-}
 
 .scroll {
   overflow-y: auto;
@@ -58,91 +43,7 @@
 
 /* Estilos de div IZQ */
 /* //////////////////////////////////////////////////////////////////////////////////////////////// */
-/* interruptor */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 4rem;
-  /* Ancho del interruptor */
-  height: 1.9rem;
-  /* Altura del interruptor */
-}
 
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: red;
-  transition: 0.4s;
-  border-radius: 2.25rem;
-  /* Radio de borde del interruptor */
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 1.5rem;
-  /* Altura del botón */
-  width: 1.5rem;
-  /* Ancho del botón */
-  left: 0.25rem;
-  /* Distancia izquierda del botón */
-  bottom: 0.25rem;
-  /* Distancia inferior del botón */
-  background-color: white;
-  transition: 0.4s;
-  border-radius: 50%;
-}
-
-input:checked+.slider {
-  background-color: green;
-}
-
-input:checked+.slider:before {
-  transform: translateX(1.5rem);
-  /* Movimiento del botón */
-}
-
-/* Interruptor redondeado */
-.slider.round {
-  border-radius: 2.25rem;
-  /* Radio de borde del interruptor */
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-
-/* -------------------------------------------------------------------- */
-/* Botones G y B */
-.botones {
-  display: flex;
-  justify-content: flex-end;
-  /* Alinea los elementos al final del contenedor (derecha) */
-  margin-top: 20px;
-}
-
-.cancelar-button {
-  background-color: transparent;
-  color: #ff0000;
-  border: 1px solid #ff0000;
-  border-radius: 0.3rem;
-  padding: 0.5rem 1rem;
-}
-
-.cancelar-button:hover {
-  background-color: #ff0000;
-  color: white;
-}
 .añadir {
   background-color: transparent;
   color: #000000;
@@ -155,57 +56,20 @@ input:checked+.slider:before {
   background-color: #000000;
   color: white;
 }
-
-.save-button {
+.ir {
   background-color: transparent;
-  color: #288A85;
-  border: 1px solid #288A85;
-  border-radius: 0.3rem;
-  padding: 0.5rem 1rem;
-  margin-left: 1rem;
-}
-
-.save-button:hover {
-  background-color: #288A85;
-  color: white;
-}
-
-.save-button2 {
-  background-color: transparent;
-  color: #288A85;
-  border: 1px solid #288A85;
-  border-radius: 0.3rem;
-  padding: 0.5rem 1rem;
-  margin-left: 35%;
-  width: 30%;
-  margin-right: 35%;  margin-bottom: 2rem;
-}
-
-.save-button2:hover {
-  background-color: #288A85;
-  color: white;
+  color: #000000;
+  border: 0px;
 }
 
 /* -------------------------------------------------------------------------------------------------*/
-.search-input {
+.form-select {
   text-align: left;
   padding: 0.5rem;
-  border: 1px solid #000;
+  border: 1px solid #ee0000;
   border-radius: 10px;
-  margin: 1rem 0rem;
-  width: 99%;
-}
-
-.search-input2 {
-  background-color: #a8a8a8;
-  color: white;
-  font-size: 2rem;
-  text-align: center;
-  padding: -0.4rem;
-  border: 0px solid #000;
-  border-radius: 10px;
-  margin: 0.5rem 0rem;
-  width: 30%;
+  margin-right: 3rem;
+  width: 40%;
 }
 
 /* -------------------------------------------------------------------------------------------------*/

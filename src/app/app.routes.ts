@@ -23,6 +23,7 @@ import { AdminEquiposComponent } from './components/Admin/login-admin/admin-equi
 import { AdminPartidosComponent } from './components/Admin/login-admin/admin-partidos/admin-partidos.component';
 import { AdminRecibosComponent } from './components/Admin/login-admin/admin-recibos/admin-recibos.component';
 import { AdminJugadoresComponent } from './components/Admin/login-admin/admin-jugadores/admin-jugadores.component';
+import { PartidosUtilsComponent } from './components/Admin/login-admin/admin-partidos/partidos-utils/partidos-utils.component';
 
 /* utils */
 import { EquiposUtilsComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/equipos-utils.component';
@@ -66,6 +67,7 @@ const app_routes: Routes = [
   { path: 'Admin-RolesdeJuegos', component:AdminRoldejuegoComponent},
   { path: 'Admin-TablaPosicion', component:AdminTablaposicionComponent},
 
+
   /* utils-admin */
   { path: 'equipos', component:EquiposUtilsComponent},
   { path: 'Contacto', component: ContactoComponent},
@@ -76,6 +78,7 @@ const app_routes: Routes = [
   { path: 'Tutor', component: TutorComponent},
   { path: 'card-jugador', component: UtilsCardsjugadorComponent},
   { path: 'Rol-de-Juego', component: UtilsRoldejuegoComponent},
+  { path: 'partidos-admin', component: PartidosUtilsComponent},
 
   
 
