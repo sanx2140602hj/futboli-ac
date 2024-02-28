@@ -62,6 +62,7 @@ import { UtilsRoldejuegoComponent } from './components/Admin/login-admin/admin-r
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalEliminarjugadorutilsComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/modal-eliminarjugadorutils/modal-eliminarjugadorutils.component';
 import { PartidosUtilsComponent } from './components/Admin/login-admin/admin-partidos/partidos-utils/partidos-utils.component';
+import { TablasUtilsComponent } from './components/tablas/tablas-utils/tablas-utils.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -114,6 +115,7 @@ import { PartidosUtilsComponent } from './components/Admin/login-admin/admin-par
     UtilsRoldejuegoComponent,
     ModalEliminarjugadorutilsComponent,
     PartidosUtilsComponent,
+    TablasUtilsComponent,
 
   ],
   imports: [

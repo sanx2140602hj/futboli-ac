@@ -25,6 +25,7 @@
   tr:hover {
     background-color: #081858;
     color: white;
+    cursor: pointer;
   }
   
   .top {

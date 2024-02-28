@@ -1,0 +1,66 @@
+.top {
+    margin-top: 22rem;
+}
+
+.container {
+    text-align: center;
+    margin-bottom: 11.5rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    /* ajusta según sea necesario */
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #08185880;
+    color: white;
+    font-weight: bold;
+    vertical-align: middle;
+    /* Añade esta línea */
+}
+
+tr:hover {
+    background-color: #081858;
+    color: white;
+}
+
+.top {
+    margin-top: 25rem;
+    /* ajusta según sea necesario */
+}
+
+img {
+    width: 3rem;
+}
+span{
+    margin-right: 5px;
+}
+.fa-solid {
+    transform: rotate(90deg);
+}
+
+@media screen and (max-width: 1500px) {
+
+    .top {
+        margin-top: 17rem;
+        /* ajusta según sea necesario */
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+    table {
+        zoom: 0.8;
+        /* aleja el tamaño de la tabla al 20% */
+    }
+}
