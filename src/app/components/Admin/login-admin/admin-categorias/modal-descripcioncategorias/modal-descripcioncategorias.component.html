@@ -2,11 +2,24 @@
     <div class="modal-content">
       <div class="izq">
         <h1>Descripción</h1>
-        <p>Pony</p>
+        <p>Pony¨[[[RECUERDA PONER INTERPOLACION EN BASE DE DATOS]]]"</p>
       </div>
       <div class="input">
         <label for="comentario">Comentario:</label>
-        <textarea id="comentario" [(ngModel)]="comentario" class="category-input"></textarea>
+<!--         <textarea id="comentario" [(ngModel)]="comentario" class="category-input"></textarea>
+ -->        <form [formGroup]="miFormulario">
+
+
+          <textarea id="comentarCategoria" type="text" formControlName="comentarCategoria" class="category-input"
+              [ngClass]="{ 'error-input': comentarCategoria && comentarCategoria.invalid && (comentarCategoria.dirty || comentarCategoria.touched) }">
+          </textarea>
+              <div
+              *ngIf="comentarCategoria && comentarCategoria.invalid && (comentarCategoria.dirty || comentarCategoria.touched)">
+              <div *ngIf="comentarCategoria.errors?.['required']">El editar o añadir un comentario  es obligatorio.</div>
+          </div>
+
+
+      </form>
       </div>
       <div class="derecha">
         <button (click)="closeModal()" class="close-button">Cerrar</button>

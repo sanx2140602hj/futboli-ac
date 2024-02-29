@@ -4,8 +4,23 @@
         <div class="izq">
             <h1>Nueva categoría</h1>
         </div>
+        <h5>Cree una categoría nueva.</h5>
+
         <div class="input">
-            <input type="text" placeholder="Nombre de la categoría" class="category-input" [(ngModel)]="nombreCategoria">
+            <form [formGroup]="miFormulario">
+
+
+                <input id="nombreCategoria" type="text" formControlName="nombreCategoria" class="category-input"
+                    [ngClass]="{ 'error-input': nombreCategoria && nombreCategoria.invalid && (nombreCategoria.dirty || nombreCategoria.touched) }">
+                <div
+                    *ngIf="nombreCategoria && nombreCategoria.invalid && (nombreCategoria.dirty || nombreCategoria.touched)">
+                    <div *ngIf="nombreCategoria.errors?.['required']">El nombre de la categoría es obligatorio.</div>
+                    <div *ngIf="nombreCategoria.errors?.['pattern']">Solo se permiten letras, números y espacios.</div>
+                </div>
+
+
+            </form>
+
         </div>
         <div class="derecha">
             <button (click)="closeModal()" class="close-button">Cerrar</button>
