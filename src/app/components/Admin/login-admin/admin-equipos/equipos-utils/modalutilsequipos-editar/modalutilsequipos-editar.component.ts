@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Validators, FormControl } from '@angular/forms';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-modalutilsequipos-editar',
@@ -6,43 +8,95 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./modalutilsequipos-editar.component.css']
 })
 export class ModalutilsequiposEditarComponent implements OnInit {
-// Evento de salida para notificar el cierre del modal al componente padre
-  // Evento de salida para notificar el cierre del modal al componente padre
   @Output() onCloseModal = new EventEmitter<void>();
   dirTec: string = '';
-  opciones: string[] = ["Presidente", "Vicepresidente", "Tesorero"]; // Opciones predefinidas
   nuevaOpcion: string = '';
   selectedOption: string = '';
+
+  dirTecControl = new FormControl('', [Validators.pattern('^[a-zA-Z0-9ñ ]*$')]);
+  nuevaOpcionControl = new FormControl('', [Validators.pattern('^[a-zA-Z0-9ñ ]*$')]);
 
   constructor() { }
 
   agregarOpcion() {
     if (this.nuevaOpcion.trim() !== '') {
-      this.opciones.push(this.nuevaOpcion);
-      this.selectedOption = this.nuevaOpcion; // Seleccionar la nueva opción recién agregada
-      this.nuevaOpcion = ''; // Limpiar el campo de entrada después de agregar la opción
+      this.selectedOption = this.nuevaOpcion;
+      this.nuevaOpcion = '';
     } else {
       console.error('Error: Debe ingresar un valor para la nueva opción.');
-      // Aquí puedes agregar lógica adicional para manejar el error
     }
   }
 
   ngOnInit(): void {
   }
 
-  // Método para cerrar el modal y emitir el evento al componente padre
   closeModal() {
-    console.log('Modal cerrado'); // Se muestra un log en la consola
-    this.onCloseModal.emit(); // Se emite el evento para notificar el cierre del modal al componente padre
+    console.log('Modal cerrado');
+    this.onCloseModal.emit();
   }
 
   guardarCambios() {
-    // Lógica para guardar los cambios en el equipo
-    console.log('Nombre del director técnico: ', this.dirTec);
-    this.closeModal(); // Cerrar el modal después de guardar los cambios
+    const nombreValido = this.dirTecControl.valid;
+    const nuevaOpcionValida = this.nuevaOpcionControl.valid;
+
+    if (!nombreValido || !nuevaOpcionValida ) {
+      Swal.fire({
+        position: "top-end",
+        title: 'Operación no realizada',
+        text: 'Por favor, asegúrese de que el formulario esté completo y sin errores',
+        icon: 'error',
+        timer: 2500,
+        showConfirmButton: false,
+      });
+      console.error('Error: Todos los campos son requeridos o contienen valores inválidos.');
+      return;
+    }
+
+    const mensaje = this.selectedOption !== '' ? this.selectedOption : this.nuevaOpcion;
+
+    Swal.fire({
+      position: "top-end",
+      title: 'Generado con éxito',
+      text: `Nombre del director técnico: ${this.dirTec} - Cargo: ${mensaje}`,
+      icon: 'success',
+      timer: 1500,
+      showConfirmButton: false,
+    });
+
+    this.closeModal();
   }
 
+  
   opcionSeleccionada() {
-    console.log('Nueva opción seleccionada:', this.selectedOption);
+    if (this.selectedOption !== 'NuevaOpcion') {
+      console.log('La opción seleccionada es válida');
+      return;
+    }
+
+    const nuevaOpcionValida = this.nuevaOpcion.trim() !== '';
+
+    if ( nuevaOpcionValida) {
+      console.log('La opción seleccionada es válida');
+      if ( nuevaOpcionValida) {
+        Swal.fire({
+          position: "top-end",
+          title: 'Opción agregada con éxito',
+          text: `Nueva opción: ${this.nuevaOpcion}`,
+          icon: 'success',
+          timer: 2500,
+          showConfirmButton: false
+        });
+      }
+      return;
+    }
+
+    Swal.fire({
+      position: "top-end",
+      title: 'error de select',
+      text: 'La opción seleccionada no es válida',
+      icon: 'error',
+      timer: 2500,
+      showConfirmButton: false
+    });
   }
 }
