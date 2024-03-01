@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Validators, FormControl } from '@angular/forms';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-modalutilsequipos-registrodirectortecnico',
@@ -14,8 +15,8 @@ export class ModalutilsequiposRegistrodirectortecnicoComponent implements OnInit
   nuevaOpcion: string = '';
   selectedOption: string = '';
 
-  dirTecControl = new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z0-9 ]*$')]);
-  nuevaOpcionControl = new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z0-9 ]*$')]);
+  dirTecControl = new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z0-9ñ ]*$')]);
+  nuevaOpcionControl = new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z0-9ñ ]*$')]);
 
   constructor() { }
 
@@ -41,30 +42,62 @@ export class ModalutilsequiposRegistrodirectortecnicoComponent implements OnInit
 
   guardarCambios() {
     // Validar que el primer input tenga al menos un número, letras y espacios
-    const nombreValido = /[a-zA-Z0-9]+/.test(this.dirTec.trim());
+    const nombreValido = this.dirTecControl.valid;
   
-    // Validar que se haya seleccionado un cargo o se haya ingresado uno nuevo
-    const cargoValido = this.selectedOption !== '' || this.nuevaOpcion.trim() !== '';
+    // Validar que la nueva opción ingresada pase las validaciones
+    const nuevaOpcionValida = this.nuevaOpcionControl.valid;
   
-    // Verificar que ambos campos sean válidos
-    if (!nombreValido || !cargoValido) {
-      console.error('Error: Todos los campos son requeridos.');
+    // Validar que se haya seleccionado una opción válida
+    const opcionValida = this.opciones.includes(this.selectedOption);
+  
+    // Verificar que todos los campos sean válidos
+    if (!nombreValido || !nuevaOpcionValida || !opcionValida) {
+      Swal.fire({
+        position: "top-end",
+        title: 'Operación no realizada',
+        text: 'Por favor, asegúrese de que el formulario esté completo y sin errores',
+        icon: 'error',
+        timer: 2500,
+        showConfirmButton: false,
+      });
+      console.error('Error: Todos los campos son requeridos o contienen valores inválidos.');
       return;
     }
   
-    // Si los campos son válidos, imprimir en la consola y cerrar el modal
-    console.log('Nombre del director técnico:', this.dirTec);
-    if (this.selectedOption !== '') {
-      console.log('Cargo seleccionado:', this.selectedOption);
-    } else {
-      console.log('Nuevo cargo:', this.nuevaOpcion);
-    }
+    // Si los campos son válidos, mostrar alerta de éxito con el contenido deseado
+    const mensaje = this.selectedOption !== '' ? this.selectedOption : this.nuevaOpcion;
+  
+    Swal.fire({
+      position: "top-end",
+      title: 'Generado con éxito',
+      text: `Nombre del director técnico: ${this.dirTec} - Cargo: ${mensaje}`,
+      icon: 'success',
+      timer: 1500,
+      showConfirmButton: false,
+    });
   
     this.closeModal(); // Cerrar el modal después de guardar los cambios
   }
   
 
+
   opcionSeleccionada() {
+    // Verificar si la opción seleccionada es válida
+    const validCharsRegex = /^[a-zA-Z0-9\sñ ]*$/;
+    if (!this.selectedOption || !validCharsRegex.test(this.selectedOption.trim())) {
+      // Si la opción seleccionada no es válida, mostrar un mensaje de error
+      Swal.fire({
+        position: "top-end",
+        title: 'Operación no realizada',
+        text: 'La opción seleccionada no es válida',
+        icon: 'error',
+        timer: 2500,
+        showConfirmButton: false
+      });
+      console.error('Error: La opción seleccionada no es válida');
+      return;
+    }
     console.log('Nueva opción seleccionada:', this.selectedOption);
   }
+  
 }

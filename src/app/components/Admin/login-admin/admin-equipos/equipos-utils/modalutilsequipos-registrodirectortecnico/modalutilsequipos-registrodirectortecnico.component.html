@@ -5,10 +5,7 @@
             <h1>Registro del equipo técnico</h1>
         </div>
 
-    
-        
-
-        <div class="input" [ngClass]="{'error': dirTecControl.invalid || !selectedOption}">
+        <div class="input" [ngClass]="{'error': dirTecControl.invalid || !selectedOption || nuevaOpcionControl.invalid}">
             <input type="text" placeholder="Nombre del director técnico" class="category-input" [(ngModel)]="dirTec" name="dirTec" [formControl]="dirTecControl" required>
             <div *ngIf="dirTecControl?.invalid && (dirTecControl.dirty || dirTecControl.touched)" class="error-message">
                 <div *ngIf="dirTecControl.errors?.['required']">Este campo es requerido</div>
@@ -20,16 +17,15 @@
                 <option value="NuevaOpcion">Agregar nueva opción...</option>
             </select>
             <div *ngIf="selectedOption === 'NuevaOpcion'">
-                <input type="text" placeholder="Escriba un nuevo cargo" class="search-input2" [(ngModel)]="nuevaOpcion">
+                <input type="text" placeholder="Escriba un nuevo cargo" class="search-input2" [(ngModel)]="nuevaOpcion" name="nuevaOpcion" [formControl]="nuevaOpcionControl">
+                <div *ngIf="nuevaOpcionControl?.invalid && (nuevaOpcionControl.dirty || nuevaOpcionControl.touched)" class="error-message">
+                    <div *ngIf="nuevaOpcionControl.errors?.['pattern']">Solo se permiten letras, números y espacios</div>
+                </div>
                 <button class="save-button" (click)="agregarOpcion()">Añadir</button>
             </div>
             <div *ngIf="!selectedOption" class="error-message">Este campo es requerido</div>
         </div>
         
-        
-
-        
-
 
         <div class="derecha">
             <button (click)="closeModal()" class="close-button">Cerrar</button>
