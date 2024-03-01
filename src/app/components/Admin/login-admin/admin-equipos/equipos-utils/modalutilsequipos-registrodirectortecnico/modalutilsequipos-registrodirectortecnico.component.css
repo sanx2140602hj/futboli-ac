@@ -99,9 +99,18 @@
   padding: 0.5rem 1rem;
 }
 /* ngclass */
-.error-input {
-  border: 2px solid red !important;
+.error input,
+.error select {
+    border: 2px solid red;
 }
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+
 @media screen and (max-width: 500px) {
   .modal-content {
     width: 50%;
