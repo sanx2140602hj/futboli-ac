@@ -1,4 +1,3 @@
-// modal-eliminar-categorias.component.ts
 import { Component, EventEmitter, Output } from '@angular/core';
 import Swal from 'sweetalert2'
 

@@ -5,8 +5,24 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './admin-categorias.component.html',
   styleUrls: ['./admin-categorias.component.css']
 })
-export class AdminCategoriasComponent implements OnInit {
 
+
+
+
+
+export class AdminCategoriasComponent implements OnInit {
+  categorias = [
+    { id: 1, nombre: 'Categoría 1', descripcion: 'Descripción 1', fechaCreacion: 'Fecha 1' },
+    { id: 2, nombre: 'Categoría 2', descripcion: 'Descripción 2', fechaCreacion: 'Fecha 2' },
+    { id: 3, nombre: 'Categoría 3', descripcion: 'Descripción 3', fechaCreacion: 'Fecha 3' },
+    { id: 4, nombre: 'Categoría 4', descripcion: 'Descripción 4', fechaCreacion: 'Fecha 4' },
+    { id: 5, nombre: 'Categoría 5', descripcion: 'Descripción 5', fechaCreacion: 'Fecha 5' },
+    { id: 6, nombre: 'Categoría 6', descripcion: 'Descripción 6', fechaCreacion: 'Fecha 6' },
+    // Puedes agregar más objetos aquí o hacer la conecion a bd
+  ];
+  //para buscar
+  searchTerm: string = '';
+  /* +++++++++++++++++++++++++++++++++++++++++++++++ */
   constructor() { }
 
   ngOnInit(): void {

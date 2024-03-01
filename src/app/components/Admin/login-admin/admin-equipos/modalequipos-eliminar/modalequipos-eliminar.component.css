@@ -95,6 +95,10 @@
   
   .error-message {
     color: red;
+  }  /* ngclass */
+  .error-input {
+    border: 2px solid red !important;
+    
   }
 @media screen and (max-width: 500px) {
   .modal-content {

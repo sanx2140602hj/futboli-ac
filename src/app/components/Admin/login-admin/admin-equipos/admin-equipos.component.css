@@ -21,7 +21,10 @@
   z-index: 1000;
 }
 /* Asegura que el navbar esté por encima de otros elementos */
-
+.scroll {
+  overflow-y: auto;
+  max-height: 200px;
+}
 /* ///////////////////////////////////////////////////////////////////// */
 .search-container {
   display: flex;
@@ -117,6 +120,12 @@
 
 
 /* ---------------------------------------- */
+.custom-table thead {
+  position: sticky;
+  top: -0.2px;
+  background-color: #FEE2C5; /* Puedes ajustar el color de fondo según tus preferencias */
+  z-index: 2; /* Asegura que esté por encima del contenido de la tabla */
+}
 .table-container {
   margin: 1.5rem;
 }
@@ -178,7 +187,14 @@
   font-size: 1rem;
   margin-right: -0.5rem; /* Espacio a la derecha del ícono */
 }
-
+/* ngclass */
+.error-input {
+  border: 2px solid red !important;
+}
+.scroll {
+  overflow-y: auto;
+  max-height: 200px;
+}
 @media screen and (max-width: 1500px) {
   .container {
     margin: 1rem;

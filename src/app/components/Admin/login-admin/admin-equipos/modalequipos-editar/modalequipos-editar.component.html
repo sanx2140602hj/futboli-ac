@@ -1,14 +1,29 @@
 <div class="modal">
     <div class="modal-content">
+        <!-- Contenido del modal aquí -->
         <div class="izq">
-            <h1>Editar Equipo</h1>
+            <h1>Editar nombre de equipo</h1>
         </div>
+        <h5>Edita el nombre de este equipo.</h5>
         <div class="input">
-            <input type="text" placeholder="Nombre del equipo" class="category-input" [(ngModel)]="equipoNombre">
+            <form [formGroup]="miFormulario">
+
+
+                <input id="equipoNombre" type="text" formControlName="equipoNombre" class="category-input"
+                    [ngClass]="{ 'error-input': equipoNombre && equipoNombre.invalid && (equipoNombre.dirty || equipoNombre.touched) }">
+                <div
+                    *ngIf="equipoNombre && equipoNombre.invalid && (equipoNombre.dirty || equipoNombre.touched)">
+                    <div *ngIf="equipoNombre.errors?.['required']">El editar de la categoría es obligatorio.</div>
+                    <div *ngIf="equipoNombre.errors?.['pattern']">Solo se permiten letras, números y espacios.</div>
+                </div>
+
+
+            </form>
+
         </div>
         <div class="derecha">
             <button (click)="closeModal()" class="close-button">Cerrar</button>
-            <button class="save-button" (click)="guardarCambios()">Guardar</button>
+            <button class="save-button"  (click)="equipoNombreGuardar()">Guardar</button>
         </div>
     </div>
 </div>

@@ -2,15 +2,29 @@
     <div class="modal-content">
         <!-- Contenido del modal aquí -->
         <div class="izq">
-            <h1>Registrar equipo</h1>
-            <!-- Otros campos de registro del equipo -->
+            <h1>Nuevo equipo</h1>
         </div>
+        <h5>Cree un equipo nuevo.</h5>
+
         <div class="input">
-            <input type="text" placeholder="Nombre del equipo" class="category-input" [(ngModel)]="nuevoEquipo">
+            <form [formGroup]="miFormulario">
+
+
+                <input id="nuevoEquipo" type="text" formControlName="nuevoEquipo" class="category-input"
+                    [ngClass]="{ 'error-input': nuevoEquipo && nuevoEquipo.invalid && (nuevoEquipo.dirty || nuevoEquipo.touched) }">
+                <div
+                    *ngIf="nuevoEquipo && nuevoEquipo.invalid && (nuevoEquipo.dirty || nuevoEquipo.touched)">
+                    <div *ngIf="nuevoEquipo.errors?.['required']">El nombre de la categoría es obligatorio.</div>
+                    <div *ngIf="nuevoEquipo.errors?.['pattern']">Solo se permiten letras, números y espacios.</div>
+                </div>
+
+
+            </form>
+
         </div>
         <div class="derecha">
             <button (click)="closeModal()" class="close-button">Cerrar</button>
-            <button class="save-button" (click)="guardarEquipo()">Guardar</button>
+            <button class="save-button" (click)="guardarCategoria()">Guardar</button>
         </div>
     </div>
 </div>

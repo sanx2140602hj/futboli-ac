@@ -10,9 +10,9 @@
 <div class="content">
     <div class="search-container">
         <div class="search-wrapper">
-            <input type="text" class="search-input" placeholder="Buscar Categorías...">
-            <button class="custom-button2">Buscar</button>
-        </div>
+      <input type="text" class="search-input" placeholder="Buscar Categorías..." [(ngModel)]="searchTerm">
+<!--             <button class="custom-button2">Buscar</button>
+ -->        </div>
     </div>
     <!-- ------------------- -->
 
@@ -32,7 +32,7 @@
 
 
     <!-- --------------------- -->
-    <div class="table-container">
+    <div class="table-container scroll">
         <table class="custom-table">
             <thead> <!-- ejemplo despues se ara con ng*ngFor="" para hacer la habla automatica-->
                 <tr>
@@ -43,6 +43,34 @@
                 </tr>
             </thead>
             <tbody>
+                <ng-container *ngIf="categorias.length > 0; else noData">
+                  <tr *ngFor="let categoria of categorias | filter: searchTerm; let i = index">            <td>{{ categoria.id }}</td>
+                    <td>  <button class="button-icon2 " routerLink="/equipos">
+                        {{ categoria.nombre }}  <i style="margin-left: 10px;" class="fas fa-external-link-alt"></i>
+                    </button></td>
+               
+                    <td>{{ categoria.fechaCreacion }}</td>
+                    <td>
+                      <button class="button-icon" style="color: blue;" (click)="openEditarModal()">
+                        <i class="fas fa-edit"></i>
+                      </button>
+                      <app-modal-editar-categorias *ngIf="showEditarModal"
+                        (onCloseModal)="closeEditarModal()"></app-modal-editar-categorias>
+                      <button class="button-icon" style="color: red;" (click)="openEliminarModal()">
+                        <i class="fas fa-trash-alt"></i>
+                      </button>
+                      <app-modal-eliminar-categorias *ngIf="showEliminarModal"
+                        (onCloseModal)="closeEliminarModal()"></app-modal-eliminar-categorias>
+                    </td>
+                  </tr>
+                </ng-container>
+              </tbody>
+              <ng-template #noData>
+                <tr>
+                  <td colspan="5">No se encontraron resultados</td>
+                </tr>
+              </ng-template>
+          <!--   <tbody>
                 <tr>
                     <td>1</td>
                     <td>
@@ -56,7 +84,6 @@
 
                     <td>Fecha 1</td>
                     <td>
-                        <!--  -->
                         <button class="button-icon" style="color: blue;" (click)="openEditarModal()">
                             <i class="fas fa-edit"></i>
                         </button>
@@ -69,11 +96,10 @@
                         </button>
                         <app-modalequipos-eliminar *ngIf="showEliminarModal"
                             (onCloseModal)="closeEliminarModal()"></app-modalequipos-eliminar>
-                        <!--  -->
                     </td>
                 </tr>
 
-            </tbody>
+            </tbody> -->
         </table>
     </div>
 

@@ -63,6 +63,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalEliminarjugadorutilsComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/modal-eliminarjugadorutils/modal-eliminarjugadorutils.component';
 import { PartidosUtilsComponent } from './components/Admin/login-admin/admin-partidos/partidos-utils/partidos-utils.component';
 import { TablasUtilsComponent } from './components/tablas/tablas-utils/tablas-utils.component';
+
+//para busquedas XD
+import { FilterPipe } from './filter.pipe';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -116,13 +121,16 @@ import { TablasUtilsComponent } from './components/tablas/tablas-utils/tablas-ut
     ModalEliminarjugadorutilsComponent,
     PartidosUtilsComponent,
     TablasUtilsComponent,
+    //filtro
+    FilterPipe,
+//----------------
 
   ],
   imports: [
     BrowserModule,
     FormsModule, // Agrega FormsModule aquí
     ReactiveFormsModule, // Agrega ReactiveFormsModule si lo necesitas
-  
+    
     app_routing
   ],
   providers: [],

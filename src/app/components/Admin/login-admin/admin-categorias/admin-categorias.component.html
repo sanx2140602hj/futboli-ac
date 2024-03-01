@@ -1,85 +1,81 @@
 <div class="sidebar" id="sidebar">
-    <app-sidebar></app-sidebar>
+  <app-sidebar></app-sidebar>
 </div>
 
 <nav class="navbar just fixed-navbar">
-    <h1>
-        <i class="fa-solid fa-window-restore">        Categorias</i>
-    </h1>
+  <h1>
+    <i class="fa-solid fa-window-restore"> Categorias</i>
+  </h1>
 </nav>
 <div class="content">
-    <div class="container search-container">
-        <div class="search-wrapper">
-            <input type="text" class="search-input" placeholder="Buscar Categorías...">
-            <button class="custom-button2">Buscar</button>
-        </div>
-    </div>
-    <!-- ------------------- -->
+  <div class="container search-container">
+    <div class="search-wrapper">
+      <input type="text" class="search-input" placeholder="Buscar Categorías..." [(ngModel)]="searchTerm">
+<!--       <button class="custom-button2">Buscar</button>
+ -->    </div>
+  </div>
+  <!-- ------------------- -->
 
-    <!-- Botón para abrir el modal -->
-    <div class="button-container">
-        <button class="custom-button" (click)="openModal()">
-            <!-- ⚠️🐢tiene ralacion con ts🐢⚠️ -->
-            <i class="fas fa-plus"></i> Nueva categoría 
-        </button>
-    </div>
-
-    <!-- Componente de modal que se muestra condicionalmente -->
-    <app-modal-nuevacategorias *ngIf="showModal" (onCloseModal)="closeModal()"></app-modal-nuevacategorias>
-    <!-- ⚠️🐢tiene ralacion con ts y con modal-nuevacategorias.component.html 🐢⚠️ -->
-
-
-    <!-- --------------------- -->
-    <div class="table-container">
-        <table class="custom-table">
-            <thead> <!-- ejemplo despues se ara con ng*ngFor="" para hacer la habla automatica-->
-                <tr>
-                    <th>No</th>
-                    <th>Categoría</th>
-                    <th>Descripcion</th>
-                    <th>Fechas de Creación</th>
-                    <th>Menú de Opciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Categoría 1</td>
-
-<!--  -->
-<td>
-    <button class="button-icon" (click)="openDescripcionModal()">
-      <u>Añade una descripción</u>
+  <!-- Botón para abrir el modal -->
+  <div class="button-container">
+    <button class="custom-button" (click)="openModal()">
+      <!-- ⚠️🐢tiene ralacion con ts🐢⚠️ -->
+      <i class="fas fa-plus"></i> Nueva categoría
     </button>
-    <!-- Nuevo modal de descripción -->
-    <app-modal-descripcioncategorias
-      *ngIf="showDescripcionModal"
-      (onCloseModal)="closeDescripcionModal()"
-    ></app-modal-descripcioncategorias>
-  </td>
-<!--  -->
+  </div>
+
+  <!-- Componente de modal que se muestra condicionalmente -->
+  <app-modal-nuevacategorias *ngIf="showModal" (onCloseModal)="closeModal()"></app-modal-nuevacategorias>
+  <!-- ⚠️🐢tiene ralacion con ts y con modal-nuevacategorias.component.html 🐢⚠️ -->
 
 
-                    <td>Fecha 1</td>
-                    <td>
-                        <button class="button-icon" style="color: blue;" (click)="openEditarModal()">
-                                <i class="fas fa-edit"></i>
-                            </button>
-
-                        <app-modal-editar-categorias *ngIf="showEditarModal"
-                            (onCloseModal)="closeEditarModal()"></app-modal-editar-categorias>
-
-                            <button class="button-icon" style="color: red;" (click)="openEliminarModal()">
-                                <i class="fas fa-trash-alt"></i> 
-                            </button>
-                            <app-modal-eliminar-categorias *ngIf="showEliminarModal" (onCloseModal)="closeEliminarModal()"></app-modal-eliminar-categorias>
-
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-    </div>
+  <!-- --------------------- -->
+  <div class="table-container scroll">
+    <table class="custom-table ">
+      <thead> <!-- ejemplo despues se ara con ng*ngFor="" para hacer la habla automatica-->
+        <tr>
+          <th>No</th>
+          <th>Categoría</th>
+          <th>Descripcion</th>
+          <th>Fechas de Creación</th>
+          <th>Menú de Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngIf="categorias.length > 0; else noData">
+          <tr *ngFor="let categoria of categorias | filter: searchTerm; let i = index">            <td>{{ categoria.id }}</td>
+            <td>{{ categoria.nombre }}</td>
+            <td>
+              <button class="button-icon" (click)="openDescripcionModal()">
+                <u>Añade una descripción</u>
+              </button>
+              <!-- Nuevo modal de descripción -->
+              <app-modal-descripcioncategorias *ngIf="showDescripcionModal"
+                (onCloseModal)="closeDescripcionModal()"></app-modal-descripcioncategorias>
+            </td>
+            <td>{{ categoria.fechaCreacion }}</td>
+            <td>
+              <button class="button-icon" style="color: blue;" (click)="openEditarModal()">
+                <i class="fas fa-edit"></i>
+              </button>
+              <app-modal-editar-categorias *ngIf="showEditarModal"
+                (onCloseModal)="closeEditarModal()"></app-modal-editar-categorias>
+              <button class="button-icon" style="color: red;" (click)="openEliminarModal()">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+              <app-modal-eliminar-categorias *ngIf="showEliminarModal"
+                (onCloseModal)="closeEliminarModal()"></app-modal-eliminar-categorias>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+      <ng-template #noData>
+        <tr>
+          <td colspan="5">No se encontraron resultados</td>
+        </tr>
+      </ng-template>
+    </table>
+  </div>
 
 
 
