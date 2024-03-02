@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalService } from 'src/app/modal.service'; // Importa el servicio
 
 @Component({
   selector: 'app-utils-cardsjugador',
@@ -8,17 +7,8 @@ import { ModalService } from 'src/app/modal.service'; // Importa el servicio
 })
 export class UtilsCardsjugadorComponent implements OnInit {
 
-  constructor(private modalService: ModalService) { }
-  // Método para abrir la sección de identificación
- // En el componente UtilsCardsjugadorComponent
-openIdentificacion() {
-  if (!this.modalService.isInformacionGuardada()) {
-    console.log('Hey, primero guarda la información.');
-    return;
-  }
-  this.modalService.setModalActual('Identificacion');
-  t
-}
+  constructor() { }
+ 
 
 
   /*  */
