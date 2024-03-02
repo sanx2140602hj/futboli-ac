@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalService } from 'src/app/modal.service'; // Importa el servicio
 
 @Component({
   selector: 'app-utils-cardsjugador',
@@ -7,14 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UtilsCardsjugadorComponent implements OnInit {
 
-  constructor() { }
-/*  */
+  constructor(private modalService: ModalService) { }
+  // Método para abrir la sección de identificación
+ // En el componente UtilsCardsjugadorComponent
+openIdentificacion() {
+  if (!this.modalService.isInformacionGuardada()) {
+    console.log('Hey, primero guarda la información.');
+    return;
+  }
+  this.modalService.setModalActual('Identificacion');
+  t
+}
+
+
+  /*  */
   ngOnInit(): void {
   }
  /* Seccion Identificacion ⭐ */
  showIdentificacion = false; /*⚠️🦖 este se mantiene en true a diferencia de los demas 
  componentes porque debe cargar como primera instancia */
- openIdentificacion() {
+ openIdentificacionModal() {
    this.showIdentificacion = true;
    this.showDatosPersonales = false;
    this.showContacto = false;
