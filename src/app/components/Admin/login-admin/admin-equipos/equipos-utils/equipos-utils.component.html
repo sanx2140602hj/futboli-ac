@@ -27,8 +27,8 @@
 
 
     <!-- --------------------- -->
-    <div class="table-container">
-        <table class="custom-table">
+    <div class=" scroll table-container">
+        <table class="custom-table ">
             <thead> <!-- ejemplo despues se ara con ng*ngFor="" para hacer la habla automatica-->
                 <tr>
                     <th>No</th>
@@ -38,34 +38,28 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Superman</td>
+                <ng-container *ngIf="tecDir.length > 0; else noData">
+                    <tr *ngFor="let tecDir of tecDir ">
+                        <td>{{ tecDir.id }}</td>
+                        <td>{{ tecDir.nombre }}</td>
+                        <td>{{ tecDir.cargo }}</td>
 
-                    <!--  -->
-                    <td>
-                        Director tecnico
+                        <td><span>
+                            <button class="button-icon" style="color: blue;" (click)="openEditarModal()">
+                                <i class="fas fa-edit"></i>
+                            </button></span>
+                            <app-modalutilsequipos-editar *ngIf="showEditarModal"
+                                (onCloseModal)="closeEditarModal()"></app-modalutilsequipos-editar>
+<span>
+                            <button class="button-icon" style="color: red;" (click)="openEliminarModal()">
+                                <i class="fas fa-trash-alt"></i>
+                            </button></span>
+                            <app-modalutilsequipos-eliminar *ngIf="showEliminarModal"
+                                (onCloseModal)="closeEliminarModal()"></app-modalutilsequipos-eliminar>
 
-                    </td>
-                    <!--  -->
-
-
-                    <td>
-                        <button class="button-icon" style="color: blue;" (click)="openEditarModal()">
-                            <i class="fas fa-edit"></i>
-                        </button>
-                        <app-modalutilsequipos-editar *ngIf="showEditarModal"
-                            (onCloseModal)="closeEditarModal()"></app-modalutilsequipos-editar>
-
-                        <button class="button-icon" style="color: red;" (click)="openEliminarModal()">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                        <app-modalutilsequipos-eliminar *ngIf="showEliminarModal"
-                            (onCloseModal)="closeEliminarModal()"></app-modalutilsequipos-eliminar>
-
-                    </td>
-                </tr>
-
+                        </td>
+                    </tr>
+                </ng-container>
             </tbody>
         </table>
     </div>
@@ -73,8 +67,8 @@
     <hr>
 
 
-    <div class="table-container">
-        <h1>Lista jugadores</h1>
+    <h1>Lista jugadores</h1>
+    <div class="scroll table-container">
         <table class="custom-table">
             <thead> <!-- ejemplo despues se ara con ng*ngFor="" para hacer la habla automatica-->
                 <tr>
@@ -90,95 +84,77 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>00000</td>
-                    <td>JESUS SANCHEZ HERNANDEZ</td>
-                    <td>Portero</td>
-                    <td>3</td>
-                    <td>2</td>
-                    <td>1</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>
-                        <!--  -->
-                        <button class="button-icon" style="color: blue;" (click)="openPresidenteModal()">
-                            <i class="fas fa-edit"></i>
-                        </button> <app-modalutilsequipos-registrodelpresidente *ngIf="showPresidenteModal"
-                            (onCloseModal)="closePresidenteModal()"></app-modalutilsequipos-registrodelpresidente>
+                <ng-container *ngIf="jugadores.length > 0; else noData">
+                    <tr *ngFor="let jugadores of jugadores">
+                        <td>{{ jugadores.id }}</td>
+                        <td>{{ jugadores.nombre }}</td>
+                        <td>{{ jugadores.posicion }}</td>
+                        <td>{{ jugadores.partidosJugados }}</td>
+                        <td>{{ jugadores.partidosAusentados }}</td>
+                        <td>{{ jugadores.goles }}</td>
+                        <td>{{ jugadores.tarjetasAmarillas }}</td>
+                        <td>{{ jugadores.tarjetasRojas }}</td>
 
-                        <button class="button-icon" style="color: red;" (click)="openEliminarJugadorModal()">
-                            <i class="fas fa-trash-alt"></i>
-                        </button><app-modal-eliminarjugadorutils *ngIf="showEliminarJugadorModal"
-                            (onCloseModal)="closeEliminarJugadorModal()"></app-modal-eliminarjugadorutils>
+                        <td>
+                            <!--  -->
+                            <button class="button-icon" style="color: blue;" (click)="openPresidenteModal()">
+                                <i class="fas fa-edit"></i>
+                            </button> <app-modalutilsequipos-registrodelpresidente *ngIf="showPresidenteModal"
+                                (onCloseModal)="closePresidenteModal()"></app-modalutilsequipos-registrodelpresidente>
 
-                    </td>
-                </tr>
+                            <button class="button-icon" style="color: red;" (click)="openEliminarJugadorModal()">
+                                <i class="fas fa-trash-alt"></i>
+                            </button><app-modal-eliminarjugadorutils *ngIf="showEliminarJugadorModal"
+                                (onCloseModal)="closeEliminarJugadorModal()"></app-modal-eliminarjugadorutils>
 
+                        </td>
+                    </tr>
+                </ng-container>
             </tbody>
         </table>
-        <div class="container Altura" >
+    </div><hr>
+    <div class="card">
+        <div class="container Altura">
             <div class="select-equipos">
-                <input type="text" class="search-input2" placeholder="Buscar Categorías...">
-                <button class="custom-button4">Buscar</button>
-                <div class="scroll Altura card">
-                    <li>
-                        juan
-                        <button type="button" class="custom-button2">
-                            <i class="fa-solid fa-plus"></i>Añadir
-                        </button>
-                    </li> <li>
-                        juan
-                        <button type="button" class="custom-button2">
-                            <i class="fa-solid fa-plus"></i>Añadir
-                        </button>
-                    </li> <li>
-                        juan
-                        <button type="button" class="custom-button2">
-                            <i class="fa-solid fa-plus"></i>Añadir
-                        </button>
-                    </li> <li>
-                        juan
-                        <button type="button" class="custom-button2">
-                            <i class="fa-solid fa-plus"></i>Añadir
-                        </button>
-                    </li> <li>
-                        juan
-                        <button type="button" class="custom-button2">
-                            <i class="fa-solid fa-plus"></i>Añadir
-                        </button>
-                    </li> <li>
-                        juan
-                        <button type="button" class="custom-button2">
-                            <i class="fa-solid fa-plus"></i>Añadir
-                        </button>
-                    </li> <li>
-                        juan
-                        <button type="button" class="custom-button2">
-                            <i class="fa-solid fa-plus"></i>Añadir
-                        </button>
-                    </li> <li>
-                        juan
-                        <button type="button" class="custom-button2">
-                            <i class="fa-solid fa-plus"></i>Añadir
-                        </button>
-                    </li> <li>
-                        juan
-                        <button type="button" class="custom-button2">
-                            <i class="fa-solid fa-plus"></i>Añadir
-                        </button>
-                    </li> <li>
-                        juan
-                        <button type="button" class="custom-button2">
-                            <i class="fa-solid fa-plus"></i>Añadir
-                        </button>
-                    </li>
+                <input type="text" class="search-input" placeholder="Buscar Categorías..." [(ngModel)]="searchTerm">
+                <!--       <button class="custom-button2">Buscar</button>
+                 -->
+                <div>
+                    <div class="scroll2 Altura ">
+                        <table class="custom-table">
+                            <thead>
+
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Nombre</th>
+                                    <th>selecion</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <ng-container *ngIf="ljugador.length > 0; else noData">
+                                    <tr *ngFor="let categoria of ljugador | filter: searchTerm; let i = index">
+                                        <td>{{ categoria.id }}</td>
+                                        <td>{{ categoria.nombre }}</td>
+
+                                        <td> <button type="button" class="custom-button2">
+                                                <i class="fa-solid fa-plus"></i>Añadir
+                                            </button></td>
+                                    </tr>
+                                </ng-container>
+                            </tbody>
+                            <ng-template #noData>
+                                <tr>
+                                    <td colspan="3">No se encontraron resultados</td>
+                                </tr>
+                            </ng-template>
+                        </table>
+                    </div>
+
                 </div>
-    
             </div>
         </div>
     </div>
 </div>
-
 
 
 

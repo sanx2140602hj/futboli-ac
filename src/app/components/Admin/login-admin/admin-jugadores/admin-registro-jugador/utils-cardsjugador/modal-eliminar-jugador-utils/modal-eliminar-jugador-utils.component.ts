@@ -1,11 +1,11 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import Swal from 'sweetalert2'
 @Component({
-  selector: 'app-modalutilsequipos-eliminar',
-  templateUrl: './modalutilsequipos-eliminar.component.html',
-  styleUrls: ['./modalutilsequipos-eliminar.component.css']
+  selector: 'app-modal-eliminar-jugador-utils',
+  templateUrl: './modal-eliminar-jugador-utils.component.html',
+  styleUrls: ['./modal-eliminar-jugador-utils.component.css']
 })
-export class ModalutilsequiposEliminarComponent {
+export class ModalEliminarJugadorUtilsComponent{
   checkboxChecked = false;
   categoriaEliminar: string = '';
   error: boolean = false; // Variable para controlar si hay error

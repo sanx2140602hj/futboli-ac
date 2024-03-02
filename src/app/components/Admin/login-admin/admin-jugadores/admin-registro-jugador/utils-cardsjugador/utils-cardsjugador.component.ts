@@ -106,4 +106,14 @@ export class UtilsCardsjugadorComponent implements OnInit {
  closeTutor() {
    this.showTutor = false;
  }
+ /* ------------------------------------- */
+ showEliminarModal = false;
+
+ openEliminarModal(){
+   this.showEliminarModal = true;
+ }
+ closeEliminarModal(){
+   this.showEliminarModal = false;
+ }
+
 }

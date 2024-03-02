@@ -66,6 +66,13 @@ import { TablasUtilsComponent } from './components/tablas/tablas-utils/tablas-ut
 
 //para busquedas XD
 import { FilterPipe } from './filter.pipe';
+import { ModalEliminarJugadorUtilsComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/utils-cardsjugador/modal-eliminar-jugador-utils/modal-eliminar-jugador-utils.component';
+import { ModalIdentificacionUtilsComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/utils-cardsjugador/modal-identificacion-utils/modal-identificacion-utils.component';
+import { ModalDatospersonalesUtilsComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/utils-cardsjugador/modal-datospersonales-utils/modal-datospersonales-utils.component';
+import { ModalContactoUtilsComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/utils-cardsjugador/modal-contacto-utils/modal-contacto-utils.component';
+import { ModalDatosfisicosUtilsComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/utils-cardsjugador/modal-datosfisicos-utils/modal-datosfisicos-utils.component';
+import { ModalEscolarUtilsComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/utils-cardsjugador/modal-escolar-utils/modal-escolar-utils.component';
+import { ModalTutorUtilsComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/utils-cardsjugador/modal-tutor-utils/modal-tutor-utils.component';
 
 
 @NgModule({
@@ -123,6 +130,13 @@ import { FilterPipe } from './filter.pipe';
     TablasUtilsComponent,
     //filtro
     FilterPipe,
+    ModalEliminarJugadorUtilsComponent,
+    ModalIdentificacionUtilsComponent,
+    ModalDatospersonalesUtilsComponent,
+    ModalContactoUtilsComponent,
+    ModalDatosfisicosUtilsComponent,
+    ModalEscolarUtilsComponent,
+    ModalTutorUtilsComponent,
 //----------------
 
   ],

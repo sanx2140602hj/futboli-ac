@@ -59,12 +59,12 @@ export class ModalutilsequiposEditarComponent implements OnInit {
       title: 'Generado con éxito',
       text: `Nombre del director técnico: ${this.dirTec} - Cargo: ${mensaje}`,
       icon: 'success',
-      timer: 1500,
+      timer: 1501,
       showConfirmButton: false,
     });
 
     this.closeModal();
-  }
+  } 
 
   
   opcionSeleccionada() {
@@ -92,10 +92,10 @@ export class ModalutilsequiposEditarComponent implements OnInit {
 
     Swal.fire({
       position: "top-end",
-      title: 'error de select',
-      text: 'La opción seleccionada no es válida',
-      icon: 'error',
-      timer: 2500,
+      title: 'Seleccion de otra categoria',
+      text: 'En caso que no desee añadir un nuevo campo cierre esta ventana',
+      icon: 'info',
+      timer: 3500,
       showConfirmButton: false
     });
   }

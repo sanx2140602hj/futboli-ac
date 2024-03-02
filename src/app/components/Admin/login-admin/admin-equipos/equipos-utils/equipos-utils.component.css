@@ -28,7 +28,18 @@
 }
 
 /* Asegura que el navbar esté por encima de otros elementos */
+/* Asegura que el navbar esté por encima de otros elementos */
 .scroll {
+  overflow-y: auto;
+  max-height: 200px;
+}
+.custom-table thead {
+  position: sticky;
+  top: -0.2px;
+  background-color: #FEE2C5; /* Puedes ajustar el color de fondo según tus preferencias */
+  z-index: 2; /* Asegura que esté por encima del contenido de la tabla */
+}
+.scroll2 {
   margin-left: auto; /* Margen izquierdo automático */
   margin-right: auto; /* Margen derecho automático */
   overflow-y: auto;
@@ -187,7 +198,7 @@ li {
     width: auto;
     /* Distribuye el ancho en 5 columnas */
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 5px;
     text-align: left;
 }
 

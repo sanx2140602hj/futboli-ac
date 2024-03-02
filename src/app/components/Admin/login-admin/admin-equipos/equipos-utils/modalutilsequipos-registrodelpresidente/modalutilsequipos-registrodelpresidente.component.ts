@@ -1,11 +1,11 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-
+import { Component, EventEmitter, Output } from '@angular/core';
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-modalutilsequipos-registrodelpresidente',
   templateUrl: './modalutilsequipos-registrodelpresidente.component.html',
   styleUrls: ['./modalutilsequipos-registrodelpresidente.component.css']
 })
-export class ModalutilsequiposRegistrodelpresidenteComponent implements OnInit {
+export class ModalutilsequiposRegistrodelpresidenteComponent {
 // Evento de salida para notificar el cierre del modal al componente padre
 @Output() onCloseModal = new EventEmitter<void>();
 posicionJugador: string = '';
@@ -21,6 +21,14 @@ closeModal() {
 guardarCambios() {
   // Lógica para guardar los cambios en el equipo
   console.log('Posicion del jugador: ', this.posicionJugador);
+  Swal.fire({
+    position: "top-end",
+    title: 'Generado con éxito',
+    text: 'Cambio generado: ' + this.posicionJugador,
+    icon: 'success',
+    timer: 1500,
+    showConfirmButton: false,
+  });
   this.closeModal(); // Cerrar el modal después de guardar los cambios
 }
 }

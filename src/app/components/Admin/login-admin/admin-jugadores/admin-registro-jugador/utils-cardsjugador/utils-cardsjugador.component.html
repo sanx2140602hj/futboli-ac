@@ -27,9 +27,11 @@
         </div>
     </div>
     <div class="lado-derecho">
-        <button class="custom-button3">
+        <button class="custom-button3" (click)="openEliminarModal()">
             <i class="fa-solid fa-trash"></i> Dar de baja
         </button>
+        <app-modal-eliminar-jugador-utils *ngIf="showEliminarModal" 
+        (onCloseEliminarModal)="closeEliminarModal()"></app-modal-eliminar-jugador-utils>
     </div>
     <!--  -->
     <div class="tabla">  <!-- Pestañas de navegación -->

@@ -45,7 +45,7 @@ export class ModalutilsequiposRegistrodirectortecnicoComponent implements OnInit
         title: 'Operación no realizada',
         text: 'Por favor, asegúrese de que el formulario esté completo y sin errores',
         icon: 'error',
-        timer: 2500,
+        timer: 2501,
         showConfirmButton: false,
       });
       console.error('Error: Todos los campos son requeridos o contienen valores inválidos.');
@@ -92,11 +92,10 @@ export class ModalutilsequiposRegistrodirectortecnicoComponent implements OnInit
 
     Swal.fire({
       position: "top-end",
-      title: 'error de select',
-      text: 'La opción seleccionada no es válida',
-      icon: 'error',
-      timer: 2500,
-      showConfirmButton: false
+      title: 'Seleccion de otra categoria',
+      text: 'En caso que no desee añadir un nuevo campo cierre esta ventana',
+      icon: 'info',
+      timer: 3500,
     });
   }
 }
