@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class UtilsCardsjugadorComponent implements OnInit {
 
   constructor() { }
-
+/*  */
   ngOnInit(): void {
   }
  /* Seccion Identificacion ⭐ */

@@ -1,6 +1,8 @@
 <div class="card p-4">
     <div class="tab-pane active" id="Identificacion">
-        <form [formGroup]="miFormulario">
+        <form [formGroup]="miFormulario">         
+               <h1 style="font-weight: bold; font-size: 1rem;">*Datos fisicos</h1>
+
             <label for="estatura">Estatura:</label>
             <input type="number" id="estatura" formControlName="estatura" class="form-control"
                 [ngClass]="{ 'error-input': estatura && estatura.invalid && (estatura.dirty || estatura.touched) }">

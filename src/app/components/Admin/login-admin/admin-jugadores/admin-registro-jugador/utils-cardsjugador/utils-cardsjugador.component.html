@@ -30,11 +30,12 @@
         <button class="custom-button3" (click)="openEliminarModal()">
             <i class="fa-solid fa-trash"></i> Dar de baja
         </button>
-        <app-modal-eliminar-jugador-utils *ngIf="showEliminarModal" 
-        (onCloseEliminarModal)="closeEliminarModal()"></app-modal-eliminar-jugador-utils>
+        <app-modal-eliminar-jugador-utils *ngIf="showEliminarModal"
+            (onCloseModal)="closeEliminarModal()"></app-modal-eliminar-jugador-utils>
+
     </div>
     <!--  -->
-    <div class="tabla">  <!-- Pestañas de navegación -->
+    <div class="tabla"> <!-- Pestañas de navegación -->
         <ul class="nav nav-tabs">
             <div>
                 <li class="nav-item">
@@ -42,8 +43,8 @@
                 </li>
             </div>
             <div>
-                <app-identificacion *ngIf="showIdentificacion"
-                    (onCloseIdentificacion)="closeIdentificacion()"></app-identificacion>
+                <app-modal-identificacion-utils *ngIf="showIdentificacion"
+                    (onCloseIdentificacion)="closeIdentificacion()"></app-modal-identificacion-utils>
             </div>
             <div>
                 <li class="nav-item">
@@ -51,14 +52,14 @@
                 </li>
             </div>
             <div>
-                <app-datos-personales *ngIf="showDatosPersonales"
-                    (onCloseDatos)="closeDatosPersonales()"></app-datos-personales>
+                <app-modal-datospersonales-utils *ngIf="showDatosPersonales"
+                    (onCloseDatos)="closeDatosPersonales()"></app-modal-datospersonales-utils>
             </div>
             <div>
                 <li class="nav-item">
                     <a class="nav-link " data-toggle="tab" (click)="openContacto()">Contacto</a>
                 </li>
-                <app-contacto *ngIf="showContacto" (onCloseContacto)="closeContacto()"></app-contacto>
+                <app-modal-contacto-utils *ngIf="showContacto" (onCloseContacto)="closeContacto()"></app-modal-contacto-utils>
             </div>
             <div>
                 <li class="nav-item">
@@ -66,7 +67,7 @@
                 </li>
             </div>
             <div>
-                <app-datos-fisicos *ngIf="showDatosFisicos" (onCloseFisicos)="closeDatosFisicos()"></app-datos-fisicos>
+                <app-modal-datosfisicos-utils *ngIf="showDatosFisicos" (onCloseFisicos)="closeDatosFisicos()"></app-modal-datosfisicos-utils>
             </div>
             <div>
                 <li class="nav-item">
@@ -74,7 +75,7 @@
                 </li>
             </div>
             <div>
-                <app-escolar *ngIf="showEscolar" (onCloseEscolar)="closeEscolar()"></app-escolar>
+                <app-modal-escolar-utils *ngIf="showEscolar" (onCloseEscolar)="closeEscolar()"></app-modal-escolar-utils>
             </div>
             <div>
                 <li class="nav-item">
@@ -82,7 +83,8 @@
                 </li>
             </div>
             <div>
-                <app-tutor *ngIf="showTutor" (onCloseTutor)="closeTutor()"></app-tutor>
+                <app-modal-tutor-utils *ngIf="showTutor" (onCloseTutor)="closeTutor()"></app-modal-tutor-utils>
             </div>
-        </ul></div>
+        </ul>
+    </div>
 </div>
