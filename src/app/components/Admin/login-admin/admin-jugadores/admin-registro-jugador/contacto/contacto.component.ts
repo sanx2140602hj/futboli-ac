@@ -1,5 +1,6 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-contacto',
@@ -67,7 +68,22 @@ export class ContactoComponent implements OnInit {
           ciudad: ciudad.value,
           codigoPostal: codigoPostal.value
         };
+        //Mensaje personalizado
+        const mensaje = `Teléfono: ${this.contacto.telefono}\n,` +
+                      `Calle: ${this.contacto.calle}\n,` +
+                      `Número: ${this.contacto.numero}\n,` +
+                      `Colonia: ${this.contacto.colonia}\n,` +
+                      `Ciudad: ${this.contacto.ciudad}\n,` +
+                      `Código Postal: ${this.contacto.codigoPostal}.`;
+        Swal.fire({
+          position: "top-end",
+          title: 'Operación no realizada',
+          text: mensaje,
+                    icon: 'success',
+          timer: 2500,
+          showConfirmButton: false,
   
+        });
         console.log('Contacto', this.contacto);
       } else {
         console.error('Algunas propiedades del formulario son null o undefined.');

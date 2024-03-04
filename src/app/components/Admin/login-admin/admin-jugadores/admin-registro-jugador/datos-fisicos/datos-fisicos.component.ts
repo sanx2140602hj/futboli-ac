@@ -1,5 +1,6 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-datos-fisicos',
@@ -39,19 +40,33 @@ export class DatosFisicosComponent implements OnInit {
       const estatura = this.estatura;
       const peso = this.peso;
       const tipoSangre = this.tipoSangre;
-  
+
       if (estatura && peso && tipoSangre) {
         this.datoFisico = {
           estatura: estatura.value,
           peso: peso.value,
           tipoSangre: tipoSangre.value
         };
-  
+        //Mensaje personalizado
+        const mensaje = `Estarura: ${this.datoFisico.estatura}\n,` +
+          `Peso: ${this.datoFisico.peso}\n,` +
+          `Tipo de sangre: ${this.datoFisico.tipoSangre}.`;
+        Swal.fire({
+          position: "top-end",
+          title: 'Operación no realizada',
+          text: mensaje,
+          icon: 'success',
+          timer: 2500,
+          showConfirmButton: false,
+
+        });
+
+
         console.log('Dato Físico', this.datoFisico);
       }
     } else {
       console.error('El formulario no es válido.');
     }
   }
-  
+
 }

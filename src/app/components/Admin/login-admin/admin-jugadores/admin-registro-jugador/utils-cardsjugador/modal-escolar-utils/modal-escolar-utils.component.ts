@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-modal-escolar-utils',
@@ -53,7 +54,20 @@ export class ModalEscolarUtilsComponent implements OnInit {
         grado: grado.value,
         grupo: grupo.value
       };
+      //Mensaje personalizado
+      const mensaje = `Escolaridad: ${this.datosEscolares.escolaridad}\n,` +
+        `Escuela: ${this.datosEscolares.escuela}\n.` +
+        `Grado: ${this.datosEscolares.grado}\n,` +
+        `Grupo: ${this.datosEscolares.grupo}.`;
+      Swal.fire({
+        position: "top-end",
+        title: 'Operación no realizada',
+        text: mensaje,
+        icon: 'success',
+        timer: 2500,
+        showConfirmButton: false,
 
+      });
       console.log('Datos Escolares', this.datosEscolares);
     } else {
       console.error('El formulario no es válido.');

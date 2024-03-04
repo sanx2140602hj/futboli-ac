@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-modal-tutor-utils',
@@ -29,10 +30,21 @@ export class ModalTutorUtilsComponent implements OnInit {
       this.datetutor = {
         tutor: tutor.value
       };
-      console.log('Datos Escolares', this.datetutor);
+      //Mensaje personalizado
+      const mensaje = `Nombre del tutor: ${this.datetutor.tutor}`;
+      Swal.fire({
+        position: "top-end",
+        title: 'Operación no realizada',
+        text: mensaje,
+        icon: 'success',
+        timer: 2500,
+        showConfirmButton: false,
+
+      }); console.log('Datos Escolares', this.datetutor);
     } else {
       console.error('El formulario no es válido.');
     }
   }
 
 }
+

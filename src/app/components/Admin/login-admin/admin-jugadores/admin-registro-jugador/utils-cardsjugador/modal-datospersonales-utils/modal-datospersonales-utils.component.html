@@ -1,6 +1,6 @@
 <div class="card p-4">
     <div class="tab-pane active" id="Identificacion">
-        <h1 style="font-weight: bold; font-size: 1rem;">Editar*Identificador de datos personales</h1>
+        <h1 style="font-weight: bold; font-size: 1rem;">*Identificador de datos personales</h1>
         <div class="row">
             <!-- Nombre -->
             <form [formGroup]="miFormulario">
@@ -33,16 +33,16 @@
                 </div>
                 <!-- genero -->
                 <label for="genero">Género:</label>
-                <select id="genero" class="form-control">
+                <select id="genero" formControlName="genero" class="form-control">
                     <option value="masculino">Masculino</option>
                     <option value="femenino">Femenino</option>
                 </select>
-                <!-- Fecha -->
-                <label for="Fecha">Fecha:</label>
-                <input type="date" id="nacimiento" class="form-control" formControlName="Fecha"
-                    [ngClass]="{ 'error-input': Fecha && Fecha.invalid && (Fecha.dirty || Fecha.touched) }">
-                <div *ngIf="Fecha && Fecha.invalid && (Fecha.dirty || Fecha.touched)">
-                    <div *ngIf="Fecha.errors?.['required']">La Fecha de nacimiento es obligatoria.</div>
+                <!-- fecha -->
+                <label for="fecha">fecha:</label>
+                <input type="date" id="nacimiento" formControlName="fecha" class="form-control" formControlName="fecha"
+                    [ngClass]="{ 'error-input': fecha && fecha.invalid && (fecha.dirty || fecha.touched) }">
+                <div *ngIf="fecha && fecha.invalid && (fecha.dirty || fecha.touched)">
+                    <div *ngIf="fecha.errors?.['required']">La fecha de nacimiento es obligatoria.</div>
                 </div>
                 <!-- Curp -->
                 <label for="curp">CURP:</label>

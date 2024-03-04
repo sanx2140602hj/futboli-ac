@@ -1,5 +1,6 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-datos-personales',
@@ -15,8 +16,9 @@ export class DatosPersonalesComponent implements OnInit {
       nombre: ['', [Validators.required, Validators.pattern('[a-z A-Z\s]+')]],
       apellidoPaterno: ['', [Validators.required, Validators.pattern('[a-z A-Z\s]+')]],
       apellidoMaterno: ['', [Validators.required, Validators.pattern('[a-z A-Z\s]+')]],
-      Fecha: ['',[Validators.required]],
-      curp: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9\s]+')]],
+      genero: ['', Validators.required], // Agregado para el género
+      fecha: ['', Validators.required], // Agregado para la fecha de nacimiento
+            curp: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9\s]+')]],
     });
 
     this.datosPersonales = {}; // Inicializa el objeto datosPersonales
@@ -39,8 +41,12 @@ export class DatosPersonalesComponent implements OnInit {
   }
 
 
-  get Fecha(){
-    return this.miFormulario.get('Fecha')
+  get genero() {
+    return this.miFormulario.get('genero');
+  }
+  
+  get fecha() {
+    return this.miFormulario.get('fecha');
   }
 
   get curp(){
@@ -49,24 +55,43 @@ export class DatosPersonalesComponent implements OnInit {
 
   // Método para guardar la información
   guardarInformacion() {
-    // Utiliza el método get directamente para evitar verificaciones de null o undefined
     const nombre = this.miFormulario.get('nombre');
     const apellidoPaterno = this.miFormulario.get('apellidoPaterno');
     const apellidoMaterno = this.miFormulario.get('apellidoMaterno');
-    const Fecha = this.miFormulario.get('Fecha');
+    const genero = this.miFormulario.get('genero');
+    const fecha = this.miFormulario.get('fecha');
     const curp = this.miFormulario.get('curp');
   
-    if (nombre && apellidoPaterno && apellidoMaterno && Fecha && curp) {
+    if (nombre && apellidoPaterno && apellidoMaterno && genero && fecha && curp) {
       this.datosPersonales = {
         nombre: nombre.value,
         apellidoPaterno: apellidoPaterno.value,
         apellidoMaterno: apellidoMaterno.value,
+        genero: genero.value,
+        fecha: fecha.value,
         curp: curp.value,
       };
+  
+      const mensaje = `Nombre: ${this.datosPersonales.nombre}\n` +
+                      `Apellido paterno: ${this.datosPersonales.apellidoPaterno}\n` +
+                      `Apellido materno: ${this.datosPersonales.apellidoMaterno}\n` +
+                      `Género: ${this.datosPersonales.genero}\n` +
+                      `Fecha de Nacimiento: ${this.datosPersonales.fecha}\n` +
+                      `CURP: ${this.datosPersonales.curp}.`;
+  
+      Swal.fire({
+        position: "top-end",
+        title: 'Operación no realizada',
+        text: mensaje,
+        icon: 'success',
+        timer: 2500,
+        showConfirmButton: false,
+      });
   
       console.log('Datos Personales:', this.datosPersonales);
     } else {
       console.error('Algunas propiedades son null o undefined.');
     }
   }
+  
 }  
