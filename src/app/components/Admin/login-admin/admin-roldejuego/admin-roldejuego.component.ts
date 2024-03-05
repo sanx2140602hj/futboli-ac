@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-admin-roldejuego',
@@ -6,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-roldejuego.component.css']
 })
 export class AdminRoldejuegoComponent implements OnInit {
+
+//para buscar
+searchTerm: string = '';
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
   nombreTorneo: string = ''; // 🦖 Declara una variable para almacenar el nombre del torneo y la inicializa como una cadena vacía
   categoriaParticipar: string = ''; // 🦖 Declara una variable para almacenar la categoría a participar y la inicializa como una cadena vacía
   fechas: string = ''; // 🦖 Declara una variable para almacenar las fechas y la inicializa como una cadena vacía
@@ -18,7 +26,7 @@ export class AdminRoldejuegoComponent implements OnInit {
 
 
   /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
-  equiposDisponibles: string[] = ['Equipo A', 'Equipo B', 'Equipo C', 'Equipo D', 'Equipo E', 'Equipo F', 'Equipo G']; // 🦖 Declara una variable para almacenar los equipos disponibles para agregar y la inicializa con una lista de equipos
+  equiposDisponibles: string[] = ['Equipo A', 'Equipo B', 'Equipo C', 'Equipo D', 'Equipo E', 'Equipo F', 'Equipo G' ,'Equipo 1' ,'Equipo 2' ,'Equipo 3' ,'Equipo 4' ,'Equipo 5' ,'Equipo 6' ,'Equipo 7' ,'Equipo 8' ,'Equipo 9']; // 🦖 Declara una variable para almacenar los equipos disponibles para agregar y la inicializa con una lista de equipos
   /* aqui arriba ⬆️⬆️⬆️ hacer la conexcion a basew de datos para traer los nombres de los equipos*/
   /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
 
@@ -58,14 +66,14 @@ export class AdminRoldejuegoComponent implements OnInit {
     this.guardarDatos();
   }
   rolesExistentes: string[] = []; // Variable para almacenar los roles existentes
- //🐢♥️ equiposDisponiblesBackup: string[] = []; // Copia de respaldo de los equipos disponibles
+  //🐢♥️ equiposDisponiblesBackup: string[] = []; // Copia de respaldo de los equipos disponibles
   guardarDatos(): void {
     // 🦖 Método para guardar los datos
     if (this.nombreTorneo && this.categoriaParticipar && this.fechas) {
       if (this.equiposSeleccionados.length > 0) {
-       // Agregar el nuevo rol al arreglo de roles existentes
+        // Agregar el nuevo rol al arreglo de roles existentes
         this.rolesExistentes.push(this.nombreTorneo);
-  
+
         // Recopilar los datos antes de guardarlos
         const datos = {
           nombreTorneo: this.nombreTorneo,
@@ -73,26 +81,37 @@ export class AdminRoldejuegoComponent implements OnInit {
           fechas: this.fechas,
           equiposSeleccionados: this.equiposSeleccionados // Incluir equipos seleccionados en los datos guardados
         };
+        //Mensaje personalizado
+        const mensaje = `Nombre del tornero ${this.nombreTorneo} - `+`Categoria: ${this.categoriaParticipar}`;
+        Swal.fire({
+          position: "top-end",
+          title: 'Generado con exito',
+          text: mensaje,
+          icon: 'success',
+          timer: 2500,
+          showConfirmButton: false,
 
-  
- /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
- /* Aqui recopila los datos ya almacenados por lo que aqui se exportara a la base de datos */
- console.log('Datos guardados:', datos);
- console.log('Equipos seleccionados:', this.equiposSeleccionados); // Imprimir equipos seleccionados
-/* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
- // Guardar una copia de respaldo de los equipos disponibles
-// 🐢♥️this.equiposDisponiblesBackup = [...this.equiposDisponibles];
-
-// 🐈‍⬛🐈🌙 En caso de requerir que nuevamente se muestren los equipos des-comentar las lineas que tienen 🐢♥️ al principio 
-
-  /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
-  // Restaurar los equipos disponibles a su estado original
- // 🐢♥️this.equiposDisponibles = ['Equipo A', 'Equipo B', 'Equipo C', 'Equipo D', 'Equipo E', 'Equipo F', 'Equipo G'];
-  /* aqui arriba ⬆️⬆️⬆️ hacer una 2da la conexcion a basew de datos para traer los nombres de los equipos*/
-  /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
+        });
 
 
- // No limpiar los campos y equipos seleccionados aquí
+        /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
+        /* Aqui recopila los datos ya almacenados por lo que aqui se exportara a la base de datos */
+        console.log('Datos guardados:', datos);
+        console.log('Equipos seleccionados:', this.equiposSeleccionados); // Imprimir equipos seleccionados
+        /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
+        // Guardar una copia de respaldo de los equipos disponibles
+        // 🐢♥️this.equiposDisponiblesBackup = [...this.equiposDisponibles];
+
+        // 🐈‍⬛🐈🌙 En caso de requerir que nuevamente se muestren los equipos des-comentar las lineas que tienen 🐢♥️ al principio 
+
+        /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
+        // Restaurar los equipos disponibles a su estado original
+        // 🐢♥️this.equiposDisponibles = ['Equipo A', 'Equipo B', 'Equipo C', 'Equipo D', 'Equipo E', 'Equipo F', 'Equipo G'];
+        /* aqui arriba ⬆️⬆️⬆️ hacer una 2da la conexcion a basew de datos para traer los nombres de los equipos*/
+        /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
+
+
+        // No limpiar los campos y equipos seleccionados aquí
 
         // Limpiar los campos y equipos seleccionados
         this.limpiarInputs();
@@ -103,7 +122,7 @@ export class AdminRoldejuegoComponent implements OnInit {
       console.log('Todos los campos son requeridos');
     }
   }
-  
+
 
 
 
@@ -121,7 +140,7 @@ export class AdminRoldejuegoComponent implements OnInit {
   }
 
 
-  
+
 
 
 
@@ -135,11 +154,30 @@ export class AdminRoldejuegoComponent implements OnInit {
 
 
   agregarEquipo(equipo: string): void {
+    // Verificar si el equipo ya está presente en la lista de equipos seleccionados
+    if (!this.equiposSeleccionados.includes(equipo)) {
+      // Agregar equipo a la lista de equipos seleccionados solo si no está presente
+      this.equiposSeleccionados.push(equipo);
+      // Eliminar equipo de la lista de equipos disponibles
+      this.equiposDisponibles = this.equiposDisponibles.filter(e => e !== equipo);
+  } else {
+      // Si el equipo ya está seleccionado, puedes mostrar un mensaje de error o simplemente ignorar la acción
+      console.log('El equipo ya está seleccionado');
+      Swal.fire({
+        position: "top-end",
+        title: 'Operación no realizada',
+        text: 'Este equipo ya esta selecionado, verifica tu seleccion',
+                  icon: 'warning',
+        timer: 2500,
+        showConfirmButton: false,
+
+      });
+  }
     // 🦖 Método para agregar un equipo a la lista de equipos seleccionados
     // Agregar equipo a la lista de equipos seleccionados
-    this.equiposSeleccionados.push(equipo);
+    //this.equiposSeleccionados.push(equipo);
     // Eliminar equipo de la lista de equipos disponibles
-    this.equiposDisponibles = this.equiposDisponibles.filter(e => e !== equipo);
+   // this.equiposDisponibles = this.equiposDisponibles.filter(e => e !== equipo);
   }
 
   eliminarEquipo(equipo: string): void {
@@ -187,5 +225,19 @@ export class AdminRoldejuegoComponent implements OnInit {
     // 🦖 Método para validar el campo de fechas
     this.fechasInvalid = !this.fechas && this.touchedFechas;
   }
+  search(): void {
+    if (this.searchTerm) {
+        this.equiposDisponibles = this.equiposDisponibles.filter(equipo =>
+            equipo.toLowerCase().includes(this.searchTerm.toLowerCase())
+        );
+    } else {
+        // Si no hay término de búsqueda, restaurar la lista completa de equipos disponibles
+        this.equiposDisponibles = ['Equipo A', 'Equipo B', 'Equipo C', 'Equipo D', 'Equipo E', 'Equipo F', 'Equipo G' ,'Equipo 1' ,'Equipo 2' ,'Equipo 3' ,'Equipo 4' ,'Equipo 5' ,'Equipo 6' ,'Equipo 7' ,'Equipo 8' ,'Equipo 9'];
+    /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
+//segunda coneccion a base de datos XD
+      }
+}
+
+
 
 }

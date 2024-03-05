@@ -21,7 +21,10 @@
   z-index: 1000;
   /* Asegura que el navbar esté por encima de otros elementos */
 }
-.top{margin-top: 5rem;}
+
+.top {
+  margin-top: 5rem;
+}
 
 
 /* ///////////////////////////////////////////////////////////////////// */
@@ -31,23 +34,36 @@
 }
 
 .izq {
-  flex: 30%;
-margin-top: 1rem;  margin-right: 0.5rem;
+  flex: 20%;
+  margin-top: 1rem;
+  margin-right: 0.5rem;
 }
 
 .der {
-  flex: 50%;
-margin-top: 1rem;  margin-left: 0.5rem;
+  flex: 80%;
+  margin-top: 1rem;
+  margin-left: 0.5rem;
 }
 
 .scroll {
   overflow-y: auto;
-  max-height: 400px;
+  max-height: 600px;
 }
+.scroll-horizontal {
+  overflow-x: auto; /* Agrega un scroll horizontal si el contenido se desborda */
+  white-space: nowrap; /* Evita que el contenido se envuelva */
+}
+
 /* Estilos de div IZQ */
 /*---------------------------------------------*/
 .card {
   padding: 1.4rem;
+}
+
+.card h1 {
+  align-items: center;
+  text-align: center;
+  font-size: 2rem;
 }
 
 .search-input {
@@ -59,30 +75,85 @@ margin-top: 1rem;  margin-left: 0.5rem;
   margin-top: 0.2rem;
   width: 99%;
 }
+
 /*---------------------------------------------*/
 .table {
-    margin-top: 1rem;
-    border: 2px solid navy;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  .table td {
-    border: none;
-    border-width: 1px 0;
-    text-align: center;
-  }
-  
-  .table td:first-child {
-    border-left: 1px solid navy;
-  }
-  
-  .table td:last-child {
-    border-right: 1px solid navy;
-  }
+  margin-top: 1rem;
+  border-collapse: collapse;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  /* Agrega una separación vertical de 10px entre th y td */
+  background-color: transparent;
+}
+
+.table td {
+  border: none;
+  border-width: 1px 0;
+  text-align: center;
+  padding: 8px;
+  background-color: #99969677;
+  /* Cambiar al color de fondo gris deseado */
+  border-bottom: 1px solid white;
+  /* Agrega un borde inferior blanco */
+  border-radius: 0;
+  /* Restablece cualquier radio de borde anterior */
+  margin: 5px;
+  /* Agrega margen a las celdas */
+  font-size: 1.5rem;
+  /* Tamaño de la letra */
+}
+
+.table td:first-child {
+  border-top-left-radius: 20px;
+  /* Esquina superior izquierda */
+  border-bottom-left-radius: 20px;
+  /* Esquina inferior izquierda */
+
+}
+
+.table td:last-child {
+  border-top-right-radius: 20px;
+  /* Esquina superior derecha */
+  border-bottom-right-radius: 20px;
+  /* Esquina inferior derecha */
+
+}
+
+/* Estilo para las celdas de encabezado */
+.table th {
+  border: none;
+  padding: 8px;
+  background-color: transparent;
+  /* Fondo transparente */
+  font-weight: bold;
+  /* Texto en negrita */
+  font-size: 1.2rem;
+  /* Tamaño de la letra */
+}
+
+/* ------------------------------------------------- */
+
+
+.save-button {
+  background-color: transparent;
+  color: #288A85;
+  border: 1px solid #288A85;
+  border-radius: 0.3rem;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.save-button:hover {
+  background-color: #288A85;
+  color: white;
+}
+
+/* ------------------------------------------------- */
 .equipos-select {
   width: 45%;
 }
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -95,6 +166,7 @@ li {
   justify-content: space-between;
   align-items: center;
 }
+
 /*---------------------------------------------*/
 .custom-button {
   background-color: #c5fcfe;
@@ -109,25 +181,25 @@ li {
 
 @media screen and (max-width: 1500px) {
   .container {
-      margin: 1rem;
+    margin: 1rem;
 
   }
 
   .logo h1 {
-      font-size: 1rem;
+    font-size: 1rem;
   }
 
   .sidebar {
-      width: 17rem;
+    width: 17rem;
   }
 
   .just {
-      margin-left: 17rem
+    margin-left: 17rem
   }
 
   .content {
-      margin-left: 17rem;
-      padding: 20px;
+    margin-left: 17rem;
+    padding: 20px;
   }
 
   /* ------------------------ */
@@ -137,16 +209,16 @@ li {
 /* ------------------------------------------ */
 @media screen and (max-width: 900px) {
   .sidebar {
-      width: 13rem;
+    width: 13rem;
   }
 
   .just {
-      margin-left: 13rem
+    margin-left: 13rem
   }
 
   .content {
-      margin-left: 13rem;
-      padding: 20px;
+    margin-left: 13rem;
+    padding: 20px;
   }
 
   /* ------------------------ */
@@ -156,15 +228,17 @@ li {
 
 @media screen and (max-width: 500px) {
   .just {
-      margin-left: 4rem;
+    margin-left: 4rem;
   }
 
   .content {
-      margin-left: 4rem;
-      padding: 1rem;
+    margin-left: 4rem;
+    padding: 1rem;
   }
 
   /* ------------------- */
-  .top{margin-top: 7rem;}
+  .top {
+    margin-top: 7rem;
+  }
 
 }

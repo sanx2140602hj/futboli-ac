@@ -15,7 +15,6 @@ import { AcercaComponent } from './components/acerca/acerca.component';
 import { LoginAdminComponent } from './components/Admin/login-admin/login-admin.component';
 import { AdminHomeComponent } from './components/Admin/login-admin/admin-home/admin-home.component';
 import { AdminCategoriasComponent } from './components/Admin/login-admin/admin-categorias/admin-categorias.component';
-import { AdminRegistroEquipoComponent } from './components/Admin/login-admin/admin-registro-equipo/admin-registro-equipo.component';
 import { AdminRoldejuegoComponent } from './components/Admin/login-admin/admin-roldejuego/admin-roldejuego.component';
 import { AdminTablaposicionComponent } from './components/Admin/login-admin/admin-tablaposicion/admin-tablaposicion.component';
 import { AdminRegistroJugadorComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/admin-registro-jugador.component';
@@ -60,7 +59,6 @@ const app_routes: Routes = [
   { path: 'Admin-Home', component: AdminHomeComponent },
   { path: 'Admin-Categorias', component: AdminCategoriasComponent },
   { path: 'Admin-Jugadores', component:AdminJugadoresComponent},
-  { path: 'Admin-RegistroEquipo', component: AdminRegistroEquipoComponent },
   { path: 'Admin-RegistroJugador', component: AdminRegistroJugadorComponent },
   { path: 'Admin-Equipos', component: AdminEquiposComponent },
   { path: 'Admin-Partidos', component: AdminPartidosComponent },

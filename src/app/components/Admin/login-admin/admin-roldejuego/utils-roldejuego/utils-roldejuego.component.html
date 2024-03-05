@@ -14,54 +14,111 @@
     </button>
   </div>
   <div class="secciones">
-    <div class="izq">
+    <div class="izq scroll">
       <div class="card">
         <div class="title-input">
           <h5><b>Selecciona un equipo:</b></h5>
           <div class="scroll">
-            <select id="equiposParticipar" class="search-input" name="equiposParticipantes" required>
-              <option value="equipos-1">Equipo 1</option>
-              <option value="equipos-2">Equipo 2</option>
-            </select>
-            <select id="equiposParticipar" class="search-input" name="equiposParticipantes" required>
-              <option value="equipos-1">Equipo 1</option>
-              <option value="equipos-2">Equipo 2</option>
-            </select>
-            <select id="equiposParticipar" class="search-input" name="equiposParticipantes" required>
-              <option value="equipos-1">Equipo 1</option>
-              <option value="equipos-2">Equipo 2</option>
-            </select>
+            <div *ngFor="let i of [].constructor(cantidadSelects); let index = index">
+              <select class="search-input" name="equiposParticipantes" required>
+                <option *ngFor="let equipo of equipos" [value]="equipo">{{ equipo }}</option>
+              </select>
+            </div>
           </div>
-
+          <button class="save-button">Sorteo Aleatorio</button>
         </div>
+
 
       </div>
     </div>
     <div class="der">
-      <div class="card">
+      <div class="der secciones scroll">
+        <div class="der">
+          <div class="card">
+            <h1>Jornada: 1</h1>
+            <hr>
+            <select id="temporadas" class="form-select mb-3" aria-label="Selecciona torneo">
+              <option selected>Selecciona torneo</option>
+              <option *ngFor="let temporada of temporadas" [value]="temporada">{{ temporada }}</option>
+            </select>
+            <div class="scroll">
+              <table class="table table-bordered">
+                <tbody>
+                  <ng-container *ngFor="let equipo of equipoTables; let i = index">
+                    <tr>
+                      <td>{{ equipo }}</td>
+                      <td>-</td>
+                      <td>0</td>
+                      <td>VS</td>
+                      <td>0</td>
+                      <td>-</td>
+                      <td>{{ equipoTables[(i + 1) % equipoTables.length] }}</td> <!-- operacion para sumar un equipo -->
+                    </tr>
+                  </ng-container>
+                </tbody>
+              </table>
+            </div>
+            <div class="secciones">
+              <div class="izq">
+                <h1 style="margin-top:2rem ;">Descanso:</h1>
+              </div>
+              <div class="der">
+                <table class="table table-bordered">
+                  <tbody>
+                    <tr>
+                      <td>Equipo2</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="der">
+          <div class="card">
+            <select id="temporadas" class="form-select mb-3" aria-label="Selecciona torneo">
+              <option selected>Selecciona torneo</option>
+              <option value="temp1">Temporada 1</option>
+              <option value="temp2">Temporada 2</option>
+              <option value="temp3">Temporada 3</option>
+              <option value="temp4">Temporada 4</option>
+            </select>
+            <div class="scroll">
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <td>Equipo 1</td>
+                    <td>-</td>
+                    <td>0</td>
+                    <td>VS</td>
+                    <td>0</td>
+                    <td>-</td>
+                    <td>Equipo 2</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
 
-        <select id="temporadas" class="form-select mb-3" aria-label="Selecciona torneo">
-          <option selected>Selecciona torneo</option>
-          <option value="temp1">Temporada 1</option>
-          <option value="temp2">Temporada 2</option>
-          <option value="temp3">Temporada 3</option>
-          <option value="temp4">Temporada 4</option>
-        </select>
-        <div class="scroll">   
-          <table class="table table-bordered">
-          <tbody>
-            <tr>
-              <td>Equipo 1</td>
-              <td>-</td>
-              <td>0</td>
-              <td>VS</td>
-              <td>0</td>
-              <td>-</td>
-              <td>Equipo 2</td>
-            </tr>
-          </tbody>
-      </table></div>
       </div>
+      <div style="margin-top: 4rem; text-align: center; margin-left: 20%; margin-right: 20%;">
+        <button class="save-button">Guardar Jornadas </button>
+      </div>
+    </div>
+  </div>
+  <hr style="margin-top: 2.5rem;">
+  <div>
+    <div class="scroll-horizontal">
+<!--  -->
+      <div class="card">
+        <div>
+          
+        </div>
+      </div>
+
+      
+<!--  -->
     </div>
   </div>
 </div>

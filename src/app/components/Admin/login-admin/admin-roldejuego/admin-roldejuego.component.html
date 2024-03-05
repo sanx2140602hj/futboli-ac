@@ -67,7 +67,7 @@
                     </div>
                 </div>
                 <div class="select-equipos">
-                    <input type="text" class="search-input2" placeholder="Buscar Categorías...">
+                    <input type="text" class="search-input2" [(ngModel)]="searchTerm" placeholder="Buscar Categorías..." (input)="search()">
                     <button class="custom-button">Buscar</button>
                     <div class="scroll">
                         <li *ngFor="let equipo of equiposDisponibles">
@@ -76,6 +76,7 @@
                                 <i class="fa-solid fa-plus"></i>Añadir
                             </button>
                         </li>
+                        
                     </div>
 
                     <div class="botones">

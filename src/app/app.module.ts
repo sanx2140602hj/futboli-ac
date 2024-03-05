@@ -20,7 +20,6 @@ import { AcercaComponent } from './components/acerca/acerca.component';
 import { LoginAdminComponent } from './components/Admin/login-admin/login-admin.component';
 import { AdminHomeComponent } from './components/Admin/login-admin/admin-home/admin-home.component';
 import { AdminCategoriasComponent } from './components/Admin/login-admin/admin-categorias/admin-categorias.component';
-import { AdminRegistroEquipoComponent } from './components/Admin/login-admin/admin-registro-equipo/admin-registro-equipo.component';
 import { AdminRegistroJugadorComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/admin-registro-jugador.component';
 import { AdminEquiposComponent } from './components/Admin/login-admin/admin-equipos/admin-equipos.component';
 import { AdminPartidosComponent } from './components/Admin/login-admin/admin-partidos/admin-partidos.component';
@@ -92,7 +91,6 @@ import { ModalTutorUtilsComponent } from './components/Admin/login-admin/admin-j
     LoginAdminComponent,
     AdminHomeComponent,
     AdminCategoriasComponent,
-    AdminRegistroEquipoComponent,
     AdminRegistroJugadorComponent,
     AdminEquiposComponent,
     AdminPartidosComponent,

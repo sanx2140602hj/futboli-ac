@@ -77,7 +77,7 @@ export class ContactoComponent implements OnInit {
                       `Código Postal: ${this.contacto.codigoPostal}.`;
         Swal.fire({
           position: "top-end",
-          title: 'Operación no realizada',
+          title: 'Generado con exito',
           text: mensaje,
                     icon: 'success',
           timer: 2500,
