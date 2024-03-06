@@ -72,6 +72,7 @@ import { ModalContactoUtilsComponent } from './components/Admin/login-admin/admi
 import { ModalDatosfisicosUtilsComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/utils-cardsjugador/modal-datosfisicos-utils/modal-datosfisicos-utils.component';
 import { ModalEscolarUtilsComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/utils-cardsjugador/modal-escolar-utils/modal-escolar-utils.component';
 import { ModalTutorUtilsComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/utils-cardsjugador/modal-tutor-utils/modal-tutor-utils.component';
+import { ModalAgregarEquiposClasificadosComponent } from './components/Admin/login-admin/admin-roldejuego/utils-roldejuego/modal-agregar-equipos-clasificados/modal-agregar-equipos-clasificados.component';
 
 
 @NgModule({
@@ -135,6 +136,7 @@ import { ModalTutorUtilsComponent } from './components/Admin/login-admin/admin-j
     ModalDatosfisicosUtilsComponent,
     ModalEscolarUtilsComponent,
     ModalTutorUtilsComponent,
+    ModalAgregarEquiposClasificadosComponent,
 //----------------
 
   ],

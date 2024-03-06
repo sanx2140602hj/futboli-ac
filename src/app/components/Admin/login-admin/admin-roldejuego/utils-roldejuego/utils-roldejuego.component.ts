@@ -14,6 +14,19 @@ export class UtilsRoldejuegoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  } 
+
+  agregarEquiposClasificados = false;
+
+  // Método para abrir el modal
+  openModal() {
+    console.log('Modal abierto'); // ⚠️ Se muestra un log en la consola
+    this.agregarEquiposClasificados = true; // ⚠️ Se establece en true para mostrar el modal
   }
 
+  // Método para cerrar el modal
+  closeModal() {
+    console.log('Modal cerrado'); // ⚠️ Se muestra un log en la consola
+    this.agregarEquiposClasificados = false; // ⚠️ Se establece en false para ocultar el modal
+  }
 }

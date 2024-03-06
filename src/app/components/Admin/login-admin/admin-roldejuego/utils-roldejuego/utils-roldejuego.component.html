@@ -14,11 +14,11 @@
     </button>
   </div>
   <div class="secciones">
-    <div class="izq scroll">
+    <div class="izq">
       <div class="card">
         <div class="title-input">
           <h5><b>Selecciona un equipo:</b></h5>
-          <div class="scroll">
+          <div class="scroll2">
             <div *ngFor="let i of [].constructor(cantidadSelects); let index = index">
               <select class="search-input" name="equiposParticipantes" required>
                 <option *ngFor="let equipo of equipos" [value]="equipo">{{ equipo }}</option>
@@ -108,17 +108,190 @@
     </div>
   </div>
   <hr style="margin-top: 2.5rem;">
+  <h2 style="text-align: center;"><b>Clasificación de equipos</b></h2>
+  <div class="">
+    <button class="custom-button2" (click)="openModal()">
+      <i class="fa-solid fa-plus"></i> Añadir Equipos Clasificados
+    </button>
+  </div>
+  <app-modal-agregar-equipos-clasificados *ngIf="agregarEquiposClasificados" (onCloseModal)="closeModal()">
+  </app-modal-agregar-equipos-clasificados>
   <div>
-    <div class="scroll-horizontal">
-<!--  -->
-      <div class="card">
-        <div>
-          
+
+    <!--  -->
+    <div class="secciones">
+      <div class="izq">
+        <div class="card">
+          <div class="title-input">
+            <h5><b>Equipos Clasificados:</b></h5>
+            <div class="scroll2">
+              <select name="Equipo 1" class="search-input" name="equiposClasificados">
+                <option value="1">1</option>
+                <option value="1">1</option>
+              </select>
+              <select name="Equipo 1" class="search-input" name="equiposClasificados">
+                <option value="1">1</option>
+                <option value="1">1</option>
+              </select>
+              <select name="Equipo 1" class="search-input" name="equiposClasificados">
+                <option value="1">1</option>
+                <option value="1">1</option>
+              </select>
+              <select name="Equipo 1" class="search-input" name="equiposClasificados">
+                <option value="1">1</option>
+                <option value="1">1</option>
+              </select>
+              <select name="Equipo 1" class="search-input" name="equiposClasificados">
+                <option value="1">1</option>
+                <option value="1">1</option>
+              </select>
+              <select name="Equipo 1" class="search-input" name="equiposClasificados">
+                <option value="1">1</option>
+                <option value="1">1</option>
+              </select>
+            </div>
+            <!--             <button class="save-button">Sorteo Aleatorio</button>
+ -->
+          </div>
+
+
         </div>
       </div>
+      <div class="der card">
+        <div style="margin-top: auto; margin-bottom: auto;">
+          <div class="scroll-horizontal">
+            <!--  -->
+            <div class="card pablo">
+              <h1 style="text-align: center; font-size: 1.2rem;">Semifinal</h1>
+              <hr>
+              <table>
+                <tr>
+                  <th>Equipo 1</th>
+                  <th>-</th>
+                  <th>vs</th>
+                  <th>-</th>
+                  <th>Equipo 2</th>
+                </tr>
+                <tr>
+                  <td>Equipo 3</td>
+                  <td>-</td>
+                  <td>vs</td>
+                  <td>-</td>
+                  <td>Equipo 4</td>
+                </tr>
+              </table>
+            </div>
+            <!--  -->
+            <div class="card pablo">
+              <h1 style="text-align: center; font-size: 1.2rem;">Semifinal</h1>
+              <hr>
+              <table>
+                <tr>
+                  <th>Equipo 1</th>
+                  <th>-</th>
+                  <th>vs</th>
+                  <th>-</th>
+                  <th>Equipo 2</th>
+                </tr>
+                <tr>
+                  <td>Equipo 3</td>
+                  <td>-</td>
+                  <td>vs</td>
+                  <td>-</td>
+                  <td>Equipo 4</td>
+                </tr>
+              </table>
+            </div>
+            <!--  -->
+            <div class="card pablo">
+              <h1 style="text-align: center; font-size: 1.2rem;">Semifinal</h1>
+              <hr>
+              <table>
+                <tr>
+                  <th>Equipo 1</th>
+                  <th>-</th>
+                  <th>vs</th>
+                  <th>-</th>
+                  <th>Equipo 2</th>
+                </tr>
+                <tr>
+                  <td>Equipo 3</td>
+                  <td>-</td>
+                  <td>vs</td>
+                  <td>-</td>
+                  <td>Equipo 4</td>
+                </tr>
+              </table>
+            </div>
+            <!--  -->
+            <div class="card pablo">
+              <h1 style="text-align: center; font-size: 1.2rem;">Semifinal</h1>
+              <hr>
+              <table>
+                <tr>
+                  <th>Equipo 1</th>
+                  <th>-</th>
+                  <th>vs</th>
+                  <th>-</th>
+                  <th>Equipo 2</th>
+                </tr>
+                <tr>
+                  <td>Equipo 3</td>
+                  <td>-</td>
+                  <td>vs</td>
+                  <td>-</td>
+                  <td>Equipo 4</td>
+                </tr>
+              </table>
+            </div>
+            <!--  -->
+            <div class="card pablo">
+              <h1 style="text-align: center; font-size: 1.2rem;">Semifinal</h1>
+              <hr>
+              <table>
+                <tr>
+                  <th>Equipo 1</th>
+                  <th>-</th>
+                  <th>vs</th>
+                  <th>-</th>
+                  <th>Equipo 2</th>
+                </tr>
+                <tr>
+                  <td>Equipo 3</td>
+                  <td>-</td>
+                  <td>vs</td>
+                  <td>-</td>
+                  <td>Equipo 4</td>
+                </tr>
+              </table>
+            </div>
+            <!--  -->
+            <div class="card pablo">
+              <h1 style="text-align: center; font-size: 1.2rem;">Semifinal</h1>
+              <hr>
+              <table>
+                <tr>
+                  <th>Equipo 1</th>
+                  <th>-</th>
+                  <th>vs</th>
+                  <th>-</th>
+                  <th>Equipo 2</th>
+                </tr>
+                <tr>
+                  <td>Equipo 3</td>
+                  <td>-</td>
+                  <td>vs</td>
+                  <td>-</td>
+                  <td>Equipo 4</td>
+                </tr>
+              </table>
+            </div>
+            <!--  -->
 
-      
-<!--  -->
+          </div>
+        </div>
+      </div>
     </div>
+    <!--  -->
   </div>
 </div>

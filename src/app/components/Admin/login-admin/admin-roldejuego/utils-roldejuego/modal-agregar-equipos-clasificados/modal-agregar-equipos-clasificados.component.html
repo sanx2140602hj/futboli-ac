@@ -1,0 +1,30 @@
+<div class="modal">
+    <div class="modal-content">
+        <!-- Contenido del modal aquí -->
+        <div class="izq">
+            <h1>Equipos finalistas</h1>
+        </div>
+        <h5>Coloque la cantidad de equipos finalistas.
+            Recuerde que se tomarán de las primeras posiciones de la tabla de posición del torneo.</h5>
+        <h6>Rango seleccionado: {{ rangoEquipos }}</h6> <!-- Mostrar el rango seleccionado -->
+        <div class="input">
+
+
+
+            
+            <form [formGroup]="miFormulario">
+                <div>
+                <input id="equipoClasificados" type="range" formControlName="equipoClasificados" placeholder="Máximo 8 equipos"
+                    [ngClass]="{ 'error-input': equipoClasificados && equipoClasificados.invalid && (equipoClasificados.dirty || equipoClasificados.touched) }"
+                    min="1" max="8" step="1" (input)="onRangeChange($event)">
+                </div><div *ngIf="equipoClasificados && equipoClasificados.invalid && (equipoClasificados.dirty || equipoClasificados.touched)">
+                    <div *ngIf="equipoClasificados.errors?.['required']">Por favor, Mueva la barra para seleccionar un numero.</div>
+                </div>
+            </form>
+        </div>
+        <div class="derecha">
+            <button (click)="closeModal()" class="close-button">Cerrar</button>
+            <button class="save-button" (click)="guardarCategoria()">Guardar</button>
+        </div>
+    </div>
+</div>

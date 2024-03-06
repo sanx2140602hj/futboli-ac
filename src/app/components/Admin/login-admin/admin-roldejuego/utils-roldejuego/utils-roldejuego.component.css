@@ -49,12 +49,111 @@
   overflow-y: auto;
   max-height: 600px;
 }
-.scroll-horizontal {
-  overflow-x: auto; /* Agrega un scroll horizontal si el contenido se desborda */
-  white-space: nowrap; /* Evita que el contenido se envuelva */
+.scroll2 {
+  overflow-y: auto;
+  max-height: 300px;
 }
 
-/* Estilos de div IZQ */
+/*  */
+.scroll2::-webkit-scrollbar {
+  margin-left: 5px;
+  -webkit-appearance: none;
+}
+
+.scroll2::-webkit-scrollbar:vertical {
+  width:10px;
+}
+
+.scroll2::-webkit-scrollbar-button:increment,.scroll::-webkit-scrollbar-button {
+  display: none;
+} 
+
+.scroll2::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.scroll2::-webkit-scrollbar-thumb {
+  background-color: #081858;
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
+}
+
+.scroll2::-webkit-scrollbar-track {
+  border-radius: 10px;  
+}
+
+/*  */
+.scroll::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.scroll::-webkit-scrollbar:vertical {
+  width:10px;
+}
+
+.scroll::-webkit-scrollbar-button:increment,.scroll::-webkit-scrollbar-button {
+  display: none;
+} 
+
+.scroll::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: #081858;
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
+}
+
+.scroll::-webkit-scrollbar-track {
+  border-radius: 10px;  
+}
+
+/* Horizontal*/
+
+.scroll-horizontal::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.scroll-horizontal::-webkit-scrollbar:vertical {
+  width:10px;
+}
+
+.scroll-horizontal::-webkit-scrollbar-button:increment,.scroll-horizontal::-webkit-scrollbar-button {
+  display: none;
+} 
+
+.scroll-horizontal::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.scroll-horizontal::-webkit-scrollbar-thumb {
+  background-color: #081858;
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
+}
+
+.scroll-horizontal::-webkit-scrollbar-track {
+  border-radius: 10px;  
+}
+/*  */
+.scroll-horizontal {
+  overflow-x: auto;
+  white-space: nowrap; /* Evita que los elementos se envuelvan a la siguiente línea */
+  width: 100%; /* Ajusta el ancho según tu necesidad */
+  
+}
+
+.pablo {
+  display: inline-block; /* Permite que las cartas estén una al lado de la otra */
+  width: Auto; /* Ajusta el ancho de cada carta según tu necesidad */
+  margin-right: 10px; /* Espacio entre cada carta */
+  margin-bottom: 1rem;
+}
+
+
+
+
 /*---------------------------------------------*/
 .card {
   padding: 1.4rem;
@@ -177,7 +276,60 @@ li {
   margin: 0.5rem;
   /*        ⬆️    ⬅️   ⬇️    ➡️ */
 }
+.custom-button2 {
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  margin: 0.5rem;
+  /*        ⬆️    ⬅️   ⬇️    ➡️ */
+}
 
+/* Agrega estilos para la ventana emergente (modal) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  border-radius: 10px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+}
+
+/* Estilo adicional para ocultar el input y los botones por defecto */
+.modal-content input,
+.modal-content button {
+  display: block;
+  margin-bottom: 10px;
+}
+
+
+/* ---------------------------------------- */
 
 @media screen and (max-width: 1500px) {
   .container {
