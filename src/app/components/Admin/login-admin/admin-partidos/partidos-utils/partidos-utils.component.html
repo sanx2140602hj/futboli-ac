@@ -6,19 +6,17 @@
   <nav class="navbar just">
     <h1>Partidos</h1>
   </nav>
-  <div class="content top"> <button class="añadir" routerLink="/Admin-Partidos"><i class="fas fa-chevron-left"></i> Regresar</button>
+  <div class="content top">
+    <button class="añadir" routerLink="/Admin-Partidos">
+      <i class="fas fa-chevron-left"></i> Regresar
+    </button>
   </div>
   <div class="content">
     <div class="card">
       <div class="selection-temporada">
-        <h3><b>Partidos de la temporada</b></h3>
-        <select id="temporadas" class="form-select mb-3" aria-label="Selecciona torneo">
-          <option selected>Selecciona torneo</option>
-          <option value="temp1">Temporada 1</option>
-          <option value="temp2">Temporada 2</option>
-          <option value="temp3">Temporada 3</option>
-          <option value="temp4">Temporada 4</option>
-        </select>
+        <h3 class="txt-justify">
+          <b>Partido pendiente / finalizado</b>
+        </h3>
         <table class="table table-bordered">
           <tbody>
             <tr>
@@ -33,117 +31,162 @@
           </tbody>
         </table>
       </div>
-
-      <div class="divison">
-        <div class="izq">
-          <h2>Goles anotados:</h2>
-          <input class="search-input2" min="0" type="number" [(ngModel)]="goles.izq.golesAnotados">
-          <h2>Goles en contra:</h2>
-          <input class="search-input2" min="0" type="number" [(ngModel)]="goles.izq.golesEnContra">
-        </div>
-        <div class="der">
-          <h2>Goles anotados:</h2>
-          <input class="search-input2" min="0" type="number" [(ngModel)]="goles.der.golesAnotados">
-          <h2>Goles en contra:</h2>
-          <input class="search-input2" min="0" type="number" [(ngModel)]="goles.der.golesEnContra">
-        </div>
-
+      <div>
+        <h3><b>Información del partido</b></h3>
+        <h4 class="txt-justify">
+          Da click en en botón “+ Añadir datos” para agregar la información
+          necesaria acerca de donde se llevará a cabo el partido y el público
+          pueda visualizarlo.
+        </h4>
       </div>
-
-      <div><button class="save-button2" (click)="guardar1()">Guardar</button></div>
-
-      <hr>
-      <div class="divison">
-        <div class="izq card">
-          <h2>Equipamiento de recursos</h2>
-          <input class="search-input" type="text" placeholder="equipo:" [(ngModel)]="equipoInfo.equipos">
-          <div class="divison2">
-            <div class="izq">
-              <h3>Botiquín:</h3>
-              <h3>Balones: </h3>
-              <h3>Gafete de capitan: </h3>
-              <h3>D.T.: </h3>
-            </div>
-            <div class="der">
-              <h3>
-                <label class="switch">
-                  <input type="checkbox" [(ngModel)]="equipoInfo.botiquin"
-                    (change)="onSwitchChange('Botiquin', $event)">
-                  <span class="slider round"></span>
-                </label>
-              </h3>
-              <h3>
-                <label class="switch">
-                  <input type="checkbox" [(ngModel)]="equipoInfo.balones" (change)="onSwitchChange('Balones', $event)">
-                  <span class="slider round"></span>
-                </label>
-              </h3>
-              <h3>
-                <label class="switch">
-                  <input type="checkbox" [(ngModel)]="equipoInfo.gafete" (change)="onSwitchChange('Gafete', $event)">
-                  <span class="slider round"></span>
-                </label>
-              </h3>
-              <h3>
-                <label class="switch">
-                  <input type="checkbox" [(ngModel)]="equipoInfo.dt" (change)="onSwitchChange('DT', $event)">
-                  <span class="slider round"></span>
-                </label>
-              </h3>
-            </div>
-          </div>
-          <div class="botones">
-            <button class="cancelar-button">CANCELAR</button>
-            <button class="save-button" (click)="guardar()">Guardar</button>
-          </div>
-        </div>
-        <div class="der card">
-          <h2>Equipos Visitante amonestado:</h2>
-          <input class="search-input" type="text" placeholder="Equipo:" [(ngModel)]="amonestaciones.equipo">
-          <input class="search-input" type="text" placeholder="Código:" [(ngModel)]="amonestaciones.codigo">
-          <input class="search-input" type="text" placeholder="Casual:" [(ngModel)]="amonestaciones.casual">
-          <div class="botones">
-            <button class="cancelar-button">CANCELAR</button>
-            <button class="save-button" (click)="guardarAmonestaciones()">Guardar</button>
-          </div>
-        </div>
-
+      <div class="texto">
+        <h4 class="txt-justify">
+          Este partido de futbol se llevará a cabo el día _____________ a las
+          __________ horas, en el campo de ________. Correspondiendo al número
+          de jornada ________ de la categoría ________.
+        </h4>
+        <button class="save-button">
+          <i class="fa-solid fa-plus"></i> Añadir Datos
+        </button>
       </div>
-      <hr>
-      <div class="card p-4">
-        <div class="tab-pane active" id="Identificacion">
-          <table class="table">
-            <thead style="text-align: center;">
-              <tr>
-                <th>No.</th>
-                <th>Nombre completo</th>
-                <th>Fecha</th>
-                <th>Asistencia</th>
-              </tr>
-            </thead>
+      <hr />
+      <h3 style="margin-bottom: -2.5rem">
+        <b>Antecedentes durante el partido</b>
+      </h3>
+      <div class="texto">
+        <h4 class="txt-justify">
+          Registra los goles, amonestaciones (tarjeta amarilla) y expulsiones
+          (tarjeta roja) durante el partido, da click en el botón “+ Registar
+          suceso” y llena el formulario.
+        </h4>
+        <button class="save-button">
+          <i class="fa-solid fa-plus"></i> Añadir Suceso
+        </button>
+        <div class="ajuste">
+          <table class="table table-bordered">
             <tbody>
               <tr>
-                <td>00000</td>
-                <td>JESUS SANCHEZ HERNANDEZ</td>
-                <td><input type="date"></td>
-                <td><label class="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                  </label></td>
+                <th>Equipo</th>
+                <th>Jugador</th>
+                <th>Evento</th>
+                <th>Causal</th>
+                <th>Hora</th>
               </tr>
-
+              <tr>
+                <td>Equipo 1</td>
+                <td>Chicharito</td>
+                <td>Gol</td>
+                <td>Gol por saque de banda</td>
+                <td>10:18</td>
+              </tr>
             </tbody>
           </table>
         </div>
-        <div>
-          <button class="añadir"><i class="fa-solid fa-plus"></i> añadir</button>
+      </div>
+      <hr />
+      <div>
+        <h3><b>Evaluación de recursos adicionales equipo</b></h3>
+        <h4 class="txt-justify">
+          Verifica y evalúa que los equipos de futbol poseen los
+          recursos/materiales necesarios para llevar a cabo el partido, también
+          puedes evaluar la conducta de la porra dándole click a los botones
+          correspondientes.
+        </h4>
+        <div class="ajuste">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <th>Equipo</th>
+                <th>botiquín</th>
+                <th>Balones</th>
+                <th>Gafete Capitán</th>
+                <th>Director tecnico</th>
+                <th>Puntos</th>
+                <th>Conducta de la porra</th>
+                <th>Puntos</th>
+              </tr>
+              <tr>
+                <td>Equipo 1</td>
+                <td>No</td>
+                <td>Si</td>
+                <td>No</td>
+                <td>Si</td>
+                <td>-20</td>
+                <td>Buena</td>
+                <td>0</td>
+              </tr>
+            </tbody>
+          </table>
+          <div>
+            <button class="equipamiento">
+              <i class="fa-solid fa-plus"></i> Evaluar equipamiento
+            </button>
+          </div>
+          <button class="porra">
+            <i class="fa-solid fa-plus"></i> Evaluar porra
+          </button>
         </div>
-        <div>
-          <div class="botones">
-            <button class="cancelar-button">CANCELAR</button>
-            <button class="save-button">Guardar</button>
+      </div>
+      <hr />
+      <div>
+        <h3><b>Control de asistencia</b></h3>
+        <h4 class="txt-justify">
+          Selecciona el equipo para llevar acabo la asistencia de los jugadores
+        </h4>
+        <div class="divison">
+          <div class="izq">
+            <select class="custom-select">
+              <option value="">Escoge un equipo</option>
+              <option>equipo 1</option>
+              <option>equipo 2</option>
+            </select>
+          </div>
+          <div class="der">
+            <table class="table">
+              <thead class="txt-justify">
+                <tr>
+                  <th>No.</th>
+                  <th>Nombre completo</th>
+                  <th>Fecha</th>
+                  <th colspan="2">Asistencia</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>00000</td>
+                  <td>JESUS SANCHEZ HERNANDEZ</td>
+                  <td><input  class="date" type="date" /></td>
+                  <td>
+                    <label class="switch">
+                      <input type="checkbox" />
+                      <span class="slider round"></span>
+                    </label>
+                  </td><td><button class="save-button2">Guardar</button></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
+      <hr />
+      <div>
+        <h3><b>Cierre del partido</b></h3>
+        <h4 class="txt-justify">
+          Deja algún comentario acerca de este partido. No olvides dar click en
+          el botón “Finalizar el partido” cuando haya concluido el juego.
+        </h4>
+        <div class="ajuste">
+          <textarea class="comentario" type="text" placeholder="    Describre tu opinion sobre el juego"></textarea>
+        </div>
+        <div>
+          <button class="save-button">Guardar</button>
+        </div>
+      </div>
+      <hr />
+      <br />
+      <div>
+        <button class="final"><h2><b>Finalizar el partido</b></h2></button>
+      </div>
     </div>
   </div>
+</div>

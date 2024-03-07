@@ -73,6 +73,10 @@ import { ModalDatosfisicosUtilsComponent } from './components/Admin/login-admin/
 import { ModalEscolarUtilsComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/utils-cardsjugador/modal-escolar-utils/modal-escolar-utils.component';
 import { ModalTutorUtilsComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/utils-cardsjugador/modal-tutor-utils/modal-tutor-utils.component';
 import { ModalAgregarEquiposClasificadosComponent } from './components/Admin/login-admin/admin-roldejuego/utils-roldejuego/modal-agregar-equipos-clasificados/modal-agregar-equipos-clasificados.component';
+import { ModalPartidosAgregardatosComponent } from './components/Admin/login-admin/admin-partidos/partidos-utils/modal-partidos-agregardatos/modal-partidos-agregardatos.component';
+import { ModalPartidosAgregarsucesoComponent } from './components/Admin/login-admin/admin-partidos/partidos-utils/modal-partidos-agregarsuceso/modal-partidos-agregarsuceso.component';
+import { ModalPartidosEvaluarequipamientoComponent } from './components/Admin/login-admin/admin-partidos/partidos-utils/modal-partidos-evaluarequipamiento/modal-partidos-evaluarequipamiento.component';
+import { ModalPartidosEvaluarporraComponent } from './components/Admin/login-admin/admin-partidos/partidos-utils/modal-partidos-evaluarporra/modal-partidos-evaluarporra.component';
 
 
 @NgModule({
@@ -137,6 +141,10 @@ import { ModalAgregarEquiposClasificadosComponent } from './components/Admin/log
     ModalEscolarUtilsComponent,
     ModalTutorUtilsComponent,
     ModalAgregarEquiposClasificadosComponent,
+    ModalPartidosAgregardatosComponent,
+    ModalPartidosAgregarsucesoComponent,
+    ModalPartidosEvaluarequipamientoComponent,
+    ModalPartidosEvaluarporraComponent,
 //----------------
 
   ],

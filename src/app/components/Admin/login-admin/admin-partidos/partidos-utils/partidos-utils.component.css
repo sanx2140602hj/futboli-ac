@@ -1,376 +1,474 @@
 .just {
-    margin-left: 25rem
+  margin-left: 25rem;
+}
+
+.content {
+  margin-left: 25rem;
+  padding: 20px;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #078cb4;
+  color: #011f3a;
+  padding: 10px;
+  border-bottom: 2px solid #011f3a;
+}
+.top {
+  margin-top: 5rem;
+}
+
+/* ///////////////////////////////////////////////////////////////////// */
+.content {
+  padding: 2rem;
+}
+
+.card {
+  padding: 1rem;
+}
+
+/*---------------------------------------------*/
+.divison {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.divison2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.izq {
+  flex: 20%;
+  margin-right: 0.5rem;
+}
+
+.der {
+  flex: 80%;
+  margin-left: 0.5rem;
+}
+
+.scroll {
+  overflow-y: auto;
+  max-height: 200px;
+}
+
+/* Estilos de div IZQ */
+/* //////////////////////////////////////////////////////////////////////////////////////////////// */
+/* interruptor */
+.switch {
+  margin-top: 0.4rem;
+  position: relative;
+  display: inline-block;
+  width: 4rem;
+  /* Ancho del interruptor */
+  height: 1.9rem;
+  /* Altura del interruptor */
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: red;
+  transition: 0.4s;
+  border-radius: 2.25rem;
+  /* Radio de borde del interruptor */
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.5rem;
+  /* Altura del botón */
+  width: 1.5rem;
+  /* Ancho del botón */
+  left: 0.25rem;
+  /* Distancia izquierda del botón */
+  bottom: 0.25rem;
+  /* Distancia inferior del botón */
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: green;
+}
+
+input:checked + .slider:before {
+  transform: translateX(1.5rem);
+  /* Movimiento del botón */
+}
+
+/* Interruptor redondeado */
+.slider.round {
+  border-radius: 2.25rem;
+  /* Radio de borde del interruptor */
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* -------------------------------------------------------------------- */
+/* Botones G y B */
+
+.cancelar-button {
+  background-color: transparent;
+  color: #ff0000;
+  border: 1px solid #ff0000;
+  border-radius: 0.3rem;
+  padding: 0.5rem 1rem;
+}
+
+.cancelar-button:hover {
+  background-color: #ff0000;
+  color: white;
+}
+.añadir {
+  margin-top: 2rem;
+  background-color: transparent;
+  color: #000000;
+  border: 1px solid #000000;
+  border-radius: 0.9rem;
+  padding: 0.5rem 1rem;
+}
+
+.añadir:hover {
+  background-color: #000000;
+  color: white;
+}
+.equipamiento {
+  background-color: transparent;
+  color: #f59e33;
+  border: 1px solid #ffd098;
+  border-radius: 0.9rem;
+  padding: 0.5rem 1rem;
+}
+
+.equipamiento:hover {
+  background-color: #ffd098;
+  color: black;
+}
+.porra {
+  margin-top: 1rem;
+  background-color: transparent;
+  color: #c9e6ff;
+  border: 1px solid #c9e6ff;
+  border-radius: 0.9rem;
+  padding: 0.5rem 1rem;
+}
+
+.porra:hover {
+  background-color: #c9e6ff;
+  color: black;
+}
+
+.save-button {
+  background-color: transparent;
+  color: #288a85;
+  border: 1px solid #288a85;
+  border-radius: 0.8rem;
+  padding: 0.5rem 1rem;
+  margin-left: 1rem;
+  margin-top: 2rem;
+}
+
+.save-button:hover {
+  background-color: #288a85;
+  color: white;
+}
+.final {
+  background-color: transparent;
+  width: 100%;
+  color: #000;
+  border: 1px solid #ff612f;
+  border-radius: 0.8rem;
+  padding: 0.5rem 1rem;
+  margin-top: 2rem;
+}
+
+.final:hover {
+  background-color: #ff612f;
+  color: white;
+}
+.save-button2 {
+  background-color: transparent;
+  color: #288a85;
+  border: 1px solid #288a85;
+  border-radius: 0.8rem;
+  padding: 0.5rem 1rem;
+}
+
+.save-button2:hover {
+  background-color: #288a85;
+  color: white;
+}
+/* -------------------------------------------------------------------------------------------------*/
+.date {
+  border: none; /* Sin bordes */
+  background-color: rgba(201, 230, 255, 0.3); /* Fondo azul con un 20% más bajo */
+  padding: 5px; /* Ajusta según sea necesario */
+  border-radius: 5px; /* Opcional: añade esquinas redondeadas */
+}
+.date:focus{ outline: none; /* Elimina el contorno al enfocar */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Añade una sombra al enfocar */}
+/* -------------------------------------------------------------------------------------------------*/
+.custom-select {
+  width: 100%;
+  background-color: #580838; /* Fondo color vino */
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
+  padding: 5px; /* Ajusta según necesidades */
+  border-radius: 10px;
+}
+
+.custom-select option {
+  background-color: white; /* Fondo blanco */
+  color: black; /* Texto negro */
+}
+
+.custom-select::-ms-expand {
+  display: none; /* Oculta la flecha en Internet Explorer y Edge */
+}
+
+/* -------------------------------------------------------------------------------------------------*/
+.table {
+  margin-top: 4rem;
+  border: 2px solid navy;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table th {
+  background-color: rgb(134, 134, 255);
+  color: #fff;
+  border-width: 1px;
+  text-align: center;
+}
+.table td {
+  border-width: 1px 0;
+  text-align: center;
+}
+
+.table td:first-child {
+  border-left: 1px solid navy;
+}
+
+.table td:last-child {
+  border-right: 1px solid navy;
+}
+
+/* -------------------------------------------------------------------------------------------------*/
+.comentario {
+  width: 100%;
+  border: 2px solid #000;
+  border-radius: 0.7rem;
+}
+.texto {
+  margin-top: 1rem;
+  padding: 3rem;
+}
+.txt-justify {
+  text-align: justify;
+  padding: 1.5rem;
+}
+.ajuste {
+  padding: 0rem 9rem;
+}
+/* -------------------------------------------------------------------------------------------------*/
+/* //modal */
+
+/* Agrega estilos para la ventana emergente (modal) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  border-radius: 10px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+}
+
+/* Estilo adicional para ocultar el input y los botones por defecto */
+.modal-content input,
+.modal-content button {
+  display: block;
+  margin-bottom: 10px;
+}
+
+
+/* -------------------------------------------------------------------------------------------------*/
+@media screen and (max-width: 1500px) {
+  .container {
+    margin: 1rem;
   }
-  
+
+  .logo h1 {
+    font-size: 1rem;
+  }
+
+  .sidebar {
+    width: 17rem;
+  }
+
+  .just {
+    margin-left: 17rem;
+  }
+
   .content {
-    margin-left: 25rem;
+    margin-left: 17rem;
     padding: 20px;
   }
-  
-  .navbar {  
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    background-color: #078cb4;
-    color: #011F3A;
-    padding: 10px;
-    border-bottom: 2px solid #011F3A;
+
+  /* ------------------------ */
+}
+
+/* ------------------------------------------ */
+@media screen and (max-width: 900px) {
+  .sidebar {
+    width: 13rem;
   }
-  .top{margin-top: 5rem;}
-  
-  /* ///////////////////////////////////////////////////////////////////// */
+
+  .just {
+    margin-left: 13rem;
+  }
+
   .content {
-    padding: 2rem;
+    margin-left: 13rem;
+    padding: 20px;
   }
-  
-  .card {
+
+  /* ------------------------ */
+}
+
+/* ------------------------------------------ */
+
+@media screen and (max-width: 500px) {
+  .just {
+    margin-left: 4rem;
+  }
+
+  .content {
+    margin-left: 4rem;
     padding: 1rem;
   }
-  
-  /*---------------------------------------------*/
-  .divison {
-    display: flex;
-    align-items: center;
-    margin-bottom: 3rem;
+
+  /* ------------------- */
+  .top {
+    margin-top: 7rem;
   }
-  
-  .divison2 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+}
+
+@media screen and (max-width: 900px) {
+  ul li {
+    font-size: 1.1rem;
   }
-  
-  .izq {
-    flex: 50%;
-    margin-right: 0.5rem;
+
+  .logo h1 {
+    font-size: 1rem;
   }
-  
-  .der {
-    flex: 50%;
-    margin-left: 0.5rem;
+
+  .sidebar {
+    width: 13rem;
   }
-  
-  .scroll {
-    overflow-y: auto;
-    max-height: 200px;
+
+  .just {
+    margin-left: 13rem;
   }
-  
-  /* Estilos de div IZQ */
-  /* //////////////////////////////////////////////////////////////////////////////////////////////// */
-  /* interruptor */
-  .switch {
-    position: relative;
-    display: inline-block;
+
+  .content {
+    margin-left: 13rem;
+    padding: 20px;
+  }
+}
+
+/* ------------------------------------------ */
+
+@media screen and (max-width: 500px) {
+  ul li {
+    margin-left: -0.5rem;
+    font-size: 2.5rem;
+    padding: 6px 0;
+    /* Ajusta el espaciado vertical entre elementos */
+    margin-bottom: -4rem;
+    /* Elimina el margen inferior entre elementos */
+  }
+
+  .logo h1 {
+    font-size: 0rem;
+  }
+
+  .sidebar {
     width: 4rem;
-    /* Ancho del interruptor */
-    height: 1.9rem;
-    /* Altura del interruptor */
   }
-  
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
+
+  .just {
+    margin-left: 4rem;
   }
-  
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: red;
-    transition: 0.4s;
-    border-radius: 2.25rem;
-    /* Radio de borde del interruptor */
+
+  hr {
+    border: 1px solid #fff;
+    margin: 10px 0;
   }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 1.5rem;
-    /* Altura del botón */
-    width: 1.5rem;
-    /* Ancho del botón */
-    left: 0.25rem;
-    /* Distancia izquierda del botón */
-    bottom: 0.25rem;
-    /* Distancia inferior del botón */
-    background-color: white;
-    transition: 0.4s;
-    border-radius: 50%;
+
+  .content {
+    margin-left: 4rem;
+    padding: 0;
   }
-  
-  input:checked+.slider {
-    background-color: green;
+
+  .cero {
+    font-size: 0;
+    padding: 0;
+    /* Elimina el espaciado entre elementos con clase "cero" */
+    margin-bottom: 0;
+    /* Elimina el margen inferior entre elementos con clase "cero" */
   }
-  
-  input:checked+.slider:before {
-    transform: translateX(1.5rem);
-    /* Movimiento del botón */
+
+  .cero a {
+    display: none;
   }
-  
-  /* Interruptor redondeado */
-  .slider.round {
-    border-radius: 2.25rem;
-    /* Radio de borde del interruptor */
+
+  .cero i {
+    font-size: 1.5rem;
   }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
-  
-  /* -------------------------------------------------------------------- */
-  /* Botones G y B */
-  .botones {
-    display: flex;
-    justify-content: flex-end;
-    /* Alinea los elementos al final del contenedor (derecha) */
-    margin-top: 20px;
-  }
-  
-  .cancelar-button {
-    background-color: transparent;
-    color: #ff0000;
-    border: 1px solid #ff0000;
-    border-radius: 0.3rem;
-    padding: 0.5rem 1rem;
-  }
-  
-  .cancelar-button:hover {
-    background-color: #ff0000;
-    color: white;
-  }
-  .añadir {
-    background-color: transparent;
-    color: #000000;
-    border: 1px solid #000000;
-    border-radius: 0.9rem;
-    padding: 0.5rem 1rem;
-  }
-  
-  .añadir:hover {
-    background-color: #000000;
-    color: white;
-  }
-  
-  .save-button {
-    background-color: transparent;
-    color: #288A85;
-    border: 1px solid #288A85;
-    border-radius: 0.3rem;
-    padding: 0.5rem 1rem;
-    margin-left: 1rem;
-  }
-  
-  .save-button:hover {
-    background-color: #288A85;
-    color: white;
-  }
-  
-  .save-button2 {
-    background-color: transparent;
-    color: #288A85;
-    border: 1px solid #288A85;
-    border-radius: 0.3rem;
-    padding: 0.5rem 1rem;
-    margin-left: 35%;
-    width: 30%;
-    margin-right: 35%;  margin-bottom: 2rem;
-  }
-  
-  .save-button2:hover {
-    background-color: #288A85;
-    color: white;
-  }.añadir {
-    background-color: transparent;
-    color: #000000;
-    border: 1px solid #000000;
-    border-radius: 0.9rem;
-    padding: 0.5rem 1rem;
-  }
-  
-  /* -------------------------------------------------------------------------------------------------*/
-  .search-input {
-    text-align: left;
-    padding: 0.5rem;
-    border: 1px solid #000;
-    border-radius: 10px;
-    margin: 1rem 0rem;
-    width: 99%;
-  }
-  
-  .search-input2 {
-    background-color: #a8a8a8;
-    color: white;
-    font-size: 2rem;
-    text-align: center;
-    padding: -0.4rem;
-    border: 0px solid #000;
-    border-radius: 10px;
-    margin: 0.5rem 0rem;
-    width: 30%;
-  }
-  
-  /* -------------------------------------------------------------------------------------------------*/
-  .table {
-    margin-top: 4rem;
-    border: 2px solid navy;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  .table td {
-    border: none;
-    border-width: 1px 0;
-    text-align: center;
-  }
-  
-  .table td:first-child {
-    border-left: 1px solid navy;
-  }
-  
-  .table td:last-child {
-    border-right: 1px solid navy;
-  }
-  
-  /* -------------------------------------------------------------------------------------------------*/
-  @media screen and (max-width: 1500px) {
-    .container {
-      margin: 1rem;
-  
-    }
-  
-    .logo h1 {
-      font-size: 1rem;
-    }
-  
-    .sidebar {
-      width: 17rem;
-    }
-  
-    .just {
-      margin-left: 17rem
-    }
-  
-    .content {
-      margin-left: 17rem;
-      padding: 20px;
-    }
-  
-    /* ------------------------ */
-  
-  }
-  
-  /* ------------------------------------------ */
-  @media screen and (max-width: 900px) {
-    .sidebar {
-      width: 13rem;
-    }
-  
-    .just {
-      margin-left: 13rem
-    }
-  
-    .content {
-      margin-left: 13rem;
-      padding: 20px;
-    }
-  
-    /* ------------------------ */
-  }
-  
-  /* ------------------------------------------ */
-  
-  @media screen and (max-width: 500px) {
-    .just {
-      margin-left: 4rem;
-    }
-  
-    .content {
-      margin-left: 4rem;
-      padding: 1rem;
-    }
-  
-    /* ------------------- */
-    .top {
-      margin-top: 7rem;
-    }
-  
-  }
-  
-  @media screen and (max-width: 900px) {
-    ul li {
-      font-size: 1.1rem;
-    }
-  
-    .logo h1 {
-      font-size: 1rem;
-    }
-  
-    .sidebar {
-      width: 13rem;
-    }
-  
-    .just {
-      margin-left: 13rem
-    }
-  
-    .content {
-      margin-left: 13rem;
-      padding: 20px;
-    }
-  }
-  
-  /* ------------------------------------------ */
-  
-  @media screen and (max-width: 500px) {
-    ul li {
-      margin-left: -0.5rem;
-      font-size: 2.5rem;
-      padding: 6px 0;
-      /* Ajusta el espaciado vertical entre elementos */
-      margin-bottom: -4rem;
-      /* Elimina el margen inferior entre elementos */
-    }
-  
-    .logo h1 {
-      font-size: 0rem;
-    }
-  
-    .sidebar {
-      width: 4rem;
-    }
-  
-    .just {
-      margin-left: 4rem;
-    }
-  
-    hr {
-      border: 1px solid #fff;
-      margin: 10px 0;
-    }
-  
-    .content {
-      margin-left: 4rem;
-      padding: 0;
-    }
-  
-    .cero {
-      font-size: 0;
-      padding: 0;
-      /* Elimina el espaciado entre elementos con clase "cero" */
-      margin-bottom: 0;
-      /* Elimina el margen inferior entre elementos con clase "cero" */
-    }
-  
-    .cero a {
-      display: none;
-    }
-  
-    .cero i {
-      font-size: 1.5rem;
-    }
-  }
+}
