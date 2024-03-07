@@ -1,81 +1,54 @@
 import { Component, OnInit } from '@angular/core';
-interface EquipoInfo {
-  equipos: string;
-  botiquin: boolean;
-  balones: boolean;
-  gafete: boolean;
-  dt: boolean;
-}
-
-interface GolesInfo {
-  izq: {
-    golesAnotados: number;
-    golesEnContra: number;
-  };
-  der: {
-    golesAnotados: number;
-    golesEnContra: number;
-  };
-}
 @Component({
   selector: 'app-partidos-utils',
   templateUrl: './partidos-utils.component.html',
   styleUrls: ['./partidos-utils.component.css']
 })
-export class PartidosUtilsComponent {
-   equipoInfo: EquipoInfo = {
-  equipos: '',
-  botiquin: false,
-  balones: false,
-  gafete: false,
-  dt: false
-};
-
-goles: GolesInfo = {
-  izq: {
-    golesAnotados: 0,
-    golesEnContra: 0
-  },
-  der: {
-    golesAnotados: 0,
-    golesEnContra: 0
+export class PartidosUtilsComponent implements OnInit {
+  constructor() {}
+  ngOnInit(): void {
   }
-};
-amonestaciones = {
-  equipo: '',
-  codigo: '',
-  casual: ''
-};
-
-constructor() {}
-
-onSwitchChange(id: string, event: any) {
-  switch (id) {
-    case 'Botiquin':
-      this.equipoInfo.botiquin = event.target.checked;
-      break;
-    case 'Balones':
-      this.equipoInfo.balones = event.target.checked;
-      break;
-    case 'Gafete':
-      this.equipoInfo.gafete = event.target.checked;
-      break;
-    case 'DT':
-      this.equipoInfo.dt = event.target.checked;
-      break;
-    default:
-      break;
+ /* -------------------------- */
+  //DATOS
+  openModalAgregarDATOS = false;
+  openModalDATOS() {
+    console.log('Modal Abierto DATOS');
+    this.openModalAgregarDATOS = true;
   }
-}
+  closeModalDATOS() {
+    console.log('Modal Cerrado DATOS');
+    this.openModalAgregarDATOS = false;
+  }
+  /* -------------------------- */
+   showSucesoModal = false;
 
-guardar() {
-  console.log('Información de equipos:', this.equipoInfo);
-}
-guardar1() {
-  console.log('Información de goles:', this.goles);
-}
-guardarAmonestaciones(){
-  console.log('Amonestaciones:', this.amonestaciones);
-}
+  openSucesoModal() {
+    this.showSucesoModal = true;
+  }
 
+  closeSucesoModal() {
+    this.showSucesoModal = false;
+  }
+ /* -------------------------- */
+  //EQUIPAMIENTO
+  openModalEvalularEQUIPAMIENTO = false;
+openModalEQUIPAMIENTO(){
+  console.log('Modal Abierto EQUIPAMIENTO');
+  this.openModalEvalularEQUIPAMIENTO = true;
+}
+closeModalEQUIPAMIENTO(){
+  console.log('Modal Abierto EQUIPAMIENTO');
+  this.openModalEvalularEQUIPAMIENTO = false;
+}
+ /* -------------------------- */
+  //PORRA
+  openModalEvalularPORRA = false;
+openModalPORRA(){
+  console.log('Modal Abierto PORRA');
+  this.openModalEvalularPORRA = true;
+}
+closeModalPORRA(){
+  console.log('Modal Abierto PORRA');
+  this.openModalEvalularPORRA = false;
+}
 }

@@ -45,9 +45,14 @@
           __________ horas, en el campo de ________. Correspondiendo al número
           de jornada ________ de la categoría ________.
         </h4>
-        <button class="save-button">
-          <i class="fa-solid fa-plus"></i> Añadir Datos
-        </button>
+       <button class="save-button" (click)="openModalDATOS()">
+  <i class="fa-solid fa-plus"></i> Añadir Datos
+</button>
+<app-modal-partidos-agregardatos
+  *ngIf="openModalAgregarDATOS"
+  (onCloseModal)="closeModalDATOS()"
+></app-modal-partidos-agregardatos>
+
       </div>
       <hr />
       <h3 style="margin-bottom: -2.5rem">
@@ -59,9 +64,13 @@
           (tarjeta roja) durante el partido, da click en el botón “+ Registar
           suceso” y llena el formulario.
         </h4>
-        <button class="save-button">
-          <i class="fa-solid fa-plus"></i> Añadir Suceso
-        </button>
+        <button class="save-button" (click)="openSucesoModal()">
+          <i class="fa-solid fa-plus"></i> Agregar Suceso
+      </button>
+      <app-modal-partidos-agregarsuceso *ngIf="showSucesoModal" (onCloseModal)="closeSucesoModal()"></app-modal-partidos-agregarsuceso>
+
+      
+    
         <div class="ajuste">
           <table class="table table-bordered">
             <tbody>
@@ -155,13 +164,14 @@
                 <tr>
                   <td>00000</td>
                   <td>JESUS SANCHEZ HERNANDEZ</td>
-                  <td><input  class="date" type="date" /></td>
+                  <td><input class="date" type="date" /></td>
                   <td>
                     <label class="switch">
                       <input type="checkbox" />
                       <span class="slider round"></span>
                     </label>
-                  </td><td><button class="save-button2">Guardar</button></td>
+                  </td>
+                  <td><button class="save-button2">Guardar</button></td>
                 </tr>
               </tbody>
             </table>
@@ -176,7 +186,11 @@
           el botón “Finalizar el partido” cuando haya concluido el juego.
         </h4>
         <div class="ajuste">
-          <textarea class="comentario" type="text" placeholder="    Describre tu opinion sobre el juego"></textarea>
+          <textarea
+            class="comentario"
+            type="text"
+            placeholder="    Describre tu opinion sobre el juego"
+          ></textarea>
         </div>
         <div>
           <button class="save-button">Guardar</button>
@@ -185,7 +199,9 @@
       <hr />
       <br />
       <div>
-        <button class="final"><h2><b>Finalizar el partido</b></h2></button>
+        <button class="final">
+          <h2><b>Finalizar el partido</b></h2>
+        </button>
       </div>
     </div>
   </div>
