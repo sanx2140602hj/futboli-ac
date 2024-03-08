@@ -134,9 +134,12 @@
               (onCloseModal)="closeModalEQUIPAMIENTO()">
             </app-modal-partidos-evaluarequipamiento>
                  </div>
-          <button class="porra">
-            <i class="fa-solid fa-plus"></i> Evaluar porra
-          </button>
+                 <button class="porra" (click)="openModalPORRA()">
+                  <i class="fa-solid fa-plus"></i> Evaluar porra
+                </button>
+                
+                <app-modal-partidos-evaluarporra *ngIf="openModalEvalularPORRA" (onCloseModal)="closeModalPORRA()"></app-modal-partidos-evaluarporra>
+                
         </div>
       </div>
       <hr />
@@ -147,11 +150,12 @@
         </h4>
         <div class="divison">
           <div class="izq">
-            <select class="custom-select">
+            <select class="custom-select" [(ngModel)]="selectedEquipo" (change)="onEquipoChange()">
               <option value="">Escoge un equipo</option>
-              <option>equipo 1</option>
-              <option>equipo 2</option>
+              <option *ngFor="let equipo of equipos; let i = index" [value]="i">{{equipo}}</option>
             </select>
+            
+          
           </div>
           <div class="der">
             <table class="table">
@@ -164,25 +168,27 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>00000</td>
-                  <td>JESUS SANCHEZ HERNANDEZ</td>
-                  <td><input class="date" type="date" /></td>
+                <tr *ngFor="let jugador of jugadores">
+                  <td>{{jugador.id}}</td>
+                  <td>{{jugador.nombre}}</td>
+                  <td><input class="date" type="date" [(ngModel)]="jugador.fechaAsistencia" /></td>
                   <td>
-                    <label class="switch">
-                      <input type="checkbox" />
-                      <span class="slider round"></span>
-                    </label>
+                      <label class="switch">
+                          <input type="checkbox" [(ngModel)]="jugador.asistencia" />
+                          <span class="slider round"></span>
+                      </label>
                   </td>
-                  <td><button class="save-button2">Guardar</button></td>
-                </tr>
+                  <td><button class="save-button2" (click)="guardarAsistencia(jugador)">Guardar</button></td>
+              </tr>
+              
               </tbody>
             </table>
           </div>
         </div>
+        
       </div>
       <hr />
-      <div>
+      <div class="a">
         <h3><b>Cierre del partido</b></h3>
         <h4 class="txt-justify">
           Deja algún comentario acerca de este partido. No olvides dar click en
@@ -191,14 +197,15 @@
         <div class="ajuste">
           <textarea
             class="comentario"
-            type="text"
-            placeholder="    Describre tu opinion sobre el juego"
+            [(ngModel)]="comentario"
+            placeholder=" Describre tu opinión sobre el juego"
           ></textarea>
         </div>
         <div>
-          <button class="save-button">Guardar</button>
+          <button class="save-button" (click)="guardarComentario()">Guardar</button>
         </div>
       </div>
+      
       <hr />
       <br />
       <div>

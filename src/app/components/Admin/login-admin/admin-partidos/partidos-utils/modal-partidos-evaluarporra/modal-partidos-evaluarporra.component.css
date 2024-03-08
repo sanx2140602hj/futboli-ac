@@ -1,0 +1,131 @@
+/* Estilos generales para el modal */
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.644);
+  }
+  
+  /* Estilos para el contenido del modal */
+  .modal-content {
+    position: relative;
+    width: 50rem; /* Ajusta el ancho según tus necesidades */
+    background-color: white;
+    padding: 20px;
+    border-radius: 0.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .izq h1 {
+    margin-bottom: 5rem;
+    color: black;
+    text-align: left; /* Alinea el texto a la izquierda */
+  }
+  
+  
+  /* Estilos para el título h1 */
+  .modal-content h1 {
+    margin-bottom: 5rem;
+    color: black;
+  }
+  
+  /* Estilos para el contenedor del input */
+  .input {
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+  
+  /* Estilos para el input */
+  .modal-content input.category-input {
+    width: calc(100% - 1rem);
+    padding: 0.5rem;
+    border: 1px solid black;
+    border-radius: 0.3rem;
+    color: black;
+  }
+  .search-input {
+    width: calc(100% - 1rem);
+    text-align: left;
+    padding: 0.5rem;
+    border: 1px solid #000;
+    border-radius: 0.3rem;
+    margin-top: 0.9rem;
+  }
+  
+  /* Estilos para alinear los botones a la derecha */
+  .derecha {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  /* Estilos para el botón de Cerrar */
+  .close-button {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 0.3rem;
+    color: #288A85;
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+  }
+  
+  /* Estilos para el botón de Guardar */
+  .save-button {
+    background-color: #288A85;
+    border: 1px solid #288A85;
+    border-radius: 0.3rem;
+    color: white;
+    padding: 0.5rem 1rem;
+  } .error-input {
+    border: 2px solid red !important;
+    
+  }
+
+  
+  /* -------------------------------------------------------------------- */
+  /* Botones G y B */
+  .botones {
+    display: flex;
+    justify-content: flex-end;
+    /* Alinea los elementos al final del contenedor (derecha) */
+    margin-top: 20px;
+  }
+  
+  .cancelar-button {
+    background-color: transparent;
+    color: #ff0000;
+    border: 1px solid #ff0000;
+    border-radius: 0.3rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .cancelar-button:hover {
+    background-color: #ff0000;
+    color: white;
+  }.save-button {
+    background-color: transparent;
+    color: #288A85;
+    border: 1px solid #288A85;
+    border-radius: 0.3rem;
+    padding: 0.5rem 1rem;
+    margin-left: 1rem;
+  }
+  
+  .save-button:hover {
+    background-color: #288A85;
+    color: white;
+  }
+  /* ----------------------------------------------------------- */
+  @media screen and (max-width: 500px) {
+    .modal-content {
+      width: 50%;
+      /* Reducir el ancho al 50% en dispositivos con un ancho máximo de 500px */
+    }
+  }
