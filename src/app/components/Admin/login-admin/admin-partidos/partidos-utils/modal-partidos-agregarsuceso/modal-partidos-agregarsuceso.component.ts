@@ -1,5 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -8,53 +8,47 @@ import Swal from 'sweetalert2';
   styleUrls: ['./modal-partidos-agregarsuceso.component.css']
 })
 export class ModalPartidosAgregarsucesoComponent {
-  miFormulario: FormGroup;
-  datePartido: any = {};
+  @Output() onCloseModal = new EventEmitter<void>();
+  miFormulario: FormGroup; // Definir el FormGroup para el formulario
+  equipos: any;
 
   constructor(private fb: FormBuilder) {
     this.miFormulario = this.fb.group({
-      lugarPartido: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9 ]+$')]],
-      fechaPartido: ['', [Validators.required]],
-      horaPartido: ['', [Validators.required]],
+      equipos: ['', Validators.required],
+      seleccionarJugador: ['', Validators.required],
+      seleccionarSUCESO: ['', Validators.required],
+      escribaCAUSAL: ['', Validators.required] 
     });
   }
 
-  get lugarPartido() {
-    return this.miFormulario.get('lugarPartido');
+  // Método para cerrar el modal
+  closeModal() {
+    console.log('Modal cerrado');
+    this.onCloseModal.emit();
   }
 
-  @Output() onCloseModal = new EventEmitter<void>();
+  // Método para guardar los cambios
+  guardarCambios() {
+    console.log('Valores del formulario:', this.miFormulario.value); // Verificar los valores del formulario
 
-  Guardar() {
-    const lugarPartido = this.miFormulario.get('lugarPartido');
-  const fechaPartido = this.miFormulario.get('fechaPartido');
-  const horaPartido = this.miFormulario.get('horaPartido');
-
-    if (lugarPartido && lugarPartido.valid && fechaPartido && horaPartido && fechaPartido.valid && horaPartido.valid) {
-      this.datePartido = {
-        lugarPartido: lugarPartido.value,
-        fechaPartido: fechaPartido.value,
-        horaPartido: horaPartido.value
-      };
-
-      console.log('Datos del partido:', this.datePartido); // Enviamos los datos del partido a la consola
-      this.onCloseModal.emit();
-
+    if (this.miFormulario.valid) { // Verificar si el formulario es válido
+      // Lógica para guardar los cambios
+      console.log('Datos del suceso:', this.miFormulario.value);
+      
       // Mostrar SweetAlert2 si se guardó correctamente
-      const mensaje = `Lugar: ${this.datePartido.lugarPartido}<br>
-               Fecha: ${this.datePartido.fechaPartido}<br>
-               Hora: ${this.datePartido.horaPartido}`;
       Swal.fire({
-        position: "top-end",
+        position: 'top-end',
         title: 'Generado con éxito',
-        html: mensaje,
+        text: 'Cambio generado: ' + JSON.stringify(this.miFormulario.value),
         icon: 'success',
-        timer: 2500,
-        showConfirmButton: false,
+        timer: 1500,
+        showConfirmButton: false
       });
+      
+      this.closeModal(); // Cerrar el modal después de guardar los cambios
     } else {
-      console.log('Error: No se puede guardar el partido debido a errores en el formulario');
-
+      console.log('Error: No se puede guardar el suceso debido a errores en el formulario');
+      
       // Mostrar SweetAlert2 si la operación no se realizó correctamente
       Swal.fire({
         position: 'top-end',
@@ -62,13 +56,8 @@ export class ModalPartidosAgregarsucesoComponent {
         text: 'Por favor, asegúrese de que el formulario esté completo y sin errores',
         icon: 'error',
         timer: 2500,
-        showConfirmButton: false,
+        showConfirmButton: false
       });
     }
-  }
-
-  closeModal() {
-    console.log('Modal de edición cerrado');
-    this.onCloseModal.emit();
   }
 }

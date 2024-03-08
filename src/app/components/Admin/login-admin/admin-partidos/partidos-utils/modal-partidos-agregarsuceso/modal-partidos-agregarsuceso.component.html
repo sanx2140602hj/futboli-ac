@@ -1,41 +1,50 @@
 <div class="modal">
     <div class="modal-content">
         <!-- Contenido del modal aquí -->
-        <div class="izq">
-            <h1>SUCESO del partido</h1>
-        </div>
-        <div class="input">
-            <form [formGroup]="miFormulario">
-                <h4>Lugar:</h4>
-                <input id="lugarPartido" type="text" formControlName="lugarPartido" class="category-input"
-                    [ngClass]="{ 'error-input': lugarPartido && lugarPartido.invalid && (lugarPartido.dirty || lugarPartido.touched) }">
-                <div *ngIf="lugarPartido && lugarPartido.invalid && (lugarPartido.dirty || lugarPartido.touched)">
-                    <div *ngIf="lugarPartido.errors?.['required']">El lugar de la categoría es obligatorio.</div>
-                    <div *ngIf="lugarPartido.errors?.['pattern']">Solo se permiten letras, números y espacios.</div>
+        <form [formGroup]="miFormulario" (ngSubmit)="guardarCambios()">
+            <div class="izquierda">
+                <h1>Suceso del partido</h1>
+            </div>
+            <div class="input">
+                <select formControlName="equipos" name="equipos" class="search-input"
+                        [ngClass]="{ 'error-input': miFormulario.get('equipos')?.invalid && miFormulario.get('equipos')?.touched }">
+                    <option value="" disabled selected>Selecciona un equipo</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+                <select formControlName="seleccionarJugador" name="seleccionarJugador" class="search-input"
+                        [ngClass]="{ 'error-input': miFormulario.get('seleccionarJugador')?.invalid && miFormulario.get('seleccionarJugador')?.touched }">
+                    <option value="" disabled selected>Selecciona un jugador</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select> 
+                <select formControlName="seleccionarSUCESO" name="seleccionarSUCESO" class="search-input"
+                        [ngClass]="{ 'error-input': miFormulario.get('seleccionarSUCESO')?.invalid && miFormulario.get('seleccionarSUCESO')?.touched }">
+                    <option value="" disabled selected>Selecciona un suceso</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select> 
+                <textarea style="margin-top: 1rem;" formControlName="escribaCAUSAL" class="category-input"
+                          [ngClass]="{ 'error-input': miFormulario.get('escribaCAUSAL')?.invalid && miFormulario.get('escribaCAUSAL')?.touched }"></textarea>
+            
+                <div *ngIf="miFormulario.get('escribaCAUSAL')?.invalid && miFormulario.get('escribaCAUSAL')?.touched">
+                    <div *ngIf="miFormulario.get('escribaCAUSAL')?.errors?.['required']">El editar o añadir un comentario es obligatorio.</div>
                 </div>
-                <!-- Para el campo de fecha -->
-                <h4>Fecha:</h4>
-                <input id="fechaPartido" type="date" class="category-input" formControlName="fechaPartido"
-                    [ngClass]="{ 'error-input': miFormulario.get('fechaPartido')?.invalid && (miFormulario.get('fechaPartido')?.dirty || miFormulario.get('fechaPartido')?.touched) }">
-                <div
-                    *ngIf="miFormulario.get('fechaPartido')?.invalid && (miFormulario.get('fechaPartido')?.dirty || miFormulario.get('fechaPartido')?.touched)">
-                    <div *ngIf="miFormulario.get('fechaPartido')?.errors?.['required']">La fecha es obligatoria.</div>
-                </div>
-
-                <!-- Para el campo de hora -->
-                <h4>Hora:</h4>
-                <input id="horaPartido" type="time" class="category-input" formControlName="horaPartido"
-                    [ngClass]="{ 'error-input': miFormulario.get('horaPartido')?.invalid && (miFormulario.get('horaPartido')?.dirty || miFormulario.get('horaPartido')?.touched) }">
-                <div
-                    *ngIf="miFormulario.get('horaPartido')?.invalid && (miFormulario.get('horaPartido')?.dirty || miFormulario.get('horaPartido')?.touched)">
-                    <div *ngIf="miFormulario.get('horaPartido')?.errors?.['required']">La hora es obligatoria.</div>
-                </div>
-
-            </form>
-        </div>
-        <div class="derecha">
-            <button (click)="closeModal()" class="close-button">Cerrar</button>
-            <button class="save-button" (click)="Guardar()">Guardar</button>
-        </div>
+                
+            </div>
+            <div class="derecha">
+                <button type="button" (click)="closeModal()" class="close-button">Cerrar</button>
+                <button type="submit" class="save-button">Guardar</button>
+            </div>
+        </form>
     </div>
 </div>

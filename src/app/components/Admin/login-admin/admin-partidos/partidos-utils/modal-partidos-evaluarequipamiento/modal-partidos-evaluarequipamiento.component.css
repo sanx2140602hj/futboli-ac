@@ -1,0 +1,245 @@
+/* Estilos generales para el modal */
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.644);
+  }
+  
+  /* Estilos para el contenido del modal */
+  .modal-content {
+    position: relative;
+    width: 50rem; /* Ajusta el ancho según tus necesidades */
+    background-color: white;
+    padding: 20px;
+    border-radius: 0.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .izq h1 {
+    margin-bottom: 5rem;
+    color: black;
+    text-align: left; /* Alinea el texto a la izquierda */
+  }
+  
+  
+  /* Estilos para el título h1 */
+  .modal-content h1 {
+    margin-bottom: 5rem;
+    color: black;
+  }
+  
+  /* Estilos para el contenedor del input */
+  .input {
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+  
+  /* Estilos para el input */
+  .modal-content input.category-input {
+    width: calc(100% - 1rem);
+    padding: 0.5rem;
+    border: 1px solid black;
+    border-radius: 0.3rem;
+    color: black;
+  }
+  .search-input {
+    width: calc(100% - 1rem);
+    text-align: left;
+    padding: 0.5rem;
+    border: 1px solid #000;
+    border-radius: 0.3rem;
+    margin-top: 0.9rem;
+  }
+  
+  /* Estilos para alinear los botones a la derecha */
+  .derecha {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  /* Estilos para el botón de Cerrar */
+  .close-button {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 0.3rem;
+    color: #288A85;
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+  }
+  
+  /* Estilos para el botón de Guardar */
+  .save-button {
+    background-color: #288A85;
+    border: 1px solid #288A85;
+    border-radius: 0.3rem;
+    color: white;
+    padding: 0.5rem 1rem;
+  } .error-input {
+    border: 2px solid red !important;
+    
+  }
+  .modal-content textarea {
+    width: 100%;
+    height: 100px;
+    padding: 0.5rem;
+    border: 1px solid black;
+    border-radius: 0.3rem;
+    color: black;
+    margin-bottom: 1rem;
+  }/* ----------------------------------------------------------- */
+  .divison {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+  }
+  
+  .divison2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .izq {
+    flex: 50%;
+    margin-right: 0.5rem;
+  }
+  
+  .der {
+    flex: 50%;
+    margin-left: 0.5rem;
+  }
+ /* interruptor */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 4rem;
+    /* Ancho del interruptor */
+    height: 1.9rem;
+    /* Altura del interruptor */
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: red;
+    transition: 0.4s;
+    border-radius: 2.25rem;
+    /* Radio de borde del interruptor */
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 1.5rem;
+    /* Altura del botón */
+    width: 1.5rem;
+    /* Ancho del botón */
+    left: 0.25rem;
+    /* Distancia izquierda del botón */
+    bottom: 0.25rem;
+    /* Distancia inferior del botón */
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  
+  input:checked+.slider {
+    background-color: green;
+  }
+  
+  input:checked+.slider:before {
+    transform: translateX(1.5rem);
+    /* Movimiento del botón */
+  }
+  
+  /* Interruptor redondeado */
+  .slider.round {
+    border-radius: 2.25rem;
+    /* Radio de borde del interruptor */
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  
+  /* -------------------------------------------------------------------- */
+  /* Botones G y B */
+  .botones {
+    display: flex;
+    justify-content: flex-end;
+    /* Alinea los elementos al final del contenedor (derecha) */
+    margin-top: 20px;
+  }
+  
+  .cancelar-button {
+    background-color: transparent;
+    color: #ff0000;
+    border: 1px solid #ff0000;
+    border-radius: 0.3rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .cancelar-button:hover {
+    background-color: #ff0000;
+    color: white;
+  }.save-button {
+    background-color: transparent;
+    color: #288A85;
+    border: 1px solid #288A85;
+    border-radius: 0.3rem;
+    padding: 0.5rem 1rem;
+    margin-left: 1rem;
+  }
+  
+  .save-button:hover {
+    background-color: #288A85;
+    color: white;
+  }/* -------------------------------------------------------------------------------------------------*/
+  .table {
+    margin-top: 4rem;
+    border: 2px solid navy;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .table td {
+    border: none;
+    border-width: 1px 0;
+    text-align: center;
+  }
+  
+  .table td:first-child {
+    border-left: 1px solid navy;
+  }
+  
+  .table td:last-child {
+    border-right: 1px solid navy;
+  }
+
+  /* ----------------------------------------------------------- */
+  @media screen and (max-width: 500px) {
+    .modal-content {
+      width: 50%;
+      /* Reducir el ancho al 50% en dispositivos con un ancho máximo de 500px */
+    }
+  }

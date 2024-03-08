@@ -5,7 +5,8 @@
             <h1>Editar jugadores</h1>
         </div>
         <div class="input">
-            <select [(ngModel)]="posicionJugador" name="posicionJugador" class="search-input">
+            <select [(ngModel)]="posicionJugador" name="posicionJugador" class="search-input"
+                    [ngClass]="{ 'error-input': !posicionJugador && submitted }">
                 <option value="" disabled selected>Selecciona una posición para el jugador</option>
                 <option value="Portero">Portero</option>
                 <option value="Defensa">Defensa</option>
@@ -13,8 +14,9 @@
                 <option value="Delantero">Delantero</option>
                 <option value="Capitan">Capitan</option>
             </select>
-            
-            
+            <div *ngIf="!posicionJugador && submitted" class="error-message">
+                La posición del jugador es obligatoria.
+            </div>
         </div>
         <div class="derecha">
             <button (click)="closeModal()" class="close-button">Cerrar</button>

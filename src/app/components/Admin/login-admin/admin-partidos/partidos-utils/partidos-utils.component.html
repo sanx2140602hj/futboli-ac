@@ -127,10 +127,13 @@
             </tbody>
           </table>
           <div>
-            <button class="equipamiento">
+            <button class="equipamiento" (click)="openModalEQUIPAMIENTO()">
               <i class="fa-solid fa-plus"></i> Evaluar equipamiento
             </button>
-          </div>
+            <app-modal-partidos-evaluarequipamiento *ngIf="openModalEvalularEQUIPAMIENTO"
+              (onCloseModal)="closeModalEQUIPAMIENTO()">
+            </app-modal-partidos-evaluarequipamiento>
+                 </div>
           <button class="porra">
             <i class="fa-solid fa-plus"></i> Evaluar porra
           </button>
