@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-partidos-utils',
   templateUrl: './partidos-utils.component.html',
@@ -13,6 +15,36 @@ export class PartidosUtilsComponent implements OnInit {
   ngOnInit(): void {}
   selectedEquipo: string = ''; // Variable para almacenar el equipo seleccionado
 
+
+  /* --------------------------------------------------------------------- */
+  clicsRestantes: number = 3; // Número máximo de clics permitidos
+
+  finalizarPartido(): void {
+    if (this.clicsRestantes > 0) {
+      this.clicsRestantes--;
+      console.log('Partido finalizado');
+      
+      Swal.fire({
+        position: 'top-end',
+        title: 'Partido Finalizado',
+        text: 'Usted puede guardar ' + this.clicsRestantes + ' veces más.',
+        icon: 'success',
+        timer: 2500,
+        showConfirmButton: false
+      });
+    } else {
+      Swal.fire({
+        position: 'top-end',
+        title: 'Error',
+        text: 'No se puede finalizar el partido más de 3 veces',
+        icon: 'error',
+        timer: 2500,
+        showConfirmButton: false
+      });
+      console.log('No se puede finalizar el partido más de 3 veces');
+    }
+  }
+  /* --------------------------------------------------------------------- */
   onEquipoChange(): void {
       // Lógica para actualizar la lista de jugadores según el equipo seleccionado
       if (this.selectedEquipo === '0') {

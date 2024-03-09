@@ -209,10 +209,14 @@
       <hr />
       <br />
       <div>
-        <button class="final">
-          <h2><b>Finalizar el partido</b></h2>
-        </button>
-      </div>
+        <div>
+          <button class="final" [disabled]="clicsRestantes <= 0" (click)="finalizarPartido()">
+            <h2><b>Finalizar el partido</b></h2>
+          </button>
+        </div>
+        
+        
+      
     </div>
   </div>
 </div>
