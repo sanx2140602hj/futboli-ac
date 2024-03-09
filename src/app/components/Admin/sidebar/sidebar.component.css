@@ -110,6 +110,16 @@ ul li:hover {
 }
 
 @media screen and (max-width: 900px) {
+  .sidebar {
+    width: 4rem;
+    background: rgb(1, 31, 58);
+    background: -moz-linear-gradient(180deg, rgba(1, 31, 58, 1) 7.5%, rgba(135, 135, 135, 1) 7.5%);
+    background: -webkit-linear-gradient(180deg, rgba(1, 31, 58, 1) 7.5%, rgba(135, 135, 135, 1) 7.5%);
+    /* si modican altura mover los ⚠️6 porcentajes⚠️ */
+    background: linear-gradient(180deg, rgba(1, 31, 58, 1) 7.5%, rgba(135, 135, 135, 1) 7.5%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#011f3a", endColorstr="#878787", GradientType=1);
+
+  }
   ul li {
     font-size: 1.1rem;
   }

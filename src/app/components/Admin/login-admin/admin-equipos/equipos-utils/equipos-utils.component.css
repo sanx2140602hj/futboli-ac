@@ -47,6 +47,61 @@
   width: 25rem;
 }
 /* ///////////////////////////////////////////////////////////////////// */
+
+/*  */
+.scroll::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.scroll::-webkit-scrollbar:vertical {
+  width:10px;
+}
+
+.scroll::-webkit-scrollbar-button:increment,.scroll::-webkit-scrollbar-button {
+  display: none;
+} 
+
+.scroll::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: #081858;
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
+}
+
+.scroll::-webkit-scrollbar-track {
+  border-radius: 10px;  
+}
+/*  */
+.scroll2::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.scroll2::-webkit-scrollbar:vertical {
+  width:10px;
+}
+
+.scroll2::-webkit-scrollbar-button:increment,.scroll::-webkit-scrollbar-button {
+  display: none;
+} 
+
+.scroll2::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.scroll2::-webkit-scrollbar-thumb {
+  background-color: #081858;
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
+}
+
+.scroll2::-webkit-scrollbar-track {
+  border-radius: 10px;  
+}
+
+/* ///////////////////////////////////////////////////////////////////// */
 .card {
   padding: 1.4rem;
 }
