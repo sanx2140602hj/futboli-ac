@@ -1,14 +1,14 @@
 <div class="modal">
     <div class="modal-content">
         <div class="izq">
-            <h1>¿Desea eliminar este jugador?</h1>
-            <h5>Esta acción es irreversible. Si el contenido tiene relación con otro tipo de información se perderá de
+            <h1><b>¿Desea eliminar esto?</b></h1>
+            <h5>Esta acción es irreversible. Si el elemento tiene relación con otro tipo de información se perderá de
                 forma <b>permanente</b>.</h5>
-            <h4><input type="checkbox" [(ngModel)]="checkboxChecked"><b style="margin-left: 10px;">Si es el caso, marque la casilla</b></h4>
+            <h5><input type="checkbox" [(ngModel)]="checkboxChecked"><b style="margin-left: 10px;">He leido el mensaje y acepto.</b></h5>
         </div>
-        <h2>Para confirmar, escriba: <b>'nombre del equipo'</b> en el cuadro de abajo:</h2>
+        <h5>Para confirmar, escriba: <b>'nombre del elemento'</b> en el cuadro de abajo:</h5>
         <div class="input" [ngClass]="{'invalid-input': error}">
-            <input type="text" placeholder="Nombre de la categoría" class="category-input" [(ngModel)]="categoriaEliminar">
+            <input type="text" placeholder="Nombre del elemento" class="category-input" [(ngModel)]="categoriaEliminar">
             <p class="error-message" *ngIf="error">Datos incorrectos / Datos incoherentes</p>
         </div>
         <div class="derecha">

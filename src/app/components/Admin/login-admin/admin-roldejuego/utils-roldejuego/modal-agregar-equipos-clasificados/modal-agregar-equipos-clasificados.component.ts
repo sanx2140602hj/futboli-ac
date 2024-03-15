@@ -37,7 +37,7 @@ export class ModalAgregarEquiposClasificadosComponent {
       Swal.fire({
         position: "top-end",
         title: 'Generado con éxito',
-        text: equipoClasificados.value,
+        text: "Numero de torneros seleccionado es: "+ equipoClasificados.value,
         icon: 'success',
         timer: 1500,
         showConfirmButton: false,

@@ -1,0 +1,41 @@
+<div class="modal">
+    <div class="modal-content">
+        <!-- Contenido del modal aquí -->
+        <div class="izq">
+            <h1>Datos del partido</h1>
+        </div>
+        <div class="input">
+            <form [formGroup]="miFormulario">
+                <h4>Lugar:</h4>
+                <input id="lugarPartido" type="text" formControlName="lugarPartido" class="category-input"
+                    [ngClass]="{ 'error-input': lugarPartido && lugarPartido.invalid && (lugarPartido.dirty || lugarPartido.touched) }">
+                <div *ngIf="lugarPartido && lugarPartido.invalid && (lugarPartido.dirty || lugarPartido.touched)">
+                    <div *ngIf="lugarPartido.errors?.['required']">El lugar de la categoría es obligatorio.</div>
+                    <div *ngIf="lugarPartido.errors?.['pattern']">Solo se permiten letras, números y espacios.</div>
+                </div>
+                <!-- Para el campo de fecha -->
+                <h4>Fecha:</h4>
+                <input id="fechaPartido" type="date" class="category-input" formControlName="fechaPartido"
+                    [ngClass]="{ 'error-input': miFormulario.get('fechaPartido')?.invalid && (miFormulario.get('fechaPartido')?.dirty || miFormulario.get('fechaPartido')?.touched) }">
+                <div
+                    *ngIf="miFormulario.get('fechaPartido')?.invalid && (miFormulario.get('fechaPartido')?.dirty || miFormulario.get('fechaPartido')?.touched)">
+                    <div *ngIf="miFormulario.get('fechaPartido')?.errors?.['required']">La fecha es obligatoria.</div>
+                </div>
+
+                <!-- Para el campo de final -->
+                <h4>final:</h4>
+                <input id="finalPartido" type="date" class="category-input" formControlName="finalPartido"
+                    [ngClass]="{ 'error-input': miFormulario.get('finalPartido')?.invalid && (miFormulario.get('finalPartido')?.dirty || miFormulario.get('finalPartido')?.touched) }">
+                <div
+                    *ngIf="miFormulario.get('finalPartido')?.invalid && (miFormulario.get('finalPartido')?.dirty || miFormulario.get('finalPartido')?.touched)">
+                    <div *ngIf="miFormulario.get('finalPartido')?.errors?.['required']">La final es obligatoria.</div>
+                </div>
+
+            </form>
+        </div>
+        <div class="derecha">
+            <button (click)="closeModal()" class="close-button">Cerrar</button>
+            <button class="save-button" (click)="Guardar()">Guardar</button>
+        </div>
+    </div>
+</div>

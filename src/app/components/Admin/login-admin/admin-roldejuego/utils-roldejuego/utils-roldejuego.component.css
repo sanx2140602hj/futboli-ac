@@ -285,7 +285,16 @@ li {
   margin: 0.5rem;
   /*        ⬆️    ⬅️   ⬇️    ➡️ */
 }
-
+.custom-button3 {
+  background-color: transparent;
+  color: red;
+  border: 1px solid red;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  margin: 0.5rem;
+  /*        ⬆️    ⬅️   ⬇️    ➡️ */
+}
 /* Agrega estilos para la ventana emergente (modal) */
 .modal {
   display: none;

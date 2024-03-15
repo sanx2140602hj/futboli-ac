@@ -77,6 +77,8 @@ import { ModalPartidosAgregardatosComponent } from './components/Admin/login-adm
 import { ModalPartidosAgregarsucesoComponent } from './components/Admin/login-admin/admin-partidos/partidos-utils/modal-partidos-agregarsuceso/modal-partidos-agregarsuceso.component';
 import { ModalPartidosEvaluarequipamientoComponent } from './components/Admin/login-admin/admin-partidos/partidos-utils/modal-partidos-evaluarequipamiento/modal-partidos-evaluarequipamiento.component';
 import { ModalPartidosEvaluarporraComponent } from './components/Admin/login-admin/admin-partidos/partidos-utils/modal-partidos-evaluarporra/modal-partidos-evaluarporra.component';
+import { ModalEditarInfoequiposComponent } from './components/Admin/login-admin/admin-roldejuego/utils-roldejuego/modal-editar-infoequipos/modal-editar-infoequipos.component';
+import { ModalEliminarTorneoComponent } from './components/Admin/login-admin/admin-roldejuego/utils-roldejuego/modal-eliminar-torneo/modal-eliminar-torneo.component';
 
 
 @NgModule({
@@ -145,6 +147,8 @@ import { ModalPartidosEvaluarporraComponent } from './components/Admin/login-adm
     ModalPartidosAgregarsucesoComponent,
     ModalPartidosEvaluarequipamientoComponent,
     ModalPartidosEvaluarporraComponent,
+    ModalEditarInfoequiposComponent,
+    ModalEliminarTorneoComponent,
 //----------------
 
   ],
