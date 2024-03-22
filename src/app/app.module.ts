@@ -44,12 +44,6 @@ import { ModalutilsequiposRegistrodirectortecnicoComponent } from './components/
 import { ModalutilsequiposRegistrodelpresidenteComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/modalutilsequipos-registrodelpresidente/modalutilsequipos-registrodelpresidente.component';
 import { ModalutilsequiposEditarComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/modalutilsequipos-editar/modalutilsequipos-editar.component';
 import { ModalutilsequiposEliminarComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/modalutilsequipos-eliminar/modalutilsequipos-eliminar.component';
-import { ContactoComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/contacto/contacto.component';
-import { DatosFisicosComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/datos-fisicos/datos-fisicos.component';
-import { DatosPersonalesComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/datos-personales/datos-personales.component';
-import { EscolarComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/escolar/escolar.component';
-import { IdentificacionComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/identificacion/identificacion.component';
-import { TutorComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/tutor/tutor.component';
 import { AdminJugadoresComponent } from './components/Admin/login-admin/admin-jugadores/admin-jugadores.component';
 
 
@@ -66,12 +60,6 @@ import { TablasUtilsComponent } from './components/tablas/tablas-utils/tablas-ut
 //para busquedas XD
 import { FilterPipe } from './filter.pipe';
 import { ModalEliminarJugadorUtilsComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/utils-cardsjugador/modal-eliminar-jugador-utils/modal-eliminar-jugador-utils.component';
-import { ModalIdentificacionUtilsComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/utils-cardsjugador/modal-identificacion-utils/modal-identificacion-utils.component';
-import { ModalDatospersonalesUtilsComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/utils-cardsjugador/modal-datospersonales-utils/modal-datospersonales-utils.component';
-import { ModalContactoUtilsComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/utils-cardsjugador/modal-contacto-utils/modal-contacto-utils.component';
-import { ModalDatosfisicosUtilsComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/utils-cardsjugador/modal-datosfisicos-utils/modal-datosfisicos-utils.component';
-import { ModalEscolarUtilsComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/utils-cardsjugador/modal-escolar-utils/modal-escolar-utils.component';
-import { ModalTutorUtilsComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/utils-cardsjugador/modal-tutor-utils/modal-tutor-utils.component';
 import { ModalAgregarEquiposClasificadosComponent } from './components/Admin/login-admin/admin-roldejuego/utils-roldejuego/modal-agregar-equipos-clasificados/modal-agregar-equipos-clasificados.component';
 import { ModalPartidosAgregardatosComponent } from './components/Admin/login-admin/admin-partidos/partidos-utils/modal-partidos-agregardatos/modal-partidos-agregardatos.component';
 import { ModalPartidosAgregarsucesoComponent } from './components/Admin/login-admin/admin-partidos/partidos-utils/modal-partidos-agregarsuceso/modal-partidos-agregarsuceso.component';
@@ -121,27 +109,24 @@ import { ModalEliminarTorneoComponent } from './components/Admin/login-admin/adm
     ModalutilsequiposEliminarComponent,
     AdminRoldejuegoComponent,
     AdminTablaposicionComponent,  
-    ContactoComponent,
-    DatosFisicosComponent,
-    DatosPersonalesComponent,
-    EscolarComponent,
-    IdentificacionComponent,
-    TutorComponent,
+
+
+
     AdminJugadoresComponent,
     UtilsCardsjugadorComponent,
     UtilsRoldejuegoComponent,
+
+
+
+    
     ModalEliminarjugadorutilsComponent,
     PartidosUtilsComponent,
     TablasUtilsComponent,
     //filtro
     FilterPipe,
     ModalEliminarJugadorUtilsComponent,
-    ModalIdentificacionUtilsComponent,
-    ModalDatospersonalesUtilsComponent,
-    ModalContactoUtilsComponent,
-    ModalDatosfisicosUtilsComponent,
-    ModalEscolarUtilsComponent,
-    ModalTutorUtilsComponent,
+ 
+
     ModalAgregarEquiposClasificadosComponent,
     ModalPartidosAgregardatosComponent,
     ModalPartidosAgregarsucesoComponent,

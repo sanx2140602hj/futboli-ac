@@ -35,56 +35,277 @@
 
     </div>
     <!--  -->
-    <div class="tabla"> <!-- Pestañas de navegación -->
-        <ul class="nav nav-tabs">
-            <div>
-                <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" (click)="openIdentificacionModal()">Identificación</a>
-                </li>
+
+    <hr>
+    <div>
+        <div>
+            <!-- contenido pestaña identificación -->
+            <h1 style="font-weight: bold; font-size: 1rem;">*Identificador General</h1>
+            <div class="row">
+                <p>configurar las clases de los form-control</p>
+
+                <form [formGroup]="miFormularioIden">
+                    <!-- folio -->
+                    <label for="folio">Folio:</label>
+                    <input type="number" formControlName="folio" class="form-control"
+                        [ngClass]="{ 'error-input': folio && folio.invalid && (folio.dirty || folio.touched) }">
+                    <div *ngIf="folio && folio.invalid && (folio.dirty || folio.touched)">
+                        <div *ngIf="folio.errors?.['required']">El folio es obligatorio.</div>
+                        <div *ngIf="folio.errors?.['pattern']">Solo se permiten números.</div>
+                    </div>
+                    <!-- selector de equipos -->
+                    <label for="equipo">Equipo:</label>
+                    <select id="equipo" formControlName="equipo" class="form-control"
+                        [ngClass]="{ 'error-input': equipo && equipo.invalid && (equipo.dirty || equipo.touched) }">
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    <div *ngIf="equipo && equipo.invalid && (equipo.dirty || equipo.touched)">
+                        <div *ngIf="equipo.errors?.['required']">Selecciona un equipo.</div>
+                    </div>
+                    <!-- selector de archivos -->
+                    <label for="archivo">Archivo:</label>
+                    <input type="file" formControlName="archivo" class="form-control"
+                        [ngClass]="{ 'error-input': archivo && archivo.invalid && (archivo.dirty || archivo.touched) }">
+                    <div *ngIf="archivo && archivo.invalid && (archivo.dirty || archivo.touched)">
+                        <div *ngIf="archivo.errors?.['required']">Selecciona un archivo.</div>
+                    </div>
+                </form>
             </div>
-            <div>
-                <app-modal-identificacion-utils *ngIf="showIdentificacion"
-                    (onCloseIdentificacion)="closeIdentificacion()"></app-modal-identificacion-utils>
-            </div>
-            <div>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" (click)="openDatosPersonales()">Datos Personales</a>
-                </li>
-            </div>
-            <div>
-                <app-modal-datospersonales-utils *ngIf="showDatosPersonales"
-                    (onCloseDatos)="closeDatosPersonales()"></app-modal-datospersonales-utils>
-            </div>
-            <div>
-                <li class="nav-item">
-                    <a class="nav-link " data-toggle="tab" (click)="openContacto()">Contacto</a>
-                </li>
-                <app-modal-contacto-utils *ngIf="showContacto" (onCloseContacto)="closeContacto()"></app-modal-contacto-utils>
-            </div>
-            <div>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" (click)="openDatosFisicos()">Datos Físicos</a>
-                </li>
-            </div>
-            <div>
-                <app-modal-datosfisicos-utils *ngIf="showDatosFisicos" (onCloseFisicos)="closeDatosFisicos()"></app-modal-datosfisicos-utils>
-            </div>
-            <div>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" (click)="openEscolar()">Escolar</a>
-                </li>
-            </div>
-            <div>
-                <app-modal-escolar-utils *ngIf="showEscolar" (onCloseEscolar)="closeEscolar()"></app-modal-escolar-utils>
-            </div>
-            <div>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" (click)="openTutor()">Tutor</a>
-                </li>
-            </div>
-            <div>
-                <app-modal-tutor-utils *ngIf="showTutor" (onCloseTutor)="closeTutor()"></app-modal-tutor-utils>
-            </div>
-        </ul>
+<h1 style="font-weight: bold; font-size: 1rem;">*Identificador de datos personales</h1>
+<div class="row">
+<form [formGroup]="miFormularioDatos">
+    <label for="nombre">Nombre:</label>
+    <input id="nombre" type="text" formControlName="nombre" class="form-control"
+        [ngClass]="{ 'error-input': nombre && nombre.invalid && (nombre.dirty || nombre.touched) }">
+    <div *ngIf="nombre && nombre.invalid && (nombre.dirty || nombre.touched)">
+        <div *ngIf="nombre.errors?.['required']">El nombre es obligatorio.</div>
+        <div *ngIf="nombre.errors?.['pattern']">Solo se permiten letras y espacios.</div>
     </div>
+    <!-- apellido Paterno -->
+    <label for="apellidoPaterno">Apellido Paterno:</label>
+    <input id="apellidoPaterno" type="text" formControlName="apellidoPaterno" class="form-control"
+        [ngClass]="{ 'error-input': apellidoPaterno && apellidoPaterno.invalid && (apellidoPaterno.dirty || apellidoPaterno.touched) }">
+
+    <div
+        *ngIf="apellidoPaterno && apellidoPaterno.invalid && (apellidoPaterno.dirty || apellidoPaterno.touched)">
+        <div *ngIf="apellidoPaterno.errors?.['required']">El apellido paterno es obligatorio.</div>
+        <div *ngIf="apellidoPaterno.errors?.['pattern']">Solo se permiten letras y espacios.</div>
+    </div>
+    <!-- apellido Materno -->
+    <label for="apellidoMaterno">Apellido Materno:</label>
+    <input id="apellidoMaterno" type="text" formControlName="apellidoMaterno" class="form-control"
+        [ngClass]="{ 'error-input': apellidoMaterno && apellidoMaterno.invalid && (apellidoMaterno.dirty || apellidoMaterno.touched) }">
+
+    <div
+        *ngIf="apellidoMaterno && apellidoMaterno.invalid && (apellidoMaterno.dirty || apellidoMaterno.touched)">
+        <div *ngIf="apellidoMaterno.errors?.['required']">El apellido materno es obligatorio.</div>
+        <div *ngIf="apellidoMaterno.errors?.['pattern']">Solo se permiten letras y espacios.</div>
+    </div>
+    <!-- genero -->
+    <label for="genero">Género:</label>
+    <select id="genero" formControlName="genero" class="form-control">
+        <option value="masculino">Masculino</option>
+        <option value="femenino">Femenino</option>
+    </select>
+    <!-- fecha -->
+    <label for="fecha">fecha:</label>
+    <input type="date" id="nacimiento" formControlName="fecha" class="form-control" formControlName="fecha"
+        [ngClass]="{ 'error-input': fecha && fecha.invalid && (fecha.dirty || fecha.touched) }">
+    <div *ngIf="fecha && fecha.invalid && (fecha.dirty || fecha.touched)">
+        <div *ngIf="fecha.errors?.['required']">La fecha de nacimiento es obligatoria.</div>
+    </div>
+    <!-- Curp -->
+    <label for="curp">CURP:</label>
+    <input type="text" id="curp" class="form-control" formControlName="curp"
+        [ngClass]="{ 'error-input': curp && curp.invalid && (curp.dirty || curp.touched) }">
+    <div *ngIf="curp && curp.invalid && (curp.dirty || curp.touched)">
+        <div *ngIf="curp.errors?.['required']">La curp es obligatoria.</div>
+        <div *ngIf="curp.errors?.['pattern']">Solo se permiten letras y numeros.</div>
+    </div>
+</form>
+</div>
+<h1 style="font-weight: bold; font-size: 1rem;">*Identificador de datos de contacto</h1>
+<div class="row">
+<!-- contenido pestaña contacto -->
+<form [formGroup]="miFormularioContacto">
+    <!--  -->
+    <label for="telefono">Teléfono:</label>
+    <input type="number" min="1" id="telefono" formControlName="telefono" class="form-control"
+        [ngClass]="{ 'error-input': tel && tel.invalid && (tel.dirty || tel.touched) }">
+    <div *ngIf="tel && tel.invalid && (tel.dirty || tel.touched)">
+        <div *ngIf="tel.errors?.['required']">El telefono es obligatorio.</div>
+   
+        <div *ngIf="tel.errors?.['pattern']">  Verifique que el número tenga exactamente 10 dígitos.</div>
+    </div>
+    <!--  -->
+    <label for="calle">Calle:</label>
+    <input type="text" id="calle" formControlName="calle" class="form-control"
+        [ngClass]="{ 'error-input': calle && calle.invalid && (calle.dirty || calle.touched) }">
+    <div *ngIf="calle && calle.invalid && (calle.dirty || calle.touched)">
+        <div *ngIf="calle.errors?.['required']">La calle es obligatoria.</div>
+    </div>
+    <!--  -->
+    <label for="numero">Número:</label>
+    <input type="number" id="numero" formControlName="numero" class="form-control"
+        [ngClass]="{ 'error-input': numero && numero.invalid && (numero.dirty || numero.touched) }">
+    <div *ngIf="numero && numero.invalid && (numero.dirty || numero.touched)">
+        <div *ngIf="numero.errors?.['required']">El numero es obligatorio.</div>
+        <div *ngIf="numero.errors?.['pattern']">Solo se permiten numeros.</div>
+    </div>
+    <!--  -->
+    <label for="colonia">Colonia:</label>
+    <input type="text" id="colonia" formControlName="colonia" class="form-control"
+        [ngClass]="{ 'error-input': colonia && colonia.invalid && (colonia.dirty || colonia.touched) }">
+    <div *ngIf="colonia && colonia.invalid && (colonia.dirty || colonia.touched)">
+        <div *ngIf="colonia.errors?.['required']">El colonia es obligatorio.</div>
+        <div *ngIf="colonia.errors?.['pattern']">Solo se permiten letras y espacios.</div>
+    </div>
+    <!--  -->
+    <label for="ciudad">ciudad:</label>
+    <input type="text" id="ciudad" formControlName="ciudad" class="form-control"
+        [ngClass]="{ 'error-input': ciudad && ciudad.invalid && (ciudad.dirty || ciudad.touched) }">
+    <div *ngIf="ciudad && ciudad.invalid && (ciudad.dirty || ciudad.touched)">
+        <div *ngIf="ciudad.errors?.['required']">La ciudad es obligatoria.</div>
+    </div>
+    <!--  -->
+    <label for="codigoPostal">Código Postal:</label>
+    <input type="number" id="codigoPostal" formControlName="codigoPostal" class="form-control"
+        [ngClass]="{ 'error-input': codigo && codigo.invalid && (codigo.dirty || codigo.touched) }">
+    <div *ngIf="codigo && codigo.invalid && (codigo.dirty || codigo.touched)">
+        <div *ngIf="codigo.errors?.['required']">El codigo postal es obligatorio.</div>
+    </div>
+</form>
+</div>
+<h1 style="font-weight: bold; font-size: 1rem;">*Datos fisicos</h1>
+<div class="row" [formGroup]="miFormularioDatoFisicos">
+<label for="estatura">Estatura:</label>
+<input type="number" id="estatura" formControlName="estatura" class="form-control"
+    [ngClass]="{ 'error-input': estatura && estatura.invalid && (estatura.dirty || estatura.touched) }">
+<div *ngIf="estatura && estatura.invalid && (estatura.dirty || estatura.touched)">
+    <div *ngIf="estatura.errors?.['required']">La estatura es requerida.</div>
+    <div *ngIf="estatura.errors?.['pattern']">Solo se permiten números.</div>
+</div>
+<!--  -->
+<label for="peso">Peso:</label>
+<input type="number" id="peso" formControlName="peso" class="form-control"
+    [ngClass]="{ 'error-input': peso && peso.invalid && (peso.dirty || peso.touched) }">
+<div *ngIf="peso && peso.invalid && (peso.dirty || peso.touched)">
+    <div *ngIf="peso.errors?.['required']">El peso es requerido.</div>
+    <div *ngIf="peso.errors?.['pattern']">Solo se permiten números.</div>
+</div>
+<!--  -->
+<label for="tipoSangre">Tipo de Sangre:</label>
+<select id="tipoSangre" formControlName="tipoSangre" class="form-control"
+    [ngClass]="{ 'error-input': tipoSangre && tipoSangre.invalid && (tipoSangre.dirty || tipoSangre.touched) }">
+    <option value="O+">O+</option>
+    <option value="A+">A+</option>
+    <option value="A-">A-</option>
+    <option value="B+">B+</option>
+    <option value="B-">B-</option>
+    <option value="O-">O-</option>
+    <option value="AB+">AB+</option>
+    <option value="AB-">AB-</option>
+</select>
+<div *ngIf="tipoSangre && tipoSangre.invalid && (tipoSangre.dirty || tipoSangre.touched)">
+    <div *ngIf="tipoSangre.errors?.['required']">El tipo de sangre es requerido.</div>
+</div>
+</div>
+<h1 style="font-weight: bold; font-size: 1rem;">*Identificador Escolar</h1>
+<div class="row">
+<form [formGroup]="miFormularioEscolar">
+    <!-- contenido pestaña escolar -->
+    <label for="escolaridad">escolaridad:</label>
+    <select id="escolaridad" formControlName="escolaridad" class="form-control"
+        [ngClass]="{ 'error-input': escolaridad && escolaridad.invalid && (escolaridad.dirty || escolaridad.touched) }">
+        <option value="" disabled selected>Select an option</option>
+        <option value="prescolar">prescolar</option>
+        <option value="primaria">primaria</option>
+        <option value="secundaria">secundaria</option>
+        <option value="preparatoria">preparatoria</option>
+    </select>
+    <div *ngIf="escolaridad && escolaridad.invalid && (escolaridad.dirty || escolaridad.touched)">
+        <div *ngIf="escolaridad.errors?.['required']">Selecciona una escolaridad.</div>
+    </div>
+    <!--  -->
+    <label for="escuela">escuela:</label>
+    <input id="escuela" type="text" formControlName="escuela" class="form-control"
+        [ngClass]="{ 'error-input': escuela && escuela.invalid && (escuela.dirty || escuela.touched) }">
+    <div *ngIf="escuela && escuela.invalid && (escuela.dirty || escuela.touched)">
+        <div *ngIf="escuela.errors?.['required']">El nombre de escuela es obligatorio.</div>
+    </div>
+    <!--  -->
+    <label for="grado">grado:</label>
+    <select id="grado" formControlName="grado" class="form-control"
+        [ngClass]="{ 'error-input': grado && grado.invalid && (grado.dirty || grado.touched) }">
+        <option value="" disabled selected>Select an option</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+    </select>
+    <div *ngIf="grado && grado.invalid && (grado.dirty || grado.touched)">
+        <div *ngIf="grado.errors?.['required']">Selecciona un grado.</div>
+    </div>
+    <!--  -->
+    <label for="grupo">grupo:</label>
+    <select id="grupo" formControlName="grupo" class="form-control"
+        [ngClass]="{ 'error-input': grupo && grupo.invalid && (grupo.dirty || grupo.touched) }">
+        <option value="" disabled selected>Select an option</option>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+        <option value="E">E</option>
+        <option value="F">F</option>
+        <option value="G">G</option>
+        <option value="H">H</option>
+        <option value="I">I</option>
+        <option value="J">J</option>
+    </select>
+    <div *ngIf="grupo && grupo.invalid && (grupo.dirty || grupo.touched)">
+        <div *ngIf="grupo.errors?.['required']">Selecciona un grupo.</div>
+    </div>
+
+    <!-- si se requiere de forma manual porque la escuela tiene mas grados descomentar el codigo de abajo 🦖⬇️⬇️ -->
+    <!--  -->
+    <!--      <label for="grupo">Grupo:</label>
+    <input id="grupo" type="text" formControlName="grupo" class="form-control"
+        [ngClass]="{ 'error-input': grupo && grupo.invalid && (grupo.dirty || grupo.touched) }"
+        pattern="^[a-zA-Z]+$">
+    <div *ngIf="grupo && grupo.invalid && (grupo.dirty || grupo.touched)">
+        <div *ngIf="grupo.errors?.['required']">Selecciona un grupo.</div>
+        <div *ngIf="grupo.errors?.['pattern']">Solo se permiten letras.</div>
+    </div> -->
+    <!-- hasta qui we XD ⚠️🦖 -->
+</form>
+
+</div>
+<h1 style="font-weight: bold; font-size: 1rem;">*Identificador Escolar</h1>
+<div class="row">
+    <form [formGroup]="miFormularioTutor">
+        <!-- contenido pestaña escolar -->
+        <label for="tutor">tutor:</label>
+        <input id="tutor" type="text" formControlName="tutor" class="form-control"
+            [ngClass]="{ 'error-input': tutor && tutor.invalid && (tutor.dirty || tutor.touched) }">
+        <div *ngIf="tutor && tutor.invalid && (tutor.dirty || tutor.touched)">
+            <div *ngIf="tutor.errors?.['required']">El nombre de tutor es obligatorio.</div>
+        </div>
+    </form>
+</div>
+
+
+            <div>
+                <button class="save-button" (click)="guardarInformacion()">Guardar</button>
+            </div>
+        </div>
+        
+        <hr>
+
+   <!--  -->
 </div>

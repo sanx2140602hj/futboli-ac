@@ -29,12 +29,6 @@ import { EquiposUtilsComponent } from './components/Admin/login-admin/admin-equi
 import { UtilsCardsjugadorComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/utils-cardsjugador/utils-cardsjugador.component';
 
 /*  */
-import { ContactoComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/contacto/contacto.component';
-import { DatosFisicosComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/datos-fisicos/datos-fisicos.component';
-import { DatosPersonalesComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/datos-personales/datos-personales.component';
-import { EscolarComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/escolar/escolar.component';
-import { IdentificacionComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/identificacion/identificacion.component';
-import { TutorComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/tutor/tutor.component';
 import { UtilsRoldejuegoComponent } from './components/Admin/login-admin/admin-roldejuego/utils-roldejuego/utils-roldejuego.component';
 import { TablasUtilsComponent } from './components/tablas/tablas-utils/tablas-utils.component';
 
@@ -69,12 +63,6 @@ const app_routes: Routes = [
 
   /* utils-admin */
   { path: 'equipos', component:EquiposUtilsComponent},
-  { path: 'Contacto', component: ContactoComponent},
-  { path: 'Datos-Fisicos', component: DatosFisicosComponent},
-  { path: 'Datos-Personales', component: DatosPersonalesComponent},
-  { path: 'Escolar', component: EscolarComponent},
-  { path: 'Identificacion', component: IdentificacionComponent},
-  { path: 'Tutor', component: TutorComponent},
   { path: 'card-jugador', component: UtilsCardsjugadorComponent},
   { path: 'Rol-de-Juego', component: UtilsRoldejuegoComponent},
   { path: 'partidos-admin', component: PartidosUtilsComponent},
