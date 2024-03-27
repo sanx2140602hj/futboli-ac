@@ -248,14 +248,16 @@ get tutor() {
   
         const mensajeDatoFisico = `Estatura: ${this.datoFisico.estatura}\n` +
         `Peso: ${this.datoFisico.peso}\n` +
-        `Tipo de sangre: ${this.datoFisico.tipoSangre.value}.`;
+        `Tipo de sangre: ${this.datoFisico.tipoSangre}.`;
 
         const mesnajeEscolar = `Escolaridad: ${this.datosEscolares.escolaridad}\n,` +
-        `Escuela: ${this.datosEscolares.escuela}\n.` +
+        `Escuela: ${this.datosEscolares.escuela}
+\n.` +
         `Grado: ${this.datosEscolares.grado}\n,` +
         `Grupo: ${this.datosEscolares.grupo}.`;
 
         const mensajeTutor = `Nombre del tutor: ${this.datetutor.tutor}`;
+        //..... 
 
       Swal.fire({
         position: "top-end",
