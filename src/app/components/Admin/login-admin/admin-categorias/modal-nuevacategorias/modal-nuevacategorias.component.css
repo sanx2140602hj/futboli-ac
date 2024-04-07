@@ -40,7 +40,7 @@
   width: 100%;
   margin-bottom: 3rem;
 }
-
+input {margin-top: 0.5rem;}
 /* Estilos para el input */
 .modal-content input.category-input {
   width: calc(100% - 1rem);

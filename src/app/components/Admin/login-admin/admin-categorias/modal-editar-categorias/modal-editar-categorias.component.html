@@ -16,6 +16,20 @@
                     <div *ngIf="editarCategoria.errors?.['required']">El editar de la categoría es obligatorio.</div>
                     <div *ngIf="editarCategoria.errors?.['pattern']">Solo se permiten letras, números y espacios.</div>
                 </div>
+  <br><h5>edad minima</h5>
+                <input id="edadMin" type="number" formControlName="edadMin" class="category-input"
+                    [ngClass]="{ 'error-input': edadMin && edadMin.invalid && (edadMin.dirty || edadMin.touched) }">
+                <div
+                    *ngIf="edadMin && edadMin.invalid && (edadMin.dirty || edadMin.touched)">
+                    <div *ngIf="edadMin.errors?.['required']">La edad mín es obligatoria.</div>
+                </div>
+<br><h5>edad Maxima</h5>
+                <input id="edadMax" type="number" formControlName="edadMax" class="category-input"
+                    [ngClass]="{ 'error-input': edadMax && edadMax.invalid && (edadMax.dirty || edadMax.touched) }">
+                <div
+                    *ngIf="edadMax && edadMax.invalid && (edadMax.dirty || edadMax.touched)">
+                    <div *ngIf="edadMax.errors?.['required']">La edad máx es obligatoria.</div>
+                </div>
 
 
             </form>
@@ -23,7 +37,7 @@
         </div>
         <div class="derecha">
             <button (click)="closeModal()" class="close-button">Cerrar</button>
-            <button class="save-button"  (click)="editarCategoriaGuardar()">Guardar</button>
+            <button class="save-button"  (click)="categoriaGuardar()">Guardar</button>
         </div>
     </div>
 </div>

@@ -31,6 +31,7 @@ import { UtilsCardsjugadorComponent } from './components/Admin/login-admin/admin
 /*  */
 import { UtilsRoldejuegoComponent } from './components/Admin/login-admin/admin-roldejuego/utils-roldejuego/utils-roldejuego.component';
 import { TablasUtilsComponent } from './components/tablas/tablas-utils/tablas-utils.component';
+import { ModalNuevacategoriasComponent } from './components/Admin/login-admin/admin-categorias/modal-nuevacategorias/modal-nuevacategorias.component';
 
 
 const app_routes: Routes = [
@@ -48,6 +49,7 @@ const app_routes: Routes = [
   { path: 'Acerca', component:AcercaComponent},
 
   /* Admin */
+  { path: 'modalnuevacategoria', component: ModalNuevacategoriasComponent},
   
   { path: 'Admin', component: LoginAdminComponent },
   { path: 'Admin-Home', component: AdminHomeComponent },
@@ -75,7 +77,8 @@ const app_routes: Routes = [
 
 
 ];
-export const app_routing = RouterModule.forRoot(app_routes);
-/* export const app_routing = RouterModule.forRoot(app_routes, { scrollPositionRestoration: 'top' }); 
+//export const app_routing = RouterModule.forRoot(app_routes);
+export const app_routing = RouterModule.forRoot(app_routes, { scrollPositionRestoration: 'top' }); 
+/* 
 ⚠️⚠️⚠️⚠️Poner esta linea de codigo al terminar el proyecto⚠️⚠️⚠️⚠️
 */

@@ -67,7 +67,7 @@ import { ModalPartidosEvaluarequipamientoComponent } from './components/Admin/lo
 import { ModalPartidosEvaluarporraComponent } from './components/Admin/login-admin/admin-partidos/partidos-utils/modal-partidos-evaluarporra/modal-partidos-evaluarporra.component';
 import { ModalEditarInfoequiposComponent } from './components/Admin/login-admin/admin-roldejuego/utils-roldejuego/modal-editar-infoequipos/modal-editar-infoequipos.component';
 import { ModalEliminarTorneoComponent } from './components/Admin/login-admin/admin-roldejuego/utils-roldejuego/modal-eliminar-torneo/modal-eliminar-torneo.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -141,10 +141,11 @@ import { ModalEliminarTorneoComponent } from './components/Admin/login-admin/adm
     BrowserModule,
     FormsModule, // Agrega FormsModule aquí
     ReactiveFormsModule, // Agrega ReactiveFormsModule si lo necesitas
+    HttpClientModule,
     
     app_routing
   ],
-  providers: [],
+  providers: [HttpClientModule ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

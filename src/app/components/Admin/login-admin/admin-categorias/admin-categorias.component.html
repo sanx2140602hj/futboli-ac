@@ -43,7 +43,9 @@
       </thead>
       <tbody>
         <ng-container *ngIf="categorias.length > 0; else noData">
-          <tr *ngFor="let categoria of categorias | filter: searchTerm; let i = index">            <td>{{ categoria.id }}</td>
+          <!-- <tr *ngFor="let categoria of categorias | filter: searchTerm; let i = index"> -->     
+            <tr *ngFor="let categoria of categorias" (click)="seleccionarCategoria(categoria.id)">
+             <td>{{ categoria.id }}</td>
             <td>{{ categoria.nombre }}</td>
             <td>
               <button class="button-icon" (click)="openDescripcionModal()">
@@ -53,7 +55,7 @@
               <app-modal-descripcioncategorias *ngIf="showDescripcionModal"
                 (onCloseModal)="closeDescripcionModal()"></app-modal-descripcioncategorias>
             </td>
-            <td>{{ categoria.fechaCreacion }}</td>
+            <td>{{ categoria.fechaDeCreacion}}</td>
             <td>
               <button class="button-icon" style="color: blue;" (click)="openEditarModal()">
                 <i class="fas fa-edit"></i>

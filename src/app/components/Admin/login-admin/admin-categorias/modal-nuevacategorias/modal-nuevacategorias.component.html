@@ -9,18 +9,29 @@
         <div class="input">
             <form [formGroup]="miFormulario">
 
-
-                <input id="nombreCategoria" type="text" formControlName="nombreCategoria" class="category-input"
-                    [ngClass]="{ 'error-input': nombreCategoria && nombreCategoria.invalid && (nombreCategoria.dirty || nombreCategoria.touched) }">
+                <input id="nombre" type="text" formControlName="nombre" class="category-input"
+                    [ngClass]="{ 'error-input': nombre && nombre.invalid && (nombre.dirty || nombre.touched) }">
                 <div
-                    *ngIf="nombreCategoria && nombreCategoria.invalid && (nombreCategoria.dirty || nombreCategoria.touched)">
-                    <div *ngIf="nombreCategoria.errors?.['required']">El nombre de la categoría es obligatorio.</div>
-                    <div *ngIf="nombreCategoria.errors?.['pattern']">Solo se permiten letras, números y espacios.</div>
+                    *ngIf="nombre && nombre.invalid && (nombre.dirty || nombre.touched)">
+                    <div *ngIf="nombre.errors?.['required']">El nombre de la categoría es obligatorio.</div>
+                    <div *ngIf="nombre.errors?.['pattern']">Solo se permiten letras, números y espacios.</div>
+                </div>
+                <br><h5>edad minima</h5>
+                <input id="edadMin" type="number" formControlName="edadMin" class="category-input"
+                    [ngClass]="{ 'error-input': edadMin && edadMin.invalid && (edadMin.dirty || edadMin.touched) }">
+                <div
+                    *ngIf="edadMin && edadMin.invalid && (edadMin.dirty || edadMin.touched)">
+                    <div *ngIf="edadMin.errors?.['required']">La edad mín es obligatoria.</div>
+                </div>
+<br><h5>edad Maxima</h5>
+                <input id="edadMax" type="number" formControlName="edadMax" class="category-input"
+                    [ngClass]="{ 'error-input': edadMax && edadMax.invalid && (edadMax.dirty || edadMax.touched) }">
+                <div
+                    *ngIf="edadMax && edadMax.invalid && (edadMax.dirty || edadMax.touched)">
+                    <div *ngIf="edadMax.errors?.['required']">La edad máx es obligatoria.</div>
                 </div>
 
-
             </form>
-
         </div>
         <div class="derecha">
             <button (click)="closeModal()" class="close-button">Cerrar</button>
