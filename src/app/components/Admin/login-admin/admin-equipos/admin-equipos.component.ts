@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-admin-equipos',
   templateUrl: './admin-equipos.component.html',
-  styleUrls: ['./admin-equipos.component.css']
+  styleUrls: ['./admin-equipos.component.css'],
+  providers: [DatePipe] 
 })
 export class AdminEquiposComponent implements OnInit {
 

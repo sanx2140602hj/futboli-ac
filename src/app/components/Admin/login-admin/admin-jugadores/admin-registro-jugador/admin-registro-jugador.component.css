@@ -6,7 +6,6 @@
     margin-left: 25rem;
     padding: 2rem;
 }
-
 .navbar {
   background-color: #078cb4;
   color: #011F3A;
@@ -14,13 +13,13 @@
   padding: 10px;
   border-bottom: 2px solid #011F3A
 }
+
 .fixed-navbar {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
 }
-
 /* ///////////////////////////////////////////////////////////////////// */
 .search-container {
   display: flex;
@@ -132,6 +131,7 @@ select {
     margin-left: 17rem;
     padding: 20px;
   }
+  .top{margin-top: 5rem;}
 
   /* ------------------------ */
   .search-input {

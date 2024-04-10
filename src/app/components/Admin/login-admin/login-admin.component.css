@@ -1,3 +1,18 @@
+
+.navbar {
+  background-color: #078cb4;
+  color: #011F3A;
+  /* color letra */
+  padding: 10px;
+  border-bottom: 2px solid #011F3A
+}
+
+.fixed-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
 .bg-image-vertical {
   position: relative;
   overflow: hidden;

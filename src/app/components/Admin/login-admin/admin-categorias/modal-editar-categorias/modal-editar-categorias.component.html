@@ -2,30 +2,33 @@
     <div class="modal-content">
         <!-- Contenido del modal aquí -->
         <div class="izq">
-            <h1>Editar categoría</h1>
+            <h1>Uested esta editando - <b>{{palabraClave}}</b></h1>
         </div>
-        <h5>Edita el nombre de esta categoría.</h5>
         <div class="input">
             <form [formGroup]="miFormulario">
-
-
+                
+                
+                <h5>Nombre de categoría actual es: <b>{{editarDatos.nombre}}</b></h5>
                 <input id="editarCategoria" type="text" formControlName="editarCategoria" class="category-input"
-                    [ngClass]="{ 'error-input': editarCategoria && editarCategoria.invalid && (editarCategoria.dirty || editarCategoria.touched) }">
+                    [ngClass]="{ 'error-input': editarCategoria && editarCategoria.invalid && (editarCategoria.dirty || editarCategoria.touched) }"
+                   >
                 <div
                     *ngIf="editarCategoria && editarCategoria.invalid && (editarCategoria.dirty || editarCategoria.touched)">
                     <div *ngIf="editarCategoria.errors?.['required']">El editar de la categoría es obligatorio.</div>
                     <div *ngIf="editarCategoria.errors?.['pattern']">Solo se permiten letras, números y espacios.</div>
                 </div>
-  <br><h5>edad minima</h5>
+                <br><h5>La edad minima actual es : <b>{{editarDatos.edadMin}}</b> años</h5>
                 <input id="edadMin" type="number" formControlName="edadMin" class="category-input"
-                    [ngClass]="{ 'error-input': edadMin && edadMin.invalid && (edadMin.dirty || edadMin.touched) }">
+                    [ngClass]="{ 'error-input': edadMin && edadMin.invalid && (edadMin.dirty || edadMin.touched) }"
+                   >
                 <div
                     *ngIf="edadMin && edadMin.invalid && (edadMin.dirty || edadMin.touched)">
                     <div *ngIf="edadMin.errors?.['required']">La edad mín es obligatoria.</div>
                 </div>
-<br><h5>edad Maxima</h5>
+                <br><h5>La edad maxima actual es : <b>{{editarDatos.edadMax}}</b> años</h5>
                 <input id="edadMax" type="number" formControlName="edadMax" class="category-input"
-                    [ngClass]="{ 'error-input': edadMax && edadMax.invalid && (edadMax.dirty || edadMax.touched) }">
+                    [ngClass]="{ 'error-input': edadMax && edadMax.invalid && (edadMax.dirty || edadMax.touched) }"
+                  >
                 <div
                     *ngIf="edadMax && edadMax.invalid && (edadMax.dirty || edadMax.touched)">
                     <div *ngIf="edadMax.errors?.['required']">La edad máx es obligatoria.</div>

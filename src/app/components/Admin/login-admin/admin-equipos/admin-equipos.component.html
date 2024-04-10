@@ -50,17 +50,20 @@
                     </button></td>
                
                     <td>{{ categoria.fechaCreacion }}</td>
+                    <!--             
+                        <td>{{ categoria.fechaDeCreacion | date:'dd/MM/yyyy' }}</td>
+ -->
                     <td>
                       <button class="button-icon" style="color: blue;" (click)="openEditarModal()">
                         <i class="fas fa-edit"></i>
                       </button>
-                      <app-modal-editar-categorias *ngIf="showEditarModal"
-                        (onCloseModal)="closeEditarModal()"></app-modal-editar-categorias>
+                      <app-modalequipos-editar *ngIf="showEditarModal"
+                        (onCloseModal)="closeEditarModal()"></app-modalequipos-editar>
                       <button class="button-icon" style="color: red;" (click)="openEliminarModal()">
                         <i class="fas fa-trash-alt"></i>
                       </button>
-                      <app-modal-eliminar-categorias *ngIf="showEliminarModal"
-                        (onCloseModal)="closeEliminarModal()"></app-modal-eliminar-categorias>
+                      <app-modalequipos-eliminar *ngIf="showEliminarModal"
+                        (onCloseModal)="closeEliminarModal()"></app-modalequipos-eliminar>
                     </td>
                   </tr>
                 </ng-container>

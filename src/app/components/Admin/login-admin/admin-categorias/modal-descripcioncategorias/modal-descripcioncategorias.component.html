@@ -2,7 +2,7 @@
     <div class="modal-content">
       <div class="izq">
         <h1>Descripción</h1>
-        <p>Pony¨[[[RECUERDA PONER INTERPOLACION EN BASE DE DATOS]]]"</p>
+        <p>El nuevo comentario es para la categoria de: <b>{{palabraClave}}</b></p>
       </div>
       <div class="input">
         <label for="comentario">Comentario:</label>
@@ -10,7 +10,8 @@
  -->        <form [formGroup]="miFormulario">
 
 
-          <textarea id="comentarCategoria" type="text" formControlName="comentarCategoria" class="category-input"
+          <textarea id="comentarCategoria" [(ngModel)]="comentario" type="text" formControlName="comentarCategoria" class="category-input" maxlength="255"
+          
               [ngClass]="{ 'error-input': comentarCategoria && comentarCategoria.invalid && (comentarCategoria.dirty || comentarCategoria.touched) }">
           </textarea>
               <div

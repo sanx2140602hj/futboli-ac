@@ -4,15 +4,15 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CategoriaSelectionService {
-  private selectedId: number | null = null;
+  public selectedCategoryId: number | null = null;
 
   constructor() { }
 
-  setSelectedId(id: number): void {
-    this.selectedId = id;
+  setSelectedId(id: number | null) {
+    this.selectedCategoryId = id;
   }
 
   getSelectedId(): number | null {
-    return this.selectedId;
+    return this.selectedCategoryId;
   }
 }

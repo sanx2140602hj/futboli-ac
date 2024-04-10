@@ -18,10 +18,12 @@
 
   <!-- Botón para abrir el modal -->
   <div class="button-container">
-    <button class="custom-button" (click)="openModal()">
+    <button class="custom-button top" (click)="openModal()">
       <!-- ⚠️🐢tiene ralacion con ts🐢⚠️ -->
       <i class="fas fa-plus"></i> Nueva categoría
     </button>
+    <h6><b>Primero fije una fila para poder efectar cambios o modificaciones al elemento</b>
+    </h6>
   </div>
 
   <!-- Componente de modal que se muestra condicionalmente -->
@@ -44,29 +46,28 @@
       <tbody>
         <ng-container *ngIf="categorias.length > 0; else noData">
           <!-- <tr *ngFor="let categoria of categorias | filter: searchTerm; let i = index"> -->     
-            <tr *ngFor="let categoria of categorias" (click)="seleccionarCategoria(categoria.id)">
-             <td>{{ categoria.id }}</td>
+            <tr *ngFor="let categoria of categorias" (click)="seleccionarCategoria(categoria.id, $event.currentTarget)">
+              <td>{{ categoria.id }}</td>
             <td>{{ categoria.nombre }}</td>
             <td>
               <button class="button-icon" (click)="openDescripcionModal()">
                 <u>Añade una descripción</u>
               </button>
               <!-- Nuevo modal de descripción -->
-              <app-modal-descripcioncategorias *ngIf="showDescripcionModal"
+              <app-modal-descripcioncategorias *ngIf="showDescripcionModal" [categoryId]="categoryId"
                 (onCloseModal)="closeDescripcionModal()"></app-modal-descripcioncategorias>
             </td>
-            <td>{{ categoria.fechaDeCreacion}}</td>
+            <td>{{ categoria.fechaDeCreacion | date:'dd/MM/yyyy' }}</td>
             <td>
               <button class="button-icon" style="color: blue;" (click)="openEditarModal()">
                 <i class="fas fa-edit"></i>
               </button>
-              <app-modal-editar-categorias *ngIf="showEditarModal"
-                (onCloseModal)="closeEditarModal()"></app-modal-editar-categorias>
+              <app-modal-editar-categorias *ngIf="showEditarModal" [categoryId]="categoryId" (onCloseModal)="closeEditarModal()"></app-modal-editar-categorias>
+
               <button class="button-icon" style="color: red;" (click)="openEliminarModal()">
                 <i class="fas fa-trash-alt"></i>
               </button>
-              <app-modal-eliminar-categorias *ngIf="showEliminarModal"
-                (onCloseModal)="closeEliminarModal()"></app-modal-eliminar-categorias>
+              <app-modal-eliminar-categorias *ngIf="showEliminarModal" [categoryId]="categoryId" (onCloseModal)="closeEliminarModal()"></app-modal-eliminar-categorias>
             </td>
           </tr>
         </ng-container>
