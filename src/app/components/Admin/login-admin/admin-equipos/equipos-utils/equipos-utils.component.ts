@@ -1,10 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
+import { HttpClient } from '@angular/common/http';
+import { TeamSelectionService } from '../../../../../service/team-selection.service';
+
 @Component({
   selector: 'app-equipos-utils',
   templateUrl: './equipos-utils.component.html',
   styleUrls: ['./equipos-utils.component.css']
 })
 export class EquiposUtilsComponent implements OnInit {
+  @Output() selectedTeamIdEvent = new EventEmitter<number>();
+
+  @Input() equiposId: number | null = null; // Recibir el ID del equipo como entrada
+  IDprueba: any = {};
+  selectedTeamId: number | null = null; // Variable para almacenar el ID de la categoría seleccionada
+  selectedRow: HTMLElement | null = null; // Variable para almacenar la fila seleccionada
+
+/* -------------------- */
   tecDir = [
     {id: 1, nombre: 'supermar', cargo: 'director'},
     {id: 2, nombre: 'batman', cargo: 'jefe'},
@@ -46,9 +59,12 @@ export class EquiposUtilsComponent implements OnInit {
   showEliminarModal = false;
   showEliminarJugadorModal= false;
 
-  constructor() { }
+ constructor( private http: HttpClient, private TeamSelectionService: TeamSelectionService) { }
+  //constructor(private teamSelectionService: TeamSelectionService) {}
 
-  ngOnInit(): void { 
+  ngOnInit() {
+    this.selectedTeamId = this.TeamSelectionService.getSelectedId();
+    console.log('ID del equipo seleccionado:', this.selectedTeamId);
   }
   openDirectorModal(){
     this.showDirectorModal = true;
@@ -83,5 +99,22 @@ export class EquiposUtilsComponent implements OnInit {
     }
     closeEliminarJugadorModal(){
       this.showEliminarJugadorModal = false;
+    }
+
+    /* prubas */
+    seleccionarCategoria(id: number, row: EventTarget | null) {
+      if (row instanceof HTMLElement) {
+        this.selectedTeamId = id; // Almacena el ID de la categoría seleccionada
+  
+        // Reinicia el color de fondo de la fila previamente seleccionada
+        if (this.selectedRow) {
+          this.selectedRow.style.backgroundColor = '';
+        }
+        // Aplica el color de fondo a la fila seleccionada
+        row.style.backgroundColor = '#b7c4ff';
+        this.selectedRow = row;
+      }
+  
+      this.selectedTeamIdEvent.emit(id);
     }
 }

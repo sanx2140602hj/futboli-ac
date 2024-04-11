@@ -26,12 +26,11 @@ export class AdminEquiposComponent implements OnInit {
   showRegistrarModal = false;
   showEditarModal = false;
   showEliminarModal = false;
+  teamSelectionService: any;
 
   constructor(private http: HttpClient, private TeamSelectionService: TeamSelectionService) {
-    this.showRegistrarModal = false;
-    this.showEditarModal = false;
-    this.showEliminarModal = false;
-}
+    this.teamSelectionService = TeamSelectionService; // Asignar el servicio inyectado a la propiedad de la clase
+  }
 
 ngOnInit() {
   
@@ -67,8 +66,8 @@ getCategoriaNombre(idCategoria: number): string {
   return categoria ? categoria.nombre : 'Categoría no encontrada';
 }
 
-
-  seleccionarCategoria(id: number, row: EventTarget | null) {
+/*  */
+/*   seleccionarCategoria(id: number, row: EventTarget | null) {
     if (row instanceof HTMLElement) {
       this.selectedTeamId = id; // Almacena el ID de la categoría seleccionada
 
@@ -82,8 +81,38 @@ getCategoriaNombre(idCategoria: number): string {
     }
 
     this.selectedTeamIdEvent.emit(id);
-  }
+  } */
+  seleccionarCategoria(id: number, row: EventTarget | null) {
+    if (row instanceof HTMLElement) {
+      this.selectedTeamId = id; // Almacena el ID de la categoría seleccionada
+  
+      // Reinicia el color de fondo de la fila previamente seleccionada
+      if (this.selectedRow) {
+        this.selectedRow.style.backgroundColor = '';
+      }
+      // Aplica el color de fondo a la fila seleccionada
+      row.style.backgroundColor = '#b7c4ff';
+      this.selectedRow = row;
+  
+      // Guarda el ID del equipo seleccionado en el servicio    
+      //this.selectedTeamIdEvent.emit(id);
 
+      this.teamSelectionService.setSelectedId(id);
+    }
+    if (row instanceof HTMLElement) {
+      this.selectedTeamId = id; // Almacena el ID de la categoría seleccionada
+
+      // Reinicia el color de fondo de la fila previamente seleccionada
+      if (this.selectedRow) {
+        this.selectedRow.style.backgroundColor = '';
+      }
+      // Aplica el color de fondo a la fila seleccionada
+      row.style.backgroundColor = '#b7c4ff';
+      this.selectedRow = row;
+    }
+    this.selectedTeamIdEvent.emit(id);
+
+  }
   openRegistrarModal() {
     
     this.showRegistrarModal = true;

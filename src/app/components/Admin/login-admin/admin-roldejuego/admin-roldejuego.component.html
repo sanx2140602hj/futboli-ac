@@ -52,12 +52,13 @@
                     <h3>Equipos Participantes</h3>
                     <div class="equipos-select scroll">
                         <ul id="equiposParticipantes">
-                            <li *ngFor="let equipo of equiposSeleccionados">
+                            <button class="custom-button2" >
+                            <li *ngFor="let equipo of equiposSeleccionados"
+                                (click)="eliminarEquipo(equipo)">
                                 {{ equipo }}
-                                <button class="custom-button2" (click)="eliminarEquipo(equipo)">
                                     <i class="fa-solid fa-xmark cursor"></i>
-                                </button>
-                            </li>
+                                </li>
+                            </button>
                         </ul>
                     </div>
                     <div *ngIf="!equiposSeleccionados.length" class="error-message">
