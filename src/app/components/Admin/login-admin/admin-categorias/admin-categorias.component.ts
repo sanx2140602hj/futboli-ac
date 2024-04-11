@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { CategoriaSelectionService } from '../../../../categoria-selection.service';
+import { CategoriaSelectionService } from '../../../../service/categoria-selection.service';
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -31,6 +31,7 @@ export class AdminCategoriasComponent implements OnInit {
         console.error('Error en la solicitud:', error);
       }
     );
+    
   }
 
   seleccionarCategoria(id: number, row: EventTarget | null) {

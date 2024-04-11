@@ -10,22 +10,25 @@
 <div class="content">
     <div class="search-container">
         <div class="search-wrapper">
-      <input type="text" class="search-input" placeholder="Buscar Equipos..." [(ngModel)]="searchTerm">
-<!--             <button class="custom-button2">Buscar</button>
- -->        </div>
+            <input type="text" class="search-input" placeholder="Buscar Equipos..." [(ngModel)]="searchTerm">
+            <!--             <button class="custom-button2">Buscar</button>
+ -->
+        </div>
     </div>
     <!-- ------------------- -->
 
 
-    <div class="button-container">
+    <div class="button-container top">
         <button class="custom-button" (click)="openRegistrarModal()">
             <i class="fas fa-plus"></i> Registrar equipo
-        </button>
+        </button>    
+        <h6 style="margin-top: 1rem;"><b>Primero fije una fila para poder efectar cambios o modificaciones al elemento</b>
+        </h6>
     </div>
 
     <!-- Nuevo modal de registro de equipo -->
-    <app-modalequipos-registrar *ngIf="showRegistrarModal"
-        (onCloseModal)="closeRegistrarModal()"></app-modalequipos-registrar>
+    <app-modalequipos-registrar *ngIf="showRegistrarModal" 
+        (onCloseModal)="closeRegistrarModal()"          ></app-modalequipos-registrar>
 
 
 
@@ -38,72 +41,45 @@
                 <tr>
                     <th>No</th>
                     <th>Nombre de equipos</th>
+                    <th>Categoria del equipo</th>
                     <th>fechas de creación</th>
                     <th>Menú de Opciones</th>
                 </tr>
             </thead>
             <tbody>
-                <ng-container *ngIf="categorias.length > 0; else noData">
-                  <tr *ngFor="let categoria of categorias | filter: searchTerm; let i = index">            <td>{{ categoria.id }}</td>
-                    <td>  <button class="button-icon2 " routerLink="/equipos">
-                        {{ categoria.nombre }}  <i style="margin-left: 10px;" class="fas fa-external-link-alt"></i>
-                    </button></td>
-               
-                    <td>{{ categoria.fechaCreacion }}</td>
-                    <!--             
-                        <td>{{ categoria.fechaDeCreacion | date:'dd/MM/yyyy' }}</td>
- -->
-                    <td>
-                      <button class="button-icon" style="color: blue;" (click)="openEditarModal()">
-                        <i class="fas fa-edit"></i>
-                      </button>
-                      <app-modalequipos-editar *ngIf="showEditarModal"
-                        (onCloseModal)="closeEditarModal()"></app-modalequipos-editar>
-                      <button class="button-icon" style="color: red;" (click)="openEliminarModal()">
-                        <i class="fas fa-trash-alt"></i>
-                      </button>
-                      <app-modalequipos-eliminar *ngIf="showEliminarModal"
-                        (onCloseModal)="closeEliminarModal()"></app-modalequipos-eliminar>
-                    </td>
-                  </tr>
+                <ng-container *ngIf="equipos.length > 0; else noData">
+                    <tr *ngFor="let equipo of equipos | filter: searchTerm; let i = index" (click)="seleccionarCategoria(equipo.id, $event.currentTarget)">
+                        <td>{{ equipo.id }}</td>
+                        <td>
+                            <button class="button-icon2 " routerLink="/equipos">
+                                {{ equipo.nombre }} <i style="margin-left: 10px;" class="fas fa-external-link-alt"></i>
+                            </button>
+                        </td>
+                        <td>{{ getCategoriaNombre(equipo.id_categorias) }}</td>
+                        <td>{{ equipo.fechaDeCreacion | date:'dd/MM/yyyy' }}</td>
+                        <td>
+                            <button class="button-icon" style="color: blue;" (click)="openEditarModal()" >
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <app-modalequipos-editar *ngIf="showEditarModal" (onCloseModal)="closeEditarModal()" [equiposId]="categoryId"></app-modalequipos-editar>
+                            <!-- ----------------------------------------- -->
+                            
+                            
+                            <button class="button-icon" style="color: red;" (click)="openEliminarModal()">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                            <app-modalequipos-eliminar *ngIf="showEliminarModal" (onCloseModal)="closeEliminarModal()" [equiposId]="categoryId"></app-modalequipos-eliminar>
+                        </td>
+                    </tr>
                 </ng-container>
-              </tbody>
-              <ng-template #noData>
+                
+            </tbody>
+            <ng-template #noData>
                 <tr>
-                  <td colspan="5">No se encontraron resultados</td>
+                    <td colspan="5">No se encontraron resultados</td>
                 </tr>
-              </ng-template>
-          <!--   <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>
-                        <button class="button-icon2 " routerLink="/equipos">
-                            equipo 1  <i style="margin-left: 10px;" class="fas fa-external-link-alt"></i>
-                        </button>
-                    </td>
-
-
-
-
-                    <td>Fecha 1</td>
-                    <td>
-                        <button class="button-icon" style="color: blue;" (click)="openEditarModal()">
-                            <i class="fas fa-edit"></i>
-                        </button>
-                        <app-modalequipos-editar *ngIf="showEditarModal"
-                            (onCloseModal)="closeEditarModal()"></app-modalequipos-editar>
-
-
-                        <button class="button-icon" style="color: red;" (click)="openEliminarModal()">
-                            <i class="fas fa-trash-alt"></i>
-                        </button>
-                        <app-modalequipos-eliminar *ngIf="showEliminarModal"
-                            (onCloseModal)="closeEliminarModal()"></app-modalequipos-eliminar>
-                    </td>
-                </tr>
-
-            </tbody> -->
-        </table>
+            </ng-template>
+      </table>
     </div>
 
 

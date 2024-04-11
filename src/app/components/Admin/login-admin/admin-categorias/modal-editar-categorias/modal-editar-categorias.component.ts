@@ -164,6 +164,11 @@ export class ModalEditarCategoriasComponent implements OnInit {
         );
         // Asignar el valor de palabraClave después de obtener los datos
         this.palabraClave = this.editarDatos ? this.editarDatos.nombre : '';
+        this.miFormulario.patchValue({
+          editarCategoria: this.editarDatos.nombre,
+          edadMin: this.editarDatos.edadMin,
+          edadMax: this.editarDatos.edadMax
+        });
       },
       (error) => {
         console.error('Error en la solicitud:', error);

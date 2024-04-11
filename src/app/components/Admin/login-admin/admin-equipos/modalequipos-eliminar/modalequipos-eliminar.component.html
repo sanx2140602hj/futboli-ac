@@ -6,7 +6,7 @@
                 forma <b>permanente</b>.</h5>
             <h5><input type="checkbox" [(ngModel)]="checkboxChecked"><b style="margin-left: 10px;">He leido el mensaje y acepto.</b></h5>
         </div>
-        <h5>Para confirmar, escriba: <b>'nombre del elemento'</b> en el cuadro de abajo:</h5>
+        <h5>Para confirmar, escriba: <b>{{ palabraClave }}</b> en el cuadro de abajo:</h5>
         <div class="input" [ngClass]="{'invalid-input': error}">
             <input type="text" placeholder="Nombre del elemento" class="category-input" [(ngModel)]="categoriaEliminar">
             <p class="error-message" *ngIf="error">Datos incorrectos / Datos incoherentes</p>

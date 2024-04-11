@@ -15,4 +15,5 @@ export class CategoriaSelectionService {
   getSelectedId(): number | null {
     return this.selectedCategoryId;
   }
+  
 }

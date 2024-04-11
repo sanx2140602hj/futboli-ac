@@ -4,11 +4,11 @@
         <div class="izq">
             <h1>Editar nombre de equipo</h1>
         </div>
-        <h5>Edita el nombre de este equipo.</h5>
         <div class="input">
             <form [formGroup]="miFormulario">
-
-
+                
+                
+                <h5>Edita el nombre de este equipo.</h5>
                 <input id="equipoNombre" type="text" formControlName="equipoNombre" class="category-input"
                     [ngClass]="{ 'error-input': equipoNombre && equipoNombre.invalid && (equipoNombre.dirty || equipoNombre.touched) }">
                 <div
@@ -16,7 +16,17 @@
                     <div *ngIf="equipoNombre.errors?.['required']">El editar de la categoría es obligatorio.</div>
                     <div *ngIf="equipoNombre.errors?.['pattern']">Solo se permiten letras, números y espacios.</div>
                 </div>
-
+                <h5 style="margin-top: 1rem; margin-bottom: 1rem;">Selecciona una categoria para associar este equipo</h5>
+                <select formControlName="categoria" class="category-input"
+                [ngClass]="{ 'error-input': miFormulario.get('categoria')?.invalid && (miFormulario.get('categoria')?.dirty || miFormulario.get('categoria')?.touched) }">
+              <option value="" disabled selected>Seleccione una categoría</option>
+              <option *ngFor="let categoria of categorias" [value]="categoria.id">{{ categoria.nombre }}</option>
+            </select>
+            <div *ngIf="miFormulario.get('categoria')?.invalid && (miFormulario.get('categoria')?.dirty || miFormulario.get('categoria')?.touched)">
+              <div *ngIf="miFormulario.get('categoria')?.errors?.['required']">Por favor, seleccione una categoría.</div>
+            </div>
+            
+                  
 
             </form>
 
