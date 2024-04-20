@@ -1,14 +1,24 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { HttpClient } from '@angular/common/http';
+import { JugadorSelectionService } from '../../../../../service/cardId.service';
 
 @Component({
-  selector: 'app-admin-registro-jugador',
-  templateUrl: './admin-registro-jugador.component.html',
-  styleUrls: ['./admin-registro-jugador.component.css'],
+  selector: 'app-utils-cardsjugador',
+  templateUrl: './utils-cardsjugador.component.html',
+  styleUrls: ['./utils-cardsjugador.component.css'],
 })
-export class AdminRegistroJugadorComponent implements OnInit {
+export class UtilsCardsjugadorComponent implements OnInit {
+  @Input() jugador: number | null = null; // Recibir el ID de la categoría como entrada
+  data: any = {};
+  editarDatos: any = {};
+  categoriaEliminar: string = '';
+  error: boolean = false; // Variable para controlar si hay error
+  palabraClave: string = '';
+  dateCategoria: any = {};
+  IDprueba: any = {};
+
   /* -------Identifiacion------------------------------------- */
   miFormularioIden: FormGroup;
   Identifiacion: any; // Objeto para almacenar la información
@@ -31,7 +41,11 @@ export class AdminRegistroJugadorComponent implements OnInit {
 
   @Output() onCloseModal = new EventEmitter<void>();
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private jugadorSelectionService: JugadorSelectionService
+  ) {
     /* Identifiacion */
     this.miFormularioIden = this.fb.group({
       folio: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
@@ -78,8 +92,14 @@ export class AdminRegistroJugadorComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
-
+  ngOnInit() {
+    console.log('entro con ID:', this.jugador);
+    // Verificar si el ID del jugador es válido
+    if (this.jugador !== null) {
+      // Llamar al método setSelectedId del servicio JugadorSelectionService para enviar el ID
+      this.jugadorSelectionService.setSelectedId(this.jugador);
+    }
+  }
   /* ------------------------------------------- */
 
   /* Identifiacion */
@@ -217,9 +237,6 @@ export class AdminRegistroJugadorComponent implements OnInit {
       this.datetutor = {
         tutor: tutorFormValue.tutor,
       };
-
-      
-
       const dataJugador = {
         folio: IdentifiacionFormValue.folio,
         id_equipos: IdentifiacionFormValue.id_equipos,
@@ -294,6 +311,7 @@ export class AdminRegistroJugadorComponent implements OnInit {
     Swal.fire({
       position: 'top-end',
       title: 'Operación realizada',
+      //text: mensajeIdentifiacion + '\n' + mensajeDatos + '\n' + mensajeContacto + '\n' + mensajeDatoFisico + '\n' + mesnajeEscolar + '\n' + mensajeTutor,
       icon: 'success',
       timer: 2500,
       showConfirmButton: false,
@@ -307,4 +325,15 @@ export class AdminRegistroJugadorComponent implements OnInit {
     console.log('Datos Escolares', this.datosEscolares);
     console.log('Datos Escolares', this.datetutor);
   }
+
+  showEliminarModal = false;
+
+  openEliminarModal() {
+    this.showEliminarModal = true;
+  }
+  closeEliminarModal() {
+    this.showEliminarModal = false;
+  }
 }
+
+/* -------------------------------------------- */

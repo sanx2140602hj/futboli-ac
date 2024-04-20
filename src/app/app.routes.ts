@@ -28,7 +28,7 @@ import { PartidosUtilsComponent } from './components/Admin/login-admin/admin-par
 
 /* utils */
 import { EquiposUtilsComponent } from './components/Admin/login-admin/admin-equipos/equipos-utils/equipos-utils.component';
-import { UtilsCardsjugadorComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/utils-cardsjugador/utils-cardsjugador.component';
+import { UtilsCardsjugadorComponent } from './components/Admin/login-admin/admin-jugadores/utils-cardsjugador/utils-cardsjugador.component';
 
 /*  */
 import { UtilsRoldejuegoComponent } from './components/Admin/login-admin/admin-roldejuego/utils-roldejuego/utils-roldejuego.component';

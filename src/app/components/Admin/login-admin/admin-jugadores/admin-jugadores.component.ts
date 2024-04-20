@@ -1,17 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { JugadorSelectionService} from '../../../../service/cardId.service';
 @Component({
   selector: 'app-admin-jugadores',
   templateUrl: './admin-jugadores.component.html',
   styleUrls: ['./admin-jugadores.component.css']
 })
 export class AdminJugadoresComponent implements OnInit {
+  @Output() JugadorSelectionService = new EventEmitter<number>();
+
   jugadores: any[] = [];
   nuevoJugadorNombre: string = '';
   searchTerm: string = ''; // Agrega la propiedad searchTerm aquí
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private jugadorSelectionService:JugadorSelectionService) { }
 
   ngOnInit() {
     this.fetchGETjugadores();
@@ -47,5 +49,11 @@ export class AdminJugadoresComponent implements OnInit {
         }
       );
   }
+  seleccionarTorneo(id: number) {
+    console.log("Vamos enviar el id: ", id)
+    this.jugadorSelectionService.setSelectedId(id);
+    //this.selectedTorneoIdEvent.emit(id);
+  }
+
 
 }

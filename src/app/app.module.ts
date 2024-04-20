@@ -49,7 +49,7 @@ import { AdminJugadoresComponent } from './components/Admin/login-admin/admin-ju
 
 
 
-import { UtilsCardsjugadorComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/utils-cardsjugador/utils-cardsjugador.component';
+import { UtilsCardsjugadorComponent } from './components/Admin/login-admin/admin-jugadores/utils-cardsjugador/utils-cardsjugador.component';
 import { UtilsRoldejuegoComponent } from './components/Admin/login-admin/admin-roldejuego/utils-roldejuego/utils-roldejuego.component';
 
 
@@ -60,7 +60,7 @@ import { TablasUtilsComponent } from './components/tablas/tablas-utils/tablas-ut
 
 //para busquedas XD
 import { FilterPipe } from './filter.pipe';
-import { ModalEliminarJugadorUtilsComponent } from './components/Admin/login-admin/admin-jugadores/admin-registro-jugador/utils-cardsjugador/modal-eliminar-jugador-utils/modal-eliminar-jugador-utils.component';
+import { ModalEliminarJugadorUtilsComponent } from './components/Admin/login-admin/admin-jugadores/utils-cardsjugador/modal-eliminar-jugador-utils/modal-eliminar-jugador-utils.component';
 import { ModalAgregarEquiposClasificadosComponent } from './components/Admin/login-admin/admin-roldejuego/utils-roldejuego/modal-agregar-equipos-clasificados/modal-agregar-equipos-clasificados.component';
 import { ModalPartidosAgregardatosComponent } from './components/Admin/login-admin/admin-partidos/partidos-utils/modal-partidos-agregardatos/modal-partidos-agregardatos.component';
 import { ModalPartidosAgregarsucesoComponent } from './components/Admin/login-admin/admin-partidos/partidos-utils/modal-partidos-agregarsuceso/modal-partidos-agregarsuceso.component';
@@ -111,10 +111,10 @@ import { AuthService } from './service/authService.service';
     AdminRoldejuegoComponent,
     AdminTablaposicionComponent,  
 
-
+    //UtilsCardsjugadorComponent,
+    UtilsCardsjugadorComponent,
 
     AdminJugadoresComponent,
-    UtilsCardsjugadorComponent,
     UtilsRoldejuegoComponent,
 
 

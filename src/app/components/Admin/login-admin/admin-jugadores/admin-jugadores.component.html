@@ -11,8 +11,8 @@
     <div class="search-container">
         <div class="search-wrapper">
             <input type="text" [(ngModel)]="searchTerm" class="search-input" placeholder="Buscar Categorías...">
-<!--             <button class="custom-button2">Buscar</button>
- -->      <!--    <div class="search-container">
+            <!--             <button class="custom-button2">Buscar</button>
+ --> <!--    <div class="search-container">
             <div class="search-wrapper">
                 <input type="text" class="search-input" placeholder="Buscar...">
                 <select id="id_equipos" class="custom-button" placeholder="Tipo">
@@ -24,7 +24,8 @@
                 </select>
                 <button class="custom-button2">Buscar</button>
             </div>
-        </div> -->     </div>
+        </div> -->
+        </div>
     </div>
 
     <div class="orden-container">
@@ -42,14 +43,21 @@
     </button>
     <div class="scroll">
         <div>
-        <div class="card" routerLink="/card-jugador" *ngFor="let jugador of jugadores | filter: searchTerm">
-            <div class="">
-              <img src="../../../../../assets/Imagenes/Admin/img(3).png" alt="categorías">
-              <hr>
-              <h3 style="text-align: center;">{{ jugador.nombre }} {{jugador.apellidoP}} {{jugador.apellidoM}}</h3>
-              <p>Folio: <b>{{ jugador.folio }}</b></p>
+            <div class="card" routerLink="/card-jugador" *ngFor="let jugador of jugadores | filter: searchTerm">
+                <div (click)="seleccionarTorneo(jugador.folio)">
+                    <img src="../../../../../assets/Imagenes/Admin/img(3).png" alt="categorías">
+                    <hr>
+                    <h3 style="text-align: center;">{{ jugador.nombre }} {{jugador.apellidoP}} {{jugador.apellidoM}}
+                    </h3>
+                    <p>Folio: <b>{{ jugador.folio }}</b></p>
+                </div>
             </div>
-        </div>
-    </div>
-</div>
-</div>
+            <div class="card" routerLink="/card-jugador">
+                <div>
+                    <img src="../../../../../assets/Imagenes/Admin/img(3).png" alt="categorías">
+                    <hr>
+                    <h3 style="text-align: center;">
+                        ESTO ESTA EN EL HTML
+                        /h3>
+                        <p>Folio: <b>ESTO ES DE HTML</b></p>
+                    </h3></div></div></div></div></div>

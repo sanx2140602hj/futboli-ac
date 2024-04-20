@@ -49,15 +49,15 @@
 }
 
 .lado-derecho {
-    margin-right: 5rem;
-    margin-top: -6rem;
-    /* 🦖⭐ No enconcre una propiedad para alinearlos tener cuidado con el responsive */
-    display: flex;
+  display: flex;
+   /*  margin-right: 5rem;
+    margin-top: -6rem; */
     flex-grow: 50%;
+    margin-left: 50%;
+    align-items: end;
+    position: relative;
+
     text-align: left;
-    /* Alinea el texto a la izquierda en lugar de a la derecha */
-    flex-direction: row-reverse;
-    /* Invierte el orden de los elementos en el eje horizontal */
 }
 
 .limite {
@@ -167,6 +167,18 @@
     .search-input {
        padding: 0.5rem 15rem 0.5rem 1rem;
        }
+       .lado-derecho {
+        display: flex;
+         /*  margin-right: 5rem;
+          margin-top: -6rem; */
+          flex-grow: 50%;
+          margin-left: 40%;
+          align-items: end;
+          position: relative;
+      
+          text-align: left;
+      }
+      
   }/* ------------------------------------------ */
   @media screen and (max-width: 900px) {
     .sidebar {
@@ -186,6 +198,18 @@
    .search-input {
     padding: 0.5rem 10rem 0.5rem 1rem;
     }
+    .lado-derecho {
+      display: flex;
+       /*  margin-right: 5rem;
+        margin-top: -6rem; */
+        flex-grow: 50%;
+        margin-left: 20%;
+        align-items: end;
+        position: relative;
+    
+        text-align: left;
+    }
+    
   }
   /* ------------------------------------------ */
   
@@ -217,4 +241,16 @@
         /* ⬆️    ⬅️   ⬇️    ➡️ */
       
       }
+      .lado-derecho {
+        display: flex;
+         /*  margin-right: 5rem;
+          margin-top: -6rem; */
+          flex-grow: 50%;
+          margin-left: 1%;
+          align-items: end;
+          position: relative;
+      
+          text-align: left;
+      }
+      
   }
