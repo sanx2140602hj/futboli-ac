@@ -33,32 +33,9 @@ export class AdminEquiposComponent implements OnInit {
   }
 
 ngOnInit() {
-  
-  //consulta para datos EQUIPOS ⚽⚽
-  this.http.get<any[]>('http://localhost:3000/equipos/receive').subscribe(
-      (data) => {
-          if (Array.isArray(data)) {
-              this.equipos = data;
-          } else {
-              console.error('La respuesta del servidor no contiene un array de equipos:', data);
-          }
-      },
-      (error) => {
-          console.error('Error en la solicitud:', error);
-          // Aquí puedes agregar código para manejar el error, como mostrar un mensaje al usuario
-      }
-  );
-//consulta para datos Categorias 🪟🪟
-  // Realizar la solicitud GET para obtener los datos de la tabla categorias
-  this.http.get<any[]>('http://localhost:3000/categorias/receive').subscribe(
-    (data) => {
-      console.log('Datos de la tabla categorias:', data);
-      this.categorias = data;
-    },
-    (error) => {
-      console.error('Error en la solicitud:', error);
-    }
-  );
+  this.fetchGETequipos();
+  this.fetchGETcategorias();
+
 }
 
 getCategoriaNombre(idCategoria: number): string {
@@ -151,5 +128,33 @@ openEditarModal() {
   closeEliminarModal(){
     this.showEliminarModal = false;
   }
-
+fetchGETequipos()
+{
+  this.http.get<any[]>('http://localhost:3000/equipos/receive').subscribe(
+    (data) => {
+        if (Array.isArray(data)) {
+            this.equipos = data;
+        } else {
+            console.error('La respuesta del servidor no contiene un array de equipos:', data);
+        }
+    },
+    (error) => {
+        console.error('Error en la solicitud:', error);
+        // Aquí puedes agregar código para manejar el error, como mostrar un mensaje al usuario
+    }
+);
+}
+fetchGETcategorias(){
+//consulta para datos Categorias 🪟🪟
+  // Realizar la solicitud GET para obtener los datos de la tabla categorias
+  this.http.get<any[]>('http://localhost:3000/categorias/receive').subscribe(
+    (data) => {
+      console.log('Datos de la tabla categorias:', data);
+      this.categorias = data;
+    },
+    (error) => {
+      console.error('Error en la solicitud:', error);
+    }
+  );
+}
 }

@@ -1,5 +1,7 @@
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+
+import { CardsUtilsComponent } from './components/cards-utils/cards-utils.component';
 import { TablasComponent } from './components/tablas/tablas.component';
 import { PonyComponent } from './components/categorias/pony/pony.component';
 import { MiniponyComponent } from './components/categorias/minipony/minipony.component';
@@ -37,6 +39,7 @@ import { ModalNuevacategoriasComponent } from './components/Admin/login-admin/ad
 const app_routes: Routes = [
   { path: 'Inicio', component: HomeComponent },
   { path: 'Tablas-de-posiciones', component: TablasComponent },
+  { path: 'Todas-las-categorias', component: CardsUtilsComponent },
   { path: 'Categoria-Pony', component: PonyComponent },
   { path: 'Categoria-Minipony', component: MiniponyComponent },
   { path: 'Categoria-Biberones', component: BiberonesComponent },
@@ -77,8 +80,8 @@ const app_routes: Routes = [
 
 
 ];
-//export const app_routing = RouterModule.forRoot(app_routes);
-export const app_routing = RouterModule.forRoot(app_routes, { scrollPositionRestoration: 'top' }); 
+export const app_routing = RouterModule.forRoot(app_routes);
 /* 
+export const app_routing = RouterModule.forRoot(app_routes, { scrollPositionRestoration: 'top' }); 
 ⚠️⚠️⚠️⚠️Poner esta linea de codigo al terminar el proyecto⚠️⚠️⚠️⚠️
 */

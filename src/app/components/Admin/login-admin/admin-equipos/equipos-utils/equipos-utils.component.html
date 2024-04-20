@@ -4,7 +4,7 @@
 
 <nav class="navbar just fixed-navbar">
     <h1>
-        <i class="fas fa-users"></i> Equipo / poner interpolacion de titulo XD
+        <i class="fas fa-users"></i> Equipo <b>{{selectedTeamId}}</b>
     </h1>
 </nav>
 <div class="content">
@@ -38,12 +38,13 @@
                 </tr>
             </thead>
             <tbody>
-                <ng-container *ngIf="tecDir.length > 0; else noData">
-                    <tr *ngFor="let tecDir of tecDir ">
-                        <td>{{ tecDir.id }}</td>
-                        <td>{{ tecDir.nombre }}</td>
-                        <td>{{ tecDir.cargo }}</td>
-
+                <ng-container *ngIf="rolEquipos.length > 0; else noData">
+                    <tr *ngFor="let equipo of rolEquipos">
+                      <td>{{ equipo.id }}</td>
+                      <td>{{ equipo.nombre }}</td>
+                      <td>{{ equipo.tiporol }}</td>
+<!--                         <td>{{ tecDir.cargo }}</td>
+ -->
                         <td><span>
                             <button class="button-icon" style="color: blue;" (click)="openEditarModal()">
                                 <i class="fas fa-edit"></i>

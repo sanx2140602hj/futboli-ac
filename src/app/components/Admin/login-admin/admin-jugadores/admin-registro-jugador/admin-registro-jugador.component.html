@@ -16,19 +16,7 @@
                 <i class="fas fa-chevron-left"></i> Regresar
             </button>
         </div>
-        <div class="search-container">
-            <div class="search-wrapper">
-                <input type="text" class="search-input" placeholder="Buscar...">
-                <select id="equipo" class="custom-button" placeholder="Tipo">
-                    <option value="" disabled selected hidden>Tipo</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select>
-                <button class="custom-button2">Buscar</button>
-            </div>
-        </div>
+  
     </div>
     <!--  -->
     <div class="content">
@@ -55,25 +43,25 @@
                             <div *ngIf="folio.errors?.['required']">El folio es obligatorio.</div>
                             <div *ngIf="folio.errors?.['pattern']">Solo se permiten números.</div>
                         </div>
-                        <!-- selector de equipos -->
-                        <label for="equipo">Equipo:</label>
-                        <select id="equipo" formControlName="equipo" class="form-control"
-                            [ngClass]="{ 'error-input': equipo && equipo.invalid && (equipo.dirty || equipo.touched) }">
+                        <!-- selector de id_equiposs -->
+                        <label for="id_equipos">id_equipos:</label>
+                        <select id="id_equipos" formControlName="id_equipos" class="form-control"
+                            [ngClass]="{ 'error-input': id_equipos && id_equipos.invalid && (id_equipos.dirty || id_equipos.touched) }">
                             <option value="" disabled selected>Select an option</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
                         </select>
-                        <div *ngIf="equipo && equipo.invalid && (equipo.dirty || equipo.touched)">
-                            <div *ngIf="equipo.errors?.['required']">Selecciona un equipo.</div>
+                        <div *ngIf="id_equipos && id_equipos.invalid && (id_equipos.dirty || id_equipos.touched)">
+                            <div *ngIf="id_equipos.errors?.['required']">Selecciona un id_equipos.</div>
                         </div>
-                        <!-- selector de archivos -->
-                        <label for="archivo">Archivo:</label>
-                        <input type="file" formControlName="archivo" class="form-control"
-                            [ngClass]="{ 'error-input': archivo && archivo.invalid && (archivo.dirty || archivo.touched) }">
-                        <div *ngIf="archivo && archivo.invalid && (archivo.dirty || archivo.touched)">
-                            <div *ngIf="archivo.errors?.['required']">Selecciona un archivo.</div>
+                        <!-- selector de imgJugadors -->
+                        <label for="imgJugador">imgJugador:</label>
+                        <input type="file" formControlName="imgJugador" class="form-control"
+                            [ngClass]="{ 'error-input': imgJugador && imgJugador.invalid && (imgJugador.dirty || imgJugador.touched) }">
+                        <div *ngIf="imgJugador && imgJugador.invalid && (imgJugador.dirty || imgJugador.touched)">
+                            <div *ngIf="imgJugador.errors?.['required']">Selecciona un imgJugador.</div>
                         </div>
                     </form>
                 </div>
@@ -88,24 +76,24 @@
             <div *ngIf="nombre.errors?.['pattern']">Solo se permiten letras y espacios.</div>
         </div>
         <!-- apellido Paterno -->
-        <label for="apellidoPaterno">Apellido Paterno:</label>
-        <input id="apellidoPaterno" type="text" formControlName="apellidoPaterno" class="form-control"
-            [ngClass]="{ 'error-input': apellidoPaterno && apellidoPaterno.invalid && (apellidoPaterno.dirty || apellidoPaterno.touched) }">
+        <label for="apellidoP">Apellido Paterno:</label>
+        <input id="apellidoP" type="text" formControlName="apellidoP" class="form-control"
+            [ngClass]="{ 'error-input': apellidoP && apellidoP.invalid && (apellidoP.dirty || apellidoP.touched) }">
 
         <div
-            *ngIf="apellidoPaterno && apellidoPaterno.invalid && (apellidoPaterno.dirty || apellidoPaterno.touched)">
-            <div *ngIf="apellidoPaterno.errors?.['required']">El apellido paterno es obligatorio.</div>
-            <div *ngIf="apellidoPaterno.errors?.['pattern']">Solo se permiten letras y espacios.</div>
+            *ngIf="apellidoP && apellidoP.invalid && (apellidoP.dirty || apellidoP.touched)">
+            <div *ngIf="apellidoP.errors?.['required']">El apellido paterno es obligatorio.</div>
+            <div *ngIf="apellidoP.errors?.['pattern']">Solo se permiten letras y espacios.</div>
         </div>
         <!-- apellido Materno -->
-        <label for="apellidoMaterno">Apellido Materno:</label>
-        <input id="apellidoMaterno" type="text" formControlName="apellidoMaterno" class="form-control"
-            [ngClass]="{ 'error-input': apellidoMaterno && apellidoMaterno.invalid && (apellidoMaterno.dirty || apellidoMaterno.touched) }">
+        <label for="apellidoM">Apellido Materno:</label>
+        <input id="apellidoM" type="text" formControlName="apellidoM" class="form-control"
+            [ngClass]="{ 'error-input': apellidoM && apellidoM.invalid && (apellidoM.dirty || apellidoM.touched) }">
 
         <div
-            *ngIf="apellidoMaterno && apellidoMaterno.invalid && (apellidoMaterno.dirty || apellidoMaterno.touched)">
-            <div *ngIf="apellidoMaterno.errors?.['required']">El apellido materno es obligatorio.</div>
-            <div *ngIf="apellidoMaterno.errors?.['pattern']">Solo se permiten letras y espacios.</div>
+            *ngIf="apellidoM && apellidoM.invalid && (apellidoM.dirty || apellidoM.touched)">
+            <div *ngIf="apellidoM.errors?.['required']">El apellido materno es obligatorio.</div>
+            <div *ngIf="apellidoM.errors?.['pattern']">Solo se permiten letras y espacios.</div>
         </div>
         <!-- genero -->
         <label for="genero">Género:</label>
@@ -113,12 +101,12 @@
             <option value="masculino">Masculino</option>
             <option value="femenino">Femenino</option>
         </select>
-        <!-- fecha -->
-        <label for="fecha">fecha:</label>
-        <input type="date" id="nacimiento" formControlName="fecha" class="form-control" formControlName="fecha"
-            [ngClass]="{ 'error-input': fecha && fecha.invalid && (fecha.dirty || fecha.touched) }">
-        <div *ngIf="fecha && fecha.invalid && (fecha.dirty || fecha.touched)">
-            <div *ngIf="fecha.errors?.['required']">La fecha de nacimiento es obligatoria.</div>
+        <!-- nacimientoFecha -->
+        <label for="nacimientoFecha">nacimientoFecha:</label>
+        <input type="date" id="nacimiento" formControlName="nacimientoFecha" class="form-control" formControlName="nacimientoFecha"
+            [ngClass]="{ 'error-input': nacimientoFecha && nacimientoFecha.invalid && (nacimientoFecha.dirty || nacimientoFecha.touched) }">
+        <div *ngIf="nacimientoFecha && nacimientoFecha.invalid && (nacimientoFecha.dirty || nacimientoFecha.touched)">
+            <div *ngIf="nacimientoFecha.errors?.['required']">La nacimientoFecha de nacimiento es obligatoria.</div>
         </div>
         <!-- Curp -->
         <label for="curp">CURP:</label>
@@ -126,7 +114,7 @@
             [ngClass]="{ 'error-input': curp && curp.invalid && (curp.dirty || curp.touched) }">
         <div *ngIf="curp && curp.invalid && (curp.dirty || curp.touched)">
             <div *ngIf="curp.errors?.['required']">La curp es obligatoria.</div>
-            <div *ngIf="curp.errors?.['pattern']">Solo se permiten letras y numeros.</div>
+            <div *ngIf="curp.errors?.['pattern']">Solo se permiten letras y numeroExternos.</div>
         </div>
     </form>
 </div>
@@ -151,12 +139,12 @@
             <div *ngIf="calle.errors?.['required']">La calle es obligatoria.</div>
         </div>
         <!--  -->
-        <label for="numero">Número:</label>
-        <input type="number" id="numero" formControlName="numero" class="form-control"
-            [ngClass]="{ 'error-input': numero && numero.invalid && (numero.dirty || numero.touched) }">
-        <div *ngIf="numero && numero.invalid && (numero.dirty || numero.touched)">
-            <div *ngIf="numero.errors?.['required']">El numero es obligatorio.</div>
-            <div *ngIf="numero.errors?.['pattern']">Solo se permiten numeros.</div>
+        <label for="numeroExterno">Número:</label>
+        <input type="number" id="numeroExterno" formControlName="numeroExterno" class="form-control"
+            [ngClass]="{ 'error-input': numeroExterno && numeroExterno.invalid && (numeroExterno.dirty || numeroExterno.touched) }">
+        <div *ngIf="numeroExterno && numeroExterno.invalid && (numeroExterno.dirty || numeroExterno.touched)">
+            <div *ngIf="numeroExterno.errors?.['required']">El numeroExterno es obligatorio.</div>
+            <div *ngIf="numeroExterno.errors?.['pattern']">Solo se permiten numeroExternos.</div>
         </div>
         <!--  -->
         <label for="colonia">Colonia:</label>
@@ -174,8 +162,8 @@
             <div *ngIf="ciudad.errors?.['required']">La ciudad es obligatoria.</div>
         </div>
         <!--  -->
-        <label for="codigoPostal">Código Postal:</label>
-        <input type="number" id="codigoPostal" formControlName="codigoPostal" class="form-control"
+        <label for="cp">Código Postal:</label>
+        <input type="number" id="cp" formControlName="cp" class="form-control"
             [ngClass]="{ 'error-input': codigo && codigo.invalid && (codigo.dirty || codigo.touched) }">
         <div *ngIf="codigo && codigo.invalid && (codigo.dirty || codigo.touched)">
             <div *ngIf="codigo.errors?.['required']">El codigo postal es obligatorio.</div>

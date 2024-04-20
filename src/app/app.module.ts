@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 //Rutas
 import { app_routing } from './app.routes';
 import { HomeComponent } from './components/home/home.component';
+import { CardsUtilsComponent } from './components/cards-utils/cards-utils.component';
 import { TablasComponent } from './components/tablas/tablas.component';
 import { PonyComponent } from './components/categorias/pony/pony.component';
 import { MiniponyComponent } from './components/categorias/minipony/minipony.component';
@@ -68,7 +69,7 @@ import { ModalPartidosEvaluarporraComponent } from './components/Admin/login-adm
 import { ModalEditarInfoequiposComponent } from './components/Admin/login-admin/admin-roldejuego/utils-roldejuego/modal-editar-infoequipos/modal-editar-infoequipos.component';
 import { ModalEliminarTorneoComponent } from './components/Admin/login-admin/admin-roldejuego/utils-roldejuego/modal-eliminar-torneo/modal-eliminar-torneo.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { AuthService } from './service/authService.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -134,6 +135,7 @@ import { HttpClientModule } from '@angular/common/http';
     ModalPartidosEvaluarporraComponent,
     ModalEditarInfoequiposComponent,
     ModalEliminarTorneoComponent,
+    CardsUtilsComponent,
 //----------------
 
   ],
@@ -142,10 +144,10 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule, // Agrega FormsModule aquí
     ReactiveFormsModule, // Agrega ReactiveFormsModule si lo necesitas
     HttpClientModule,
-    
     app_routing
   ],
-  providers: [HttpClientModule ],
+  providers: [AuthService,    
+    HttpClientModule ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

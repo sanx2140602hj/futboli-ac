@@ -12,7 +12,19 @@
         <div class="search-wrapper">
             <input type="text" [(ngModel)]="searchTerm" class="search-input" placeholder="Buscar Categorías...">
 <!--             <button class="custom-button2">Buscar</button>
- -->        </div>
+ -->      <!--    <div class="search-container">
+            <div class="search-wrapper">
+                <input type="text" class="search-input" placeholder="Buscar...">
+                <select id="id_equipos" class="custom-button" placeholder="Tipo">
+                    <option value="" disabled selected hidden>Tipo</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <button class="custom-button2">Buscar</button>
+            </div>
+        </div> -->     </div>
     </div>
 
     <div class="orden-container">
@@ -32,10 +44,10 @@
         <div>
         <div class="card" routerLink="/card-jugador" *ngFor="let jugador of jugadores | filter: searchTerm">
             <div class="">
-              <img src="../../../../../assets/imagenes/Admin/img(3).png" alt="categorías">
+              <img src="../../../../../assets/Imagenes/Admin/img(3).png" alt="categorías">
               <hr>
-              <h3>{{ jugador.nombre }}</h3>
-              <p>{{ jugador.id }}</p>
+              <h3 style="text-align: center;">{{ jugador.nombre }} {{jugador.apellidoP}} {{jugador.apellidoM}}</h3>
+              <p>Folio: <b>{{ jugador.folio }}</b></p>
             </div>
         </div>
     </div>

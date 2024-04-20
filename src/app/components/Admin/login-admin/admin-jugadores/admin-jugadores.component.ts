@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-admin-jugadores',
@@ -6,22 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-jugadores.component.css']
 })
 export class AdminJugadoresComponent implements OnInit {
-  jugadores = [
-    { id: 1, nombre: 'deadpool' },
-    { id: 2, nombre: '2' },
-    { id: 3, nombre: '3' },
-    { id: 4, nombre: '4' },
-    { id: 5, nombre: '5' },
-    { id: 6, nombre: '6' },
-
-    // Puedes agregar más jugadores aquí si lo deseas
-  ];
+  jugadores: any[] = [];
   nuevoJugadorNombre: string = '';
   searchTerm: string = ''; // Agrega la propiedad searchTerm aquí
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.fetchGETjugadores();
+
   }
 
   agregarJugador() {
@@ -29,6 +23,29 @@ export class AdminJugadoresComponent implements OnInit {
       this.jugadores.push({ id: this.jugadores.length + 1, nombre: this.nuevoJugadorNombre });
       this.nuevoJugadorNombre = ''; // Limpiar el campo después de agregar un jugador
     }
+  }
+  fetchGETjugadores() {
+    this.http
+      .get<any[]>('http://localhost:3000/jugadores/receive')
+      .subscribe(
+        (data) => {
+          if (Array.isArray(data)) {
+
+              this.jugadores = data;
+              console.log(this.jugadores)
+            
+          } else {
+            console.error(
+              'La respuesta del servidor no contiene un array de equipos:',
+              data
+            );
+          }
+        },
+        (error) => {
+          console.error('Error en la solicitud:', error);
+          // Aquí puedes agregar código para manejar el error, como mostrar un mensaje al usuario
+        }
+      );
   }
 
 }
