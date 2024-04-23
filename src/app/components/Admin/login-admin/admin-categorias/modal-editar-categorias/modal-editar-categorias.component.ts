@@ -57,7 +57,6 @@ export class ModalEditarCategoriasComponent implements OnInit {
 
   async categoriaGuardar() {
     const editarCategoria = this.miFormulario.get('editarCategoria');
-
     const edadMin = this.miFormulario.get('edadMin');
     const edadMax = this.miFormulario.get('edadMax');
     if (
@@ -74,7 +73,7 @@ export class ModalEditarCategoriasComponent implements OnInit {
       //es decir que el renga actual es de 15 a 16 por ejemplo siendo un año en el rango de edades.
       if (editarCategoria && editarCategoria.valid && edadMax && edadMin) {
         this.dateCategoria = {
-          nombre: editarCategoria.value,
+          editarCategoria: editarCategoria.value,
           edadMin: edadMin.value,
           edadMax: edadMax.value,
         };
@@ -89,13 +88,10 @@ export class ModalEditarCategoriasComponent implements OnInit {
         console.log('Editar de la categoría con ID:', this.categoryId);
         this.onCloseModal.emit();
         /* ------------------------------- */
-
         // Convertir el objeto dateCategoria a JSON
         const id = this.categoryId;
-
         const dataParaEnviar = JSON.stringify(this.dateCategoria);
         const IDprueba = JSON.stringify(id);
-
         // Utilizar fetch para enviar los datos
         fetch(`http://localhost:3000/categorias/replace/all/${IDprueba}`, {
           method: 'PUT',
@@ -119,7 +115,6 @@ export class ModalEditarCategoriasComponent implements OnInit {
             console.error('Error en la solicitud:', error);
             // Aquí puedes agregar la lógica para manejar el error
           });
-
         // Mostrar SweetAlert2 si se guardó correctamente
         Swal.fire({
           position: 'top-end',
@@ -135,7 +130,6 @@ export class ModalEditarCategoriasComponent implements OnInit {
         'Error: No se puede guardar la categoría debido a errores en el formulario'
         
       );
-
       // Mostrar SweetAlert2 si la operación no se realizó correctamente
       Swal.fire({
         position: 'top-end',
@@ -147,6 +141,7 @@ export class ModalEditarCategoriasComponent implements OnInit {
       });
     }
   }
+
 
   closeModal() {
     console.log('Modal de edición cerrado');
