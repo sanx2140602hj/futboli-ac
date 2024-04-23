@@ -115,6 +115,7 @@ export class EquiposUtilsComponent implements OnInit {
 
   tecDir: any[] = [];
   rolEquipos: any[] = [];
+  getjugadores: any[] = [];
   searchTerm: string = '';
   idEQuiposRol: any;
   equiposUtilsSelectionService: any; 
@@ -133,6 +134,8 @@ export class EquiposUtilsComponent implements OnInit {
     this.selectedTeamId = this.TeamSelectionService.getSelectedId();
     console.log('ID del equipo seleccionado:', this.selectedTeamId);
     this.fetchGETequipos();
+    this.fetchGETjugadores();
+    
     //para exportar el equipo.id_cuadro_tecnico
 
     this.idSeleccionado = this.equiposUtilsSelectionService.getequiposUtilsId();
@@ -240,6 +243,7 @@ private resaltarFilaSeleccionada(row: HTMLElement) {
             this.tecDir = data;
             // Obtener el ID del equipo seleccionado
             this.idEQuiposRol = this.selectedTeamId;
+            console.log('equipos sin orden: ', this.tecDir)
             console.log('Valor de id_rolUsuario:', this.idEQuiposRol);
             // Llamar a fetchGETtiposroles() solo después de que this.idEQuiposRol se haya asignado
             this.fetchGETtiposroles(); 
@@ -275,6 +279,61 @@ private resaltarFilaSeleccionada(row: HTMLElement) {
       );
   }
   
+  categoriasEdades() {
+    this.http
+      .get<any[]>(`http://localhost:3000/equipos/receive/tecnicos/${this.idEQuiposRol}`)
+      .subscribe(
+        (response) => {
+          if (Array.isArray(response) && response.length > 0) {
+            // Si la respuesta es un array con al menos un elemento
+            this.rolEquipos = response; // Asignamos la respuesta a la propiedad rolEquipos
+            console.log(this.rolEquipos);
+          } else {
+            console.error('La respuesta del servidor no contiene un array de equipos:', response);
+          }
+        },
+        (error) => {
+          console.error('Error en la solicitud:', error);
+          // Aquí puedes agregar código para manejar el error, como mostrar un mensaje al usuario
+        }
+      );
+  }
+  /* select de tablas jugadores ZSZ */
+  fetchGETjugadores() {
+    this.http
+      .get<any[]>(`http://localhost:3000/equipos/receive/comparar/category/${this.selectedTeamId}`)
+      .subscribe(
+        (data) => {
+          if (Array.isArray(data)) {
+
+              this.getjugadores = data;
+              console.log("Datos de Getjugadores",this.getjugadores)
+            
+          } else {
+            console.error(
+              'La respuesta del servidor no contiene un array de equipos:',
+              data
+            );
+          }
+        },
+        (error) => {
+          console.error('Error en la solicitud:', error);
+          // Aquí puedes agregar código para manejar el error, como mostrar un mensaje al usuario
+        }
+      );
+  }
+
+  jugadoresSeleccionados: any[] = [];
   
-  
+  agregarJugador(jugador: any) {
+    this.jugadoresSeleccionados.push(jugador);
+  }
+  eliminarJugador(jugador: any) {
+    const index = this.jugadoresSeleccionados.indexOf(jugador);
+    if (index !== -1) {
+        this.jugadoresSeleccionados.splice(index, 1);
+    }
+}
+
+
 }
