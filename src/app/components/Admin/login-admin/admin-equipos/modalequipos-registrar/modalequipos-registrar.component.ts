@@ -22,18 +22,20 @@ export class ModalequiposRegistrarComponent{
   }
 
   ngOnInit() {
-    // Realizar la solicitud GET para obtener los datos de la tabla categorias
-    this.http.get<any[]>('http://localhost:3000/categorias/receive').subscribe(
-      (data) => {
-        console.log('Datos de la tabla categorias:', data);
-        this.categorias = data;
-      },
-      (error) => {
-        console.error('Error en la solicitud:', error);
-      }
-    );
+this.getCategorias();
   }
-
+getCategorias(){
+      // Realizar la solicitud GET para obtener los datos de la tabla categorias
+      this.http.get<any[]>('http://localhost:3000/categorias/receive').subscribe(
+        (data) => {
+          console.log('Datos de la tabla categorias:', data);
+          this.categorias = data;
+        },
+        (error) => {
+          console.error('Error en la solicitud:', error);
+        }
+      );
+}
 
   get nuevoEquipo() {
     return this.miFormulario.get('nuevoEquipo');

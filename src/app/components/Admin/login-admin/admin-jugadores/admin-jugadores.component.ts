@@ -26,6 +26,8 @@ export class AdminJugadoresComponent implements OnInit {
       this.jugadores.push({ id: this.jugadores.length + 1, nombre: this.nuevoJugadorNombre });
       this.nuevoJugadorNombre = ''; // Limpiar el campo después de agregar un jugador
     }
+    this.ngOnInit();
+
   }/* 20/04/2024 */
   /* ⚠️⚠️⚠️No se que hace o porque existe 
   el codigo, pero si se borra no se pueden 
@@ -57,7 +59,10 @@ export class AdminJugadoresComponent implements OnInit {
   seleccionarTorneo(id: number) {
     console.log("Vamos enviar el id: ", id)
     this.jugadorSelectionService.setSelectedId(id);
+    this.ngOnInit();
+
   }
+
 
 
 }

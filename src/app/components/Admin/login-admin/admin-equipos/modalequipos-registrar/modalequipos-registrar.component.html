@@ -18,9 +18,11 @@
                     <div *ngIf="nuevoEquipo.errors?.['pattern']">Solo se permiten letras, números y espacios.</div>
                 </div>
                 <h5 style="margin-top: 1rem; margin-bottom: 1rem;">Selecciona una categoria para associar este equipo</h5>
+                
+                
                 <select formControlName="categoria" class="category-input"
                 [ngClass]="{ 'error-input': miFormulario.get('categoria')?.invalid && (miFormulario.get('categoria')?.dirty || miFormulario.get('categoria')?.touched) }">
-              <option value="" disabled selected>Seleccione una categoría</option>
+                <option value="" disabled selected>Seleccione una categoría</option>
               <option *ngFor="let categoria of categorias" [value]="categoria.id">{{ categoria.nombre }}</option>
             </select>
             <div *ngIf="miFormulario.get('categoria')?.invalid && (miFormulario.get('categoria')?.dirty || miFormulario.get('categoria')?.touched)">

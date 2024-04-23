@@ -2,39 +2,53 @@
     <app-sidebar></app-sidebar>
 </div>
 <nav class="navbar just fixed-navbar">
-    <h1>
-        <i class="fas fa-user"></i> Jugadores
-    </h1>
+    <h1><i class="fas fa-user"></i> Jugadores</h1>
 </nav>
 
 <div class="content">
     <div class="search-container">
         <div class="search-wrapper">
-            <input type="text" [(ngModel)]="searchTerm" class="search-input" placeholder="Buscar Categorías...">
+            <input type="text" [(ngModel)]="searchTerm" class="search-input" placeholder="Buscar Categorías..." />
             <!--             <button class="custom-button2">Buscar</button>
  -->
         </div>
     </div>
 
     <div class="orden-container">
-        <div class="search-wrapper">
-
-        </div>
+        <div class="search-wrapper"></div>
     </div>
-    <hr>
+    <hr />
     <button class="custom-button" routerLink="/Admin-RegistroJugador">
         <i class="far fa-address-book"></i> Registrar jugador
     </button>
-    <div></div>
-            <div class="card" routerLink="/card-jugador" *ngFor="let jugador of jugadores | filter: searchTerm">
-                <div (click)="seleccionarTorneo(jugador.id)" >
-                    <img src="../../../../../assets/Imagenes/Admin/img(3).png" alt="categorías">
-                    <hr>
-                    <h3 style="text-align: center;">{{ jugador.nombre }} {{jugador.apellidoP}} {{jugador.apellidoM}}
-                    </h3>
-                    <p>Folio: <b>{{ jugador.folio }}</b></p>
+
+<!--     <div class="card" routerLink="/card-jugador" *ngFor="let jugador of jugadores | filter : searchTerm">
+        <div (click)="seleccionarTorneo(jugador.id)">
+            <img src="../../../../../assets/Imagenes/Admin/img(3).png" alt="categorías" />
+            <hr />
+            <h3 style="text-align: center">
+                {{ jugador.nombre }} {{ jugador.apellidoP }} {{ jugador.apellidoM }}
+            </h3>
+            <p>
+                Folio: <b>{{ jugador.folio }}</b>
+            </p>
+        </div>
+    </div> -->
+    <div class="container anim" >
+        <div class="row row-cols-1 row-cols-md-3 g-4" >
+            <div class="col card" *ngFor="let jugador of jugadores">
+                <div style="display: flex;">
+
+                    <button routerLink="/card-jugador" ><img src="../../../assets/Imagenes/A.png" class="card-img-top" alt="..."></button>
+                    <div class=" h-100" (click)="seleccionarTorneo(jugador.id)">
+                        <h6 style="text-align: center; margin-top: 0.9rem; margin-bottom: 1rem;"><b>Jugador:</b>   {{ jugador.nombre }} {{ jugador.apellidoP }} {{ jugador.apellidoM }}</h6>
+                    <h6>
+                        Folio: <b>{{ jugador.folio }}</b>
+                    </h6>
                 </div>
             </div>
-
-          
+            </div>
+    
+        </div>
+    </div>
 </div>

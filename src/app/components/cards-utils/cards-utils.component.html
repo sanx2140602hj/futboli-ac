@@ -2,74 +2,18 @@
     <app-navbar></app-navbar>
   </div>
   <div>
-  <div class="container anim">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
+  <div class="container anim" >
+    <div class="row row-cols-1 row-cols-md-3 g-4" >
+        <div class="col" *ngFor="let categorias of categorias">
             <div class="card h-100">
-                <button routerLink="/Categoria-Pony" ><img src="../../../assets/Imagenes/A.png" class="card-img-top" alt="..."></button>
-                <h6 style="text-align: center; margin-top: 0.9rem; margin-bottom: 1rem;"><b>Categotia:</b>  Categoria-Pony  </h6>
+                <button routerLink="/Utils-Categoria" (click)="publicCATEGORIAS(categorias.id)" ><img src="../../../assets/Imagenes/A.png" class="card-img-top" alt="..."></button>
+                <h6 style="text-align: center; margin-top: 0.9rem; margin-bottom: 1rem;"><b>Categotia:</b>  {{categorias.nombre }} - {{categorias.id}}</h6>
             </div>
         </div>
-        <div class="col">
-            <div class="card h-100">
-                <button  routerLink="/Categoria-Minipony"><img src="../../../assets/Imagenes/A.png" class="card-img-top" alt="..."></button>
-                <h6 style="text-align: center; margin-top: 0.9rem; margin-bottom: 1rem;"><b>Categotia:</b>  Categoria-Minipony  </h6>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <button  routerLink="/Categoria-Biberones"><img src="../../../assets/Imagenes/A.png" class="card-img-top" alt="..."></button>
-                <h6 style="text-align: center; margin-top: 0.9rem; margin-bottom: 1rem;"><b>Categotia:</b>  Categoria-Biberones  </h6>
-            </div>
-        </div>
+
     </div>
 </div>
 
-<div class="container anim">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
-            <div class="card h-100">
-                <button  routerLink="/Categoria-Prescolar"><img src="../../../assets/Imagenes/A.png" class="card-img-top" alt="..."></button>
-                <h6 style="text-align: center; margin-top: 0.9rem; margin-bottom: 1rem;"><b>Categotia:</b> Categoria-Prescolar   </h6>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <button routerLink="/Categoria-Infantil"><img src="../../../assets/Imagenes/A.png" class="card-img-top" alt="..."></button>
-                <h6 style="text-align: center; margin-top: 0.9rem; margin-bottom: 1rem;"><b>Categotia:</b>  Categoria-Infantil  </h6>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <button  routerLink="/Categoria-Sub-12"><img src="../../../assets/Imagenes/A.png" class="card-img-top" alt="..."></button>
-                <h6 style="text-align: center; margin-top: 0.9rem; margin-bottom: 1rem;"><b>Categotia:</b>  Categoria-Sub-12  </h6>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container anim">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
-            <div class="card h-100">
-                <button  routerLink="/Categoria-Sub-13"><img src="../../../assets/Imagenes/A.png" class="card-img-top" alt="..."></button>
-                <h6 style="text-align: center; margin-top: 0.9rem; margin-bottom: 1rem;"><b>Categotia:</b>  Categoria-Sub-13  </h6>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <button  routerLink="/Categoria-Sub-15"><img src="../../../assets/Imagenes/A.png" class="card-img-top" alt="..."></button>
-                <h6 style="text-align: center; margin-top: 0.9rem; margin-bottom: 1rem;"><b>Categotia:</b>   Categoria-Sub-15 </h6>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <button  routerLink="/Categoria-Sub-17"><img src="../../../assets/Imagenes/A.png" class="card-img-top" alt="..."></button>
-                <h6 style="text-align: center; margin-top: 0.9rem; margin-bottom: 1rem;"><b>Categotia:</b>  Categoria-Sub-17  </h6>
-            </div>
-        </div>
-    </div>
-</div>
 </div>
 <div class="footer2 ">
     <app-footer></app-footer>

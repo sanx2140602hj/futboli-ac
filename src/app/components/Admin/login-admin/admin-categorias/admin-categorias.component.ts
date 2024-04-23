@@ -17,23 +17,24 @@ export class AdminCategoriasComponent implements OnInit {
   selectedRow: HTMLElement | null = null; // Variable para almacenar la fila seleccionada
   categoryId: number | null = null; // Nueva variable para almacenar el ID de la categoría para el modal de edición
 
-  constructor(private http: HttpClient, private categoriaSelectionService: CategoriaSelectionService) {}
-
+  constructor(
+    private http: HttpClient,
+    private categoriaSelectionService: CategoriaSelectionService
+  ) {}
 
   ngOnInit() {
-    // Realizar la solicitud GET para obtener los datos de la tabla categorias
-    this.http.get<any[]>('http://localhost:3000/categorias/receive').subscribe(
-      (data) => {
-        console.log('Datos de la tabla categorias:', data);
-        this.categorias = data;
-      },
-      (error) => {
-        console.error('Error en la solicitud:', error);
-      }
-    );
-    
+this.GetparaTabla();
   }
-
+GetparaTabla(){    // Realizar la solicitud GET para obtener los datos de la tabla categorias
+  this.http.get<any[]>('http://localhost:3000/categorias/receive').subscribe(
+    (data) => {
+      console.log('Datos de la tabla categorias:', data);
+      this.categorias = data;
+    },
+    (error) => {
+      console.error('Error en la solicitud:', error);
+    }
+  );}
   seleccionarCategoria(id: number, row: EventTarget | null) {
     if (row instanceof HTMLElement) {
       this.selectedCategoryId = id; // Almacena el ID de la categoría seleccionada
@@ -64,26 +65,32 @@ export class AdminCategoriasComponent implements OnInit {
   closeModal() {
     console.log('Modal cerrado'); // ⚠️ Se muestra un log en la consola
     this.showModal = false; // ⚠️ Se establece en false para ocultar el modal
+    this.GetparaTabla();
+
   }
   /* ------------------------------------------------ */
   showEditarModal = false;
 
-openEditarModal() {
-  console.log('Modal de edición abierto');
-  console.log(this.selectedCategoryId);
-  if (this.selectedCategoryId !== null) {
-          //⭐⭐⭐🦖🦖🦖
-    this.showEditarModal = true;
-          //⭐⭐⭐🦖🦖🦖
-    this.categoryId = this.selectedCategoryId; // Asignar el ID de la categoría a la nueva variable
-  } else {
-    console.error('Error: No se ha seleccionado ninguna categoría para editar');
+  openEditarModal() {
+    console.log('Modal de edición abierto');
+    console.log(this.selectedCategoryId);
+    if (this.selectedCategoryId !== null) {
+      //⭐⭐⭐🦖🦖🦖
+      this.showEditarModal = true;
+      //⭐⭐⭐🦖🦖🦖
+      this.categoryId = this.selectedCategoryId; // Asignar el ID de la categoría a la nueva variable
+    } else {
+      console.error(
+        'Error: No se ha seleccionado ninguna categoría para editar'
+      );
+    }
   }
-}
 
   closeEditarModal() {
     console.log('Modal de edición cerrado');
     this.showEditarModal = false;
+    this.GetparaTabla();
+
   }
   /* ---------------------------------------------------- */
   showEliminarModal = false;
@@ -97,13 +104,18 @@ openEditarModal() {
       //⭐⭐⭐🦖🦖🦖
       this.categoryId = this.selectedCategoryId; // Asignar el ID de la categoría a la nueva variable
     } else {
-      console.error('Error: No se ha seleccionado ninguna categoría para editar');
+      console.error(
+        'Error: No se ha seleccionado ninguna categoría para editar'
+      );
     }
+    this.GetparaTabla();
   }
 
   closeEliminarModal() {
     console.log('Modal de eliminación cerrado');
     this.showEliminarModal = false;
+    this.GetparaTabla();
+
   }
 
   /* -------------------------------- */
@@ -115,17 +127,21 @@ openEditarModal() {
     console.log('Modal de edición abierto');
     console.log(this.selectedCategoryId);
     if (this.selectedCategoryId !== null) {
-            //⭐⭐⭐🦖🦖🦖
+      //⭐⭐⭐🦖🦖🦖
       this.showDescripcionModal = true;
-            //⭐⭐⭐🦖🦖🦖
+      //⭐⭐⭐🦖🦖🦖
       this.categoryId = this.selectedCategoryId; // Asignar el ID de la categoría a la nueva variable
     } else {
-      console.error('Error: No se ha seleccionado ninguna categoría para editar');
+      console.error(
+        'Error: No se ha seleccionado ninguna categoría para editar'
+      );
     }
   }
   // Método para cerrar el modal de descripción
   closeDescripcionModal() {
     console.log('Modal de descripción cerrado');
     this.showDescripcionModal = false;
+    this.GetparaTabla();
+
   }
 }

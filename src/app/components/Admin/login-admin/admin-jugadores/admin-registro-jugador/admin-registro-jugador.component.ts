@@ -12,6 +12,7 @@ export class AdminRegistroJugadorComponent implements OnInit {
   //formularioTotal
   miFormularioTotal: FormGroup;
   Total: any;
+  equipos: any[] = [];
 
   @Output() onCloseModal = new EventEmitter<void>();
 
@@ -44,8 +45,25 @@ export class AdminRegistroJugadorComponent implements OnInit {
   }
 
 
-  ngOnInit(): void {}
-
+  ngOnInit() {
+    this.fetchGETequipos();
+  }
+  fetchGETequipos()
+  {
+    this.http.get<any[]>('http://localhost:3000/equipos/receive').subscribe(
+      (data) => {
+          if (Array.isArray(data)) {
+              this.equipos = data;
+          } else {
+              console.error('La respuesta del servidor no contiene un array de equipos:', data);
+          }
+      },
+      (error) => {
+          console.error('Error en la solicitud:', error);
+          // Aquí puedes agregar código para manejar el error, como mostrar un mensaje al usuario
+      }
+  );
+  }
   /* ------------------------------------------- */
 // #region Mi segunda sección
   /* Identifiacion */

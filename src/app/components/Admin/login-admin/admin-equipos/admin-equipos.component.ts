@@ -82,6 +82,7 @@ getCategoriaNombre(idCategoria: number): string {
 
   closeRegistrarModal() {
     this.showRegistrarModal = false;
+    this.ngOnInit();
   }
 /* ------------------------------------------ */
 openEditarModal() {
@@ -98,6 +99,8 @@ openEditarModal() {
 
   closeEditarModal() {
     this.showEditarModal = false;
+    this.ngOnInit();
+
   }
   /* ------------------------------------- */
   openEliminarModal(){
@@ -112,6 +115,8 @@ openEditarModal() {
   }
   closeEliminarModal(){
     this.showEliminarModal = false;
+    this.ngOnInit();
+
   }
 fetchGETequipos()
 {

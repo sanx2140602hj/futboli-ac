@@ -1,7 +1,9 @@
 .top {
-    margin-top: 22rem;
+    margin-top: 24rem;
 }
-
+.abajo{
+    margin-bottom: 5rem;
+}
 .container {
     text-align: center;
     margin-bottom: 11.5rem;

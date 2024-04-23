@@ -45,17 +45,29 @@
                         </div>
                         <!-- selector de id_equiposs -->
                         <label for="id_equipos">id_equipos:</label>
+                       
+                       
+                       
                         <select id="id_equipos" formControlName="id_equipos" class="form-control"
                             [ngClass]="{ 'error-input': id_equipos && id_equipos.invalid && (id_equipos.dirty || id_equipos.touched) }">
                             <option value="" disabled selected>Select an option</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
+                            <option *ngFor="let equipos of equipos" [value]="equipos.id"> {{equipos.nombre}} </option>
+
                         </select>
                         <div *ngIf="id_equipos && id_equipos.invalid && (id_equipos.dirty || id_equipos.touched)">
                             <div *ngIf="id_equipos.errors?.['required']">Selecciona un id_equipos.</div>
                         </div>
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
                         <!-- selector de imgJugadors -->
                         <label for="imgJugador">imgJugador:</label>
                         <input type="file" formControlName="imgJugador" class="form-control"
