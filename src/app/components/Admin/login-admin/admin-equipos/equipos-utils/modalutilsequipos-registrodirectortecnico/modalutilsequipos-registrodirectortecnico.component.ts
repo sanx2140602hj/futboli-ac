@@ -42,10 +42,10 @@ export class ModalutilsequiposRegistrodirectortecnicoComponent implements OnInit
     
         Swal.fire({
           position: "top-end",
-          title: 'Operación no realizada',
-          text: 'usted seleciono: asknoasdas menu desplegar',
-          icon: 'error',
-          showConfirmButton: true
+          title: 'Operación realizada',
+          text: 'Usted ha guardado ' + this.nuevaOpcionValue +' como nuevo cuadro técnico.',
+          icon: 'success',
+          showConfirmButton: false,
         });
       } else {
         console.error('Error: Debe ingresar un valor para la nueva opción.');
@@ -130,17 +130,38 @@ export class ModalutilsequiposRegistrodirectortecnicoComponent implements OnInit
           title: 'Opción agregada con éxito',
           text: `Nueva opción: ${this.nuevaOpcion} menu desplegarble`,
           icon: 'success',
-          showConfirmButton: true
+          showConfirmButton: false,
         });
       return;
     }
 
     Swal.fire({
-      position: "top-end",
-      title: 'Seleccion de otra categoria',
-      text: 'En caso que no desee añadir un nuevo campo cierre todo la venta emergente',
-      icon: 'info',
+      title: "¿Usted ha seleccionado el campo para añadir un nuevo registro de cuadro técnico?",
+      text: "Si es el caso, pulse la opción correspondiente.",
+      icon: "info",
+      showCancelButton: true,
+      confirmButtonColor: "#3088d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Continuar con el registro",
+      cancelButtonText: "Cancelar"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          
+          title: "Añadir nuevo registro", 
+          icon: "success",
+          showConfirmButton: false,
+          timer: 900
+          
+        });
+      } else{
+        this.closeModal();
+      }
+   
+
     });
+
+  
   }
 
   añadirRegistrosRoles(dataParaEnviar: any) {
