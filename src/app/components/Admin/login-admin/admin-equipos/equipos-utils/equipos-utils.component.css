@@ -16,6 +16,30 @@
     border-bottom: 2px solid #011F3A
 }
 
+.derecha {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.close-button {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 0.3rem;
+  color: #288A85;
+  padding: 0.5rem 1rem;
+  margin-right: 1rem;
+}
+
+/* Estilos para el botón de Guardar */
+.save-button {
+  background-color: #288A85;
+  border: 1px solid #288A85;
+  border-radius: 0.3rem;
+  color: white;
+  padding: 0.5rem 1rem;
+}
+
 .top {
     margin-top: 5rem;
 }

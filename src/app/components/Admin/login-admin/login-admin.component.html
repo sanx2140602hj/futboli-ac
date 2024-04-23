@@ -13,22 +13,26 @@
         <div class="bg-gray-300">
           <div>
             <h1 style="color: white; text-align: center">Inicia Sesión</h1>
+
+
             <div>
               <div class="form-floating mb-3">
-                <input type="email" name="email" id="floatingInput" #email class="form-control" placeholder="" required>
-                <label for="floatingInput">Correo electronico</label>
+                <input type="text" name="user" id="floatingInput" [(ngModel)]="user" class="form-control" placeholder="" required>
+                <label for="floatingInput">Usuario</label>
               </div>
               <div class="form-floating">
-                <input type="password" name="password" id="floatingPassword" placeholder=" " #password
-                  class="form-control" required>
+                <input type="password" name="password" id="floatingPassword" [(ngModel)]="password" placeholder=" " class="form-control" required>
                 <label for="floatingPassword" class="text-gray-900">Contraseña</label>
               </div>
-              <p class="text-red mt-2"></p>
+              <p class="text-red mt-2">{{ errorMessage }}</p>
               <!-- Mostrar mensaje de error -->
               <div class="button-container">
-                <button type="button" routerLink="/Admin-Home">Login</button>
+                <button type="button" (click)="login()">Login</button>
               </div>
             </div>
+            
+
+
           </div>
         </div>
       </div>

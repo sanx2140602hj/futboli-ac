@@ -2,9 +2,9 @@
   <app-sidebar></app-sidebar>
 </div>
 <nav class="navbar just fixed-navbar">
-  <h1>
+  <h1 *ngFor="let torneo of getTorneo">
     <i class="fas fa-pencil-alt"></i>
-    Rol de Juegos //utils "[[interpolacionXD]]"
+    Rol de Juegos | {{torneo.nombre}}
     <!-- Agrega la interpolación aquí -->
   </h1>
 </nav>
@@ -17,13 +17,13 @@
   <div>
     <h1 style="text-align: center"><b>Jornadas de partidos</b></h1>
     <div class="secciones">
-      <div class="der">
+      <div class="der" *ngFor="let torneo of getTorneo" > 
         <!-- si es necesario crear una clase para este div hacerlo -->
         <h3><b>Informacion del rol de juego</b></h3>
-        <h4>Nombre del torneo:<u>Ejemplo para editar</u></h4>
+        <h4>Nombre del torneo:<u>{{torneo.nombre}}</u></h4>
         <h4>Categoria a participante: Pony</h4>
-        <h4>Fecha de Inicio:<u>10 / 10 / 2024</u></h4>
-        <h4>Fecha de clausura:<u>10 / 10 / 2024</u></h4>
+        <h4>Fecha de Inicio:<u>{{torneo.fechaInicio| date:'dd/MM/yyyy'}}</u></h4>
+        <h4>Fecha de clausura:<u>{{torneo.fechaFin | date:'dd/MM/yyyy'}}</u></h4>
         <div>
           <button class="custom-button2" (click)="infoOpenModal()">
             <i class="fa-solid fa-pen-to-square"></i> Editar información
@@ -53,107 +53,121 @@
     <div class="izq">
       <div class="card">
         <div class="title-input">
-          <h5><b>Selecciona un equipo:</b></h5>
-          <div class="scroll2">
-            <div
-              *ngFor="
-                let i of [].constructor(cantidadSelects);
-                let index = index
-              "
-            >
-              <select class="search-input" name="equiposParticipantes" required>
+          <h5><b>Equipo participantes:</b></h5>
+          <div class="scroll2" *ngIf="getTeamsofTorneo.length > 0 else noDataEquipos">
+            <div *ngFor="let equipos of getTeamsofTorneo">
+                <ul>
+                    <li>{{equipos.id}}, {{equipos.nombre}}</li>
+                </ul>
+              
+              <!-- <select class="search-input" name="equiposParticipantes" required>
                 <option *ngFor="let equipo of equipos" [value]="equipo">
                   {{ equipo }}
                 </option>
-              </select>
+              </select> -->
+               
             </div>
           </div>
+          
+          <ng-template #noDataEquipos>
+            <li colspan="5">No hay equipos disponibles o que coincidan con el torneo...</li>
+        </ng-template>
+        <button class="save-button" (click)="generarJornadas(getTeamsofTorneo)">Sorteo Aleatorio</button>
         </div>
 
-        <button class="save-button">Sorteo Aleatorio</button>
       </div>
     </div>
     <div class="der">
       <div class="der secciones scroll">
         <div class="der">
-          <div class="card">
-            <h1>Jornada: 1</h1>
-            <hr />
-            <select
-              id="temporadas"
-              class="form-select mb-3"
-              aria-label="Selecciona torneo"
-            >
-              <option selected>Selecciona torneo</option>
-              <option *ngFor="let temporada of temporadas" [value]="temporada">
-                {{ temporada }}
-              </option>
-            </select>
-            <div class="scroll">
-              <table class="table table-bordered">
-                <tbody>
-                  <ng-container
-                    *ngFor="let equipo of equipoTables; let i = index"
-                  >
-                    <tr>
-                      <td>{{ equipo }}</td>
-                      <td>-</td>
-                      <td>0</td>
-                      <td>VS</td>
-                      <td>0</td>
-                      <td>-</td>
-                      <td>{{ equipoTables[(i + 1) % equipoTables.length] }}</td>
-                      <!-- operacion para sumar un equipo -->
-                    </tr>
-                  </ng-container>
-                </tbody>
-              </table>
-            </div>
-            <div class="secciones">
-              <div class="izq">
-                <h1 style="margin-top: 2rem">Descanso:</h1>
-              </div>
-              <div class="der">
+          <!--INICIO DE LA CARD SORTEO-->
+          <div *ngIf="mostrarCardSorteo">
+            <div class="card" *ngFor="let infoJornadas of sorteoJornadasFrontend">
+              <h1>Número de Jornada: {{infoJornadas.numeroJornada}} </h1>
+              <hr />
+              <!-- <select
+                id="temporadas"
+                class="form-select mb-3"
+                aria-label="Selecciona torneo"
+              >
+                <option selected>Selecciona torneo</option>
+                <option *ngFor="let temporada of temporadas" [value]="temporada">
+                  {{ temporada }}
+                </option> 
+              </select>-->
+              <div class="scroll">
                 <table class="table table-bordered">
                   <tbody>
-                    <tr>
-                      <td>Equipo2</td>
-                    </tr>
+                    <ng-container
+                      *ngFor="let partido of infoJornadas.nombresPartidos">
+                      <tr>
+                        <td>{{  partido[0] }}</td>
+                        <td>VS</td>
+                        <td>{{ partido[1] }}</td>
+                        <!-- operacion para sumar un equipo -->
+                      </tr>
+                    </ng-container>
                   </tbody>
                 </table>
               </div>
+              <div class="secciones">
+                <div class="izq">
+                  <h1 style="margin-top: 2rem">Descanso:</h1>
+                </div>
+                <div class="der">
+                  <table class="table table-bordered">
+                    <tbody >
+                      <!-- <tr *ngIf="infoJornadas.nombresPartidos && infoJornadas.nombresPartidos.length > 0 && infoJornadas.nombresPartidos[infoJornadas.nombresPartidos.length - 1][1] === null">
+                        <td>{{ infoJornadas.nombresPartidos[infoJornadas.nombresPartidos.length - 1][0] }}</td> -->
+                        <tr *ngIf="infoJornadas.nombresPartidos[infoJornadas.nombresPartidos.length - 1][1] === null">
+                          <td>{{ infoJornadas.nombresPartidos[infoJornadas.nombresPartidos.length - 1][0] }}</td>
+                    </tr>
+                    
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="der">
-          <div class="card">
-            <select
-              id="temporadas"
-              class="form-select mb-3"
-              aria-label="Selecciona torneo"
-            >
-              <option selected>Selecciona torneo</option>
-              <option value="temp1">Temporada 1</option>
-              <option value="temp2">Temporada 2</option>
-              <option value="temp3">Temporada 3</option>
-              <option value="temp4">Temporada 4</option>
-            </select>
-            <div class="scroll">
-              <table class="table table-bordered">
-                <tbody>
-                  <tr>
-                    <td>Equipo 1</td>
-                    <td>-</td>
-                    <td>0</td>
-                    <td>VS</td>
-                    <td>0</td>
-                    <td>-</td>
-                    <td>Equipo 2</td>
-                  </tr>
-                </tbody>
-              </table>
+          <!--INICIO DE LA CARD BASE DE DATOS-->
+          <div *ngIf="mostrarCardDatabase">
+            <div class="card" *ngFor="let infoJornadas of getJornandasOfData">
+              <h1>Número de Jornada: {{infoJornadas.numeroJornada}} </h1>
+              <hr />
+              <div class="scroll">
+                <table class="table table-bordered">
+                  <tbody>
+                    <ng-container>
+                      <tr>
+                        <td>{{  infoJornadas.id_equipo1 }}</td>
+                        <td>VS</td>
+                        <td>{{ infoJornadas.id_equipo2 }}</td>
+                        <!-- operacion para sumar un equipo -->
+                      </tr>
+                    </ng-container>
+                  </tbody>
+                </table>
+              </div>
+              <div class="secciones">
+                <div class="izq">
+                  <h1 style="margin-top: 2rem">Descanso:</h1>
+                </div>
+                <div class="der">
+                  <table class="table table-bordered">
+                    <tbody >
+                      <!-- <tr *ngIf="infoJornadas.nombresPartidos && infoJornadas.nombresPartidos.length > 0 && infoJornadas.nombresPartidos[infoJornadas.nombresPartidos.length - 1][1] === null">
+                        <td>{{ infoJornadas.nombresPartidos[infoJornadas.nombresPartidos.length - 1][0] }}</td> -->
+                        <tr *ngIf="infoJornadas.id_equipo2 === null">
+                          <td>{{ infoJornadas.id_equipo1 }}</td>
+                    </tr>
+                    
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
+
         </div>
       </div>
       <div
@@ -164,7 +178,7 @@
           margin-right: 20%;
         "
       >
-        <button class="save-button">Guardar Jornadas</button>
+        <button class="save-button" (click)="guardarSorteoJornadas()">Guardar Jornadas</button>
       </div>
     </div>
   </div>

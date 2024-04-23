@@ -95,34 +95,29 @@
                 </tr>
             </thead>
             <tbody>
-                <ng-container *ngIf="jugadores.length > 0; else noData">
-                    <tr *ngFor="let jugadores of jugadores">
-                        <td>{{ jugadores.id }}</td>
-                        <td>{{ jugadores.nombre }}</td>
-                        <td>{{ jugadores.posicion }}</td>
-                        <td>{{ jugadores.partidosJugados }}</td>
-                        <td>{{ jugadores.partidosAusentados }}</td>
-                        <td>{{ jugadores.goles }}</td>
-                        <td>{{ jugadores.tarjetasAmarillas }}</td>
-                        <td>{{ jugadores.tarjetasRojas }}</td>
-
+                <ng-container *ngIf="jugadoresDisponibles.length > 0; else noData">
+                    <tr *ngFor="let jugador of jugadoresDisponibles ">
+                        <td>{{ jugador.id }}</td>
+                        <td>{{ jugador.nombre }}</td>
+                        <td>{{ jugador.posicion }}</td>
+                        <td>{{ jugador.partidosJugados }}</td>
+                        <td>{{ jugador.partidosAusentados }}</td>
+                        <td>{{ jugador.goles }}</td>
+                        <td>{{ jugador.tarjetasAmarillas }}</td>
+                        <td>{{ jugador.tarjetasRojas }}</td>
                         <td>
-                            <!--  -->
                             <button class="button-icon" style="color: blue" (click)="openPresidenteModal()">
                                 <i class="fas fa-edit"></i>
                             </button>
-                            <app-modalutilsequipos-registrodelpresidente *ngIf="showPresidenteModal"
-                                (onCloseModal)="closePresidenteModal()"></app-modalutilsequipos-registrodelpresidente>
-
+                            <app-modalutilsequipos-registrodelpresidente *ngIf="showPresidenteModal" (onCloseModal)="closePresidenteModal()"></app-modalutilsequipos-registrodelpresidente>
                             <button class="button-icon" style="color: red" (click)="openEliminarJugadorModal()">
-                                <i class="fas fa-trash-alt"></i></button><app-modal-eliminarjugadorutils
-                                *ngIf="showEliminarJugadorModal"
-                                (onCloseModal)="closeEliminarJugadorModal()"></app-modal-eliminarjugadorutils>
-
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                            <app-modal-eliminarjugadorutils *ngIf="showEliminarJugadorModal" (onCloseModal)="closeEliminarJugadorModal()"></app-modal-eliminarjugadorutils>
                         </td>
                     </tr>
-                    
                 </ng-container>
+                
                 <ng-template #noData>
                     <tr>
                         <td colspan="4">No se encontraron datos</td>
@@ -152,11 +147,11 @@
                             </thead>
                             <tbody>
                                 <ng-container *ngIf="getjugadores.length > 0; else noData">
-                                    <tr *ngFor="let getjugadores of getjugadores | filter: searchTerm; let i = index">
-                                        <td>{{ getjugadores.id }}</td>
-                                        <td>{{ getjugadores.nombre }}</td>
+                                    <tr *ngFor="let jugadores of jugadoresRangoAprobados let i = index">
+                                        <td>{{ jugadores.id }}</td>
+                                        <td>{{ jugadores.nombre }}</td>
 
-                                        <td> <button type="button" class="custom-button2" (click)="agregarJugador(getjugadores)">
+                                        <td> <button type="button" class="custom-button2" (click)="agregarJugador(jugadores)">
                                                 <i class="fa-solid fa-plus"></i>Añadir
                                             </button></td>
                                     </tr>
@@ -197,12 +192,13 @@
 
                             </tbody>
                         </table>
-                    </div>
-
-
-
-
+                    </div>    
+            
                 </div>
+            </div>
+            <div class="derecha">
+                <button (click)="limpiarJugadoresSeleccionados()" class="close-button">Cancelar</button>
+                <button class="save-button"  (click)="guardarYvalidarJugadores()">Guardar</button>
             </div>
         </div>
     </div>

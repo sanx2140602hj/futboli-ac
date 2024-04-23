@@ -8,9 +8,10 @@ import { AuthService } from '../../../service/authService.service';
   styleUrls: ['./login-admin.component.css']
 })
 export class LoginAdminComponent implements OnInit {
-  email: string = '';
+  user: string = '';
   password: string = '';
   errorMessage: string = '';
+  isLoggedIn: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -18,16 +19,21 @@ export class LoginAdminComponent implements OnInit {
   }
 
   login(): void {
-    this.authService.login(this.email, this.password)
-      .subscribe(response => {
-        // Manejar la respuesta de la API aquí
-        console.log(response);
-        // Redirigir a la página de inicio después del inicio de sesión exitoso
-        this.router.navigate(['/Inicio']);
+    this.authService.login(this.user, this.password)
+      .subscribe(isAuthenticated => {
+        if (isAuthenticated) {
+          // Establecer isLoggedIn a true si el inicio de sesión es exitoso
+          this.isLoggedIn = true;
+          // Redirigir a la página de inicio después del inicio de sesión exitoso
+          this.router.navigate(['/Admin-Home']);
+        } else {
+          // Mostrar mensaje de error si las credenciales son inválidas
+          this.errorMessage = 'Correo electrónico o contraseña incorrectos';
+        }
       }, error => {
         // Manejar errores aquí
         console.error(error);
-        this.errorMessage = 'Correo electrónico o contraseña incorrectos';
+        this.errorMessage = 'Se produjo un error al iniciar sesión';
       });
   }
 }

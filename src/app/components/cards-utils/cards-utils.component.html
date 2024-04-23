@@ -5,8 +5,8 @@
   <div class="container anim" >
     <div class="row row-cols-1 row-cols-md-3 g-4" >
         <div class="col" *ngFor="let categorias of categorias">
-            <div class="card h-100">
-                <button routerLink="/Utils-Categoria" (click)="publicCATEGORIAS(categorias.id)" ><img src="../../../assets/Imagenes/A.png" class="card-img-top" alt="..."></button>
+            <div class="card h-100" routerLink="/Utils-Categoria" (click)="publicCATEGORIAS(categorias.id)">
+                <p><img src="../../../assets/Imagenes/A.png" class="card-img-top" alt="..."></p>
                 <h6 style="text-align: center; margin-top: 0.9rem; margin-bottom: 1rem;"><b>Categotia:</b>  {{categorias.nombre }} - {{categorias.id}}</h6>
             </div>
         </div>
