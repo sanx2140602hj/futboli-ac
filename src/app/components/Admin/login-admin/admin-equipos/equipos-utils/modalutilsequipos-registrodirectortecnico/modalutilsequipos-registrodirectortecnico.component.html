@@ -10,13 +10,12 @@
             <div *ngIf="dirTecControl?.invalid && (dirTecControl.dirty || dirTecControl.touched)" class="error-message">
                 <div *ngIf="dirTecControl.errors?.['pattern']">Solo se permiten letras, números y espacios</div>
             </div>
-            <select id="categoriaParticipar" class="search-input" name="categoriaParticipar" [(ngModel)]="selectedOption" (change)="opcionSeleccionada()">
+            <select id="categoriaParticipar" class="search-input" name="categoriaParticipar" [(ngModel)]="selectedOption" (change)="opcionSeleccionada()" (click)="fetchGETRoles()">
                 <option value="" disabled selected>Selecciona un rol</option>
-                <option value="jefe">jefe</option>
-                <option value="jefe2">jefe2</option>
-                <option value="jefe3">jefe3</option>
+                <option *ngFor="let rol of roles" [value]="rol.id">{{ rol.rol }}</option>
                 <option value="NuevaOpcion">Agregar nueva opción...</option>
-            </select>
+              </select>
+              
             
             <div *ngIf="selectedOption === 'NuevaOpcion'">
                 <input type="text" placeholder="Escriba un nuevo cargo" class="search-input2" [(ngModel)]="nuevaOpcion" name="nuevaOpcion" [formControl]="nuevaOpcionControl">

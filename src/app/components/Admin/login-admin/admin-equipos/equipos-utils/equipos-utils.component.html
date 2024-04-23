@@ -21,13 +21,14 @@
             <i class="fas fa-plus"></i> Añadir
         </button>
         <app-modalutilsequipos-registrodirectortecnico *ngIf="showDirectorModal"
-            (onCloseModal)="closeDirectorModal()"></app-modalutilsequipos-registrodirectortecnico>
+            (onCloseModal)="closeDirectorModal()" ></app-modalutilsequipos-registrodirectortecnico>
     </div>
 
 
-
+<!--     <button (click)="actualizarTabla()">Actualizar Tabla</button>
+ -->
     <!-- --------------------- -->
-    <div class=" scroll table-container">
+    <div class=" scroll table-container" >
         <table class="custom-table ">
             <thead> <!-- ejemplo despues se ara con ng*ngFor="" para hacer la habla automatica-->
                 <tr>
@@ -39,22 +40,23 @@
             </thead>
             <tbody>
                 <ng-container *ngIf="rolEquipos.length > 0; else noData">
-                    <tr *ngFor="let equipo of rolEquipos">
-                      <td>{{ equipo.id }}</td>
-                      <td>{{ equipo.nombre }}</td>
-                      <td>{{ equipo.tiporol }}</td>
+                    <tr *ngFor="let equipo of rolEquipos" (click)="seleccionarUtilsequipo(equipo.id_cuadro_tecnico, $event.currentTarget)">
+                        <td>{{ equipo.id_cuadro_tecnico }}</td>
+                        <td>{{ equipo.nombre_cuadro_tecnico }}</td>
+                        <td>{{ equipo.rol }}</td>
 <!--                         <td>{{ tecDir.cargo }}</td>
  -->
                         <td><span>
-                            <button class="button-icon" style="color: blue;" (click)="openEditarModal()">
+                            <button class="button-icon" style="color: blue;" (click)="openEditarModal(equipo.id_cuadro_tecnico)">
                                 <i class="fas fa-edit"></i>
-                            </button></span>
+                              </button>
+                        </span>
                             <app-modalutilsequipos-editar *ngIf="showEditarModal"
                                 (onCloseModal)="closeEditarModal()"></app-modalutilsequipos-editar>
 <span>
-                            <button class="button-icon" style="color: red;" (click)="openEliminarModal()">
-                                <i class="fas fa-trash-alt"></i>
-                            </button></span>
+    <button class="button-icon" style="color: red;" (click)="openEliminarModal(equipo.id_cuadro_tecnico)">
+        <i class="fas fa-trash-alt"></i>
+      </button> </span>
                             <app-modalutilsequipos-eliminar *ngIf="showEliminarModal"
                                 (onCloseModal)="closeEliminarModal()"></app-modalutilsequipos-eliminar>
 
@@ -101,7 +103,7 @@
                             <button class="button-icon" style="color: blue;" (click)="openPresidenteModal()">
                                 <i class="fas fa-edit"></i>
                             </button> <app-modalutilsequipos-registrodelpresidente *ngIf="showPresidenteModal"
-                                (onCloseModal)="closePresidenteModal()"></app-modalutilsequipos-registrodelpresidente>
+                                (onCloseModal)="closePresidenteModal() " ></app-modalutilsequipos-registrodelpresidente>
 
                             <button class="button-icon" style="color: red;" (click)="openEliminarJugadorModal()">
                                 <i class="fas fa-trash-alt"></i>

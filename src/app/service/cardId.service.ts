@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class JugadorSelectionService {
+  [x: string]: any;
   public jugador: number | null = null;
 
   constructor() { }

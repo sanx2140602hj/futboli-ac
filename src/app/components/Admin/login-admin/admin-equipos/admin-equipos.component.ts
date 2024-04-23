@@ -43,22 +43,7 @@ getCategoriaNombre(idCategoria: number): string {
   return categoria ? categoria.nombre : 'Categoría no encontrada';
 }
 
-/*  */
-/*   seleccionarCategoria(id: number, row: EventTarget | null) {
-    if (row instanceof HTMLElement) {
-      this.selectedTeamId = id; // Almacena el ID de la categoría seleccionada
 
-      // Reinicia el color de fondo de la fila previamente seleccionada
-      if (this.selectedRow) {
-        this.selectedRow.style.backgroundColor = '';
-      }
-      // Aplica el color de fondo a la fila seleccionada
-      row.style.backgroundColor = '#b7c4ff';
-      this.selectedRow = row;
-    }
-
-    this.selectedTeamIdEvent.emit(id);
-  } */
   seleccionarCategoria(id: number, row: EventTarget | null) {
     if (row instanceof HTMLElement) {
       this.selectedTeamId = id; // Almacena el ID de la categoría seleccionada

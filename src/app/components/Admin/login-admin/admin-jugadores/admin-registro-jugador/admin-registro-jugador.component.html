@@ -34,7 +34,7 @@
                 <div class="row">
                     <p>configurar las clases de los form-control</p>
 
-                    <form [formGroup]="miFormularioIden">
+                    <form [formGroup]="miFormularioTotal">
                         <!-- folio -->
                         <label for="folio">Folio:</label>
                         <input type="number" formControlName="folio" class="form-control"
@@ -67,7 +67,7 @@
                 </div>
 <h1 style="font-weight: bold; font-size: 1rem;">*Identificador de datos personales</h1>
 <div class="row">
-    <form [formGroup]="miFormularioDatos">
+    <form [formGroup]="miFormularioTotal">
         <label for="nombre">Nombre:</label>
         <input id="nombre" type="text" formControlName="nombre" class="form-control"
             [ngClass]="{ 'error-input': nombre && nombre.invalid && (nombre.dirty || nombre.touched) }">
@@ -121,7 +121,7 @@
 <h1 style="font-weight: bold; font-size: 1rem;">*Identificador de datos de contacto</h1>
 <div class="row">
     <!-- contenido pestaña contacto -->
-    <form [formGroup]="miFormularioContacto">
+    <form [formGroup]="miFormularioTotal">
         <!--  -->
         <label for="telefono">Teléfono:</label>
         <input type="number" min="1" id="telefono" formControlName="telefono" class="form-control"
@@ -171,7 +171,7 @@
     </form>
 </div>
 <h1 style="font-weight: bold; font-size: 1rem;">*Datos fisicos</h1>
-<div class="row" [formGroup]="miFormularioDatoFisicos">
+<div class="row" [formGroup]="miFormularioTotal">
     <label for="estatura">Estatura:</label>
     <input type="number" id="estatura" formControlName="estatura" class="form-control"
         [ngClass]="{ 'error-input': estatura && estatura.invalid && (estatura.dirty || estatura.touched) }">
@@ -206,7 +206,7 @@
 </div>
 <h1 style="font-weight: bold; font-size: 1rem;">*Identificador Escolar</h1>
 <div class="row">
-    <form [formGroup]="miFormularioEscolar">
+    <form [formGroup]="miFormularioTotal">
         <!-- contenido pestaña escolar -->
         <label for="escolaridad">escolaridad:</label>
         <select id="escolaridad" formControlName="escolaridad" class="form-control"
@@ -278,7 +278,7 @@
 </div>
 <h1 style="font-weight: bold; font-size: 1rem;">*Identificador Escolar</h1>
     <div class="row">
-        <form [formGroup]="miFormularioTutor">
+        <form [formGroup]="miFormularioTotal">
             <!-- contenido pestaña escolar -->
             <label for="tutor">tutor:</label>
             <input id="tutor" type="text" formControlName="tutor" class="form-control"

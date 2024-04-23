@@ -19,14 +19,19 @@ export class AdminJugadoresComponent implements OnInit {
     this.fetchGETjugadores();
 
   }
-
+/* 🦖🦖🦖🦖🦖🦖🦖🦖🦖🦖 */
+/* ⚠️⚠️⚠️NO BORRAR ESTO QUE ESTA ENTRE DINOSAURIOS⚠️⚠️⚠️ */
   agregarJugador() {
     if (this.nuevoJugadorNombre.trim() !== '') {
       this.jugadores.push({ id: this.jugadores.length + 1, nombre: this.nuevoJugadorNombre });
       this.nuevoJugadorNombre = ''; // Limpiar el campo después de agregar un jugador
     }
-  }
-  fetchGETjugadores() {
+  }/* 20/04/2024 */
+  /* ⚠️⚠️⚠️No se que hace o porque existe 
+  el codigo, pero si se borra no se pueden 
+  guardar ni visualizar elementos con la base de datos⚠️⚠️⚠️ */
+/*   🦕🦕🦕🦕🦕🦕🦕 */ 
+ fetchGETjugadores() {
     this.http
       .get<any[]>('http://localhost:3000/jugadores/receive')
       .subscribe(
@@ -52,7 +57,6 @@ export class AdminJugadoresComponent implements OnInit {
   seleccionarTorneo(id: number) {
     console.log("Vamos enviar el id: ", id)
     this.jugadorSelectionService.setSelectedId(id);
-    //this.selectedTorneoIdEvent.emit(id);
   }
 
 

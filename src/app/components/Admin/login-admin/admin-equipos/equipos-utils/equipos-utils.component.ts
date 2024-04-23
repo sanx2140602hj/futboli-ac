@@ -1,7 +1,11 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+//recibe el ID desde adminEquipos
 import { TeamSelectionService } from '../../../../../service/team-selection.service';
+//EXPORTA id DESDE UTILS
+import { EquiposUtilsSelectionService } from '../../../../../service/equiposUtils.service';
+
 
 @Component({
   selector: 'app-equipos-utils',
@@ -9,16 +13,6 @@ import { TeamSelectionService } from '../../../../../service/team-selection.serv
   styleUrls: ['./equipos-utils.component.css'],
 })
 export class EquiposUtilsComponent implements OnInit {
-  @Output() selectedTeamIdEvent = new EventEmitter<number>();
-
-  @Input() equiposId: number | null = null; // Recibir el ID del equipo como entrada
-  IDprueba: any = {};
-  selectedTeamId: number | null = null; // Variable para almacenar el ID de la categoría seleccionada
-  selectedRow: HTMLElement | null = null; // Variable para almacenar la fila seleccionada
-
-  /* -------------------- */
-  tecDir: any[] = [];
-  rolEquipos: any[] = []; // Inicializar la propiedad rolEquipos
   jugadores = [
     {
       id: 1,
@@ -111,22 +105,75 @@ export class EquiposUtilsComponent implements OnInit {
     { id: '0007', nombre: 'juan' },
     { id: '0008', nombre: '4' },
   ];
-  //para buscar
+  selectedTeamId: number | null = 0; // Inicializa con un valor predeterminado
+  @Output() selectedTeamIdEvent = new EventEmitter<number>();
+
+  @Input() equiposId: number | null = null;
+  idSeleccionado: number | null = null;
+  selectedRow: HTMLElement | null = null;
+  utilsequiposId: number | null = null;
+
+  tecDir: any[] = [];
+  rolEquipos: any[] = [];
   searchTerm: string = '';
-  
-  /*Nuevo +++++++++++++++++++++++++++++++++++++++++++++++ */
-  tipoRol: any[] = [];
   idEQuiposRol: any;
-  constructor(
+  equiposUtilsSelectionService: any; 
+   constructor(
     private http: HttpClient,
-    private TeamSelectionService: TeamSelectionService
-  ) {}
+    private TeamSelectionService: TeamSelectionService,
+    private EquiposUtilsSelectionService: EquiposUtilsSelectionService
+  ) {
+    this.equiposUtilsSelectionService = EquiposUtilsSelectionService;
+  }
+  
+
   
   ngOnInit() {
+    //este codigo es para recibir un ID que es indispencable por lo que es muy independiente a lo que se valla a manjar despues
     this.selectedTeamId = this.TeamSelectionService.getSelectedId();
     console.log('ID del equipo seleccionado:', this.selectedTeamId);
     this.fetchGETequipos();
+    //para exportar el equipo.id_cuadro_tecnico
+
+    this.idSeleccionado = this.equiposUtilsSelectionService.getequiposUtilsId();
+    console.log('ID seleccionado:', this.idSeleccionado);
   }
+
+  openEditarModal(id: number) {
+    console.log("abremodal???");
+    this.showEditarModal = true;
+  //  this.utilsequiposId = id; // Asignar el ID del equipo a la nueva variable
+}
+
+openEliminarModal(id: number) {
+    this.showEliminarModal = true;
+    this.utilsequiposId = id; // Asignar el ID del equipo a la nueva variable
+}
+
+seleccionarUtilsequipo(id: number, row: EventTarget | null) {
+  if (row instanceof HTMLElement) {
+    // Almacena el ID del equipo seleccionado en el servicio
+    this.equiposUtilsSelectionService.setequiposUtilsId(id);
+    console.log('ID de la fila seleccionada:', id);
+    
+    // Resto del código para resaltar la fila seleccionada, si es necesario
+    this.resaltarFilaSeleccionada(row);
+  }
+}
+
+
+private resaltarFilaSeleccionada(row: HTMLElement) {
+  // Reinicia el color de fondo de la fila previamente seleccionada
+  if (this.selectedRow) {
+    this.selectedRow.style.backgroundColor = '';
+  }
+  // Aplica el color de fondo a la fila seleccionada
+  row.style.backgroundColor = '#b7c4ff';
+  this.selectedRow = row;
+}
+
+
+  // #region MODALES
   /* +++++++++++++++++++++++++++++++++++++++++++++++ */
   showDirectorModal = false;
   showPresidenteModal = false;
@@ -138,6 +185,7 @@ export class EquiposUtilsComponent implements OnInit {
   }
   closeDirectorModal() {
     this.showDirectorModal = false;
+    this.fetchGETequipos();
   }
   /* ------------------------------------------------- */
   openPresidenteModal() {
@@ -147,16 +195,12 @@ export class EquiposUtilsComponent implements OnInit {
     this.showPresidenteModal = false;
   }
   /* ------------------------------------------------- */
-  openEditarModal() {
-    this.showEditarModal = true;
-  }
+  
   closeEditarModal() {
     this.showEditarModal = false;
   }
   /* ------------------------------------- */
-  openEliminarModal() {
-    this.showEliminarModal = true;
-  }
+
   closeEliminarModal() {
     this.showEliminarModal = false;
   }
@@ -167,6 +211,9 @@ export class EquiposUtilsComponent implements OnInit {
   closeEliminarJugadorModal() {
     this.showEliminarJugadorModal = false;
   }
+// #endregion
+
+
 
   /* prubas */
   seleccionarCategoria(id: number, row: EventTarget | null) {
@@ -205,6 +252,8 @@ export class EquiposUtilsComponent implements OnInit {
         }
       );
   }
+  
+ 
   
   fetchGETtiposroles() {
     this.http

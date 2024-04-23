@@ -11,58 +11,38 @@ import { JugadorSelectionService } from '../../../../../service/cardId.service';
 })
 export class UtilsCardsjugadorComponent implements OnInit {
   @Input() jugador: number | null = null; // Recibir el ID de la categoría como entrada
-  data: any = {};
-  editarDatos: any = {};
-  categoriaEliminar: string = '';
-  error: boolean = false; // Variable para controlar si hay error
-  palabraClave: string = '';
-  dateCategoria: any = {};
-  IDprueba: any = {};
+  IDjugador: number | null = null; // Variable para almacenar el ID del jugador sin formato
 
-  /* -------Identifiacion------------------------------------- */
-  miFormularioIden: FormGroup;
-  Identifiacion: any; // Objeto para almacenar la información
-  /* -------DATOSPerosnales-------------------------------------- */
-  miFormularioDatos: FormGroup;
-  datosPersonales: any; // Objeto para almacenar la información
-  /* -------Contacto-------------------------------------- */
-  miFormularioContacto: FormGroup;
-  contacto: any; // Objeto para almacenar la infor
-  /* -------DatosFISICOS-------------------------------------- */
-  miFormularioDatoFisicos: FormGroup;
-  datoFisico: any;
-  /* -------Escolar-------------------------------------- */
-  miFormularioEscolar: FormGroup;
-  datosEscolares: any = {}; // Objeto para almacenar la información escolar
-  /* -------Tutor-------------------------------------- */
-
-  miFormularioTutor: FormGroup;
-  datetutor: any = {};
+  //formularioTotal
+  miFormularioTotal: FormGroup;
+  Total: any;
+  informacionJugador: any[] = [];
 
   @Output() onCloseModal = new EventEmitter<void>();
+  showEliminarModal =false;
 
+  openEliminarModal() {
+    console.log('Modal abierto'); // ⚠️ Se muestra un log en la consola
+    this.showEliminarModal = true;
+  }
+  closeEliminarModal() {
+    this.showEliminarModal = false;
+  }
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
     private jugadorSelectionService: JugadorSelectionService
   ) {
-    /* Identifiacion */
-    this.miFormularioIden = this.fb.group({
-      folio: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
+    this.miFormularioTotal = this.fb.group({
+      folio: ['', [Validators.required, Validators.pattern('^[0-9]+$'),Validators.maxLength(14)]],
       id_equipos: ['', Validators.required],
       imgJugador: [''],
-    });
-    /* DatosPersonales */
-    this.miFormularioDatos = this.fb.group({
       nombre: ['', [Validators.required, Validators.pattern('[a-z A-Zs]+')]],
       apellidoP: ['', [Validators.required, Validators.pattern('[a-z A-Zs]+')]],
       apellidoM: ['', [Validators.required, Validators.pattern('[a-z A-Zs]+')]],
       genero: ['', Validators.required],
       nacimientoFecha: ['', Validators.required],
       curp: ['', [Validators.required, Validators.pattern('[a-zA-Z0-9s]+')]],
-    });
-    /* Contacto */
-    this.miFormularioContacto = this.fb.group({
       telefono: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
       calle: ['', Validators.required],
       numeroExterno: [
@@ -70,207 +50,168 @@ export class UtilsCardsjugadorComponent implements OnInit {
         [Validators.required, Validators.pattern('^[0-9]+$')],
       ],
       colonia: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]+$')]],
-      ciudad: ['', [Validators.required]],
+      ciudad: ['', Validators.required],
       cp: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
-    });
-    /* DatosFISICOS */
-    this.miFormularioDatoFisicos = this.fb.group({
       estatura: ['', [Validators.required, Validators.pattern('^[0-9.]+$')]],
       peso: ['', [Validators.required, Validators.pattern('^[0-9.]+$')]],
       tipoSangre: ['', Validators.required],
-    });
-    /* Escolar */
-    this.miFormularioEscolar = this.fb.group({
       escolaridad: ['', Validators.required],
-      escuela: ['', [Validators.required]],
+      escuela: ['', Validators.required],
       grado: ['', Validators.required],
       grupo: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
-    });
-    /* Tutor */
-    this.miFormularioTutor = this.fb.group({
       tutor: ['', [Validators.required, Validators.pattern('[a-z A-Zs]+')]],
     });
   }
 
   ngOnInit() {
-    console.log('entro con ID:', this.jugador);
-    // Verificar si el ID del jugador es válido
-    if (this.jugador !== null) {
-      // Llamar al método setSelectedId del servicio JugadorSelectionService para enviar el ID
-      this.jugadorSelectionService.setSelectedId(this.jugador);
-    }
+    this.IDjugador = this.jugadorSelectionService.getSelectedId();
+    console.log('Jornadas para el id, (intento 2): ', this.IDjugador);
+      this.fetchGETjugadores();
   }
   /* ------------------------------------------- */
 
-  /* Identifiacion */
-  get folio() {
-    return this.miFormularioIden.get('folio');
-  }
-  get id_equipos() {
-    return this.miFormularioIden.get('id_equipos');
-  }
-  get imgJugador() {
-    return this.miFormularioIden.get('imgJugador');
-  }
+// #region get de formulario
+        get folio() {
+          return this.miFormularioTotal.get('folio');
+        }
+        get id_equipos() {
+          return this.miFormularioTotal.get('id_equipos');
+        }
+        get imgJugador() {
+          return this.miFormularioTotal.get('imgJugador');
+        }
+        get nombre() {
+          return this.miFormularioTotal.get('nombre');
+        }
+        get apellidoP() {
+          return this.miFormularioTotal.get('apellidoP');
+        }
+        get apellidoM() {
+          return this.miFormularioTotal.get('apellidoM');
+        }
+        get genero() {
+          return this.miFormularioTotal.get('genero');
+        }
+        get nacimientoFecha() {
+          return this.miFormularioTotal.get('nacimientoFecha');
+        }
+        get curp() {
+          return this.miFormularioTotal.get('curp');
+        }
+        get tel() {
+          return this.miFormularioTotal.get('telefono');
+        }
+        get calle() {
+          return this.miFormularioTotal.get('calle');
+        }
+        get numeroExterno() {
+          return this.miFormularioTotal.get('numeroExterno');
+        }
+        get colonia() {
+          return this.miFormularioTotal.get('colonia');
+        }
+        get ciudad() {
+          return this.miFormularioTotal.get('ciudad');
+        }
+        get codigo() {
+          return this.miFormularioTotal.get('cp');
+        }
+        get estatura() {
+          return this.miFormularioTotal.get('estatura');
+        }
+        get peso() {
+          return this.miFormularioTotal.get('peso');
+        }
+        get tipoSangre() {
+          return this.miFormularioTotal.get('tipoSangre');
+        }
+        get escolaridad() {
+          return this.miFormularioTotal.get('escolaridad');
+        }
+        get escuela() {
+          return this.miFormularioTotal.get('escuela');
+        }
+        get grado() {
+          return this.miFormularioTotal.get('grado');
+        }
+        get grupo() {
+          return this.miFormularioTotal.get('grupo');
+        }
+        get tutor() {
+          return this.miFormularioTotal.get('tutor');
+        }
 
-  /* DatosPersonales */
-  get nombre() {
-    return this.miFormularioDatos.get('nombre');
-  }
-  get apellidoP() {
-    return this.miFormularioDatos.get('apellidoP');
-  }
-  get apellidoM() {
-    return this.miFormularioDatos.get('apellidoM');
-  }
-  get genero() {
-    return this.miFormularioDatos.get('genero');
-  }
-  get nacimientoFecha() {
-    return this.miFormularioDatos.get('nacimientoFecha');
-  }
-  get curp() {
-    return this.miFormularioDatos.get('curp');
-  }
+// #endregion
 
-  /* Contacto */
-  get tel() {
-    return this.miFormularioContacto.get('telefono');
-  }
-  get calle() {
-    return this.miFormularioContacto.get('calle');
-  }
-  get numeroExterno() {
-    return this.miFormularioContacto.get('numeroExterno');
-  }
-  get colonia() {
-    return this.miFormularioContacto.get('colonia');
-  }
-  get ciudad() {
-    return this.miFormularioContacto.get('ciudad');
-  }
-  get codigo() {
-    return this.miFormularioContacto.get('cp');
-  }
 
-  /* Datos FISICOS */
-  get estatura() {
-    return this.miFormularioDatoFisicos.get('estatura');
-  }
-  get peso() {
-    return this.miFormularioDatoFisicos.get('peso');
-  }
-  get tipoSangre() {
-    return this.miFormularioDatoFisicos.get('tipoSangre');
-  }
 
-  /* Escolar */
-  get escolaridad() {
-    return this.miFormularioEscolar.get('escolaridad');
-  }
-  get escuela() {
-    return this.miFormularioEscolar.get('escuela');
-  }
-  get grado() {
-    return this.miFormularioEscolar.get('grado');
-  }
-  get grupo() {
-    return this.miFormularioEscolar.get('grupo');
-  }
-  /* tutor */
-  get tutor() {
-    return this.miFormularioTutor.get('tutor');
-  }
-
-  /* ------------------------------------------------------------------------------ */
   guardarInformacion() {
-    // Obtener los valores de los campos del formulario
-    const IdentifiacionFormValue = this.miFormularioIden.value;
-    const datosPersonalesFormValue = this.miFormularioDatos.value;
-    const contactoFormValue = this.miFormularioContacto.value;
-    const datoFisicoFormValue = this.miFormularioDatoFisicos.value;
-    const escolarFormValue = this.miFormularioEscolar.value;
-    const tutorFormValue = this.miFormularioTutor.value;
+    const TodoFormulario = this.miFormularioTotal.value;
+
     // Verificar si todos los campos requeridos están llenos
-    if (
-      this.miFormularioIden.valid &&
-      this.miFormularioDatos.valid &&
-      this.miFormularioContacto.valid &&
-      this.miFormularioDatoFisicos.valid &&
-      this.miFormularioEscolar &&
-      this.miFormularioTutor
-    ) {
-      this.Identifiacion = {
-        folio: IdentifiacionFormValue.folio,
-        id_equipos: IdentifiacionFormValue.id_equipos,
-        imgJugador: IdentifiacionFormValue.imgJugador,
+    if (this.miFormularioTotal) {
+      this.Total = {
+        folio: TodoFormulario.folio,
+        id_equipos: TodoFormulario.id_equipos,
+        imgJugador: TodoFormulario.imgJugador,
+        nombre: TodoFormulario.nombre,
+        apellidoP: TodoFormulario.apellidoP,
+        apellidoM: TodoFormulario.apellidoM,
+        genero: TodoFormulario.genero,
+        nacimientoFecha: TodoFormulario.nacimientoFecha,
+        curp: TodoFormulario.curp,
+        telefono: TodoFormulario.telefono,
+        calle: TodoFormulario.calle,
+        numeroExterno: TodoFormulario.numeroExterno,
+        colonia: TodoFormulario.colonia,
+        ciudad: TodoFormulario.ciudad,
+        cp: TodoFormulario.cp,
+        estatura: TodoFormulario.estatura,
+        peso: TodoFormulario.peso,
+        tipoSangre: TodoFormulario.tipoSangre,
+        escolaridad: TodoFormulario.escolaridad,
+        escuela: TodoFormulario.escuela,
+        grado: TodoFormulario.grado,
+        grupo: TodoFormulario.grupo,
+        tutor: TodoFormulario.tutor,
       };
 
-      this.datosPersonales = {
-        nombre: datosPersonalesFormValue.nombre,
-        apellidoP: datosPersonalesFormValue.apellidoP,
-        apellidoM: datosPersonalesFormValue.apellidoM,
-        genero: datosPersonalesFormValue.genero,
-        nacimientoFecha: datosPersonalesFormValue.nacimientoFecha,
-        curp: datosPersonalesFormValue.curp,
+      const dataJugadorUpdate = {
+        folio: TodoFormulario.folio,
+        id_equipos: TodoFormulario.id_equipos,
+        imgJugador: TodoFormulario.imgJugador,
+
+        nombre: TodoFormulario.nombre,
+        apellidoP: TodoFormulario.apellidoP,
+        apellidoM: TodoFormulario.apellidoM,
+        genero: TodoFormulario.genero,
+        nacimientoFecha: TodoFormulario.nacimientoFecha,
+        curp: TodoFormulario.curp,
+
+        telefono: TodoFormulario.telefono,
+        calle: TodoFormulario.calle,
+        numeroExterno: TodoFormulario.numeroExterno,
+        colonia: TodoFormulario.colonia,
+        ciudad: TodoFormulario.ciudad,
+        cp: TodoFormulario.cp,
+
+        estatura: TodoFormulario.estatura,
+        peso: TodoFormulario.peso,
+        tipoSangre: TodoFormulario.tipoSangre,
+
+        escolaridad: TodoFormulario.escolaridad,
+        escuela: TodoFormulario.escuela,
+        grado: TodoFormulario.grado,
+        grupo: TodoFormulario.grupo,
+
+        tutor: TodoFormulario.tutor,
       };
 
-      this.contacto = {
-        telefono: contactoFormValue.telefono,
-        calle: contactoFormValue.calle,
-        numeroExterno: contactoFormValue.numeroExterno,
-        colonia: contactoFormValue.colonia,
-        ciudad: contactoFormValue.ciudad,
-        cp: contactoFormValue.cp,
-      };
-      this.datoFisico = {
-        estatura: datoFisicoFormValue.estatura,
-        peso: datoFisicoFormValue.peso,
-        tipoSangre: datoFisicoFormValue.tipoSangre,
-      };
-      this.datosEscolares = {
-        escolaridad: escolarFormValue.escolaridad,
-        escuela: escolarFormValue.escuela,
-        grado: escolarFormValue.grado,
-        grupo: escolarFormValue.grupo,
-      };
-      this.datetutor = {
-        tutor: tutorFormValue.tutor,
-      };
-      const dataJugador = {
-        folio: IdentifiacionFormValue.folio,
-        id_equipos: IdentifiacionFormValue.id_equipos,
-        imgJugador: IdentifiacionFormValue.imgJugador,
-
-        nombre: datosPersonalesFormValue.nombre,
-        apellidoP: datosPersonalesFormValue.apellidoP,
-        apellidoM: datosPersonalesFormValue.apellidoM,
-        genero: datosPersonalesFormValue.genero,
-        nacimientoFecha: datosPersonalesFormValue.nacimientoFecha,
-        curp: datosPersonalesFormValue.curp,
-
-        telefono: contactoFormValue.telefono,
-        calle: contactoFormValue.calle,
-        numeroExterno: contactoFormValue.numeroExterno,
-        colonia: contactoFormValue.colonia,
-        ciudad: contactoFormValue.ciudad,
-        cp: contactoFormValue.cp,
-
-        estatura: datoFisicoFormValue.estatura,
-        peso: datoFisicoFormValue.peso,
-        tipoSangre: datoFisicoFormValue.tipoSangre,
-
-        escolaridad: escolarFormValue.escolaridad,
-        escuela: escolarFormValue.escuela,
-        grado: escolarFormValue.grado,
-        grupo: escolarFormValue.grupo,
-
-        tutor: tutorFormValue.tutor,
-      };
-
-      fetch('http://localhost:3000/jugadores/new', {
-        method: 'POST',
-        body: JSON.stringify(dataJugador),
+      const enviarDatos = JSON.stringify(dataJugadorUpdate);
+      // Utilizar fetch para enviar los datos
+      fetch(`http://localhost:3000/jugadores/replace/${this.IDjugador}`, {
+        method: 'PUT',
+        body: enviarDatos,
         headers: {
           'Content-Type': 'application/json',
         },
@@ -288,7 +229,7 @@ export class UtilsCardsjugadorComponent implements OnInit {
           Swal.fire({
             position: 'top-end',
             title: 'Generado con éxito',
-            //text: nombre.value,
+            text: 'chido',
             icon: 'success',
             timer: 1500,
             showConfirmButton: false,
@@ -318,22 +259,62 @@ export class UtilsCardsjugadorComponent implements OnInit {
     });
 
     // Imprimir los objetos en la consola
-    console.log('Identifiacion', this.Identifiacion);
-    console.log('Datos Personales:', this.datosPersonales);
-    console.log('Contacto:', this.contacto);
-    console.log('Valor de datoFisico:', this.datoFisico);
-    console.log('Datos Escolares', this.datosEscolares);
-    console.log('Datos Escolares', this.datetutor);
+
+    console.log('Este mensaje es de Front-end no BD', this.Total);
   }
 
-  showEliminarModal = false;
 
-  openEliminarModal() {
-    this.showEliminarModal = true;
+  /* -------------------------------------------- */
+
+  fetchGETjugadores() {
+    this.http
+      .get<any>(`http://localhost:3000/jugadores/receive/info/${this.IDjugador}`)
+      .subscribe(
+        (data) => {
+          if (Array.isArray(data)) {
+            this.informacionJugador = data;
+          } else {
+            this.informacionJugador = [data];
+          }
+          console.log(this.informacionJugador);
+          this.assignDataToForms(this.informacionJugador[0]); 
+        },
+        (error) => {
+          console.error('Error en la solicitud:', error);
+          // Aquí puedes agregar código para manejar el error, como mostrar un mensaje al usuario
+        }
+      );
   }
-  closeEliminarModal() {
-    this.showEliminarModal = false;
+  
+
+  assignDataToForms(jugador: any) {
+    this.miFormularioTotal.patchValue({
+      folio: jugador.folio,
+      id_equipos: jugador.id_equipos,
+      nombre: jugador.nombre,
+      apellidoP: jugador.apellidoP,
+      apellidoM: jugador.apellidoM,
+      genero: jugador.genero,
+      nacimientoFecha: new Date(jugador.nacimientoFecha)
+        .toISOString()
+        .slice(0, 10),
+      curp: jugador.curp,
+      telefono: jugador.telefono,
+      calle: jugador.calle,
+      numeroExterno: jugador.numeroExterno,
+      colonia: jugador.colonia,
+      ciudad: jugador.ciudad,
+      cp: jugador.cp,
+
+      estatura: jugador.estatura,
+      peso: jugador.peso,
+      tipoSangre: jugador.tipoSangre,
+      escolaridad: jugador.escolaridad,
+      escuela: jugador.escuela,
+      grado: jugador.grado,
+      grupo: jugador.grupo,
+
+      tutor: jugador.tutor,
+    });
   }
 }
-
-/* -------------------------------------------- */
