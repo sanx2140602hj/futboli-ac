@@ -4,9 +4,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --configuration development",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy": "scp -r ./frontend.zip root@24.144.87.255:/var/www/futboli-ac.cloud/html"
+
+
   },
   "private": true,
   "dependencies": {

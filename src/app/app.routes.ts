@@ -40,15 +40,15 @@ const app_routes: Routes = [
   { path: 'modalnuevacategoria', component: ModalNuevacategoriasComponent},
   
   { path: 'Admin', component: LoginAdminComponent },
-  { path: 'Admin-Home', component: AdminHomeComponent, canActivate: [AuthGuard]},
-  { path: 'Admin-Categorias', component: AdminCategoriasComponent, canActivate: [AuthGuard]},
-  { path: 'Admin-Jugadores', component:AdminJugadoresComponent, canActivate: [AuthGuard]},
-  { path: 'Admin-RegistroJugador', component: AdminRegistroJugadorComponent , canActivate: [AuthGuard]},
-  { path: 'Admin-Equipos', component: AdminEquiposComponent , canActivate: [AuthGuard]},
-  { path: 'Admin-Partidos', component: AdminPartidosComponent , canActivate: [AuthGuard]},
-  { path: 'Admin-Recibos', component: AdminRecibosComponent, canActivate: [AuthGuard]},
-  { path: 'Admin-RolesdeJuegos', component:AdminRoldejuegoComponent, canActivate: [AuthGuard]},
-  { path: 'Admin-TablaPosicion', component:AdminTablaposicionComponent, canActivate: [AuthGuard]},
+  { path: 'Admin-Home', component: AdminHomeComponent/* , canActivate: [AuthGuard] */},
+  { path: 'Admin-Categorias', component: AdminCategoriasComponent/* , canActivate: [AuthGuard] */},
+  { path: 'Admin-Jugadores', component:AdminJugadoresComponent/* , canActivate: [AuthGuard] */},
+  { path: 'Admin-RegistroJugador', component: AdminRegistroJugadorComponent /* , canActivate: [AuthGuard] */},
+  { path: 'Admin-Equipos', component: AdminEquiposComponent /* , canActivate: [AuthGuard] */},
+  { path: 'Admin-Partidos', component: AdminPartidosComponent /* , canActivate: [AuthGuard] */},
+  { path: 'Admin-Recibos', component: AdminRecibosComponent/* , canActivate: [AuthGuard] */},
+  { path: 'Admin-RolesdeJuegos', component:AdminRoldejuegoComponent/* , canActivate: [AuthGuard] */},
+  { path: 'Admin-TablaPosicion', component:AdminTablaposicionComponent/* , canActivate: [AuthGuard] */},
 
 
   /* utils-admin */

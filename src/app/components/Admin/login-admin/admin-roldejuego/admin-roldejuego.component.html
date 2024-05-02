@@ -12,7 +12,7 @@
 <div class="content">
     <div class="secciones">
         <div class="izq">
-            <div class="card">
+            <div class="card"><h4><b>Paso 1: Cree un nuevo tornero</b></h4>
                 <div class="title-input">
                     <h5>Nombre del Torneo:</h5>
                     <input type="text" class="search-input" placeholder="Nombre del torneo..."
@@ -50,59 +50,56 @@
                     <button class="cancelar-button" (click)="limpiarInputs()">Cancelar</button>
                     <button class="save-button" (click)="validarYGuardarDatos()">Crear</button>
                 </div>
-
-
-
-
-                <div>
-                    <br><br><br>
-                    <h3>Agregar Equipos Participantes</h3>
-                    <h5>Torneo a Participar:</h5>
-                    <select id="idTorneo" class="search-input" [(ngModel)]="idTorneo" (change)="onChangeTorneo()">
-                        <option value="" disabled selected>Selecciona un torneo</option>
-                        <option *ngFor="let torneos of getTorneos" value= {{torneos.id}}  > {{torneos.id}}, {{ torneos.nombre }}, {{ torneos.id_categorias }} </option>
-                    </select>
-                    <div class="equipos-select scroll">
-                        <ul id="equiposParticipantes">
-                            <li *ngFor="let equipos of equiposSeleccionados">
-                                {{ equipos.nombre }}
-                                <button class="custom-button2" (click)="eliminarEquipo(equipos)">
-                                    <i class="fa-solid fa-xmark cursor"></i>
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-                    <div *ngIf="!equiposSeleccionados.length" class="error-message">
-                        <b>
-                            Seleccione mínimo un equipo para poder guardar el rol
-                        </b>
-                    </div>
-                </div>
-                <div class="select-equipos">
-                    <input type="text" class="search-input2" [(ngModel)]="searchTerm" placeholder="Buscar equipos...">
-                    <button class="custom-button" (click)="search()">Buscar</button>
-                    <div *ngIf="equiposDisponibles.length > 0; else noDataEquipos">
-                        <!-- <div class="scroll" *ngIf="getBusquedaEquipos.length > 0; else noDataSearchEquipos"> -->
-                        <div class="scroll" >
-                            <li *ngFor="let equipos of equiposDisponibles.concat(getBusquedaEquipos)">
-                                Id:{{equipos.id}}, {{ equipos.nombre }}, Idcategoria: {{equipos.id_categorias }}
-                                <button type="button" class="custom-button2" (click)="agregarEquipo(equipos)">
-                                    <i class="fa-solid fa-plus"></i>Añadir
-                                </button>
-                            </li>
-                        </div>
-                    </div>
-                    <ng-template #noDataEquipos>
-                        <li colspan="5">Selecciona un torneo para agregar equipos</li>
-                    </ng-template>
-                    <ng-template #noDataSearchEquipos>
-                        <li colspan="5">No hay equipos disponibles o que coincidan con tu búsqueda...</li>
-                    </ng-template>
-                    <div class="botones">
-                        <button class="cancelar-button" (click)="limpiarInputsEquipo()">CANCELAR</button>
-                        <button class="save-button" (click)="validarYGuardarEquipos()">Añadir equipos</button>
-                    </div>
-                </div>
+            </div>
+            
+            <div class="izq2" >
+<div class="card">   <div>
+    <h4><b>Paso 2: Agrege los equipos participantes</b></h4>
+    <h5>Torneo a Participar:</h5>
+    <select id="idTorneo" class="search-input" [(ngModel)]="idTorneo" (change)="onChangeTorneo()">
+        <option value="" disabled selected>Selecciona un torneo</option>
+        <option *ngFor="let torneos of getTorneos" value= {{torneos.id}}  > {{torneos.id}}, {{ torneos.nombre }}, {{ torneos.id_categorias }} </option>
+    </select>
+    <div class="equipos-select scroll">
+        <ul id="equiposParticipantes">
+            <li *ngFor="let equipos of equiposSeleccionados">
+                {{ equipos.nombre }}
+                <button class="custom-button2" (click)="eliminarEquipo(equipos)">
+                    <i class="fa-solid fa-xmark cursor"></i>
+                </button>
+            </li>
+        </ul>
+    </div>
+    <div *ngIf="!equiposSeleccionados.length" class="error-message">
+        <b>
+            Seleccione mínimo un equipo para poder guardar el rol
+        </b>
+    </div>
+</div>
+<div class="select-equipos">
+    <input type="text" class="search-input2" [(ngModel)]="searchTerm" placeholder="Buscar equipos...">
+    <button class="custom-button" (click)="search()">Buscar</button>
+    <div *ngIf="equiposDisponibles.length > 0; else noDataEquipos">
+        <div class="scroll" >
+            <li *ngFor="let equipos of equiposDisponibles.concat(getBusquedaEquipos)">
+                Id:{{equipos.id}}, {{ equipos.nombre }}, Idcategoria: {{equipos.id_categorias }}
+                <button type="button" class="custom-button2" (click)="agregarEquipo(equipos)">
+                    <i class="fa-solid fa-plus"></i>Añadir
+                </button>
+            </li>
+        </div>
+    </div>
+    <ng-template #noDataEquipos>
+        <li colspan="5">Selecciona un torneo para agregar equipos</li>
+    </ng-template>
+    <ng-template #noDataSearchEquipos>
+        <li colspan="5">No hay equipos disponibles o que coincidan con tu búsqueda...</li>
+    </ng-template>
+    <div class="botones">
+        <button class="cancelar-button" (click)="limpiarInputsEquipo()">CANCELAR</button>
+        <button class="save-button" (click)="validarYGuardarEquipos()">Añadir equipos</button>
+    </div>
+</div></div>
             </div>
         </div>
         <div class="der">
@@ -116,17 +113,7 @@
                   <ul id="rolesExistentes">
                     <div class="scroll">
                         <ng-container>
-                            <!-- <ul *ngIf="getTorneosPlayWithTeams.length || getBusquedaTorneos.length > 0; else noDataTorneos">
-                              <li *ngFor="let torneosFalse of getTorneosPlayWithTeams.concat(getBusquedaTorneos)" >
-                                {{ torneosFalse.nombre }} 
-                                <button type="button" routerLink="/Rol-de-Juego" (click)="seleccionarTorneo(torneosFalse.id)" class="custom-button2" >
-                                  <i class="fas fa-external-link-alt"></i>
-                                </button>
-                              </li>
-                              <li> 🦖 -- esto esta en el html borrar al final <button type="button" routerLink="/Rol-de-Juego" class="custom-button2">
-                                  <i class="fas fa-external-link-alt"></i>
-                                </button></li>
-                            </ul> -->
+                     
                             <ul *ngIf="getTorneosPlayWithTeams.length || getBusquedaTorneos.length > 0; else noDataTorneos">
                                 <button class="custom-button2" >
                                 <li *ngFor="let torneosFalse of getTorneosPlayWithTeams.concat(getBusquedaTorneos)"

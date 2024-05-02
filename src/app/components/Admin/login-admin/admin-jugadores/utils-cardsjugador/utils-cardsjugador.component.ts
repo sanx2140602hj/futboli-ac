@@ -17,6 +17,7 @@ export class UtilsCardsjugadorComponent implements OnInit {
   miFormularioTotal: FormGroup;
   Total: any;
   informacionJugador: any[] = [];
+  informacionJugador2: any[] = [];
 
   @Output() onCloseModal = new EventEmitter<void>();
   showEliminarModal =false;
@@ -33,6 +34,7 @@ export class UtilsCardsjugadorComponent implements OnInit {
     private http: HttpClient,
     private jugadorSelectionService: JugadorSelectionService
   ) {
+    
     this.miFormularioTotal = this.fb.group({
       folio: ['', [Validators.required, Validators.pattern('^[0-9]+$'),Validators.maxLength(14)]],
       id_equipos: ['', Validators.required],
@@ -62,12 +64,14 @@ export class UtilsCardsjugadorComponent implements OnInit {
       tutor: ['', [Validators.required, Validators.pattern('[a-z A-Zs]+')]],
     });
   }
+ngOnInit() {
+  this.IDjugador = this.jugadorSelectionService.getSelectedId();
+  console.log('Jornadas para el id, (intento 2): ', this.IDjugador);
+  this.fetchGETjugadores(); // Esto probablemente carga algunos datos adicionales, pero no desencriptados
+  this.fetchDecryptedPlayerData(); // Esto obtendrá los datos desencriptados y los asignará al formulario
+}
 
-  ngOnInit() {
-    this.IDjugador = this.jugadorSelectionService.getSelectedId();
-    console.log('Jornadas para el id, (intento 2): ', this.IDjugador);
-      this.fetchGETjugadores();
-  }
+
   /* ------------------------------------------- */
 
 // #region get de formulario
@@ -266,31 +270,41 @@ export class UtilsCardsjugadorComponent implements OnInit {
 
   /* -------------------------------------------- */
 
-  fetchGETjugadores() {
+   fetchGETjugadores() {
     this.http
-      .get<any>(`http://localhost:3000/jugadores/receive/info/${this.IDjugador}`)
+    //.get<any>(`http://localhost:3000/jugadores/receive/info/${this.IDjugador}`)   ⚠️⚠️Para que se usa el /info/ ⚠️⚠️
+      .get<any>(`http://localhost:3000/jugadores/receive/${this.IDjugador}`)
       .subscribe(
         (data) => {
           if (Array.isArray(data)) {
             this.informacionJugador = data;
+            this.informacionJugador2 = data;
           } else {
             this.informacionJugador = [data];
           }
-          console.log(this.informacionJugador);
+          console.log("estos datos estan encriptados ",this.informacionJugador);
           this.assignDataToForms(this.informacionJugador[0]); 
+          this.assignDataToForms2(this.informacionJugador2[0]);
+          this.fetchDecryptedPlayerData();
         },
         (error) => {
           console.error('Error en la solicitud:', error);
           // Aquí puedes agregar código para manejar el error, como mostrar un mensaje al usuario
         }
       );
-  }
+  } 
   
 
+  assignDataToForms2(jugador: any) {
+    this.miFormularioTotal.patchValue({
+      calle: jugador.calle,
+      colonia: jugador.colonia,
+      curp: jugador.curp,
+      escuela: jugador.escuela,
+    });
+  }
   assignDataToForms(jugador: any) {
     this.miFormularioTotal.patchValue({
-      folio: jugador.folio,
-      id_equipos: jugador.id_equipos,
       nombre: jugador.nombre,
       apellidoP: jugador.apellidoP,
       apellidoM: jugador.apellidoM,
@@ -298,11 +312,8 @@ export class UtilsCardsjugadorComponent implements OnInit {
       nacimientoFecha: new Date(jugador.nacimientoFecha)
         .toISOString()
         .slice(0, 10),
-      curp: jugador.curp,
       telefono: jugador.telefono,
-      calle: jugador.calle,
       numeroExterno: jugador.numeroExterno,
-      colonia: jugador.colonia,
       ciudad: jugador.ciudad,
       cp: jugador.cp,
 
@@ -310,11 +321,34 @@ export class UtilsCardsjugadorComponent implements OnInit {
       peso: jugador.peso,
       tipoSangre: jugador.tipoSangre,
       escolaridad: jugador.escolaridad,
-      escuela: jugador.escuela,
       grado: jugador.grado,
       grupo: jugador.grupo,
 
       tutor: jugador.tutor,
     });
+  
+  } 
+/* ----------P-R-U-E-B-A-S---P-A-R-A---D-A-T-O-S---S-I-N---E-N-C-R-I-P-T-A-R----------*/
+fetchDecryptedPlayerData() {
+  if (this.IDjugador) {
+    this.http
+      .get<any>(`http://localhost:3000/jugadores/receive/decrypt/${this.IDjugador}`)
+      .subscribe(
+        (data) => {
+          this.informacionJugador = data;
+          console.log("estos datos son limpios ",this.informacionJugador); // Verificar datos en consola
+          this.assignDataToForms(this.informacionJugador[0]); // Suponiendo que la API devuelve un solo jugador
+        },
+        (error) => {
+          console.error('Error en la solicitud:', error);
+          // Manejar errores de solicitud, como mostrar un mensaje de error al usuario
+        }
+      );
   }
 }
+
+}
+
+
+
+

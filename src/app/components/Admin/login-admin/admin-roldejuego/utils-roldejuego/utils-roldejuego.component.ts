@@ -131,7 +131,7 @@ export class UtilsRoldejuegoComponent implements OnInit {
       const dataParaEnviar = JSON.stringify(this.sorteoJornadasId);
       console.log("Jornadas con Id: ", dataParaEnviar);
 
-      fetch(`${server}/jornadas/new`, {
+      fetch(`http://localhost:3000/jornadas/new`, {
         method: 'POST',
         body: dataParaEnviar,
         headers: {
@@ -195,7 +195,7 @@ export class UtilsRoldejuegoComponent implements OnInit {
 
   // Realizar la solicitud GET para obtener los datos de la tabla categorias
   fetchGetTorneo() {
-    this.http.get<any[]>(`${server}/torneos/receive/play/${this.torneoId}`)
+    this.http.get<any[]>(`http://localhost:3000/torneos/receive/play/${this.torneoId}`)
       .subscribe(data => {
         console.log('Datos de la tabla categorias:', data);
         this.getTorneo = data;
@@ -205,7 +205,7 @@ export class UtilsRoldejuegoComponent implements OnInit {
   }
   //Realizar la solicitud ger para obtener los datos de la tabla torneos con equipos vigentes.
   fetchGetDataTorneoConEquipos() {
-    this.http.get<any[]>(`${server}/equipos/receive/tournament/${this.torneoId}`)
+    this.http.get<any[]>(`http://localhost:3000/equipos/receive/tournament/${this.torneoId}`)
       .subscribe(data => {
         this.getTeamsofTorneo = data;
       }, error => {
@@ -214,7 +214,7 @@ export class UtilsRoldejuegoComponent implements OnInit {
   }
   //Traerá información del sorteo que se guardó de todas las jorndas de juego pespecto al Id.
   fetchGetDataJornadas() {
-    this.http.get<any[]>(`${server}/jornadas/receive/${this.torneoId}`)
+    this.http.get<any[]>(`http://localhost:3000/jornadas/receive/${this.torneoId}`)
       /* .subscribe(data => {
         this.getJornandasOfData = data;
         console.log("datos ", this.getJornandasOfData);

@@ -198,7 +198,7 @@ export class EquiposUtilsComponent implements OnInit {
     console.log(data)
 
     const dataParaEnviar = JSON.stringify(data);
-    fetch(`${server}/equipos/add/players/teams`, {
+    fetch(`http://localhost:3000/equipos/add/players/teams`, {
       method: 'PATCH',
       body: dataParaEnviar,
       headers: {
@@ -324,7 +324,7 @@ export class EquiposUtilsComponent implements OnInit {
   }
 
   fetchGetJugadores() {
-    this.http.get<any[]>(`${server}/jugadores/receive`)
+    this.http.get<any[]>(`http://localhost:3000/jugadores/receive`)
       .subscribe(data => {
         this.jugadoresDisponibles = data;
         this.calcularEdad();

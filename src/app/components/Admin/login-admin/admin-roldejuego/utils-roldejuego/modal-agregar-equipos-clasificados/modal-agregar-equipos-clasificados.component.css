@@ -99,7 +99,7 @@
   background: #fff; /* Color del circulo */
   border-radius: 50%; /* Para hacerlo circular */
   cursor: pointer;
-  background-image: url('../../../../../../../assets/imagenes/futbol-americano.png'); /* Ruta del ícono de balón */
+  background-image: url('../../../../../../../assets/Imagenes/futbol-americano.png'); /* Ruta del ícono de balón */
   background-size: 70%; /* Ajusta el tamaño del ícono */
   background-repeat: no-repeat;
   background-position: center;

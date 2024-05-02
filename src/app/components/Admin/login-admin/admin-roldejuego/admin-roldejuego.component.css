@@ -60,6 +60,11 @@
     margin-top: 7rem;
     margin-right: 0.5rem;
 }
+.izq2 {
+    flex: 50%;
+    margin-top: 1rem;
+    margin-right: 0.5rem;
+}
 
 .der {
     flex: 50%;

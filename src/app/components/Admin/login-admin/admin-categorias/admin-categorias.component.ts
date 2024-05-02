@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { CategoriaSelectionService } from '../../../../service/categoria-selection.service';
 import { DatePipe } from '@angular/common';
 
+// 🌎 Define la constante server con la URL del servidor
+const server = 'http://localhost:3000';
 @Component({
   selector: 'app-admin-categorias',
   templateUrl: './admin-categorias.component.html',
@@ -26,7 +28,7 @@ export class AdminCategoriasComponent implements OnInit {
 this.GetparaTabla();
   }
 GetparaTabla(){    // Realizar la solicitud GET para obtener los datos de la tabla categorias
-  this.http.get<any[]>('http://localhost:3000/categorias/receive').subscribe(
+  this.http.get<any[]>(`http://localhost:3000/categorias/receive`).subscribe(
     (data) => {
       console.log('Datos de la tabla categorias:', data);
       this.categorias = data;
@@ -46,13 +48,14 @@ GetparaTabla(){    // Realizar la solicitud GET para obtener los datos de la tab
       // Aplica el color de fondo a la fila seleccionada
       row.style.backgroundColor = '#b7c4ff';
       this.selectedRow = row;
+      console.log('hola');
     }
 
     this.selectedCategoryIdEvent.emit(id);
   }
 
   searchTerm = '';
-  // Variable para controlar la visibilidad del modal
+  // Variable para controlar la visibilida d del modal
   showModal = false;
 
   // Método para abrir el modal

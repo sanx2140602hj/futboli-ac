@@ -179,13 +179,14 @@ margin-right: auto;
   width: 300px;
   border: none;
   transition: all 400ms ease;
+  margin: 10px;
 }
 
 .anim .card:hover {
   border-radius: 37px;
   background-color: #081858;
   transform: translateY(-26px);
-  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.6);
   color: aliceblue;
   cursor: pointer;
 

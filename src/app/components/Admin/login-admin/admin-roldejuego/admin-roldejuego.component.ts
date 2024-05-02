@@ -167,7 +167,7 @@ export class AdminRoldejuegoComponent implements OnInit {
       // Realizar la solicitud GET para obtener los datos de la tabla categorias
       // Convertir el objeto dateCategoria a JSON
       const dataParaEnviar = JSON.stringify(datosTorneo);
-      fetch(`${server}/torneos/new`, {
+      fetch(`http://localhost:3000/torneos/new`, {
         method: 'POST',
         body: dataParaEnviar,
         headers: {
@@ -285,7 +285,7 @@ export class AdminRoldejuegoComponent implements OnInit {
     }
     console.log("estamos guardando",);
     const dataParaEnviar = JSON.stringify(datos);
-    fetch(`${server}/equipos/search/teams`, {
+    fetch(`http://localhost:3000/equipos/search/teams`, {
       method: 'POST',
       body: dataParaEnviar,
       headers: {
@@ -381,7 +381,7 @@ export class AdminRoldejuegoComponent implements OnInit {
     // Realizar la solicitud GET para obtener los datos de la tabla categorias
     // Convertir el objeto dateCategoria a JSON
     const dataParaEnviar = JSON.stringify(data);
-    fetch(`${server}/torneos/replace/teamsToTournaments`, {
+    fetch(`http://localhost:3000/torneos/replace/teamsToTournaments`, {
       method: 'PATCH',
       body: dataParaEnviar,
       headers: {
@@ -447,7 +447,7 @@ export class AdminRoldejuegoComponent implements OnInit {
     //🐞 Enviamos los datos por la notación JSON
     const dataParaEnviar = JSON.stringify(datos);
     //Esta función fetch conlleva la API.
-    fetch(`${server}/torneos/search`, {
+    fetch(`http://localhost:3000/torneos/search`, {
       method: 'POST',
       body: dataParaEnviar,
       headers: {
@@ -514,7 +514,7 @@ export class AdminRoldejuegoComponent implements OnInit {
 
   // Realizar la solicitud GET para obtener los datos de la tabla categorias
   fetchGetCategories() {
-    this.http.get<any[]>(`${server}/categorias/receive`)
+    this.http.get<any[]>(`http://localhost:3000/categorias/receive`)
       .subscribe(data => {
         console.log('Datos de la tabla categorias:', data);
         this.getCategorias = data;
@@ -524,7 +524,7 @@ export class AdminRoldejuegoComponent implements OnInit {
   }
   // Realizar la solicitud GET para obtener los datos de la tabla equipos disponibles
   fetchGetTeamsDisponibility() {
-    this.http.get<any[]>(`${server}/torneos/receive/teams/disponibles`)
+    this.http.get<any[]>(`http://localhost:3000/torneos/receive/teams/disponibles`)
       .subscribe(data => {
         console.log('Datos de la tabla categorias:', data);
         this.getEquipos = data;
@@ -534,7 +534,7 @@ export class AdminRoldejuegoComponent implements OnInit {
   }
   // Realizar la solicitud GET para obtener los datos de la tabla torneos
   fetchGetTorneos() {
-    this.http.get<any[]>(`${server}/torneos/receive/torneos/disponibles`)
+    this.http.get<any[]>(`http://localhost:3000/torneos/receive/torneos/disponibles`)
       .subscribe(data => {
         console.log('Datos de la tabla torneos:', data);
         this.getTorneos = data;
@@ -544,7 +544,7 @@ export class AdminRoldejuegoComponent implements OnInit {
   }
   //Realizar la solicitud ger para obtener los datos de la tabla torneos con equipos vigentes.
   fetchGetTorneosConEquipos() {
-    this.http.get<any[]>(`${server}/torneos/receive/play/false`)
+    this.http.get<any[]>(`http://localhost:3000/torneos/receive/play/false`)
       .subscribe(data => {
         console.log('AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII');
         console.log('Datos de la tabla torneos:', data);
