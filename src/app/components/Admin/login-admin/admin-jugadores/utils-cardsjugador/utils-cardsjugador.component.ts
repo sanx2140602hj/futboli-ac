@@ -286,10 +286,10 @@ export class UtilsCardsjugadorComponent implements OnInit {
         }
       );
   }
-  
+  datosSerie: {} = {};
 
   datosEncriptados(jugador: any) {
-    this.miFormularioTotal.patchValue({
+    this.datosSerie ={
       folio: jugador.folio,
       id_equipos: jugador.id_equipos,
       nombre: jugador.nombre,
@@ -316,7 +316,30 @@ export class UtilsCardsjugadorComponent implements OnInit {
       grupo: jugador.grupo,
 
       tutor: jugador.tutor,
-    });
+    };
+    this.miFormularioTotal.patchValue({
+      nombre: jugador.nombre,
+      apellidoP: jugador.apellidoP,
+      apellidoM: jugador.apellidoM,
+      genero: jugador.genero,
+      nacimientoFecha: new Date(jugador.nacimientoFecha)
+        .toISOString()
+        .slice(0, 10),
+        telefono: jugador.telefono,
+        calle: jugador.calle,
+        numeroExterno: jugador.numeroExterno,
+        cp: jugador.cp,
+
+        estatura: jugador.estatura,
+        peso: jugador.peso,
+        tipoSangre: jugador.tipoSangre,
+        escolaridad: jugador.escolaridad,
+        grado: jugador.grado,
+        grupo: jugador.grupo,
+  
+        tutor: jugador.tutor,
+
+         });
   }
 
   /* --------------------------------------------------- */
@@ -338,12 +361,15 @@ export class UtilsCardsjugadorComponent implements OnInit {
         );
     }
   }
+  datosSinserie: {} = {};
   datosSinEncriptar(jugador: any){
     this.miFormularioTotal.patchValue({
       calle: jugador.calle,
       colonia: jugador.colonia,
       curp: jugador.curp,
       escuela: jugador.escuela,
+
     });
+    
   }
 }
