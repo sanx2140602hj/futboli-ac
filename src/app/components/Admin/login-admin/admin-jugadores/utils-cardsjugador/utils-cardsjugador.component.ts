@@ -19,7 +19,7 @@ export class UtilsCardsjugadorComponent implements OnInit {
   informacionJugador: any[] = [];
 
   @Output() onCloseModal = new EventEmitter<void>();
-  showEliminarModal =false;
+  showEliminarModal = false;
 
   openEliminarModal() {
     console.log('Modal abierto'); // ⚠️ Se muestra un log en la consola
@@ -34,7 +34,7 @@ export class UtilsCardsjugadorComponent implements OnInit {
     private jugadorSelectionService: JugadorSelectionService
   ) {
     this.miFormularioTotal = this.fb.group({
-      folio: ['', [Validators.required, Validators.pattern('^[0-9]+$'),Validators.maxLength(14)]],
+      folio: ['', [Validators.required, Validators.pattern('^[0-9]+$'), Validators.maxLength(14)]],
       id_equipos: ['', Validators.required],
       imgJugador: [''],
       nombre: ['', [Validators.required, Validators.pattern('[a-z A-Zs]+')]],
@@ -66,83 +66,83 @@ export class UtilsCardsjugadorComponent implements OnInit {
   ngOnInit() {
     this.IDjugador = this.jugadorSelectionService.getSelectedId();
     console.log('Jornadas para el id, (intento 2): ', this.IDjugador);
-      this.fetchGETjugadores();
-      this.fetchDecryptedPlayerData();
+    this.fetchDecryptedPlayerData();
+    this.fetchGETjugadores();
   }
   /* ------------------------------------------- */
 
-// #region get de formulario
-        get folio() {
-          return this.miFormularioTotal.get('folio');
-        }
-        get id_equipos() {
-          return this.miFormularioTotal.get('id_equipos');
-        }
-        get imgJugador() {
-          return this.miFormularioTotal.get('imgJugador');
-        }
-        get nombre() {
-          return this.miFormularioTotal.get('nombre');
-        }
-        get apellidoP() {
-          return this.miFormularioTotal.get('apellidoP');
-        }
-        get apellidoM() {
-          return this.miFormularioTotal.get('apellidoM');
-        }
-        get genero() {
-          return this.miFormularioTotal.get('genero');
-        }
-        get nacimientoFecha() {
-          return this.miFormularioTotal.get('nacimientoFecha');
-        }
-        get curp() {
-          return this.miFormularioTotal.get('curp');
-        }
-        get tel() {
-          return this.miFormularioTotal.get('telefono');
-        }
-        get calle() {
-          return this.miFormularioTotal.get('calle');
-        }
-        get numeroExterno() {
-          return this.miFormularioTotal.get('numeroExterno');
-        }
-        get colonia() {
-          return this.miFormularioTotal.get('colonia');
-        }
-        get ciudad() {
-          return this.miFormularioTotal.get('ciudad');
-        }
-        get codigo() {
-          return this.miFormularioTotal.get('cp');
-        }
-        get estatura() {
-          return this.miFormularioTotal.get('estatura');
-        }
-        get peso() {
-          return this.miFormularioTotal.get('peso');
-        }
-        get tipoSangre() {
-          return this.miFormularioTotal.get('tipoSangre');
-        }
-        get escolaridad() {
-          return this.miFormularioTotal.get('escolaridad');
-        }
-        get escuela() {
-          return this.miFormularioTotal.get('escuela');
-        }
-        get grado() {
-          return this.miFormularioTotal.get('grado');
-        }
-        get grupo() {
-          return this.miFormularioTotal.get('grupo');
-        }
-        get tutor() {
-          return this.miFormularioTotal.get('tutor');
-        }
+  // #region get de formulario
+  get folio() {
+    return this.miFormularioTotal.get('folio');
+  }
+  get id_equipos() {
+    return this.miFormularioTotal.get('id_equipos');
+  }
+  get imgJugador() {
+    return this.miFormularioTotal.get('imgJugador');
+  }
+  get nombre() {
+    return this.miFormularioTotal.get('nombre');
+  }
+  get apellidoP() {
+    return this.miFormularioTotal.get('apellidoP');
+  }
+  get apellidoM() {
+    return this.miFormularioTotal.get('apellidoM');
+  }
+  get genero() {
+    return this.miFormularioTotal.get('genero');
+  }
+  get nacimientoFecha() {
+    return this.miFormularioTotal.get('nacimientoFecha');
+  }
+  get curp() {
+    return this.miFormularioTotal.get('curp');
+  }
+  get tel() {
+    return this.miFormularioTotal.get('telefono');
+  }
+  get calle() {
+    return this.miFormularioTotal.get('calle');
+  }
+  get numeroExterno() {
+    return this.miFormularioTotal.get('numeroExterno');
+  }
+  get colonia() {
+    return this.miFormularioTotal.get('colonia');
+  }
+  get ciudad() {
+    return this.miFormularioTotal.get('ciudad');
+  }
+  get codigo() {
+    return this.miFormularioTotal.get('cp');
+  }
+  get estatura() {
+    return this.miFormularioTotal.get('estatura');
+  }
+  get peso() {
+    return this.miFormularioTotal.get('peso');
+  }
+  get tipoSangre() {
+    return this.miFormularioTotal.get('tipoSangre');
+  }
+  get escolaridad() {
+    return this.miFormularioTotal.get('escolaridad');
+  }
+  get escuela() {
+    return this.miFormularioTotal.get('escuela');
+  }
+  get grado() {
+    return this.miFormularioTotal.get('grado');
+  }
+  get grupo() {
+    return this.miFormularioTotal.get('grupo');
+  }
+  get tutor() {
+    return this.miFormularioTotal.get('tutor');
+  }
 
-// #endregion
+  // #endregion
 
 
 
@@ -269,16 +269,16 @@ export class UtilsCardsjugadorComponent implements OnInit {
 
   fetchGETjugadores() {
     this.http
-    .get<any>(`http://localhost:3000/jugadores/receive/${this.IDjugador}`)
-    .subscribe(
+      .get<any>(`http://localhost:3000/jugadores/receive/${this.IDjugador}`)
+      .subscribe(
         (data) => {
           if (Array.isArray(data)) {
             this.informacionJugador = data;
           } else {
             this.informacionJugador = [data];
           }
-          console.log("estos datons encriptados",this.informacionJugador);
-          this.datosEncriptados(this.informacionJugador[0]); 
+          console.log("estos datons encriptados", this.informacionJugador);
+          this.datosEncriptados(this.informacionJugador[0]);
         },
         (error) => {
           console.error('Error en la solicitud:', error);
@@ -289,34 +289,30 @@ export class UtilsCardsjugadorComponent implements OnInit {
   datosSerie: {} = {};
 
   datosEncriptados(jugador: any) {
-    this.datosSerie ={
-      folio: jugador.folio,
-      id_equipos: jugador.id_equipos,
-      nombre: jugador.nombre,
-      apellidoP: jugador.apellidoP,
-      apellidoM: jugador.apellidoM,
-      genero: jugador.genero,
-      nacimientoFecha: new Date(jugador.nacimientoFecha)
-        .toISOString()
-        .slice(0, 10),
-      curp: jugador.curp,
-      telefono: jugador.telefono,
-      calle: jugador.calle,
-      numeroExterno: jugador.numeroExterno,
-      colonia: jugador.colonia,
-      ciudad: jugador.ciudad,
-      cp: jugador.cp,
-
-      estatura: jugador.estatura,
-      peso: jugador.peso,
-      tipoSangre: jugador.tipoSangre,
-      escolaridad: jugador.escolaridad,
-      escuela: jugador.escuela,
-      grado: jugador.grado,
-      grupo: jugador.grupo,
-
-      tutor: jugador.tutor,
-    };
+    /*     this.datosSerie ={
+          folio: jugador.folio,
+          id_equipos: jugador.id_equipos,
+          nombre: jugador.nombre,
+          apellidoP: jugador.apellidoP,
+          apellidoM: jugador.apellidoM,
+          genero: jugador.genero,
+          nacimientoFecha: new Date(jugador.nacimientoFecha)
+            .toISOString()
+            .slice(0, 10),
+          telefono: jugador.telefono,
+          numeroExterno: jugador.numeroExterno,
+          ciudad: jugador.ciudad,
+          cp: jugador.cp,
+    
+          estatura: jugador.estatura,
+          peso: jugador.peso,
+          tipoSangre: jugador.tipoSangre,
+          escolaridad: jugador.escolaridad,
+          grado: jugador.grado,
+          grupo: jugador.grupo,
+    
+          tutor: jugador.tutor,
+        }; */
     this.miFormularioTotal.patchValue({
       nombre: jugador.nombre,
       apellidoP: jugador.apellidoP,
@@ -325,21 +321,21 @@ export class UtilsCardsjugadorComponent implements OnInit {
       nacimientoFecha: new Date(jugador.nacimientoFecha)
         .toISOString()
         .slice(0, 10),
-        telefono: jugador.telefono,
-        calle: jugador.calle,
-        numeroExterno: jugador.numeroExterno,
-        cp: jugador.cp,
+      telefono: jugador.telefono,
+      numeroExterno: jugador.numeroExterno,
+      cp: jugador.cp,
+      ciudad: jugador.ciudad,
 
-        estatura: jugador.estatura,
-        peso: jugador.peso,
-        tipoSangre: jugador.tipoSangre,
-        escolaridad: jugador.escolaridad,
-        grado: jugador.grado,
-        grupo: jugador.grupo,
-  
-        tutor: jugador.tutor,
+      estatura: jugador.estatura,
+      peso: jugador.peso,
+      tipoSangre: jugador.tipoSangre,
+      escolaridad: jugador.escolaridad,
+      grado: jugador.grado,
+      grupo: jugador.grupo,
 
-         });
+      tutor: jugador.tutor,
+
+    });
   }
 
   /* --------------------------------------------------- */
@@ -350,7 +346,7 @@ export class UtilsCardsjugadorComponent implements OnInit {
         .subscribe(
           (data) => {
             this.informacionJugador = data;
-            console.log("estos datos son limpios ",this.informacionJugador); // Verificar datos en consola
+            console.log("estos datos son limpios ", this.informacionJugador); // Verificar datos en consola
             this.datosSinEncriptar(this.informacionJugador[0]);
             console.log(this.datosSinEncriptar); // Suponiendo que la API devuelve un solo jugador
           },
@@ -362,7 +358,7 @@ export class UtilsCardsjugadorComponent implements OnInit {
     }
   }
   datosSinserie: {} = {};
-  datosSinEncriptar(jugador: any){
+  datosSinEncriptar(jugador: any) {
     this.miFormularioTotal.patchValue({
       calle: jugador.calle,
       colonia: jugador.colonia,
@@ -370,6 +366,6 @@ export class UtilsCardsjugadorComponent implements OnInit {
       escuela: jugador.escuela,
 
     });
-    
+
   }
 }

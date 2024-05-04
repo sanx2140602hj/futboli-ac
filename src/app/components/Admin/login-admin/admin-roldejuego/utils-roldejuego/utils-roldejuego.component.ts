@@ -38,33 +38,52 @@ export class UtilsRoldejuegoComponent implements OnInit {
   // Método para abrir el modal
   openModal() {
     console.log('Modal abierto'); // ⚠️ Se muestra un log en la consola
+    this.fetchGetTorneo();                       
     this.agregarEquiposClasificados = true; // ⚠️ Se establece en true para mostrar el modal
+    this.fetchGetTorneo();                       
+
   }
 
   // Método para cerrar el modal
   closeModal() {
     console.log('Modal cerrado'); // ⚠️ Se muestra un log en la consola
+    this.fetchGetTorneo();
     this.agregarEquiposClasificados = false; // ⚠️ Se establece en false para ocultar el modal
+    this.fetchGetTorneo();                       
+
   }
   /* ------------------------------------------ */
   editarinfoequipos = false;
   infoOpenModal() {
     console.log('Modal cerrado');
+    this.fetchGetTorneo();
     this.editarinfoequipos = true;
+    this.fetchGetTorneo();                       
+
   }
   infoCloseModal() {
     console.log('Modal open');
+    this.fetchGetTorneo();
     this.editarinfoequipos = false;
+    this.fetchGetTorneo();                       
+
   }
   /* ------------------------------------------ */
   eliminarTorneo = false;
   eliminarTorneOpenModal() {
     console.log('Modal open');
+    this.fetchGetTorneo();
     this.eliminarTorneo = true;
+    this.fetchGetTorneo();                       
+
+
   }
   eliminarTorneCloseModal() {
     console.log('Modal cerrado');
+    this.fetchGetTorneo();
     this.eliminarTorneo = false;
+    this.fetchGetTorneo();                       
+
   }
 
   //🐞 Función para el sorteo de equipos.

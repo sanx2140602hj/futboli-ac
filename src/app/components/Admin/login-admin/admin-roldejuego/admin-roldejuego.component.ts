@@ -346,7 +346,7 @@ export class AdminRoldejuegoComponent implements OnInit {
         showConfirmButton: false,
 
       });
-
+this.ngOnInit();
 
     } else if (this.idTorneo.length == 0) {
       //const mensaje = `Nombre del tornero ${this.nombreTorneo} - `;
@@ -359,6 +359,8 @@ export class AdminRoldejuegoComponent implements OnInit {
         showConfirmButton: false,
 
       });
+
+
     } else {
       // Si todos los campos están llenos y hay al menos un equipo seleccionado, guardar los datos
       this.guardarEquiposSeleccionados();

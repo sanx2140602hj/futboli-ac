@@ -37,10 +37,10 @@
     <div class="container anim" >
         <div class="row row-cols-1 row-cols-md-3 g-4" >
             <div class="col card" *ngFor="let jugador of jugadores" routerLink="/card-jugador">
-                <div style="display: flex;">
+                <div style="display: flex;"  (click)="seleccionarTorneo(jugador.id)">
 
                     <p><img src="../../../assets/Imagenes/A.png" class="card-img-top" alt="..."></p>
-                    <div class=" h-100" (click)="seleccionarTorneo(jugador.id)">
+                    <div class=" h-100">
                         <h6 style="text-align: center; margin-top: 0.9rem; margin-bottom: 1rem;"><b>Jugador:</b>   {{ jugador.nombre }} {{ jugador.apellidoP }} {{ jugador.apellidoM }}</h6>
                     <h6>
                         Folio: <b>{{ jugador.folio }}</b>

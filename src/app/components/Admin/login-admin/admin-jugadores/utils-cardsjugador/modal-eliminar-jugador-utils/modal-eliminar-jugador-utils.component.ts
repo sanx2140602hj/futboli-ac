@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 import { HttpClient } from '@angular/common/http';
 import { JugadorSelectionService } from '../../../../../../service/cardId.service';
@@ -14,7 +15,7 @@ import { JugadorSelectionService } from '../../../../../../service/cardId.servic
   styleUrls: ['./modal-eliminar-jugador-utils.component.css']
 })
 export class ModalEliminarJugadorUtilsComponent{
-  constructor(private http: HttpClient,  private jugadorSelectionService: JugadorSelectionService) {}
+  constructor(private http: HttpClient, private jugadorSelectionService: JugadorSelectionService, private router: Router) {}
   @Input() jugador: number | null = null; // Recibir el ID de la categoría como entrada
   IDjugador: number | null = null; // Variable para almacenar el ID del jugador sin formato
   palabraClave: string = '';
@@ -68,7 +69,7 @@ export class ModalEliminarJugadorUtilsComponent{
         iconColor: 'red',
         timer: 1500,
         showConfirmButton: false,
-      });
+      });this.router.navigate(['/Admin-Jugadores']);
     } else {
       this.error = true; // Establecer la variable de error como verdadera
       Swal.fire({

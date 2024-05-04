@@ -49,25 +49,24 @@
                 <h2>Formulario de inscripción</h2>
                 <p>Complete este formulario para inscribir a un jugador en la liga. Un asterisco (*) indica la
                     información obligatoria.</p>
-                    <div>
+   <!--                  <div>
 
                         <button class="custom-button" (click)="fetchGETjugadores()" (click)="fetchDecryptedPlayerData()">
                            <h6>
                                <i class="fa-solid fa-download"></i>
                            </h6> 
                         </button>
-                    </div>
+                    </div> -->
             </div>
             <hr>
             <div>
                 <div>
                     <!-- contenido pestaña identificación -->
-                    <h1 style="font-weight: bold; font-size: 1rem;">*Identificador General</h1>
+       <!--              <h1 style="font-weight: bold; font-size: 1rem;">*Identificador General</h1>
                     <div class="row"  *ngIf="jugador">
                         <p>configurar las clases de los form-control</p>
 
                         <form [formGroup]="miFormularioTotal">
-                            <!-- folio -->
                             <label for="folio">Folio:</label>
                             <input type="number" formControlName="folio" class="form-control"
                                 [ngClass]="{ 'error-input': folio && folio.invalid && (folio.dirty || folio.touched) }">
@@ -75,7 +74,6 @@
                                 <div *ngIf="folio.errors?.['required']">El folio es obligatorio.</div>
                                 <div *ngIf="folio.errors?.['pattern']">Solo se permiten números.</div>
                             </div>
-                            <!-- selector de id_equiposs -->
                             <label for="id_equipos">id_equipos:</label>
                             <select id="id_equipos" formControlName="id_equipos" class="form-control"
                                 [ngClass]="{ 'error-input': id_equipos && id_equipos.invalid && (id_equipos.dirty || id_equipos.touched) }">
@@ -87,7 +85,6 @@
                             <div *ngIf="id_equipos && id_equipos.invalid && (id_equipos.dirty || id_equipos.touched)">
                                 <div *ngIf="id_equipos.errors?.['required']">Selecciona un id_equipos.</div>
                             </div>
-                            <!-- selector de imgJugadors -->
                             <label for="imgJugador">imgJugador:</label>
                             <input type="file" formControlName="imgJugador" class="form-control"
                                 [ngClass]="{ 'error-input': imgJugador && imgJugador.invalid && (imgJugador.dirty || imgJugador.touched) }">
@@ -95,7 +92,7 @@
                                 <div *ngIf="imgJugador.errors?.['required']">Selecciona un imgJugador.</div>
                             </div>
                         </form>
-                    </div>
+                    </div> -->
                     <h1 style="font-weight: bold; font-size: 1rem;">*Identificador de datos personales</h1>
                     <div class="row">
                         <form [formGroup]="miFormularioTotal">
