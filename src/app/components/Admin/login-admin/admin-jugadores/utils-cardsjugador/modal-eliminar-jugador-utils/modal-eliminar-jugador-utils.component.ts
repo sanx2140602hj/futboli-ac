@@ -69,7 +69,8 @@ export class ModalEliminarJugadorUtilsComponent{
         iconColor: 'red',
         timer: 1500,
         showConfirmButton: false,
-      });this.router.navigate(['/Admin-Jugadores']);
+      });
+      this.router.navigate(['/Admin-Jugadores']);
     } else {
       this.error = true; // Establecer la variable de error como verdadera
       Swal.fire({

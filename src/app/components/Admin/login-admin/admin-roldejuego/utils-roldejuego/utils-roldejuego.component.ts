@@ -23,6 +23,8 @@ export class UtilsRoldejuegoComponent implements OnInit {
   getTorneo: any[] = [];
   clicsRestantes: number = 0; // Número máximo de clics permitidos
   clicsRestantesSorteo: number = 1; // Número máximo de clics permitidos
+  categorias: any[] = [];
+  idCategorias: number | null = null;
   constructor(private http: HttpClient, private torneoSelectionService: TorneoSelectionService) { }
 
   ngOnInit(): void {
@@ -216,11 +218,41 @@ export class UtilsRoldejuegoComponent implements OnInit {
   fetchGetTorneo() {
     this.http.get<any[]>(`http://localhost:3000/torneos/receive/play/${this.torneoId}`)
       .subscribe(data => {
-        console.log('Datos de la tabla categorias:', data);
+        console.log('Datos de la tabla esto trae nombre y tipo de categoria:', data);
         this.getTorneo = data;
+        // Guardar el valor de id_categorias en la variable idCategorias
+        if (data && data.length > 0) {
+          this.idCategorias = data[0].id_categorias;
+          console.log("ID de categorias ⭐⭐⭐ ", this.idCategorias );
+          // Una vez que tengas el idCategorias, llama a GetparaTabla()
+          this.GetparaTabla();
+        }
       }, error => {
         console.error('Error en la solicitud:', error);
       });
+  }
+  nombre: string | undefined;
+  GetparaTabla() {
+    console.log("Entro a get categoria 🦖🦖🦖")
+    // Verifica si this.idCategorias tiene un valor válido antes de hacer la solicitud GET
+    if (this.idCategorias) {
+      this.http.get<any[]>(`http://localhost:3000/categorias/receive/${this.idCategorias}`).subscribe(
+        (data) => {
+          console.log('esto debe treer datos de id categorias🦖🦖🦖 :', data);
+          this.categorias = data;
+              // Si data es un arreglo y tiene al menos un elemento, extrae el nombre del primer elemento y asígnalo a la variable nombre
+              if (Array.isArray(data) && data.length > 0) {
+                this.nombre = data[0].nombre;
+                console.log('Nombre:', this.nombre);
+              }
+        },
+        (error) => {
+          console.error('Error en la solicitud:', error);
+        }
+      );
+    } else {
+      console.error('El valor de this.idCategorias es nulo o no válido.');
+    }
   }
   //Realizar la solicitud ger para obtener los datos de la tabla torneos con equipos vigentes.
   fetchGetDataTorneoConEquipos() {
