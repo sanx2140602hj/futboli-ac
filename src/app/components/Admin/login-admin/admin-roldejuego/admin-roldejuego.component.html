@@ -82,7 +82,8 @@
     <div *ngIf="equiposDisponibles.length > 0; else noDataEquipos">
         <div class="scroll" >
             <li *ngFor="let equipos of equiposDisponibles.concat(getBusquedaEquipos)">
-                Id:{{equipos.id}}, {{ equipos.nombre }}, Idcategoria: {{equipos.id_categorias }}
+                Id:{{equipos.id}}, Nombre de 
+                tornero {{ equipos.nombre }}, Tipo de categoria: {{palabraClave  }}
                 <button type="button" class="custom-button2" (click)="agregarEquipo(equipos)">
                     <i class="fa-solid fa-plus"></i>Añadir
                 </button>

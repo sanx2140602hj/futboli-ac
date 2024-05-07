@@ -132,6 +132,7 @@ export class AdminRoldejuegoComponent implements OnInit {
 
     // Si todos los campos están llenos y hay al menos un equipo seleccionado, guardar los datos
     this.guardarDatos();
+    this.fetchGetTorneos();
   }
 
   guardarDatos(): void {
@@ -347,7 +348,7 @@ export class AdminRoldejuegoComponent implements OnInit {
 
       });
 this.ngOnInit();
-
+this.fetchGetTorneosConEquipos();
     } else if (this.idTorneo.length == 0) {
       //const mensaje = `Nombre del tornero ${this.nombreTorneo} - `;
       Swal.fire({
@@ -364,6 +365,7 @@ this.ngOnInit();
     } else {
       // Si todos los campos están llenos y hay al menos un equipo seleccionado, guardar los datos
       this.guardarEquiposSeleccionados();
+      this.fetchGetTorneosConEquipos();
     }
   }
 
@@ -549,11 +551,38 @@ this.ngOnInit();
     this.http.get<any[]>(`http://localhost:3000/torneos/receive/play/false`)
       .subscribe(data => {
         console.log('AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII');
-        console.log('Datos de la tabla torneos:', data);
+        console.log('Datos de la tabla torneos yes 🐍🐍:', data);
         this.getTorneosPlayWithTeams = data;
+
+// Llamar a fetchGetTorneo() pasando el valor de id_categorias como parámetro
+const id_categorias = data[0].id_categorias; // Obtener el valor de id_categorias desde los datos recibidos
+this.fetchGetTorneo(id_categorias); // Llamar a fetchGetTorneo() con el valor obtenido
+
+
       }, error => {
         console.error('Error en la solicitud:', error);
       });
   }
+  /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+    palabraClave: string = '';
+
+    fetchGetTorneo(id_categorias: number) {
+      // Realizar la solicitud GET para obtener los datos del torneo
+      this.http.get<any[]>(`http://localhost:3000/torneos/receive/play/${id_categorias}`)
+        .subscribe(
+          (data) => {
+            console.log('Datos del torneo:', data);
+            if (data && data.length > 0) {
+              this.data = data[0]; // Tomar el primer elemento del array
+              this.palabraClave = data[0].nombre; // Acceder al primer elemento del array y luego a la propiedad nombre
+            } else {
+              console.error('No se encontraron datos para el torneo con ID:', id_categorias);
+            }
+          },
+          (error) => {
+            console.error('Error en la solicitud:', error);
+          }
+        );
+    }
 }
 
