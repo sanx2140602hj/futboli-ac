@@ -33,7 +33,7 @@
                     <option value="D">D</option>
                     <option value="E">E</option>
                 </select> 
-                <textarea style="margin-top: 1rem;" formControlName="escribaCAUSAL" class="category-input"
+                <textarea placeholder="Causal" style="margin-top: 1rem;" formControlName="escribaCAUSAL" class="category-input"
                           [ngClass]="{ 'error-input': miFormulario.get('escribaCAUSAL')?.invalid && miFormulario.get('escribaCAUSAL')?.touched }"></textarea>
             
                 <div *ngIf="miFormulario.get('escribaCAUSAL')?.invalid && miFormulario.get('escribaCAUSAL')?.touched">

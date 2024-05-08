@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { obtenerNombreAleatorio } from '../../service/copy-programer.service'; // Importar la función desde service.ts
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  currentYear: number;
+  nombreAleatorio: string = ''; // Inicializar la propiedad con un valor predeterminado
+
+  constructor() {
+    this.currentYear = new Date().getFullYear();
+  }
 
   ngOnInit(): void {
+    this.nombreAleatorio = obtenerNombreAleatorio(); // Asignar un nombre aleatorio al inicializar el componente
   }
 
 }

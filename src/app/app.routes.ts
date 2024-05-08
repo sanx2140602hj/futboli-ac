@@ -37,18 +37,17 @@ const app_routes: Routes = [
   { path: 'Acerca', component:AcercaComponent},
 
   /* Admin */
-  { path: 'modalnuevacategoria', component: ModalNuevacategoriasComponent},
   
   { path: 'Admin', component: LoginAdminComponent },
-  { path: 'Admin-Home', component: AdminHomeComponent/* , canActivate: [AuthGuard] */},
-  { path: 'Admin-Categorias', component: AdminCategoriasComponent/* , canActivate: [AuthGuard] */},
-  { path: 'Admin-Jugadores', component:AdminJugadoresComponent/* , canActivate: [AuthGuard] */},
-  { path: 'Admin-RegistroJugador', component: AdminRegistroJugadorComponent /* , canActivate: [AuthGuard] */},
-  { path: 'Admin-Equipos', component: AdminEquiposComponent /* , canActivate: [AuthGuard] */},
-  { path: 'Admin-Partidos', component: AdminPartidosComponent /* , canActivate: [AuthGuard] */},
-  { path: 'Admin-Recibos', component: AdminRecibosComponent/* , canActivate: [AuthGuard] */},
-  { path: 'Admin-RolesdeJuegos', component:AdminRoldejuegoComponent/* , canActivate: [AuthGuard] */},
-  { path: 'Admin-TablaPosicion', component:AdminTablaposicionComponent/* , canActivate: [AuthGuard] */},
+  { path: 'Admin-Home', component: AdminHomeComponent , canActivate: [AuthGuard] },
+  { path: 'Admin-Categorias', component: AdminCategoriasComponent , canActivate: [AuthGuard] },
+  { path: 'Admin-Jugadores', component:AdminJugadoresComponent , canActivate: [AuthGuard] },
+  { path: 'Admin-RegistroJugador', component: AdminRegistroJugadorComponent  , canActivate: [AuthGuard] },
+  { path: 'Admin-Equipos', component: AdminEquiposComponent  , canActivate: [AuthGuard] },
+  { path: 'Admin-Partidos', component: AdminPartidosComponent  , canActivate: [AuthGuard] },
+  { path: 'Admin-Recibos', component: AdminRecibosComponent , canActivate: [AuthGuard] },
+  { path: 'Admin-RolesdeJuegos', component:AdminRoldejuegoComponent , canActivate: [AuthGuard] },
+  { path: 'Admin-TablaPosicion', component:AdminTablaposicionComponent , canActivate: [AuthGuard] },
 
 
   /* utils-admin */
@@ -65,8 +64,8 @@ const app_routes: Routes = [
 
 
 ];
-export const app_routing = RouterModule.forRoot(app_routes);
-/* 
 export const app_routing = RouterModule.forRoot(app_routes, { scrollPositionRestoration: 'top' }); 
+/* 
+export const app_routing = RouterModule.forRoot(app_routes);
 ⚠️⚠️⚠️⚠️Poner esta linea de codigo al terminar el proyecto⚠️⚠️⚠️⚠️
 */
