@@ -17,10 +17,10 @@
 */
 // Definir la lista de nombres
 const nombres: string[] = [
-    "Estrella Ninandi Rosas Sandoval",
-    "Aldo Yahir Cruz Garcia",
-    "Johanna Mendoza Juárez",
-    "Jesús Sánchez Hernández"
+  "Estrella Ninandi Rosas Sandoval.",
+    "Aldo Yahir Cruz Garcia.",
+    "Johanna Mendoza Juárez.",
+    "Jesús Sánchez Hernández."
 ];
 
 // Función para obtener un nombre aleatorio
