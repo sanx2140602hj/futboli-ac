@@ -1,9 +1,7 @@
-
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { TorneoSelectionService } from '../../../../service/torneo-selection.service';
 import Swal from 'sweetalert2'
-
 
 // 🌎 Define la constante server con la URL del servidor
 const server = 'http://localhost:3000';
@@ -15,34 +13,25 @@ const server = 'http://localhost:3000';
 })
 export class AdminRoldejuegoComponent implements OnInit {
   @Output() selectedTorneoIdEvent = new EventEmitter<number>();
-  //selectedTorneoId: number | null = null; // Variable para almacenar el ID de la categoría seleccionada
-  //selectedRow: HTMLElement | null = null; // Variable para almacenar la fila seleccionada
-  selectedTorneoId: number | null = null; // Nueva variable para almacenar el ID de la categoría para el modal de edición
-  //para buscar
+  selectedTorneoId: number | null = null; // Nueva variable para almacenar el ID de la categoría para el modal de edición para buscar
+  //🌎Variables dónde se almacenará los datos de las fucniones.
   searchTerm: string = '';
   searchTorneo: string = '';
-
-  /* +++++++++++++++++++++++++++++++++++++++++++++++ */
-
-  //🌎Variables dónde se almacenará los datos de las fucniones get.
-  getCategorias: any[] = [];
-  getTorneos: any[] = [];
-  getTorneosPlayWithTeams: any[] = [];
-  getEquipos: any[] = [];
-  getBusquedaEquipos: any[] = [];
-  getBusquedaTorneos: any[] = [];
-  equiposDisponibles: any[] = []; // 🦖 Declara una variable para almacenar los equipos disponibles para agregar y la inicializa con una lista de equipos
-  /* aqui arriba ⬆️⬆️⬆️ hacer la conexcion a basew de datos para traer los nombres de los equipos*/
-  equiposSeleccionados: any[] = []; // 🦖 Declara una variable para almacenar los equipos seleccionados para participar y la inicializa como una lista vacía
-  rolesExistentes: string[] = []; // Variable para almacenar los roles existentes
-  //🐢♥️ equiposDisponiblesBackup: string[] = []; // Copia de respaldo de los equipos disponibles
-
   //🐞Variables para registrar un nuevo torneo.
   nombreTorneo: string = ''; // 🦖 Declara una variable para almacenar el nombre del torneo y la inicializa como una cadena vacía
   categoriaParticipar: string = ''; // 🦖 Declara una variable para almacenar la categoría a participar y la inicializa como una cadena vacía
   fechas: string = ''; // 🦖 Declara una variable para almacenar las fechas y la inicializa como una cadena vacía
   idTorneo: string = '';
   idTorneoPlay: string = '';
+  equiposDisponibles: any[] = []; // 🦖 Declara una variable para almacenar los equipos disponibles para agregar y la inicializa con una lista de equipos.
+  equiposSeleccionados: any[] = []; // 🦖 Declara una variable para almacenar los equipos seleccionados para participar y la inicializa como una lista vacía.
+  rolesExistentes: string[] = []; // Variable para almacenar los roles existentes
+  getCategorias: any[] = [];
+  getTorneos: any[] = [];
+  getTorneosPlayWithTeams: any[] = [];
+  getEquipos: any[] = [];
+  getBusquedaEquipos: any[] = [];
+  getBusquedaTorneos: any[] = [];
   nombreTorneoInvalid: boolean = false; // 🦖 Declara una variable para indicar si el nombre del torneo es inválido y la inicializa como falsa
   categoriaParticiparInvalid: boolean = false; // 🦖 Declara una variable para indicar si la categoría a participar es inválida y la inicializa como falsa
   fechasInvalid: boolean = false; // 🦖 Declara una variable para indicar si las fechas son inválidas y la inicializa como falsa
@@ -66,51 +55,45 @@ export class AdminRoldejuegoComponent implements OnInit {
   seleccionarTorneo(id: number) {
     console.log("Vamos enviar el id: ", id)
     this.torneoSelectionService.setSelectedId(id);
-    //this.selectedTorneoIdEvent.emit(id);
   }
 
   /* ------ 📩 FUNCIONES PARA GUARDAR TORNEOs  📩 ------*/
 
-  // Funciones para marcar los campos como tocados
+  //👇Funciones para marcar los campos como tocados.👆
   markNombreAsTouched(): void {
     // 🦖 Método para marcar el campo de nombre del torneo como tocado
     this.touchedNombre = true;
   }
-
   markCategoriaAsTouched(): void {
     // 🦖 Método para marcar el campo de categoría a participar como tocado
     this.touchedCategoria = true;
   }
-
   markFechasAsTouched(): void {
     // 🦖 Método para marcar el campo de fechas como tocado
     this.touchedFechas = true;
   }
 
-  // Funciones para validar los campos
+  //✅Funciones para validar los campos.✅
   isValidNombreTorneo(): boolean {
     // 🦖 Método para validar si el nombre del torneo es válido
     const pattern = /^[a-zA-Z0-9\s]*$/;
     return pattern.test(this.nombreTorneo);
   }
-
   validateNombre(): void {
     // 🦖 Método para validar el campo de nombre del torneo
     this.nombreTorneoInvalid = !this.nombreTorneo || !this.isValidNombreTorneo();
   }
-
   validateCategoria(): void {
     // 🦖 Método para validar el campo de categoría a participar
     this.categoriaParticiparInvalid = !this.categoriaParticipar && this.touchedCategoria;
   }
-
   validateFechas(): void {
     // 🦖 Método para validar el campo de fechas
     this.fechasInvalid = !this.fechas && this.touchedFechas;
   }
 
+  //📌 Función validar y guardar datos de TORNEO
   validarYGuardarDatos(): void {
-    console.log("validando");
     // 🦖 Método para validar los datos antes de guardarlos
     // Activar la bandera de "touched" para mostrar mensajes de error
     this.touchedNombre = true;
@@ -121,22 +104,17 @@ export class AdminRoldejuegoComponent implements OnInit {
     this.validateNombre();
     this.validateCategoria();
     this.validateFechas();
-
-    // Validar si hay al menos un equipo seleccionado
-    //this.equiposInvalid = this.equiposSeleccionados.length === 0;
-
+    
     // Si hay algún campo inválido o no hay equipos seleccionados, detener el proceso
     if (this.nombreTorneoInvalid || this.categoriaParticiparInvalid || this.fechasInvalid) {
+      this.mensajeAlerta('warning', '¡Carácter no válido!', 'Por favor, verifique su información.', false, 3000)
       return;
     }
-
     // Si todos los campos están llenos y hay al menos un equipo seleccionado, guardar los datos
     this.guardarDatos();
-    this.fetchGetTorneos();
   }
 
   guardarDatos(): void {
-    console.log("vamos a guardar")
     // 🦖 Método para guardar los datos
     if (this.nombreTorneo && this.categoriaParticipar && this.fechas) {
       if (this.fechas) {
@@ -160,15 +138,11 @@ export class AdminRoldejuegoComponent implements OnInit {
         nombre: this.nombreTorneo,
         id_categorias: this.categoriaParticipar,
         fechaInicio: this.fechas
-        //equiposSeleccionados: this.equiposSeleccionados // Incluir equipos seleccionados en los datos guardados
       };
-      console.log("estamos guardando")
-      /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
-      /* Aqui recopila los datos ya almacenados por lo que aqui se exportara a la base de datos */
-      // Realizar la solicitud GET para obtener los datos de la tabla categorias
+
       // Convertir el objeto dateCategoria a JSON
       const dataParaEnviar = JSON.stringify(datosTorneo);
-      fetch(`http://localhost:3000/torneos/new`, {
+      fetch(`${server}/torneos/new`, {
         method: 'POST',
         body: dataParaEnviar,
         headers: {
@@ -182,46 +156,18 @@ export class AdminRoldejuegoComponent implements OnInit {
           return response.json();
         })
         .then(data => {
-          console.log('Respuesta del servidor:', data);
-          // Aquí puedes agregar la lógica para manejar la respuesta del servidor
+          //console.log('Respuesta del servidor:', data);
+          this.mensajeAlerta('success', '¡Registro exitoso!', 'Se ha creado un nuevo torneo.', false, 3300);
+          this.fetchGetTorneos();
         })
         .catch(error => {
-          console.error('Error en la solicitud:', error);
-          // Aquí puedes agregar la lógica para manejar el error
+          //console.error('Error en la solicitud:', error);
+          this.mensajeAlerta('error', '¡Lo sentimos, parece que algo salió mal!', 'Intentelo nuevamente. Si persiste el error, favor de informar este problema al equipo de TI para su pronta resolución.', true, 6500);
         });
-      //Mensaje personalizado
-      const mensaje = `Nombre del tornero ${this.nombreTorneo} - ` + `Categoria: ${this.categoriaParticipar}`;
-      Swal.fire({
-        position: "top-end",
-        title: 'Generado con exito',
-        text: mensaje,
-        icon: 'success',
-        timer: 2500,
-        showConfirmButton: false,
-
-      });
-      console.log('Datos guardados:', datosTorneo);
-      console.log('Equipos seleccionados:', this.equiposSeleccionados); // Imprimir equipos seleccionados
-      /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
-      // Guardar una copia de respaldo de los equipos disponibles
-      // 🐢♥️this.equiposDisponiblesBackup = [...this.equiposDisponibles];
-
-      // 🐈‍⬛🐈🌙 En caso de requerir que nuevamente se muestren los equipos des-comentar las lineas que tienen 🐢♥️ al principio 
-
-      /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
-      // Restaurar los equipos disponibles a su estado original
-      // 🐢♥️this.equiposDisponibles = ['Equipo A', 'Equipo B', 'Equipo C', 'Equipo D', 'Equipo E', 'Equipo F', 'Equipo G'];
-      /* aqui arriba ⬆️⬆️⬆️ hacer una 2da la conexcion a basew de datos para traer los nombres de los equipos*/
-      /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
-
-
-      // No limpiar los campos y equipos seleccionados aquí
-
       // Limpiar los campos y equipos seleccionados
       this.limpiarInputs();
-
     } else {
-      console.log('Todos los campos son requeridos');
+      this.mensajeAlerta('warning', '¡Campos vacíos!', 'Todos los campos son requeridos.', false, 3300)
     }
   }
 
@@ -231,15 +177,9 @@ export class AdminRoldejuegoComponent implements OnInit {
     this.nombreTorneo = '';
     this.categoriaParticipar = '';
     this.fechas = '';
-
-    // Resetear los equipos seleccionados
-    this.equiposSeleccionados = [];
-
-    console.log('Limpió');
   }
 
-
-  /* ------ 📩 FUNCIONES PARA AÑADIR EQUIPOS EN UN TORNEO | Buscador 📩 ------*/
+  /* ------ 📩 FUNCIONES PARA AÑADIR EQUIPOS EN UN TORNEO | Buscador 🔍 ------*/
 
   onChangeTorneo(): void {
     this.filtrarEquipos();
@@ -253,139 +193,95 @@ export class AdminRoldejuegoComponent implements OnInit {
       // Eliminar equipo de la lista de equipos disponibles
       this.equiposDisponibles = this.equiposDisponibles.filter(e => e !== equipos.id);
     } else {
-      // Si el equipo ya está seleccionado, puedes mostrar un mensaje de error o simplemente ignorar la acción
-      console.log('El equipo ya está seleccionado');
-      Swal.fire({
-        position: "top-end",
-        title: 'Operación no realizada',
-        text: 'Este equipo ya esta selecionado, verifica tu seleccion',
-        icon: 'warning',
-        timer: 2500,
-        showConfirmButton: false,
-
-      });
+      // Si el equipo ya está seleccionado, puedes mostrar un mensaje de error o simplemente ignorar la acción.
+      this.mensajeAlerta('warning', '¡Ya ha selecionado este equipo!', 'Por favor, elija otro equipo disponible de la lista.', false, 2500);
     }
-    // 🦖 Método para agregar un equipo a la lista de equipos seleccionados
-    // Agregar equipo a la lista de equipos seleccionados
-    //this.equiposSeleccionados.push(equipo);
-    // Eliminar equipo de la lista de equipos disponibles
-    // this.equiposDisponibles = this.equiposDisponibles.filter(e => e !== equipo);
   }
-
   eliminarEquipo(equipo: string): void {
     // 🦖 Método para eliminar un equipo de la lista de equipos seleccionados
-    // Eliminar equipo de la lista de equipos seleccionados
     this.equiposSeleccionados = this.equiposSeleccionados.filter(e => e !== equipo);
-    // Agregar equipo a la lista de equipos disponibles
     this.equiposDisponibles.push(equipo);
   }
 
+  //🔍 Buscar equipos desde la base de datos.
   search(): void {
     const datos = {
       nombre: this.searchTerm
     }
-    console.log("estamos guardando",);
-    const dataParaEnviar = JSON.stringify(datos);
-    fetch(`http://localhost:3000/equipos/search/teams`, {
-      method: 'POST',
-      body: dataParaEnviar,
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`Error en la solicitud: ${response.statusText}`);
+    if (this.searchTerm === "") {
+      this.mensajeAlerta('warning', '¡Campos vacíos!', 'Todos los campos son requeridos.', false, 3300)
+    } else {
+      const dataParaEnviar = JSON.stringify(datos);
+      fetch(`${server}/equipos/search/teams`, {
+        method: 'POST',
+        body: dataParaEnviar,
+        headers: {
+          'Content-Type': 'application/json'
         }
-        return response.json();
       })
-      .then(data => {
-        console.log('Respuesta del servidor:', data);
-        this.equiposDisponibles = data;
-        // Si no hay término de búsqueda, restaurar la lista completa de equipos disponibles
-        /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
-        //segunda coneccion a base de datos XD
-
-      })
-      .catch(error => {
-        console.error('Error en la solicitud:', error);
-        // Aquí puedes agregar la lógica para manejar el error
-      });
-
-
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Error en la solicitud: ${response.statusText}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          this.limpiarBusquedaAgregarEquipos()
+          if (data.length === 0) {
+            this.mensajeAlerta('info', '¡Sin resultados!', 'No encontramos equipos disponibles relacionados con su búsqueda.', false, 4000)
+            return
+          } else {
+            //console.log('Respuesta del servidor:', data);
+            this.equiposDisponibles = data;
+          }
+        })
+        .catch(error => {
+          //console.error('Error en la solicitud:', error);
+          this.mensajeAlerta('error', '¡Lo sentimos, parece que algo salió mal!', 'Intentelo nuevamente, si persiste el error informe este problema al equipo de TI para su pronta resolución.', true, 6500);
+        });
+    }
   }
-
 
   limpiarInputsEquipo(): void {
-    // 🦖 Método para limpiar los campos de entrada
-    // Resetear los equipos seleccionados
+    // 🦖 Método para resetear los equipos seleccionados | BOTÓN CANCELAR
     this.equiposSeleccionados = [];
-
-    console.log('Limpió');
   }
-
-  limpiarBusquedaEquipo(): void {
-    // 🦖 Método para limpiar los campos de entrada
-    // Resetear los equipos seleccionados
+  limpiarBusquedaAgregarEquipos() {
     this.equiposDisponibles = [];
-
-    console.log('Limpió');
+    this.getBusquedaEquipos = [];
+  }
+  limpiarEquiposParticipantesParaTorneo(): void {
+    // 🦖 Método para resetear los equipos seleccionados
+    this.equiposDisponibles = [];
+    this.equiposSeleccionados = []
+    this.searchTerm = "";
+    this.fetchGetTorneos();
+    this.fetchGetTorneosConEquipos()
   }
 
   validarYGuardarEquipos(): void {
-    console.log("validando");
     // 🦖 Método para validar los datos antes de guardarlos
     // Validar si hay al menos un equipo seleccionado
-    if (this.equiposSeleccionados.length == 0 || this.equiposSeleccionados.length < 2) {
-      //const mensaje = `Nombre del tornero ${this.nombreTorneo} - `;
-      Swal.fire({
-        position: "top-end",
-        title: 'Campos vacíos',
-        text: "Añade más de un equipo para guardar.",
-        icon: 'error',
-        timer: 2500,
-        showConfirmButton: false,
-
-      });
-this.ngOnInit();
-this.fetchGetTorneosConEquipos();
+    if (this.equiposSeleccionados.length == 0 || this.equiposSeleccionados.length < 3) {
+      this.mensajeAlerta('error', '¡Equipos insuficientes!', 'Añade tres equipos como mínimo para guardar.', false, 3300)
     } else if (this.idTorneo.length == 0) {
-      //const mensaje = `Nombre del tornero ${this.nombreTorneo} - `;
-      Swal.fire({
-        position: "top-end",
-        title: 'Campos vacíos',
-        text: "Selecciona un torneo para guardar.",
-        icon: 'error',
-        timer: 2500,
-        showConfirmButton: false,
-
-      });
-
-
+      this.mensajeAlerta('warning', '¡Sin torneo a participar!', 'Por favor, seleccione un torneo de la lista desplegable para guardar.', false, 3300)
     } else {
       // Si todos los campos están llenos y hay al menos un equipo seleccionado, guardar los datos
       this.guardarEquiposSeleccionados();
-      this.fetchGetTorneosConEquipos();
     }
   }
 
   guardarEquiposSeleccionados(): void {
-    console.log("vamos a guardar")
     // 🦖 Método para guardar los datos
-
     // Objeto que contiene el ID del torneo y los equipos seleccionados
     const data = {
       id_torneos: this.idTorneo,
       equiposSeleccionados: this.equiposSeleccionados
     };
-    console.log("estamos guardando")
-    console.log(data)
-    /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
-    /* Aqui recopila los datos ya almacenados por lo que aqui se exportara a la base de datos */
-    // Realizar la solicitud GET para obtener los datos de la tabla categorias
     // Convertir el objeto dateCategoria a JSON
     const dataParaEnviar = JSON.stringify(data);
-    fetch(`http://localhost:3000/torneos/replace/teamsToTournaments`, {
+    fetch(`${server}/torneos/replace/teamsToTournaments`, {
       method: 'PATCH',
       body: dataParaEnviar,
       headers: {
@@ -399,47 +295,17 @@ this.fetchGetTorneosConEquipos();
         return response.json();
       })
       .then(data => {
-        console.log('Respuesta del servidor:', data);
-        // Aquí puedes agregar la lógica para manejar la respuesta del servidor
+        //console.log('Respuesta del servidor:', data);
+        this.mensajeAlerta('success', '¡Registro exitoso!', 'Se ha creado un nuevo rol de juego.', false, 3300)
+        this.limpiarEquiposParticipantesParaTorneo();
       })
       .catch(error => {
-        console.error('Error en la solicitud:', error);
-        // Aquí puedes agregar la lógica para manejar el error
+        //console.error('Error en la solicitud:', error);
+        this.mensajeAlerta('error', '¡Lo sentimos, parece que algo salió mal!', 'Intentelo nuevamente, si persiste el error informe este problema al equipo de TI para su pronta resolución.', true, 6500);
       });
-    //Mensaje personalizado
-    const mensaje = `Nombre del tornero ${this.nombreTorneo} - ` + `Categoria: ${this.categoriaParticipar}`;
-    Swal.fire({
-      position: "top-end",
-      title: 'Generado con exito',
-      text: mensaje,
-      icon: 'success',
-      timer: 2500,
-      showConfirmButton: false,
-
-    });
-
-    console.log('Equipos seleccionados:', this.equiposSeleccionados); // Imprimir equipos seleccionados
-    /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
-    // Guardar una copia de respaldo de los equipos disponibles
-    // 🐢♥️this.equiposDisponiblesBackup = [...this.equiposDisponibles];
-
-    // 🐈‍⬛🐈🌙 En caso de requerir que nuevamente se muestren los equipos des-comentar las lineas que tienen 🐢♥️ al principio 
-
-    /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
-    // Restaurar los equipos disponibles a su estado original
-    // 🐢♥️this.equiposDisponibles = ['Equipo A', 'Equipo B', 'Equipo C', 'Equipo D', 'Equipo E', 'Equipo F', 'Equipo G'];
-    /* aqui arriba ⬆️⬆️⬆️ hacer una 2da la conexcion a basew de datos para traer los nombres de los equipos*/
-    /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
-
-
-    // No limpiar los campos y equipos seleccionados aquí
-
-    // Limpiar los campos y equipos seleccionados
-    this.limpiarInputs();
-
   }
 
-  /* ------ 📩 FUNCIONES PARA BUSCAR TORNEOs | Buscador 📩 ------*/
+  /* ------ 📩 FUNCIONES PARA BUSCAR TORNEOs | Buscador 🔍 ------*/
 
   searchTorneos(): void {
     //🐞 Creamos un objeto que almacenará la parabra a buscar.
@@ -447,142 +313,123 @@ this.fetchGetTorneosConEquipos();
       //🐞 "nombre" es el atributo de la tabla x en la base de datos, debe coincidir, de no ser así hará errores al pasar los datos al back.
       nombre: this.searchTorneo
     }
-    console.log("estamos guardando",);
-    //🐞 Enviamos los datos por la notación JSON
-    const dataParaEnviar = JSON.stringify(datos);
-    //Esta función fetch conlleva la API.
-    fetch(`http://localhost:3000/torneos/search`, {
-      method: 'POST',
-      body: dataParaEnviar,
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`Error en la solicitud: ${response.statusText}`);
+    if (this.searchTorneo === "") {
+      this.mensajeAlerta('warning', '¡Campos vacíos!', 'Todos los campos son requeridos.', false, 3300)
+    } else {
+      //🐞 Enviamos los datos por la notación JSON
+      const dataParaEnviar = JSON.stringify(datos);
+      fetch(`${server}/torneos/search`, {
+        method: 'POST',
+        body: dataParaEnviar,
+        headers: {
+          'Content-Type': 'application/json'
         }
-        return response.json();
       })
-      .then(data => {
-        //🐞 Limpiamos los datos que existan y pasamos los valores traidos de 
-        this.limpiarBusquedaTorneos();
-        console.log('Respuesta del servidor:', data);
-        this.getBusquedaTorneos = data;
-        // Si no hay término de búsqueda, restaurar la lista completa de equipos disponibles
-        /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
-        //segunda coneccion a base de datos XD
-
-      })
-      .catch(error => {
-        console.error('Error en la solicitud:', error);
-        // Aquí puedes agregar la lógica para manejar el error
-      });
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Error en la solicitud: ${response.statusText}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          //🐞 Limpiamos los datos que existan y pasamos los valores traidos de 
+          this.limpiarBusquedaTorneos();
+          if (data.length === 0) {
+            this.mensajeAlerta('info', '¡Sin resultados!', 'No encontramos torneos disponibles relacionados con su búsqueda.', false, 4000)
+            return
+          } else {
+            //console.log('Respuesta del servidor:', data);
+            this.getBusquedaTorneos = data;
+          }
+        })
+        .catch(error => {
+          //console.error('Error en la solicitud:', error);
+          this.mensajeAlerta('error', '¡Lo sentimos, parece que algo salió mal!', 'Intentelo nuevamente, si persiste el error informe este problema al equipo de TI para su pronta resolución.', true, 6500);
+        });
+    }
   }
-
   limpiarBusquedaTorneos(): void {
-    // 🦖 Método para limpiar los campos de entrada
-    // Resetear los equipos seleccionados
+    // 🦖 Método para limpiar los equipos seleccionados
+    this.getTorneosPlayWithTeams = [];
     this.getBusquedaTorneos = [];
-    this.getTorneos = []
-
-    console.log('Limpió');
   }
-
-  restaurarTorneosDisponibles(): void {
-    //🐞 Restauramos los datos llamando a la función fetch.
-    this.fetchGetTorneos();
+  verTodosTorneosConEquipo(): void {
+    this.getTorneosPlayWithTeams = [];
+    this.getBusquedaTorneos = [];
+    this.fetchGetTorneosConEquiposAll();
   }
 
   filtrarEquipos(): void {
     //this.equiposDisponibles = [];
     // Obtener el objeto torneo seleccionado
     const torneoSeleccionado = this.getTorneos.find(torneos => torneos.id == this.idTorneo);
-    console.log("Id del torneo seleccionado", this.idTorneo, torneoSeleccionado)
-
+    //console.log("Id del torneo seleccionado", this.idTorneo, torneoSeleccionado)
     if (torneoSeleccionado) {
-      // Filtrar los equipos disponibles según el id_categoria del torneo seleccionado
-
+      // Filtrar los equipos disponibles según el id_categoria del torneo seleccionado.
       this.equiposDisponibles = this.getEquipos.filter(equipos => equipos.id_categorias == torneoSeleccionado.id_categorias);
-      console.log("Resultados que coincidenn con el id_categorias:", this.equiposDisponibles)
-
+      //console.log("Resultados que coincidenn con el id_categorias:", this.equiposDisponibles)
     } else {
       this.equiposDisponibles = [];
     }
   }
 
+  mensajeAlerta(icon: any, title: string, text: string, showConfirmButton: boolean, timer: number) {
+    Swal.fire({
+      position: 'top-end',
+      icon,
+      title,
+      text,
+      showConfirmButton,
+      allowOutsideClick: false,
+      timer
+    });
+  }
   /* ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐ */
-
   /* ------📬📦 FUNCIONES FETCH's 📦📬------*/
   data: any[] = []
-
   // Realizar la solicitud GET para obtener los datos de la tabla categorias
   fetchGetCategories() {
-    this.http.get<any[]>(`http://localhost:3000/categorias/receive`)
+    this.http.get<any[]>(`${server}/categorias/receive`)
       .subscribe(data => {
-        console.log('Datos de la tabla categorias:', data);
         this.getCategorias = data;
       }, error => {
-        console.error('Error en la solicitud:', error);
+        console.error('Error en la solicitud.');
       });
   }
   // Realizar la solicitud GET para obtener los datos de la tabla equipos disponibles
   fetchGetTeamsDisponibility() {
-    this.http.get<any[]>(`http://localhost:3000/torneos/receive/teams/disponibles`)
+    this.http.get<any[]>(`${server}/torneos/receive/teams/disponibles`)
       .subscribe(data => {
-        console.log('Datos de la tabla categorias:', data);
         this.getEquipos = data;
       }, error => {
-        console.error('Error en la solicitud:', error);
+        console.error('Error en la solicitud.');
       });
   }
   // Realizar la solicitud GET para obtener los datos de la tabla torneos
   fetchGetTorneos() {
-    this.http.get<any[]>(`http://localhost:3000/torneos/receive/torneos/disponibles`)
+    this.http.get<any[]>(`${server}/torneos/receive/torneos/disponibles`)
       .subscribe(data => {
-        console.log('Datos de la tabla torneos:', data);
         this.getTorneos = data;
       }, error => {
-        console.error('Error en la solicitud:', error);
+        console.error('Error en la solicitud.');
       });
   }
   //Realizar la solicitud ger para obtener los datos de la tabla torneos con equipos vigentes.
   fetchGetTorneosConEquipos() {
-    this.http.get<any[]>(`http://localhost:3000/torneos/receive/play/false`)
+    this.http.get<any[]>(`${server}/torneos/receive/play/false`)
       .subscribe(data => {
-        console.log('AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII');
-        console.log('Datos de la tabla torneos yes 🐍🐍:', data);
         this.getTorneosPlayWithTeams = data;
-
-// Llamar a fetchGetTorneo() pasando el valor de id_categorias como parámetro
-const id_categorias = data[0].id_categorias; // Obtener el valor de id_categorias desde los datos recibidos
-this.fetchGetTorneo(id_categorias); // Llamar a fetchGetTorneo() con el valor obtenido
-
-
       }, error => {
-        console.error('Error en la solicitud:', error);
+        console.error('Error en la solicitud.');
       });
   }
-  /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-    palabraClave: string = '';
-
-    fetchGetTorneo(id_categorias: number) {
-      // Realizar la solicitud GET para obtener los datos del torneo
-      this.http.get<any[]>(`http://localhost:3000/torneos/receive/play/${id_categorias}`)
-        .subscribe(
-          (data) => {
-            console.log('Datos del torneo:', data);
-            if (data && data.length > 0) {
-              this.data = data[0]; // Tomar el primer elemento del array
-              this.palabraClave = data[0].nombre; // Acceder al primer elemento del array y luego a la propiedad nombre
-            } else {
-              console.error('No se encontraron datos para el torneo con ID:', id_categorias);
-            }
-          },
-          (error) => {
-            console.error('Error en la solicitud:', error);
-          }
-        );
-    }
+  //Realizar la solicitud ger para obtener los datos de la tabla torneos con equipos vigentes.
+  fetchGetTorneosConEquiposAll() {
+    this.http.get<any[]>(`${server}/torneos/receive`)
+      .subscribe(data => {
+        this.getTorneosPlayWithTeams = data;
+      }, error => {
+        console.error('Error en la solicitud.');
+      });
+  }
 }
-

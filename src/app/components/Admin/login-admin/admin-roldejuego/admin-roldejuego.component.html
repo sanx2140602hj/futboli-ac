@@ -57,8 +57,8 @@
     <h4><b>Paso 2: Agrege los equipos participantes</b></h4>
     <h5>Torneo a Participar:</h5>
     <select id="idTorneo" class="search-input" [(ngModel)]="idTorneo" (change)="onChangeTorneo()">
-        <option value="" disabled selected>Selecciona un torneo</option>
-        <option *ngFor="let torneos of getTorneos" value= {{torneos.id}}  > {{torneos.id}}, {{ torneos.nombre }}, {{ torneos.id_categorias }} </option>
+        <option value="0" disabled selected>Selecciona un torneo</option>
+        <option *ngFor="let torneos of getTorneos" value= {{torneos.id}}  > {{ torneos.nombre }} </option>
     </select>
     <div class="equipos-select scroll">
         <ul id="equiposParticipantes">
@@ -82,8 +82,7 @@
     <div *ngIf="equiposDisponibles.length > 0; else noDataEquipos">
         <div class="scroll" >
             <li *ngFor="let equipos of equiposDisponibles.concat(getBusquedaEquipos)">
-                Id:{{equipos.id}}, Nombre de 
-                tornero {{ equipos.nombre }}, Tipo de categoria: {{palabraClave  }}
+                {{ equipos.nombre }}
                 <button type="button" class="custom-button2" (click)="agregarEquipo(equipos)">
                     <i class="fa-solid fa-plus"></i>Añadir
                 </button>
@@ -112,10 +111,10 @@
                 </div>
                 <div>
                   <ul id="rolesExistentes">
-                    <div class="scroll">
-                        <ng-container >
+                    <div class="scroll" *ngIf="getTorneosPlayWithTeams.length || getBusquedaTorneos.length > 0; else noDataTorneos">
+                        <ng-container>
                      
-                            <ul *ngIf="getTorneosPlayWithTeams.length || getBusquedaTorneos.length > 0; else noDataTorneos">
+                            <ul>
                                 <button class="custom-button2" >
                                 <li *ngFor="let torneosFalse of getTorneosPlayWithTeams.concat(getBusquedaTorneos)"
                                     routerLink="/Rol-de-Juego" (click)="seleccionarTorneo(torneosFalse.id)">
@@ -124,17 +123,17 @@
                                     </li>
                                 </button>
                             </ul>
-    
                         </ng-container>
-                        <ng-template #noDataTorneos>
-                            <tr>
-                              <td colspan="5">No hay torneos disponibles, crea uno para poder visualizarlo.</td>
-                              <button (click)="restaurarTorneosDisponibles()">Restaurar</button>
-                            </tr>
-                        </ng-template>
                     </div>
+                    <ng-template #noDataTorneos>
+                        <tr>
+                          <td colspan="5">No hay torneos disponibles, crea uno para poder visualizarlo.</td>
+                          <button (click)="verTodosTorneosConEquipo()">Recargar</button>
+                        </tr>
+                    </ng-template>
                   </ul>
                 </div>
+                <a class="verMas" (click)="verTodosTorneosConEquipo()">ver más</a>
               </div>
             </div>
           </div>

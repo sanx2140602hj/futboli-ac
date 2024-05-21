@@ -6,70 +6,138 @@
 </nav>
 <div>
     <div class="content">
-      <div class="container search-container">
-        <div class="search-wrapper">
-            <select class="search-input">
-                <option value="1">Categoría 1</option>
-                <option value="2">Categoría 2</option>
-                <option value="3">Categoría 3</option>
-                <!-- Agrega más opciones según sea necesario -->
-            </select>
-            <select class="search-input">
-                <option value="1">Categoría 1</option>
-                <option value="2">Categoría 2</option>
-                <option value="3">Categoría 3</option>
-                <!-- Agrega más opciones según sea necesario -->
-            </select>
-            <button class="custom-button2"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button> 
+        <!-- BUSCADOR PARA LA TABLA DE POCISIONES -->
+        <div class="container search-container">
+            <div class="search-wrapper">
+                <select id="idCategoria" class="search-input" [(ngModel)]="idCategoria" (change)="onChangeCategoria()">
+                    <option value="0" disabled selected>Selecciona una categoría...</option>
+                    <option *ngFor="let info of getCategorias" value={{info.id}}>{{info.nombre}}</option>
+                    <!-- Agrega más opciones según sea necesario -->
+                </select>
+                <select class="search-input" [(ngModel)]="idTorneoSelecionable" (change)="onChangeTorneo()"
+                    *ngIf="torneosDisponibles.length > 0; else noDataTorneos">
+                    <option value="0" disabled selected>Selecciona un torneo...</option>
+                    <option *ngFor="let info of torneosDisponibles" value={{info.id}}>{{info.nombre}}</option>
+                    <!-- Agrega más opciones según sea necesario -->
+                </select>
+                <ng-template #noDataTorneos>
+                    <p colspan="5">No hay torneos registrados con esa categoría.</p>
+                </ng-template>
+                <button class="custom-button2" (click)="search()"><i class="fa-solid fa-magnifying-glass"></i>
+                    Buscar</button>
+            </div>
         </div>
-    </div>
-    
+
         <hr>
         <div>
-          <div>
-              <h1>Temporada de torneo</h1>
-          </div>
-          <table class="table table-bordered">
-              <tbody>
-                  <tr>
-                      <th style="text-align: center;" colspan="2">Equipo</th>
-                      <th>PJ</th>
-                      <th>G</th>
-                      <th>E</th>
-                      <th>P</th>
-                      <th>GF</th>
-                      <th>GC</th>
-                      <th>GS</th>
-                      <th>Pts</th>
-                  
-                      <th style="text-align: center;" colspan="5">Ultimos 5</th>
+            <div>
+                <h2>Detalles del torneo</h2>
+            </div>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th style="text-align: center;" colspan="2">Equipo</th>
+                        <th>PJ</th>
+                        <th>G</th>
+                        <th>E</th>
+                        <th>P</th>
+                        <th>GF</th>
+                        <th>GC</th>
+                        <th>GS</th>
+                        <th>S</th>
+                        <th>Pts</th>
+
+                        <th style="text-align: center;" colspan="5">Ultimos 5</th>
+
+                    </tr>
+                    <!-- DATOS DE LA TABLA DE POCISIÓN -->
+                    <!-- <tr>
+                        <td>
+                            <img src="../../../../../assets/Imagenes/x.png" alt="" srcset="" style="width: 50px;">
+                        </td>
+                        <td>Equipo luna <i class="fa-solid fa-frog"></i></td>
+                        <td>8</td>
+                        <td>8</td>
+                        <td>8</td>
+                        <td>8</td>
+                        <td>8</td>
+                        <td>8</td>
+                        <td>8</td>
+                        <td>8</td>
+                        <td style="color: green;"><i class="fa-solid fa-circle-check"></i></td>
+                        <td style="color: red;"><i class="fa-solid fa-circle-xmark"></i></td>
+                        <td style="color: black;"><i class="fa-solid fa-circle-minus"></i></td>
+                        <td style="color: red;"><i class="fa-solid fa-circle-xmark"></i></td>
+                        <td style="color: green;"><i class="fa-solid fa-circle-check"></i></td>
+                    </tr> -->
+                    <tr *ngFor="let info of tablaPocisionesPorTorneo">
+                        <td>
+                            <img src="../../../../../assets/Imagenes/x.png" alt="" srcset="" style="width: 50px;">
+                        </td>
+                        <td>{{info.nombre_equipo}}</td>
+                        <td>{{info.partidosJugados}}</td>
+                        <td>{{info.partidosGanados}}</td>
+                        <td>{{info.partidosEmpatados}}</td>
+                        <td>{{info.partidosPerdidos}}</td>
+                        <td>{{info.golesAfavor}}</td>
+                        <td>{{info.golesEnContra}}</td>
+                        <td>{{info.diferenciaGoles}}</td>
+                        <td>{{info.puntosSancion}}</td>
+                        <td>puntos totales</td>
+                        <!-- <td><i class="fa-solid fa-frog"></i></td> -->
+                        <td style="color: green;"><i class="fa-solid fa-circle-check"></i></td>
+                        <td style="color: red;"><i class="fa-solid fa-circle-xmark"></i></td>
+                        <td style="color: black;"><i class="fa-solid fa-circle-minus"></i></td>
+                        <td style="color: red;"><i class="fa-solid fa-circle-xmark"></i></td>
+                        <td style="color: green;"><i class="fa-solid fa-circle-check"></i></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <br><br><br><br><br>
+        <hr>
+        <div><h2>Valor de puntos</h2></div>
+        <!-- MODAL DE CAMBIOS -->
+        <div class="modal-content">
+            <!-- Contenido del modal aquí -->
+            <h6>Agrege el valor de puntos deseado para cada tipo de acción.</h6>
+    
+            <div class="input">
+                <form [formGroup]="miFormulario">
+    
+                    <!-- Campo de anotaci´n -->
+                    <h5>Goleo / Anotaci&oacute;n</h5>
+                    <input id="goleo" type="number" formControlName="goleo" class="category-input"
+                        [ngClass]="{ 'error-input': miFormulario.get('goleo')?.invalid && (miFormulario.get('goleo')?.dirty || miFormulario.get('goleo')?.touched) }">
+                    <div *ngIf="miFormulario.get('goleo')?.invalid && (miFormulario.get('goleo')?.dirty || miFormulario.get('goleo')?.touched)">
+                        <div *ngIf="miFormulario.get('goleo')?.errors?.['required']">La edad mínima es obligatoria.</div>
+                        <div *ngIf="miFormulario.get('goleo')?.errors?.['pattern']">Ingrese un número válido entre 1 y 99.</div>
+                    </div>
                     
-                  </tr>
-                  <tr>
-                      <td>
-                          <img src="../../../../../assets/Imagenes/x.png" alt="" srcset="" style="width: 50px;">
-                      </td>
-                      <td>Equipo luna <i class="fa-solid fa-frog"></i></td>
-                      <td>8</td>
-                      <td>8</td>
-                      <td>8</td>
-                      <td>8</td>
-                      <td>8</td>
-                      <td>8</td>
-                      <td>8</td>
-                      <td>8</td>
-                      <td style="color: green;"><i class="fa-solid fa-circle-check"></i></td>
-                      <td style="color: red;"><i class="fa-solid fa-circle-xmark"></i></td>
-                      <td style="color: black;"><i class="fa-solid fa-circle-minus"></i></td>
-                      <td style="color: red;"><i class="fa-solid fa-circle-xmark"></i></td>
-                      <td style="color: green;"><i class="fa-solid fa-circle-check"></i></td>
-                  </tr>
-                  
-              </tbody>
-          </table>
-      </div>
-      
+                    <!-- Campo de tarjeta amarilla -->
+                    <h5>amonestaci&oacute;n / tarjeta amarilla</h5>
+                    <input id="amonestacion" type="number" formControlName="amonestacion" class="category-input"
+                        [ngClass]="{ 'error-input': miFormulario.get('amonestacion')?.invalid && (miFormulario.get('amonestacion')?.dirty || miFormulario.get('amonestacion')?.touched) }">
+                    <div *ngIf="miFormulario.get('amonestacion')?.invalid && (miFormulario.get('amonestacion')?.dirty || miFormulario.get('amonestacion')?.touched)">
+                        <div *ngIf="miFormulario.get('amonestacion')?.errors?.['required']">La edad máxima es obligatoria.</div>
+                        <div *ngIf="miFormulario.get('amonestacion')?.errors?.['pattern']">Ingrese un número válido entre 1 y 99.</div>
+                    </div>
 
-
+                    <!-- Campa información -->
+                    <h5>Expulsi&oacute;n / tarjeta roja</h5>
+                    <input id="expulsion" type="number" formControlName="expulsion" class="category-input"
+                        [ngClass]="{ 'error-input': miFormulario.get('expulsion')?.invalid && (miFormulario.get('expulsion')?.dirty || miFormulario.get('expulsion')?.touched) }">
+                    <div *ngIf="miFormulario.get('expulsion')?.invalid && (miFormulario.get('expulsion')?.dirty || miFormulario.get('expulsion')?.touched)">
+                        <div *ngIf="miFormulario.get('expulsion')?.errors?.['required']">La edad máxima es obligatoria.</div>
+                        <div *ngIf="miFormulario.get('expulsion')?.errors?.['pattern']">Ingrese un número válido entre 1 y 99.</div>
+                    </div>
+                    
+                </form>
+            </div>
+            <div class="derecha">
+                <button class="save-button" (click)="actulizarPuntaje()">Actualizar</button>
+            </div>
+        </div>
     </div>
 </div>

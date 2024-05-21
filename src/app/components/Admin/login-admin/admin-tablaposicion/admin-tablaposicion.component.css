@@ -1,155 +1,155 @@
 .just {
-    margin-left: 25rem
-  }
-  
-  .content {
-    margin-left: 25rem;
-    padding: 20px;
-  }
-  
-  .navbar {
-    background-color: #078cb4;
-    color: #011F3A;
-    padding: 10px;
-    border-bottom: 2px solid #011F3A
-  }
-  
-  .fixed-navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    /* Asegura que el navbar esté por encima de otros elementos */
-  }
-  
+  margin-left: 25rem
+}
+
+.content {
+  margin-left: 25rem;
+  padding: 20px;
+}
+
+.navbar {
+  background-color: #078cb4;
+  color: #011F3A;
+  padding: 10px;
+  border-bottom: 2px solid #011F3A
+}
+
+.fixed-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  /* Asegura que el navbar esté por encima de otros elementos */
+}
+
 /* ///////////////////////////////////////////////////////////////////// */
 .search-container {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    height: 15rem;
-    /* Ajusta la altura según tus necesidades */
-  }
-  
-  .search-wrapper {
-    text-align: center;
-  }
-  
-  .search-input {
-    text-align: left;
-    padding: 0.5rem 9rem 0.5rem 1rem;
-    border: 1px solid #000;
-    border-radius: 10px;
-    margin: 0.5rem;
-  }
-  
-  .custom-button2 {
-    background-color: #FEE2C5;
-    border: 1px solid #000;
-    border-radius: 10px;
-    padding: 0.5rem 1rem 0.5rem 1rem;
-    cursor: pointer;
-    margin: 0.5rem 1rem 0.5rem 0.5rem;
-    /* ⬆️    ⬅️   ⬇️    ➡️ */
-  }
-  
-  /* Estilo para la tabla */
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 15rem;
+  /* Ajusta la altura según tus necesidades */
+}
+
+.search-wrapper {
+  text-align: center;
+}
+
+.search-input {
+  text-align: left;
+  padding: 0.5rem 9rem 0.5rem 1rem;
+  border: 1px solid #000;
+  border-radius: 10px;
+  margin: 0.5rem;
+}
+
+.custom-button2 {
+  background-color: #FEE2C5;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  cursor: pointer;
+  margin: 0.5rem 1rem 0.5rem 0.5rem;
+  /* ⬆️    ⬅️   ⬇️    ➡️ */
+}
+
+/* Estilo para la tabla */
 .table {
-  border-collapse: separate;
-  border-spacing: 0 10px; /* Agrega una separación vertical de 10px entre th y td */
-  background-color: transparent;
+border-collapse: separate;
+border-spacing: 0 10px; /* Agrega una separación vertical de 10px entre th y td */
+background-color: transparent;
 }
 
 /* Estilo para las celdas de datos */
 .table td {
-  border: none;
-  padding: 8px;
-  background-color: #99969677; /* Cambiar al color de fondo gris deseado */
-  border-bottom: 1px solid white; /* Agrega un borde inferior blanco */
-  border-radius: 0; /* Restablece cualquier radio de borde anterior */
-  margin: 5px; /* Agrega margen a las celdas */
-  font-size: 1.5rem; /* Tamaño de la letra */
+border: none;
+padding: 8px;
+background-color: #99969677; /* Cambiar al color de fondo gris deseado */
+border-bottom: 1px solid white; /* Agrega un borde inferior blanco */
+border-radius: 0; /* Restablece cualquier radio de borde anterior */
+margin: 5px; /* Agrega margen a las celdas */
+font-size: 1.5rem; /* Tamaño de la letra */
 }
 
 /* Aplicar radios de borde a las esquinas deseadas */
 .table td:first-child {
-  border-top-left-radius: 10px; /* Esquina superior izquierda */
-  border-bottom-left-radius: 10px; /* Esquina inferior izquierda */
+border-top-left-radius: 10px; /* Esquina superior izquierda */
+border-bottom-left-radius: 10px; /* Esquina inferior izquierda */
 }
 
 .table td:last-child {
-  border-top-right-radius: 10px; /* Esquina superior derecha */
-  border-bottom-right-radius: 10px; /* Esquina inferior derecha */
+border-top-right-radius: 10px; /* Esquina superior derecha */
+border-bottom-right-radius: 10px; /* Esquina inferior derecha */
 }
 
 /* Estilo para las celdas de encabezado */
 .table th {
-  border: none;
-  padding: 8px;
-  background-color: transparent; /* Fondo transparente */
-  font-weight: bold; /* Texto en negrita */
-  font-size: 1.2rem; /* Tamaño de la letra */
+border: none;
+padding: 8px;
+background-color: transparent; /* Fondo transparente */
+font-weight: bold; /* Texto en negrita */
+font-size: 1.2rem; /* Tamaño de la letra */
 }
 
 @media screen and (max-width: 1500px) {
-  .container {
-      margin: 1rem;
+.container {
+    margin: 1rem;
 
-  }
+}
 
-  .logo h1 {
-      font-size: 1rem;
-  }
+.logo h1 {
+    font-size: 1rem;
+}
 
-  .sidebar {
-      width: 17rem;
-  }
+.sidebar {
+    width: 17rem;
+}
 
-  .just {
-      margin-left: 17rem
-  }
+.just {
+    margin-left: 17rem
+}
 
-  .content {
-      margin-left: 17rem;
-      padding: 20px;
-  }
+.content {
+    margin-left: 17rem;
+    padding: 20px;
+}
 
-  /* ------------------------ */
+/* ------------------------ */
 
 }
 
 /* ------------------------------------------ */
 @media screen and (max-width: 900px) {
-  .sidebar {
-      width: 13rem;
-  }
+.sidebar {
+    width: 13rem;
+}
 
-  .just {
-      margin-left: 13rem
-  }
+.just {
+    margin-left: 13rem
+}
 
-  .content {
-      margin-left: 13rem;
-      padding: 20px;
-  }
+.content {
+    margin-left: 13rem;
+    padding: 20px;
+}
 
-  /* ------------------------ */
+/* ------------------------ */
 
-  
+
 }
 
 /* ------------------------------------------ */
 
 @media screen and (max-width: 500px) {
-  .just {
-      margin-left: 4rem;
-  }
+.just {
+    margin-left: 4rem;
+}
 
-  .content {
-      margin-left: 4rem;
-      padding: 1rem;
-  }
+.content {
+    margin-left: 4rem;
+    padding: 1rem;
+}
 
-  /* ------------------- */
+/* ------------------- */
 
 }

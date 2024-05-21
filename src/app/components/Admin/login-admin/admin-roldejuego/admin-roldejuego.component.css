@@ -1,291 +1,296 @@
 .just {
-    margin-left: 25rem
+  margin-left: 25rem
 }
 
 .content {
-    margin-left: 25rem;
-    padding: 20px;
+  margin-left: 25rem;
+  padding: 20px;
 }
 
 .navbar {
-    background-color: #078cb4;
-    color: #011F3A;
-    padding: 10px;
-    border-bottom: 2px solid #011F3A
+  background-color: #078cb4;
+  color: #011F3A;
+  padding: 10px;
+  border-bottom: 2px solid #011F3A
 }
 
 .fixed-navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    /* Asegura que el navbar esté por encima de otros elementos */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  /* Asegura que el navbar esté por encima de otros elementos */
 }
 
 
 
 /* ///////////////////////////////////////////////////////////////////// *//*  */
 .scroll::-webkit-scrollbar {
-  -webkit-appearance: none;
+-webkit-appearance: none;
 }
 
 .scroll::-webkit-scrollbar:vertical {
-  width:10px;
+width:10px;
 }
 
 .scroll::-webkit-scrollbar-button:increment,.scroll::-webkit-scrollbar-button {
-  display: none;
+display: none;
 } 
 
 .scroll::-webkit-scrollbar:horizontal {
-  height: 10px;
+height: 10px;
 }
 
 .scroll::-webkit-scrollbar-thumb {
-  background-color: #081858;
-  border-radius: 20px;
-  border: 2px solid #f1f2f3;
+background-color: #081858;
+border-radius: 20px;
+border: 2px solid #f1f2f3;
 }
 
 .scroll::-webkit-scrollbar-track {
-  border-radius: 10px;  
+border-radius: 10px;  
 }
 /*---------------------------------------------*/
 .secciones {
-    display: flex;
+  display: flex;
 }
 
 .izq {
-    flex: 50%;
-    margin-top: 7rem;
-    margin-right: 0.5rem;
+  flex: 50%;
+  margin-top: 7rem;
+  margin-right: 0.5rem;
 }
 .izq2 {
-    flex: 50%;
-    margin-top: 1rem;
-    margin-right: 0.5rem;
+  flex: 50%;
+  margin-top: 1rem;
+  margin-right: 0.5rem;
 }
 
 .der {
-    flex: 50%;
-    margin-top: 7rem;
-    margin-left: 0.5rem;
+  flex: 50%;
+  margin-top: 7rem;
+  margin-left: 0.5rem;
 }
 
 .scroll {
-    overflow-y: auto;
-    max-height: 200px;
+  overflow-y: auto;
+  max-height: 200px;
 }
 /* Estilos de div IZQ */
 /*---------------------------------------------*/
 .card {
-    padding: 1.4rem;
+  padding: 1.4rem;
 }
 
 .search-input {
-    text-align: left;
-    padding: 0.5rem;
-    border: 1px solid #000;
-    border-radius: 10px;
-    margin-bottom: 1.3rem;
-    margin-top: 0.2rem;
-    width: 99%;
+  text-align: left;
+  padding: 0.5rem;
+  border: 1px solid #000;
+  border-radius: 10px;
+  margin-bottom: 1.3rem;
+  margin-top: 0.2rem;
+  width: 99%;
 }
 
 .custom-button2 {
-    color: rgb(0, 0, 0);
-    background-color: transparent;
-    font-size: 1rem;
-    cursor: pointer;
-    border: none;
-    cursor: pointer;
-    width: 100%;
+  color: rgb(0, 0, 0);
+  background-color: transparent;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  cursor: pointer;
 }
 
 /*---------------------------------------------*/
 .equipos-select {
-    width: 45%;
+  width: 45%;
 }
 ul {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 
 li {
-    border-bottom: 1px solid #878787;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  border-bottom: 1px solid #878787;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 /*---------------------------------------------*/
 .search-input2 {
-    text-align: left;
-    padding: 0.5rem;
-    border: 1px solid #000;
-    border-radius: 10px;
-    margin: 1rem 0rem;
-    width: 70%;
+  text-align: left;
+  padding: 0.5rem;
+  border: 1px solid #000;
+  border-radius: 10px;
+  margin: 1rem 0rem;
+  width: 70%;
 }
 
 .custom-button {
-    background-color: #FEE2C5;
-    border: 1px solid #000;
-    border-radius: 10px;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    margin: 0rem 1rem;
+  background-color: #FEE2C5;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  margin: 0rem 1rem;
 }
 /*---------------------------------------------*/
 /*  */
 .botones {
-    display: flex;
-    justify-content: flex-end;
-    /* Alinea los elementos al final del contenedor (derecha) */
-    margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  /* Alinea los elementos al final del contenedor (derecha) */
+  margin-top: 20px;
 }
 
 .cancelar-button {
-    background-color: transparent;
-    color: #ff0000;
-    border: 1px solid #ff0000;
-    border-radius: 0.3rem;
-    padding: 0.5rem 1rem;
+  background-color: transparent;
+  color: #ff0000;
+  border: 1px solid #ff0000;
+  border-radius: 0.3rem;
+  padding: 0.5rem 1rem;
 }
 
 .cancelar-button:hover {
-    background-color: #ff0000;
-    color: white;
+  background-color: #ff0000;
+  color: white;
 }
 
 .save-button {
-    background-color: transparent;
-    color: #288A85;
-    border: 1px solid #288A85;
-    border-radius: 0.3rem;
-    padding: 0.5rem 1rem;
-    margin-left: 1rem;
+  background-color: transparent;
+  color: #288A85;
+  border: 1px solid #288A85;
+  border-radius: 0.3rem;
+  padding: 0.5rem 1rem;
+  margin-left: 1rem;
 }
 
 .save-button:hover {
-    background-color: #288A85;
-    color: white;
-    
+  background-color: #288A85;
+  color: white;
+  
 }
 /* Estilos de div DER */
 /*---------------------------------------------*/
 .search-input3 {
-    text-align: left;
-    padding: 0.5rem;
-    border: 1px solid #000;
-    border-radius: 10px;
-    margin: 0.5em;
-    width: 99%;
+  text-align: left;
+  padding: 0.5rem;
+  border: 1px solid #000;
+  border-radius: 10px;
+  margin: 0.5em;
+  width: 99%;
 }
 .custom-button3 {
-    background-color: #c5fcfe;
-    border: 1px solid #000;
-    border-radius: 10px;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    margin: 0.5rem;
-    /*        ⬆️    ⬅️   ⬇️    ➡️ */
+  background-color: #c5fcfe;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  margin: 0.5rem;
+  /*        ⬆️    ⬅️   ⬇️    ➡️ */
 }
+.verMas {
+cursor: pointer; /* Cambia el cursor al pasar el mouse */
+text-decoration: none; /* Elimina el subrayado */
+margin: 0.5rem;
+}
+
 /* ------------------------------------------------------ */
 .error-input {
-    border: 2px solid red;
+  border: 2px solid red;
 }
 
 .error-message {
-    color: red;
-    font-size: 1rem;
-    margin-top: -1rem;
-    margin-bottom: 1rem;
+  color: red;
+  font-size: 1rem;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
 }
 
 
 @media screen and (max-width: 1500px) {
-    .container {
-      margin: 1rem;
-  
-    }
-  
-    .logo h1 {
-      font-size: 1rem;
-    }
-  
-    .sidebar {
-      width: 17rem;
-    }
-  
-    .just {
-      margin-left: 17rem
-    }
-  
-    .content {
-      margin-left: 17rem;
-      padding: 20px;
-    }
-  
-    /* ------------------------ */
-    .search-input {
-      text-align: left;
-      padding: 0.5rem 20rem 0.5rem 1rem;
-      border: 1px solid #000;
-      border-radius: 10px;
-      margin: 0.5rem;
-    }
-  
+  .container {
+    margin: 1rem;
+
   }
-  
-  /* ------------------------------------------ */
-  @media screen and (max-width: 900px) {
-    .sidebar {
-      width: 13rem;
-    }
-  
-    .just {
-      margin-left: 13rem
-    }
-  
-    .content {
-      margin-left: 13rem;
-      padding: 20px;
-    }
-  
-    /* -------------------------------------------- */
-    .search-input {
-      text-align: left;
-      padding: 0.5rem 15rem 0.5rem 1rem;
-      border: 1px solid #000;
-      border-radius: 10px;
-      margin: 0.5rem;
-    }
-  
-    .fas {
-      font-size: 1.5rem;
-    }
+
+  .logo h1 {
+    font-size: 1rem;
   }
-  
-  /* ------------------------------------------ */
-  
-  @media screen and (max-width: 500px) {
-    .just {
-      margin-left: 4rem;
-    }
-    .content {
-      margin-left: 4rem;
-      padding: 0;
-    }
-    /* ------------------- */
-    .search-input {
-      text-align: left;
-      padding: 0.5rem 4rem 0.5rem 1rem;
-      border: 1px solid #000;
-      border-radius: 10px;
-      margin: 0.5rem;
-    }
-    .fas {
-      font-size: 1.5rem;
-    }
+
+  .sidebar {
+    width: 17rem;
   }
+
+  .just {
+    margin-left: 17rem
+  }
+
+  .content {
+    margin-left: 17rem;
+    padding: 20px;
+  }
+
+  /* ------------------------ */
+  .search-input {
+    text-align: left;
+    padding: 0.5rem 20rem 0.5rem 1rem;
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin: 0.5rem;
+  }
+
+}
+
+/* ------------------------------------------ */
+@media screen and (max-width: 900px) {
+  .sidebar {
+    width: 13rem;
+  }
+
+  .just {
+    margin-left: 13rem
+  }
+
+  .content {
+    margin-left: 13rem;
+    padding: 20px;
+  }
+
+  /* -------------------------------------------- */
+  .search-input {
+    text-align: left;
+    padding: 0.5rem 15rem 0.5rem 1rem;
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin: 0.5rem;
+  }
+
+  .fas {
+    font-size: 1.5rem;
+  }
+}
+
+/* ------------------------------------------ */
+
+@media screen and (max-width: 500px) {
+  .just {
+    margin-left: 4rem;
+  }
+  .content {
+    margin-left: 4rem;
+    padding: 0;
+  }
+  /* ------------------- */
+  .search-input {
+    text-align: left;
+    padding: 0.5rem 4rem 0.5rem 1rem;
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin: 0.5rem;
+  }
+  .fas {
+    font-size: 1.5rem;
+  }
+}
