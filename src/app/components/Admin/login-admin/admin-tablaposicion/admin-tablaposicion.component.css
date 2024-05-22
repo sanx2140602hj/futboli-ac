@@ -21,7 +21,7 @@
   z-index: 1000;
   /* Asegura que el navbar esté por encima de otros elementos */
 }
-
+.contenido{margin-top: 3.5rem;}
 /* Agrega estilos para la ventana emergente (modal) */
 .modal {
   display: none;

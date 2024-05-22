@@ -4,7 +4,7 @@
 <nav class="navbar just fixed-navbar">
     <h1><i class="fa-solid fa-ranking-star"></i> Tablas de posicion</h1>
 </nav>
-<div>
+<div class="contenido">
     <div class="content">
         <!-- BUSCADOR PARA LA TABLA DE POCISIONES -->
         <div class="container search-container">
@@ -94,61 +94,19 @@
 
                 </tbody>
             </table>
+            <div style="margin-top: 3rem;">
+                <hr>
+            </div>
             <div>
                 <!-- Botón para abrir el modal -->
                 <div><button class="custom-button2" (click)="openModal()">Abrir modal VALOR DE PUNTOS</button></div>
-              
-                <!-- Modal -->
-                <app-modal-tabla-posicion-actualizar 
-                *ngIf="showModal" 
-                (onCloseModal)="closeModal()"
-            >
-              </app-modal-tabla-posicion-actualizar>
-                            </div>
-                      </div>
-        <br><br><br><br><br>
-        <hr>
-        <div><h2>Valor de puntos</h2></div>
-        <!-- MODAL DE CAMBIOS -->
-        <div class="modal-content">
-            <!-- Contenido del modal aquí -->
-            <h6>Agrege el valor de puntos deseado para cada tipo de acción.</h6>
-    
-            <div class="input">
-                <form [formGroup]="miFormulario">
-    
-                    <!-- Campo de anotaci´n -->
-                    <h5>Goleo / Anotaci&oacute;n</h5>
-                    <input id="goleo" type="number" formControlName="goleo" class="category-input"
-                        [ngClass]="{ 'error-input': miFormulario.get('goleo')?.invalid && (miFormulario.get('goleo')?.dirty || miFormulario.get('goleo')?.touched) }">
-                    <div *ngIf="miFormulario.get('goleo')?.invalid && (miFormulario.get('goleo')?.dirty || miFormulario.get('goleo')?.touched)">
-                        <div *ngIf="miFormulario.get('goleo')?.errors?.['required']">La edad mínima es obligatoria.</div>
-                        <div *ngIf="miFormulario.get('goleo')?.errors?.['pattern']">Ingrese un número válido entre 1 y 99.</div>
-                    </div>
-                    
-                    <!-- Campo de tarjeta amarilla -->
-                    <h5>amonestaci&oacute;n / tarjeta amarilla</h5>
-                    <input id="amonestacion" type="number" formControlName="amonestacion" class="category-input"
-                        [ngClass]="{ 'error-input': miFormulario.get('amonestacion')?.invalid && (miFormulario.get('amonestacion')?.dirty || miFormulario.get('amonestacion')?.touched) }">
-                    <div *ngIf="miFormulario.get('amonestacion')?.invalid && (miFormulario.get('amonestacion')?.dirty || miFormulario.get('amonestacion')?.touched)">
-                        <div *ngIf="miFormulario.get('amonestacion')?.errors?.['required']">La edad máxima es obligatoria.</div>
-                        <div *ngIf="miFormulario.get('amonestacion')?.errors?.['pattern']">Ingrese un número válido entre 1 y 99.</div>
-                    </div>
 
-                    <!-- Campa información -->
-                    <h5>Expulsi&oacute;n / tarjeta roja</h5>
-                    <input id="expulsion" type="number" formControlName="expulsion" class="category-input"
-                        [ngClass]="{ 'error-input': miFormulario.get('expulsion')?.invalid && (miFormulario.get('expulsion')?.dirty || miFormulario.get('expulsion')?.touched) }">
-                    <div *ngIf="miFormulario.get('expulsion')?.invalid && (miFormulario.get('expulsion')?.dirty || miFormulario.get('expulsion')?.touched)">
-                        <div *ngIf="miFormulario.get('expulsion')?.errors?.['required']">La edad máxima es obligatoria.</div>
-                        <div *ngIf="miFormulario.get('expulsion')?.errors?.['pattern']">Ingrese un número válido entre 1 y 99.</div>
-                    </div>
-                    
-                </form>
-            </div>
-            <div class="derecha">
-                <button class="save-button" (click)="actulizarPuntaje()">Actualizar</button>
+                <!-- Modal -->
+                <app-modal-tabla-posicion-actualizar *ngIf="showModal" (onCloseModal)="closeModal()">
+                </app-modal-tabla-posicion-actualizar>
             </div>
         </div>
+     
+
     </div>
 </div>
