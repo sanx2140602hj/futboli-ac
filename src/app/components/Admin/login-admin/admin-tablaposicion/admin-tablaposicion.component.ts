@@ -215,4 +215,19 @@ tablaPocisionesTorneo(){
       this.mensajeAlerta('error', '¡Lo sentimos, parece que algo salió mal!', 'Intentelo nuevamente, si persiste el error informe este problema al equipo de TI para su pronta resolución.', true, 6500);
     });
 }
+
+//modal
+ // Métodos para abrir y cerrar el modal
+ showModal = false; // Para controlar la visualización del modal
+ openModal() {
+  console.log('Modal abierto');
+  this.showModal = true;
+}
+
+closeModal() {
+  console.log('Modal cerrado');
+  this.showModal = false;
+  // Llamar a la función para actualizar la tabla
+  this.tablaPocisionesTorneo();
+}
 }

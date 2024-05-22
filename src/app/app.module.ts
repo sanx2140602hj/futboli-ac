@@ -62,8 +62,11 @@ import { ModalEditarInfoequiposComponent } from './components/Admin/login-admin/
 import { ModalEliminarTorneoComponent } from './components/Admin/login-admin/admin-roldejuego/utils-roldejuego/modal-eliminar-torneo/modal-eliminar-torneo.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './service/authService.service';
+import { ModalTablaPosicionActualizarComponent } from './components/Admin/login-admin/admin-tablaposicion/modal-tabla-posicion-actualizar/modal-tabla-posicion-actualizar.component';
+
 @NgModule({
   declarations: [
+    
     AppComponent,
      HomeComponent,
     TablasComponent,
@@ -120,7 +123,10 @@ import { AuthService } from './service/authService.service';
     ModalEditarInfoequiposComponent,
     ModalEliminarTorneoComponent,
     CardsUtilsComponent,
+    ModalTablaPosicionActualizarComponent,
+
 //----------------
+
 
   ],
   imports: [

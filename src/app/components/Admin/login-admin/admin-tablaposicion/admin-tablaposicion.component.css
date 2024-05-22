@@ -22,6 +22,50 @@
   /* Asegura que el navbar esté por encima de otros elementos */
 }
 
+/* Agrega estilos para la ventana emergente (modal) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  border-radius: 10px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+}
+
+/* Estilo adicional para ocultar el input y los botones por defecto */
+.modal-content input,
+.modal-content button {
+  display: block;
+  margin-bottom: 10px;
+}
+
+
+/* ---------------------------------------- */
 /* ///////////////////////////////////////////////////////////////////// */
 .search-container {
   display: flex;
@@ -133,10 +177,10 @@ font-size: 1.2rem; /* Tamaño de la letra */
     padding: 20px;
 }
 
-/* ------------------------ */
 
 
 }
+/* ------------------------ */
 
 /* ------------------------------------------ */
 

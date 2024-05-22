@@ -17,29 +17,31 @@
   <div>
     <h1 style="text-align: center"><b>Jornadas de partidos</b></h1>
     <div class="secciones">
-      <div class="der" *ngFor="let torneo of getTorneo" > 
+      <div class="der" *ngFor="let torneo of getTorneo">
         <!-- si es necesario crear una clase para este div hacerlo -->
         <h3><b>Informacion del rol de juego</b></h3>
         <h4>Nombre del torneo:<u>{{torneo.nombre}}</u></h4>
-        <h4>Categoria a participante: <u>{{nombre}}</u></h4>
+        <h4>Categoria a participante: Pony</h4>
         <h4>Fecha de Inicio:<u>{{torneo.fechaInicio| date:'dd/MM/yyyy'}}</u></h4>
         <h4>Fecha de clausura:<u>{{torneo.fechaFin | date:'dd/MM/yyyy'}}</u></h4>
         <div>
           <button class="custom-button2" (click)="infoOpenModal()">
             <i class="fa-solid fa-pen-to-square"></i> Editar información
           </button>
-          <app-modal-editar-infoequipos *ngIf="editarinfoequipos" (onCloseModal)="infoCloseModal()"></app-modal-editar-infoequipos>
+          <app-modal-editar-infoequipos *ngIf="editarinfoequipos"
+            (onCloseModal)="infoCloseModal()"></app-modal-editar-infoequipos>
         </div>
-        
+
       </div>
       <div class="izq">
         <!-- si es necesario crear una clase para este div hacerlo -->
         <button class="custom-button3" (click)="eliminarTorneOpenModal()">
           <i class="fa-solid fa-trash"></i> Eliminar torneo
         </button>
-        <app-modal-eliminar-torneo *ngIf="eliminarTorneo" (onCloseModal)="eliminarTorneCloseModal()"></app-modal-eliminar-torneo>
+        <app-modal-eliminar-torneo *ngIf="eliminarTorneo"
+          (onCloseModal)="eliminarTorneCloseModal()"></app-modal-eliminar-torneo>
       </div>
-      
+
     </div>
   </div>
   <hr />
@@ -56,23 +58,23 @@
           <h5><b>Equipo participantes:</b></h5>
           <div class="scroll2" *ngIf="getTeamsofTorneo.length > 0 else noDataEquipos">
             <div *ngFor="let equipos of getTeamsofTorneo">
-                <ul>
-                    <li>{{equipos.id}}, {{equipos.nombre}}</li>
-                </ul>
-              
+              <ul>
+                <li>{{equipos.nombre}}</li>
+              </ul>
+
               <!-- <select class="search-input" name="equiposParticipantes" required>
                 <option *ngFor="let equipo of equipos" [value]="equipo">
                   {{ equipo }}
                 </option>
               </select> -->
-               
+
             </div>
           </div>
-          
+
           <ng-template #noDataEquipos>
             <li colspan="5">No hay equipos disponibles o que coincidan con el torneo...</li>
-        </ng-template>
-        <button class="save-button" (click)="generarJornadas(getTeamsofTorneo)">Sorteo Aleatorio</button>
+          </ng-template>
+          <button class="save-button" (click)="generarJornadas(getTeamsofTorneo)">Sorteo Aleatorio</button>
         </div>
 
       </div>
@@ -98,10 +100,9 @@
               <div class="scroll">
                 <table class="table table-bordered">
                   <tbody>
-                    <ng-container
-                      *ngFor="let partido of infoJornadas.nombresPartidos">
+                    <ng-container *ngFor="let partido of infoJornadas.nombresPartidos">
                       <tr>
-                        <td>{{  partido[0] }}</td>
+                        <td>{{ partido[0] }}</td>
                         <td>VS</td>
                         <td>{{ partido[1] }}</td>
                         <!-- operacion para sumar un equipo -->
@@ -116,68 +117,58 @@
                 </div>
                 <div class="der">
                   <table class="table table-bordered">
-                    <tbody >
+                    <tbody>
                       <!-- <tr *ngIf="infoJornadas.nombresPartidos && infoJornadas.nombresPartidos.length > 0 && infoJornadas.nombresPartidos[infoJornadas.nombresPartidos.length - 1][1] === null">
                         <td>{{ infoJornadas.nombresPartidos[infoJornadas.nombresPartidos.length - 1][0] }}</td> -->
-                        <tr *ngIf="infoJornadas.nombresPartidos[infoJornadas.nombresPartidos.length - 1][1] === null">
-                          <td>{{ infoJornadas.nombresPartidos[infoJornadas.nombresPartidos.length - 1][0] }}</td>
-                    </tr>
-                    
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--INICIO DE LA CARD BASE DE DATOS-->
-          <div *ngIf="mostrarCardDatabase">
-            <div class="card" *ngFor="let infoJornadas of getJornandasOfData">
-              <h1>Número de Jornada: {{infoJornadas.numeroJornada}} </h1>
-              <hr />
-              <div class="scroll">
-                <table class="table table-bordered">
-                  <tbody>
-                    <ng-container>
-                      <tr>
-                        <td>{{  infoJornadas.id_equipo1 }}</td>
-                        <td>VS</td>
-                        <td>{{ infoJornadas.id_equipo2 }}</td>
-                        <!-- operacion para sumar un equipo -->
+                      <tr *ngIf="infoJornadas.nombresPartidos[infoJornadas.nombresPartidos.length - 1][1] === null">
+                        <td>{{ infoJornadas.nombresPartidos[infoJornadas.nombresPartidos.length - 1][0] }}</td>
                       </tr>
-                    </ng-container>
-                  </tbody>
-                </table>
-              </div>
-              <div class="secciones">
-                <div class="izq">
-                  <h1 style="margin-top: 2rem">Descanso:</h1>
-                </div>
-                <div class="der">
-                  <table class="table table-bordered">
-                    <tbody >
-                      <!-- <tr *ngIf="infoJornadas.nombresPartidos && infoJornadas.nombresPartidos.length > 0 && infoJornadas.nombresPartidos[infoJornadas.nombresPartidos.length - 1][1] === null">
-                        <td>{{ infoJornadas.nombresPartidos[infoJornadas.nombresPartidos.length - 1][0] }}</td> -->
-                        <tr *ngIf="infoJornadas.id_equipo2 === null">
-                          <td>{{ infoJornadas.id_equipo1 }}</td>
-                    </tr>
-                    
+
                     </tbody>
                   </table>
                 </div>
               </div>
             </div>
+          </div>          
+          <!--ROL DE PARTIDOS EXTRAIDA DE LA BASE DE DATOS-->
+          <div class="container anim" *ngIf="mostrarCardDatabase">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+              <div class="col card" *ngFor="let infoJornadas of getJornandasOfData" >
+                <div (click)="seleccionarPartido(infoJornadas.id)">
+                  <h5>Número de Jornada: <b> {{infoJornadas.numeroJornada}} </b> </h5>
+                  <div class="scroll">
+                    <table class="table table-bordered">
+                      <h6>Partido: <b></b> </h6>
+                      <tbody>
+                        <tr *ngIf="infoJornadas.id_equipo2 != null; else Descanso">
+                          <td>
+                            <h6>{{infoJornadas.nombre_equipo1}}</h6>
+                          </td>
+                          <td>
+                            <h6>VS</h6>
+                          </td>
+                          <td>
+                            <h6>{{infoJornadas.nombre_equipo2}}</h6>
+                          </td>
+                        </tr>
+                      </tbody>
+                      <ng-template #Descanso>
+                        <h6> Descanso: {{infoJornadas.nombre_equipo1}}</h6>
+                      </ng-template>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-
         </div>
       </div>
-      <div
-        style="
+      <div style="
           margin-top: 4rem;
           text-align: center;
           margin-left: 20%;
           margin-right: 20%;
-        "
-      >
+        ">
         <button class="save-button" (click)="guardarSorteoJornadas()">Guardar Jornadas</button>
       </div>
     </div>
@@ -189,10 +180,7 @@
       <i class="fa-solid fa-plus"></i> Añadir Equipos Clasificados
     </button>
   </div>
-  <app-modal-agregar-equipos-clasificados
-    *ngIf="agregarEquiposClasificados"
-    (onCloseModal)="closeModal()"
-  >
+  <app-modal-agregar-equipos-clasificados *ngIf="agregarEquiposClasificados" (onCloseModal)="closeModal()">
   </app-modal-agregar-equipos-clasificados>
   <div>
     <!--  -->
@@ -202,51 +190,27 @@
           <div class="title-input">
             <h5><b>Equipos Clasificados:</b></h5>
             <div class="scroll2">
-              <select
-                name="Equipo 1"
-                class="search-input"
-                name="equiposClasificados"
-              >
+              <select name="Equipo 1" class="search-input" name="equiposClasificados">
                 <option value="1">1</option>
                 <option value="1">1</option>
               </select>
-              <select
-                name="Equipo 1"
-                class="search-input"
-                name="equiposClasificados"
-              >
+              <select name="Equipo 1" class="search-input" name="equiposClasificados">
                 <option value="1">1</option>
                 <option value="1">1</option>
               </select>
-              <select
-                name="Equipo 1"
-                class="search-input"
-                name="equiposClasificados"
-              >
+              <select name="Equipo 1" class="search-input" name="equiposClasificados">
                 <option value="1">1</option>
                 <option value="1">1</option>
               </select>
-              <select
-                name="Equipo 1"
-                class="search-input"
-                name="equiposClasificados"
-              >
+              <select name="Equipo 1" class="search-input" name="equiposClasificados">
                 <option value="1">1</option>
                 <option value="1">1</option>
               </select>
-              <select
-                name="Equipo 1"
-                class="search-input"
-                name="equiposClasificados"
-              >
+              <select name="Equipo 1" class="search-input" name="equiposClasificados">
                 <option value="1">1</option>
                 <option value="1">1</option>
               </select>
-              <select
-                name="Equipo 1"
-                class="search-input"
-                name="equiposClasificados"
-              >
+              <select name="Equipo 1" class="search-input" name="equiposClasificados">
                 <option value="1">1</option>
                 <option value="1">1</option>
               </select>
@@ -392,4 +356,3 @@
     </div>
     <!--  -->
   </div>
-</div>

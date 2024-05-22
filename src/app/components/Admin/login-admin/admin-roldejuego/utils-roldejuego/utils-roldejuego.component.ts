@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TorneoSelectionService } from '../../../../../service/torneo-selection.service';
 import { HttpClient } from '@angular/common/http';
+import { PartidoSelectionService } from '../../../../../service/roldejuego.service';
 import Swal from 'sweetalert2';
 
 // 🌎 Define la constante server con la URL del servidor
@@ -13,26 +14,25 @@ const server = 'http://localhost:3000';
 })
 export class UtilsRoldejuegoComponent implements OnInit {
   @Input() torneoId: number | null = null; // Recibir el ID de la categoría como entrada
-
+  //🌎Variables dónde se almacenará los datos de las fucniones.
   mostrarCardSorteo: boolean = false; // Puedes inicializarla como true si deseas que la card esté visible por defecto
   mostrarCardDatabase: boolean = true; // Puedes inicializarla como true si deseas que la card esté visible por defecto
   getTeamsofTorneo: any[] = [];
   getJornandasOfData: any[] = [];
   sorteoJornadasFrontend: any[] = [];
   sorteoJornadasId: any[] = [];
+  sorteoEquiposId: any[] = [];
   getTorneo: any[] = [];
   clicsRestantes: number = 0; // Número máximo de clics permitidos
   clicsRestantesSorteo: number = 1; // Número máximo de clics permitidos
-  categorias: any[] = [];
-  idCategorias: number | null = null;
-  constructor(private http: HttpClient, private torneoSelectionService: TorneoSelectionService) { }
+
+  constructor(private http: HttpClient, private torneoSelectionService: TorneoSelectionService, private partidoSelectionService: PartidoSelectionService) { }
 
   ngOnInit(): void {
     this.torneoId = this.torneoSelectionService.getSelectedId();
-    console.log("Jornadas para el id, (intento 2): ", this.torneoId)
     this.fetchGetTorneo();
     this.fetchGetDataTorneoConEquipos();
-    this.fetchGetDataJornadas();
+    this.fetchGetDataJornadas()
   }
 
   agregarEquiposClasificados = false;
@@ -40,60 +40,42 @@ export class UtilsRoldejuegoComponent implements OnInit {
   // Método para abrir el modal
   openModal() {
     console.log('Modal abierto'); // ⚠️ Se muestra un log en la consola
-    this.fetchGetTorneo();                       
     this.agregarEquiposClasificados = true; // ⚠️ Se establece en true para mostrar el modal
-    this.fetchGetTorneo();                       
-
   }
 
   // Método para cerrar el modal
   closeModal() {
     console.log('Modal cerrado'); // ⚠️ Se muestra un log en la consola
-    this.fetchGetTorneo();
     this.agregarEquiposClasificados = false; // ⚠️ Se establece en false para ocultar el modal
-    this.fetchGetTorneo();                       
-
   }
   /* ------------------------------------------ */
   editarinfoequipos = false;
   infoOpenModal() {
     console.log('Modal cerrado');
-    this.fetchGetTorneo();
     this.editarinfoequipos = true;
-    this.fetchGetTorneo();                       
-
   }
   infoCloseModal() {
     console.log('Modal open');
-    this.fetchGetTorneo();
     this.editarinfoequipos = false;
-    this.fetchGetTorneo();                       
-
   }
   /* ------------------------------------------ */
   eliminarTorneo = false;
   eliminarTorneOpenModal() {
     console.log('Modal open');
-    this.fetchGetTorneo();
     this.eliminarTorneo = true;
-    this.fetchGetTorneo();                       
-
-
   }
   eliminarTorneCloseModal() {
     console.log('Modal cerrado');
-    this.fetchGetTorneo();
     this.eliminarTorneo = false;
-    this.fetchGetTorneo();                       
-
   }
 
   //🐞 Función para el sorteo de equipos.
   //Actulización 20/4/2024 -> 4:49pm
   generarJornadas(equipos: any[]) {
+    const equiposSorteo = equipos;
     //🪐 Condiciona si hay posibilidad de hacer sorteo.
     if (this.clicsRestantesSorteo > 0) {
-      this.mostrarCardSorteo = true; 
+      this.mostrarCardSorteo = true;
       this.mostrarCardDatabase = false;
       console.log("clickSorteo: ", this.clicsRestantesSorteo);
       this.clicsRestantesSorteo--;
@@ -106,6 +88,7 @@ export class UtilsRoldejuegoComponent implements OnInit {
       let jornadas = totalEquipos % 2 === 0 ? totalEquipos - 1 : totalEquipos;
       const jornadasDeJuegoId = [];
       const jornadasDeJuegoNombre = [];
+      const equiposTablaPosiciones = [];
 
       //🪐 Creamos un array con los Id's y nombres de los equipos
       const equiposId = equipos.map(equipo => equipo.id);
@@ -132,8 +115,11 @@ export class UtilsRoldejuegoComponent implements OnInit {
         jornadasDeJuegoNombre.push({ id_torneos: idTorneos, numeroJornada: jornada, nombresPartidos: nombresPartidos }); // Almacenar los nombres de los partidos de esta jornada
         equiposId.unshift(equiposId.pop());
       }
+      equiposTablaPosiciones.push({ id_torneos: idTorneos, equiposSorteo: equiposSorteo })
+      this.sorteoEquiposId = equiposTablaPosiciones;
       this.sorteoJornadasFrontend = jornadasDeJuegoNombre;
       this.sorteoJornadasId = jornadasDeJuegoId
+      console.log("Info de la tabla de posiciones: ", this.sorteoEquiposId)
     } else {
       this.mensajeAlerta('info', 'Sorteos agotados', 'No puede generar nuevamente este sorteo.', false, 2500);
     }
@@ -152,7 +138,7 @@ export class UtilsRoldejuegoComponent implements OnInit {
       const dataParaEnviar = JSON.stringify(this.sorteoJornadasId);
       console.log("Jornadas con Id: ", dataParaEnviar);
 
-      fetch(`http://localhost:3000/jornadas/new`, {
+      fetch(`${server}/jornadas/new`, {
         method: 'POST',
         body: dataParaEnviar,
         headers: {
@@ -167,6 +153,8 @@ export class UtilsRoldejuegoComponent implements OnInit {
         })
         .then(data => {
           console.log('Respuesta del servidor:', data);
+          console.log("✅✅✅✅✅✅Historico✅✅✅✅✅")
+          this.guardarEquiposSorteoJornadasHistorico()
           // Aquí puedes agregar la lógica para manejar la respuesta del servidor
         })
         .catch(error => {
@@ -177,7 +165,7 @@ export class UtilsRoldejuegoComponent implements OnInit {
       console.log('📫Se guardaron los datos.');
       this.mensajeAlerta('success', 'Datos guardados', 'Los datos del sorteo se han guardado correctamente', false, 2500);
       this.fetchGetDataJornadas();
-      this.mostrarCardSorteo = false; 
+      this.mostrarCardSorteo = false;
       this.mostrarCardDatabase = true;
     } else {
       this.mensajeAlerta('error', 'Error', 'Ya existen datos, no puede guardar este sorteo.', false, 3000);
@@ -212,51 +200,59 @@ export class UtilsRoldejuegoComponent implements OnInit {
   }
 
   /* ------📬📦 FUNCIONES FETCH's 📦📬------*/
+  guardarEquiposSorteoJornadasHistorico() {
+    const dataParaEnviar = JSON.stringify(this.sorteoEquiposId);
+    console.log("Vamos a guardar Historico✅✅✅✅✅", dataParaEnviar)
+    fetch(`${server}/jornadas/new/historico`, {
+      method: 'POST',
+      body: dataParaEnviar,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Error en la solicitud: ${response.statusText}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Respuesta del servidor:', data);
+        // Aquí puedes agregar la lógica para manejar la respuesta del servidor
+      })
+      .catch(error => {
+        console.error('Error en la solicitud:', error);
+        // Aquí puedes agregar la lógica para manejar el error
+      });
+
+  }
+
+  seleccionarPartido(id: number) {
+    if (true) {
+      console.log("Vamos enviar el id: ", id)
+      this.partidoSelectionService.setSelectedId(id);
+      this.ngOnInit();
+    } else {
+
+    }
+
+  }
+  /* ------📬📦 FUNCIONES FETCH's 📦📬------*/
   data: any[] = []
 
   // Realizar la solicitud GET para obtener los datos de la tabla categorias
   fetchGetTorneo() {
-    this.http.get<any[]>(`http://localhost:3000/torneos/receive/play/${this.torneoId}`)
+    this.http.get<any[]>(`${server}/torneos/receive/play/${this.torneoId}`)
       .subscribe(data => {
-        console.log('Datos de la tabla esto trae nombre y tipo de categoria:', data);
+        console.log('Datos de la tabla categorias:', data);
         this.getTorneo = data;
-        // Guardar el valor de id_categorias en la variable idCategorias
-        if (data && data.length > 0) {
-          this.idCategorias = data[0].id_categorias;
-          console.log("ID de categorias ⭐⭐⭐ ", this.idCategorias );
-          // Una vez que tengas el idCategorias, llama a GetparaTabla()
-          this.GetparaTabla();
-        }
       }, error => {
         console.error('Error en la solicitud:', error);
       });
   }
-  nombre: string | undefined;
-  GetparaTabla() {
-    console.log("Entro a get categoria 🦖🦖🦖")
-    // Verifica si this.idCategorias tiene un valor válido antes de hacer la solicitud GET
-    if (this.idCategorias) {
-      this.http.get<any[]>(`http://localhost:3000/categorias/receive/${this.idCategorias}`).subscribe(
-        (data) => {
-          console.log('esto debe treer datos de id categorias🦖🦖🦖 :', data);
-          this.categorias = data;
-              // Si data es un arreglo y tiene al menos un elemento, extrae el nombre del primer elemento y asígnalo a la variable nombre
-              if (Array.isArray(data) && data.length > 0) {
-                this.nombre = data[0].nombre;
-                console.log('Nombre:', this.nombre);
-              }
-        },
-        (error) => {
-          console.error('Error en la solicitud:', error);
-        }
-      );
-    } else {
-      console.error('El valor de this.idCategorias es nulo o no válido.');
-    }
-  }
   //Realizar la solicitud ger para obtener los datos de la tabla torneos con equipos vigentes.
   fetchGetDataTorneoConEquipos() {
-    this.http.get<any[]>(`http://localhost:3000/equipos/receive/tournament/${this.torneoId}`)
+    this.http.get<any[]>(`${server}/equipos/receive/tournament/${this.torneoId}`)
       .subscribe(data => {
         this.getTeamsofTorneo = data;
       }, error => {
@@ -265,27 +261,23 @@ export class UtilsRoldejuegoComponent implements OnInit {
   }
   //Traerá información del sorteo que se guardó de todas las jorndas de juego pespecto al Id.
   fetchGetDataJornadas() {
-    this.http.get<any[]>(`http://localhost:3000/jornadas/receive/${this.torneoId}`)
-      /* .subscribe(data => {
-        this.getJornandasOfData = data;
-        console.log("datos ", this.getJornandasOfData);
-      } */
+    this.http.get<any[]>(`${server}/jornadas/receive/${this.torneoId}`)
       .subscribe(data => {
         // Supongamos que tienes una lista de equipos llamada "equipos" en tu componente
         const equiposMap = new Map<number, string>(); // Mapa para mapear IDs de equipos a nombres
-  
+
         // Suponiendo que equipos es una lista de objetos con propiedades id y nombre
         for (const equipo of this.getTeamsofTorneo) {
-          equiposMap.set(equipo.id, equipo.nombre); // Asigna los nombres de los equipos al mapa
+          equiposMap.set(equipo.id, equipo.nombre);
         }
-  
+
         // Mapea los IDs de equipos en getJornandasOfData a sus nombres correspondientes
         this.getJornandasOfData = data.map(jornada => ({
           ...jornada,
           nombre_equipo1: equiposMap.get(jornada.id_equipo1),
           nombre_equipo2: equiposMap.get(jornada.id_equipo2)
         }));
-  
+
         console.log("datos ", this.getJornandasOfData);
       }, error => {
         console.error('Error en la solicitud:', error);

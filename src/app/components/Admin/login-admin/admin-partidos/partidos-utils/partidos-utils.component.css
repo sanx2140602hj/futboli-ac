@@ -155,28 +155,28 @@ input:checked + .slider:before {
 }
 .equipamiento {
   background-color: transparent;
-  color: #f59e33;
-  border: 1px solid #ffd098;
+  color: #ee9830;
+  border: 1px solid #ee9830;
   border-radius: 0.9rem;
   padding: 0.5rem 1rem;
 }
 
 .equipamiento:hover {
-  background-color: #ffd098;
+  background-color: #ee9830;
   color: black;
 }
 .porra {
   margin-top: 1rem;
   background-color: transparent;
-  color: #c9e6ff;
-  border: 1px solid #c9e6ff;
+  color: #084b86;
+  border: 1px solid #084b86;
   border-radius: 0.9rem;
   padding: 0.5rem 1rem;
 }
 
 .porra:hover {
-  background-color: #c9e6ff;
-  color: black;
+  background-color: #084b86;
+  color: white;
 }
 
 .save-button {

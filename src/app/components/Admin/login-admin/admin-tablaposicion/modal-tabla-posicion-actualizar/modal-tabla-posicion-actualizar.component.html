@@ -1,0 +1,42 @@
+<div class="modal">
+    <div class="modal-content">
+      <div class="izq">
+        <h1>Descripción</h1>
+      </div>
+      <div class="input">
+        <form [formGroup]="miFormulario">
+          <h3>Goleo / Anotación</h3>
+          <input type="number" formControlName="goleo" class="category-input" />
+  
+          <div
+            *ngIf="goleo && goleo.invalid && (goleo.dirty || goleo.touched)">
+            <div *ngIf="goleo.errors?.['required']">El goleo es obligatorio.</div>
+            <div *ngIf="goleo.errors?.['min']">El valor mínimo es 0.</div>
+          </div>
+  
+          <h3>Amonestación / Tarjeta Amarilla</h3>
+          <input type="number" formControlName="amonestacion" class="category-input" />
+  
+          <div
+            *ngIf="amonestacion && amonestacion.invalid && (amonestacion.dirty || amonestacion.touched)">
+            <div *ngIf="amonestacion.errors?.['required']">La amonestación es obligatoria.</div>
+            <div *ngIf="amonestacion.errors?.['min']">El valor mínimo es 0.</div>
+          </div>
+  
+          <h3>Tarjeta Roja</h3>
+          <input type="number" formControlName="tarjetaRoja" class="category-input" />
+  
+          <div
+            *ngIf="tarjetaRoja && tarjetaRoja.invalid && (tarjetaRoja.dirty || tarjetaRoja.touched)">
+            <div *ngIf="tarjetaRoja.errors?.['required']">La tarjeta roja es obligatoria.</div>
+            <div *ngIf="tarjetaRoja.errors?.['min']">El valor mínimo es 0.</div>
+          </div>
+        </form>
+      </div>
+      <div class="derecha">
+        <button (click)="closeModal()" class="close-button">Cerrar</button>
+        <button class="save-button" (click)="closeModal()">Guardar</button>
+      </div>
+    </div>
+  </div>
+  

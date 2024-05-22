@@ -94,7 +94,18 @@
 
                 </tbody>
             </table>
-        </div>
+            <div>
+                <!-- Botón para abrir el modal -->
+                <div><button class="custom-button2" (click)="openModal()">Abrir modal VALOR DE PUNTOS</button></div>
+              
+                <!-- Modal -->
+                <app-modal-tabla-posicion-actualizar 
+                *ngIf="showModal" 
+                (onCloseModal)="closeModal()"
+            >
+              </app-modal-tabla-posicion-actualizar>
+                            </div>
+                      </div>
         <br><br><br><br><br>
         <hr>
         <div><h2>Valor de puntos</h2></div>
