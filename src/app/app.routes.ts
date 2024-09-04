@@ -26,6 +26,7 @@ import { UtilsCardsjugadorComponent } from './components/Admin/login-admin/admin
 import { UtilsRoldejuegoComponent } from './components/Admin/login-admin/admin-roldejuego/utils-roldejuego/utils-roldejuego.component';
 import { TablasUtilsComponent } from './components/tablas/tablas-utils/tablas-utils.component';
 import { ModalNuevacategoriasComponent } from './components/Admin/login-admin/admin-categorias/modal-nuevacategorias/modal-nuevacategorias.component';
+import { Page404Component } from './components/page404/page404.component';
 
 import { AuthGuard } from './auth.guard';
 
@@ -59,7 +60,8 @@ const app_routes: Routes = [
 
   
 
-  { path: '**', pathMatch: 'full', redirectTo: 'Inicio' }
+  { path: '', pathMatch: 'full', redirectTo: 'Inicio' },
+  { path: '**', component: Page404Component}
 
 
 

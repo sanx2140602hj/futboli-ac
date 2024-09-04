@@ -63,6 +63,7 @@ import { ModalEliminarTorneoComponent } from './components/Admin/login-admin/adm
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './service/authService.service';
 import { ModalTablaPosicionActualizarComponent } from './components/Admin/login-admin/admin-tablaposicion/modal-tabla-posicion-actualizar/modal-tabla-posicion-actualizar.component';
+import { Page404Component } from './components/page404/page404.component';
 
 @NgModule({
   declarations: [
@@ -124,6 +125,7 @@ import { ModalTablaPosicionActualizarComponent } from './components/Admin/login-
     ModalEliminarTorneoComponent,
     CardsUtilsComponent,
     ModalTablaPosicionActualizarComponent,
+    Page404Component,
 
 //----------------
 

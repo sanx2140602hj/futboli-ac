@@ -1,0 +1,88 @@
+
+.texto {
+    margin-top: 5rem;
+text-align: center;
+}
+button{
+    margin-top: 1rem; 
+    margin-bottom: .5rem;
+    background-color: white; /* Fondo blanco por defecto */
+    color: #008f39; /* Color del texto y del borde */
+    border: 2px solid #008f39; /* Borde del botón */
+    padding: 10px 20px; /* Espaciado interno */
+    font-weight: bold; /* Letras en negrita */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambia el cursor al pasar por el botón */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para el efecto de hover */
+    border-radius: 10px;
+}
+button:hover{
+    background-color: #008f39; /* Fondo verde al pasar el cursor */
+    color: white; /* Texto blanco al pasar el cursor */
+}
+.mix {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+h3, h5 {
+    margin: 5px 0;
+}
+h5{
+    color: rgba(255, 0, 0, 0.555);
+}
+h6 {
+    margin: 5px 0;
+    opacity: 0.15; /* Transparencia del 15% */
+}
+
+.izquierda, .derecha {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.izquierda img {
+    transform: rotate(5deg); /* Rotación de 5 grados hacia la derecha */
+    width: 30%; /* Ancho del 30% */
+}
+
+.derecha img {
+    width: 75%; /* Ancho del 75% */
+    z-index: 10;
+
+}
+.top{
+    margin-top: -20rem;
+}
+.pasto {
+    background-color: #008f39; /* Color del SVG */
+    margin-top: -0.5rem;
+    height:8rem;
+}
+@media screen and (max-width: 900px) {
+    .texto{
+        margin-top: 7rem;
+    }
+    button{
+        margin-bottom: 4rem;
+
+    }
+    .top{
+        margin-top: -11rem;
+    }
+    .pasto{
+    height: 21rem;}
+}
+@media screen and (max-width: 841px) {
+}
+@media screen and (max-width: 500px) {
+    .top{
+        margin-top: -6rem;
+    }
+    .pasto{
+    height: 21rem;}
+}
